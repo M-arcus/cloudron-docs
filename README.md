@@ -2,7 +2,7 @@ This repository holds the Cloudron documentation and knowledge base
 
 ## Prerequisites
 
-`mkdocs` and `mkdocs-material` have to be installed.
+`mkdocs` has to be installed.
 
 ## Preview
 
