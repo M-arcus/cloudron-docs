@@ -1,0 +1,20 @@
+.md-footer-nav {
+    background-color: #494f5a;
+}
+
+.md-footer-meta {
+    background-color: #494f5a;
+}
+
+.md-header {
+    background-color: white !important;
+    color: black !important;
+}
+
+.md-header-nav__parent {
+    color: rgba(0,0,0,0.5) !important;
+}
+
+.md-search__input:hover {
+    background-color: rgba(0,0,0,.6);;
+}

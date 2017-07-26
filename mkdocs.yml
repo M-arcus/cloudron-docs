@@ -2,7 +2,7 @@ site_name: Cloudon Docs
 site_description: 'Cloudron is a platform to host apps on your server and keep them up-to-date and secure.'
 site_url: 'https://cloudron.io'
 copyright: 'Copyright &copy; 2015 - 2017 Cloudron UG'
-theme: 'material'
+theme_dir: 'material/'
 extra_css:
   - 'stylesheets/extra.css'
 extra_javascript:
@@ -20,8 +20,8 @@ extra:
       link: 'https://git.cloudron.io'
     - type: 'twitter'
       link: 'https://twitter.com/cloudron_io'
-repo_name: 'cloudron/box'
-repo_url: 'https://git.cloudron.io/cloudron/box'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/company/cloudron'
 site_favicon: 'img/favicon.ico'
 markdown_extensions:
   - admonition
