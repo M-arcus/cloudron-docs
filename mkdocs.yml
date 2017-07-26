@@ -1,0 +1,29 @@
+site_name: Cloudon Docs
+site_description: 'Cloudron is a platform to host apps on your server and keep them up-to-date and secure.'
+site_url: 'https://cloudron.io'
+copyright: 'Copyright &copy; 2015 - 2017 Cloudron UG'
+theme: 'material'
+extra_css:
+  - 'stylesheets/extra.css'
+extra_javascript:
+  - 'javascripts/extra.js'
+extra:
+  palette:
+    primary: 'light blue'
+    accent: 'green'
+  logo: 'img/logo.svg'
+  font:
+    text: 'Noto Sans'
+    code: 'Ubuntu Mono'
+  social:
+    - type: 'gitlab'
+      link: 'https://git.cloudron.io'
+    - type: 'twitter'
+      link: 'https://twitter.com/cloudron_io'
+repo_name: 'cloudron/box'
+repo_url: 'https://git.cloudron.io/cloudron/box'
+site_favicon: 'img/favicon.ico'
+markdown_extensions:
+  - admonition
+  - codehilite(guess_lang=false)
+  - toc(permalink=true)
