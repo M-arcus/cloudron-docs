@@ -5,8 +5,6 @@ copyright: 'Copyright &copy; 2015 - 2017 Cloudron UG'
 theme_dir: 'material/'
 extra_css:
   - 'stylesheets/extra.css'
-extra_javascript:
-  - 'javascripts/extra.js'
 extra:
   palette:
     primary: 'light blue'
