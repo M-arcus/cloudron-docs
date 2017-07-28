@@ -1,4 +1,6 @@
-# Overview
+# REST API
+
+## Overview
 
 The Cloudron provides a RESTful API to manage all aspects of the Cloudron like
 adding users, configuring groups and installing apps.
@@ -13,9 +15,9 @@ The Cloudron API is available at the `my` subdomain of your Cloudron.
 For example, if the Cloudron is on a custom domain, then this would be `https://my.customdomain.com`. If the
 Cloudron is on a `cloudron.me` subdomain, then this would be `https://my-demo.cloudron.me`.
 
-# Authentication
+## Authentication
 
-## Getting API Tokens
+### Getting API Tokens
 
 POST `/api/v1/developer/login` <scope>admin</scope>
 
@@ -45,7 +47,7 @@ Curl example:
 curl -X POST -H "Content-Type: application/json" -d '{"username": "cloudron", "password":"cloudron"}' https://my-demo.cloudron.me/api/v1/developer/login
 ```
 
-## Using API tokens
+### Using API tokens
 
 The access token can either be provided via the request query `?access_token=<token>`.
 
@@ -59,7 +61,7 @@ Alternately, the token can be provided via the `Authorization` header using `Bea
 curl -H "Content-Type: application/json" -H "Authorization: Bearer <token>" https://$CLOUDRON_ORIGIN/api/v1/users
 ```
 
-## OAuth
+### OAuth
 
 OAuth authentication is meant to be used by apps. An app can get an OAuth token using the
 [oauth](addons.html#oauth) addon.
@@ -70,9 +72,9 @@ This restriction is so that apps cannot make undesired changes to the user's Clo
 The access token can be provided either via the request query `?access_token=<token>` or in the
 `Authorization` header using `Bearer <token>`.
 
-# REST
+## REST
 
-## Requests
+### Requests
 
 All requests must be made via `https` protocol to ensure that the connection is encrypted.
 
@@ -82,21 +84,21 @@ The general idea behind HTTP methods is:
 * Use `PUT` to update an existing resource
 * Use `POST` to create a new resource
 
-## Error
+### Error
 
 Error response objects have a `status` field indicating the HTTP error and a `message` field containing
 a detailed description of the error.
 
-## Pagination
+### Pagination
 
 APIs that list objects take a `page` query parameters to indicate the page number starting from index 1.
 The `per_page` query parameter can be used to specify the number of items to be returned.
 
-# Endpoints
+## Endpoints
 
-## Apps
+### Apps
 
-### Install app
+#### Install app
 
 POST `/api/v1/apps/install`  <scope>admin</scope>
 
@@ -187,7 +189,7 @@ To restrict access to Gogs app to the *developers* group:
 curl -X  POST -H "Content-Type: application/json" -H "Authorization: Bearer 27ab70cfd10e615ec29f6d890947e2b72db47522754bfafcad6f9c0e6c9e84e9" -d '{ "appStoreId": "io.gogs.cloudronapp@0.12.6", "location": "git3", "accessRestriction": { "groups": [ "developers" ] } }' https://my-demo.cloudron.me/api/v1/apps/install
 ```
 
-### Get app
+#### Get app
 
 GET `/api/v1/apps/:appId` <scope>admin</scope>
 
@@ -269,7 +271,7 @@ is integrated with Cloudron Authentication.
 
 For apps that support optional single sign-on, the `sso` field can be used to disable Cloudron authentication. By default, single sign-on is enabled.
 
-### List apps
+#### List apps
 
 GET `/api/v1/apps/:appId` <scope>admin</scope>
 
@@ -308,7 +310,7 @@ Response (200):
 }
 ```
 
-### Get icon
+#### Get icon
 
 GET `/api/v1/apps/:appId/icon` <scope>admin</scope>
 
@@ -316,7 +318,7 @@ Gets the icon of the application with id `appId` as `image/png`.
 
 The icon is used in the display at Cloudron admin UI.
 
-### Backup app
+#### Backup app
 
 POST `/api/v1/apps/:appId/backup` <scope>admin</scope>
 
@@ -324,7 +326,7 @@ Starts a backup of the application with id `appId`.
 
 The backup progress can be tracked by polling the value of [installationProgress](/references/api.html#get-app).
 
-### List app backups
+#### List app backups
 
 GET `/api/v1/apps/:appId/backups` <scope>admin</scope>
 
@@ -350,7 +352,7 @@ Response (200):
 }
 ```
 
-### Restore app
+#### Restore app
 
 POST `/api/v1/apps/:appId/restore` <scope>admin</scope>
 
@@ -371,7 +373,7 @@ an app may result in reverting the app to a previous version.
 
 Setting backupId to `null` has the same effect as reinstalling the application.
 
-### Clone app
+#### Clone app
 
 POST `/api/v1/apps/:appId/clone` <scope>admin</scope>
 
@@ -405,7 +407,7 @@ Response(201):
 The clone progress can be tracked by polling the value of [installationProgress](/references/api.html#get-app).
 Be sure to use the `id` of the new app returned above and not the original app's id.
 
-### Get logs
+#### Get logs
 
 GET `/api/v1/apps/:appId/logs` <scope>admin</scope>
 
@@ -432,7 +434,7 @@ Line delimited JSON.
 Logs are aggregated from one or more `source`s. The application logs have the `source` set to `main`.
 Other sources include `scheduler`.
 
-### Get log stream
+#### Get log stream
 
 GET `/api/v1/apps/:appId/logstream` <scope>admin</scope>
 
@@ -456,7 +458,7 @@ Line delimited JSON
 Logs are aggregated from one or more `source`s. The application logs have the `source` set to `main`.
 Other sources include `scheduler`.
 
-### Configure app
+#### Configure app
 
 POST `/api/v1/apps/:appId/configure` <scope>admin</scope>
 
@@ -485,7 +487,7 @@ Request:
 
 All values are optional. See [Install app](/references/api.html#install-app) API for field descriptions.
 
-### Update app
+#### Update app
 
 POST `/api/v1/apps/:appId/update` <scope>admin</scope>
 
@@ -538,7 +540,7 @@ Curl example to update Gogs to a new version 0.13.0:
 curl -X POST -d '{ "appStoreId": "io.gogs.cloudronapp@0.13.0" }' -H 'Content-Type: application/json' -H 'Authorization: Bearer 256e4c6c6f783dbff95ae233c63a36e297ef70a3528171b891a399f895a8e0e0' https://my-demo.cloudron.me/api/v1/apps/aaa8ad53-301b-4a77-9551-5df261686166/update
 ```
 
-### Exec
+#### Exec
 
 GET `/api/v1/apps/:appId/exec` <scope>admin</scope>
 
@@ -573,7 +575,7 @@ Curl example to execute 'ls' command:
 curl -H 'Upgrade: tcp' -H 'Connection: Upgrade' -H 'Authorization: Bearer eba011a45eb056c7497820c408d1170e94ac7ed0fb10cef798fcdaacbcbcd2ee' 'https://my-demo.cloudron.me/api/v1/apps/41dfe1f1-edb3-4011-9ba3-889d0b24a177/exec?cmd=%5B%22ls%22%5D&tty=true'
 ```
 
-### Start app
+#### Start app
 
 POST `/api/v1/apps/:appId/start` <scope>admin</scope>
 
@@ -582,7 +584,7 @@ Starts an app.
 If the app cannot be started, the response code is 409. This can happen if the
 app is in a state where it cannot started (for example, it is still installing).
 
-### Stop app
+#### Stop app
 
 POST `/api/v1/apps/:appId/stop` <scope>admin</scope>
 
@@ -594,7 +596,7 @@ app is in a state where it cannot stopped (for example, it is installing).
 When an app is stopped, the app's location will show an error page indicating
 that the app is not running.
 
-### Uninstall app
+#### Uninstall app
 
 POST `/api/v1/apps/:appId/uninstall` <scope>admin</scope>
 
@@ -603,9 +605,9 @@ Uninstalls an app.
 The existing backups of the app are still preserved (as per the backup configuration) and the
 backup can be used to restore the app to the same state later.
 
-## Backups
+### Backups
 
-### Create a backup
+#### Create a backup
 
 POST  `/api/v1/backups` <scope>admin</scope>
 
@@ -613,7 +615,7 @@ Schedules a complete backup of the Cloudron.
 
 Use the [Progress API](/references/api.html#get-progress) to track the progress of the backup.
 
-### List backups
+#### List backups
 
 GET `/api/v1/backups` <scope>admin</scope>
 
@@ -643,32 +645,9 @@ Response (200):
 }
 ```
 
-### Download backup
+### Cloudron
 
-POST `/api/v1/backups/:backupId/download_url` <scope>admin</scope>
-
-Generates a temporary URL to download the backup with id `backupId`.
-
-All backups are encrypted and tar zipped. `backupKey` returned in the response can be used to
-decrypt the backup.
-
-Response (200):
-```
-{
-    id: <string>,
-    url: <url>,                      // download backups from this url
-    backupKey: <string>              // key to use to decrypt the backup
-}
-```
-
-Curl example to download, decrypt and extract backup to current directory:
-```
-curl -L <url> | openssl aes-256-cbc -d -pass "pass:$<backupKey>" | tar -zxf -
-```
-
-## Cloudron
-
-### Activate the Cloudron
+#### Activate the Cloudron
 
 POST `/api/v1/cloudron/activate`
 
@@ -700,7 +679,7 @@ Curl example to activate the cloudron:
 curl -X POST -H "Content-Type: application/json" -d '{"username": "girish", "password":"MySecret123#", "email": "girish@cloudron.io" }' https://my.cloudron.info/api/v1/cloudron/activate
 ```
 
-### Check for updates
+#### Check for updates
 
 POST `/api/v1/check_for_updates` <scope>admin</scope>
 
@@ -717,7 +696,7 @@ Response (200):
 }
 ```
 
-### Update the Cloudron
+#### Update the Cloudron
 
 POST `/api/v1/cloudron/update` <scope>admin</scope>
 
@@ -731,13 +710,13 @@ In such a case, the response code will be 409.
 If the update request was accepted, the response code will be 202. Use the [Progress API](/references/api.html#get-progress)
 to track the progress of the update.
 
-### Reboot the Cloudron
+#### Reboot the Cloudron
 
 POST `/api/v1/cloudron/reboot` <scope>admin</scope>
 
 Reboots the Cloudron.
 
-### Get progress
+#### Get progress
 
 GET `/api/v1/cloudron/progress` <scope>public</scope>
 
@@ -754,7 +733,7 @@ Response (200):
 }
 ```
 
-### Get status
+#### Get status
 
 GET `/api/v1/cloudron/status` <scope>public</scope>
 
@@ -771,7 +750,7 @@ Response (200):
 }
 ```
 
-### Get avatar
+#### Get avatar
 
 GET `/api/v1/cloudron/avatar` <scope>public</scope>
 
@@ -783,7 +762,7 @@ Response (200):
 Content-Type: image/png
 ```
 
-### Get configuration
+#### Get configuration
 
 GET `/api/v1/cloudron/config` <scope>admin</scope>
 
@@ -818,7 +797,7 @@ Response (200):
 }
 ```
 
-### Get disks
+#### Get disks
 
 GET `/api/v1/cloudron/disks` <scope>admin</scope>
 
@@ -833,7 +812,7 @@ Response (200):
 }
 ```
 
-### Get logs
+#### Get logs
 
 GET `/api/v1/cloudron/logs` <scope>admin</scope>
 
@@ -859,7 +838,7 @@ Line delimited JSON.
     }
 ```
 
-### List events
+#### List events
 
 GET `/api/v1/cloudron/eventlog` <scope>admin</scope>
 
@@ -915,7 +894,7 @@ To list all the app installation events:
 curl -X GET -H 'Authorization: Bearer cb0463455a6606482be7956fc3abd53330ae23244e3492cda3914a2c5154c47e' https://my-demo.cloudron.me/api/v1/cloudron/eventlog?action=app.install
 ```
 
-## Groups
+### Groups
 
 Cloudron groups are a mechanism to restrict application access to a subset of users. You can add one or more users
 to a group and assign one or more groups to an application. Only users that are members of any of the groups can access the application.
@@ -923,7 +902,7 @@ to a group and assign one or more groups to an application. Only users that are 
 Group membership is dynamic. Users instantly lose or gain access to an application based on their group
 membership.
 
-### Create group
+#### Create group
 
 POST `/api/v1/groups` <scope>admin</scope>
 
@@ -947,7 +926,7 @@ Response (200):
 }
 ```
 
-### Get group
+#### Get group
 
 GET `/api/v1/groups/:groupId` <scope>admin</scope>
 
@@ -962,7 +941,7 @@ Response (200):
 }
 ```
 
-### Set members
+#### Set members
 
 PUT `/api/v1/groups/:groupId/members` <scope>admin</scope>
 
@@ -976,7 +955,7 @@ Request:
 }
 ```
 
-### List groups
+#### List groups
 
 GET `/api/v1/groups` <scope>admin</scope>
 
@@ -996,7 +975,7 @@ Response (200):
 }
 ```
 
-### Delete group
+#### Delete group
 
 DELETE `/api/v1/groups/:groupId` <scope>admin</scope>
 
@@ -1009,9 +988,9 @@ Response (204):
 {}
 ```
 
-## Profile
+### Profile
 
-### Get profile
+#### Get profile
 
 GET `/api/v1/profile` <scope>profile</scope>
 
@@ -1028,7 +1007,7 @@ Response (200):
 }
 ```
 
-### Update profile
+#### Update profile
 
 POST `/api/v1/profile` <scope>profile</scope>
 
@@ -1047,7 +1026,7 @@ Response (204):
 {}
 ```
 
-### Update password
+#### Update password
 
 POST `/api/v1/profile/password` <scope>profile</scope>
 
@@ -1066,9 +1045,9 @@ Response (204):
 {}
 ```
 
-## Settings
+### Settings
 
-### Get Appstore Config
+#### Get Appstore Config
 
 GET `/api/v1/settings/appstore_config` <scope>admin</scope>
 
@@ -1081,7 +1060,7 @@ Response (200):
 }
 ```
 
-### Set Appstore Config
+#### Set Appstore Config
 
 POST  `/api/v1/settings/appstore_config` <scope>admin</scope>
 
@@ -1098,7 +1077,7 @@ Request:
 You can get the `userId` and `token` by sending a `/api/v1/login` POST request to `api.cloudron.io`
 with the `email` and `password` fields set in the request.
 
-### Get auto update pattern
+#### Get auto update pattern
 
 GET `/api/v1/settings/autoupdate_pattern` <scope>admin</scope>
 
@@ -1113,7 +1092,7 @@ Response (200):
 }
 ```
 
-### Set auto update pattern
+#### Set auto update pattern
 
 POST  `/api/v1/settings/autoupdate_pattern` <scope>admin</scope>
 
@@ -1137,7 +1116,7 @@ Some examples of patterns are:
 
 Patterns are matched based on the Cloudron's [timezone](references/api.html#get-timezone).
 
-### Get avatar
+#### Get Cloudron Avatar
 GET `/api/v1/settings/cloudron_avatar` <scope>admin</scope>
 
 Gets the Cloudron avatar image as `Content-Type: image/png`.
@@ -1149,7 +1128,7 @@ Response (200):
 Content-Type: image/png
 ```
 
-### Set avatar
+#### Set Cloudron Avatar
 
 POST `/api/v1/settings/cloudron_avatar` <scope>admin</scope>
 
@@ -1162,7 +1141,7 @@ Example:
 curl -X POST -F "avatar=@./avatar.png"  -H 'Authorization: Bearer 215841b5943f5432a26ef3a1526f548a40268a92ed9baca5db980be0545da596'  https://my-demo.cloudron.me/api/v1/settings/cloudron_avatar
 ```
 
-### Get Backup Configuration
+#### Get Backup Configuration
 
 GET `/api/v1/settings/backup_config` <scope>admin</scope> <scope>internal</scope>
 
@@ -1181,7 +1160,7 @@ Response(200):
 }
 ```
 
-### Set Backup Configuration
+#### Set Backup Configuration
 
 POST `/api/v1/settings/backup_config` <scope>admin</scope> <scope>internal</scope>
 
@@ -1202,7 +1181,7 @@ Request:
 }
 ```
 
-### Get Catch All Address
+#### Get Catch All Address
 
 GET `/api/v1/settings/catch_all_address` <scope>admin</scope>
 
@@ -1216,7 +1195,7 @@ Response(200):
 }
 ```
 
-### Set Catch All Address
+#### Set Catch All Address
 
 PUT `/api/v1/settings/catch_all_address` <scope>admin</scope>
 
@@ -1230,7 +1209,7 @@ Request:
 }
 ```
 
-### Get DNS Configuration
+#### Get DNS Configuration
 
 GET `/api/v1/settings/dns_config` <scope>admin</scope> <scope>internal</scope>
 
@@ -1245,7 +1224,7 @@ Response(200):
 }
 ```
 
-### Set DNS Configuration
+#### Set DNS Configuration
 
 POST `/api/v1/settings/dns_config` <scope>admin</scope> <scope>internal</scope>
 
@@ -1253,7 +1232,7 @@ Sets the credentials used to configure DNS.
 
 This is currently internal API and is documented here for completeness.
 
-### Get Email Configuration
+#### Get Email Configuration
 
 GET `/api/v1/settings/mail_config` <scope>admin</scope>
 
@@ -1268,7 +1247,7 @@ Response(200):
 }
 ```
 
-### Set Email Configuration
+#### Set Email Configuration
 
 POST `/api/v1/settings/mail_config` <scope>admin</scope>
 
@@ -1284,7 +1263,7 @@ Request:
 }
 ```
 
-### Set fallback Certificate
+#### Set fallback Certificate
 
 POST `/api/v1/settings/certificate` <scope>admin</scope> <scope>internal</scope>
 
@@ -1323,7 +1302,7 @@ Request:
 ```
 -->
 
-### Get mail from validation
+#### Get mail from validation
 
 GET `/api/v1/settings/mail_from_validation` <scope>admin</scope>
 
@@ -1343,7 +1322,7 @@ Response (200):
 }
 ```
 
-### Set mail from validation
+#### Set mail from validation
 
 POST  `/api/v1/settings/mail_from_validation` <scope>admin</scope>
 
@@ -1363,7 +1342,7 @@ Request:
 }
 ```
 
-### Get name
+#### Get Cloudron Name
 
 GET `/api/v1/settings/cloudron_name` <scope>admin</scope>
 
@@ -1378,7 +1357,7 @@ Response (200):
 }
 ```
 
-### Set name
+#### Set Cloudron Name
 
 POST  `/api/v1/settings/cloudron_name` <scope>admin</scope>
 
@@ -1393,7 +1372,7 @@ Request:
 }
 ```
 
-### Get Relay
+#### Get Relay
 
 GET `/api/v1/settings/mail_relay` <scope>admin</scope>
 
@@ -1412,7 +1391,7 @@ Response(200):
 
 See the [set mail relay](/references/api.html#set-relay) API for more information on the fields.
 
-### Set Relay
+#### Set Relay
 
 PUT `/api/v1/settings/mail_relay` <scope>admin</scope>
 
@@ -1440,7 +1419,7 @@ Request:
 
 Cloudron requires the relay to support `STARTTLS`. Relaying using `SMTPS` (SMTP over TLS) is not supported.
 
-### Get timezone
+#### Get timezone
 
 GET `/api/v1/settings/time_zone` <scope>admin</scope>
 
@@ -1456,7 +1435,7 @@ Response (200):
 }
 ```
 
-### Set timezone
+#### Set timezone
 
 POST  `/api/v1/settings/time_zone` <scope>admin</scope>
 
@@ -1474,9 +1453,9 @@ Request:
 }
 ```
 
-## Users
+### Users
 
-### Create user
+#### Create user
 
 POST `/api/v1/users` <scope>admin</scope>
 
@@ -1515,7 +1494,7 @@ Response (201):
 }
 ```
 
-### Get user
+#### Get user
 
 GET `/api/v1/users/:userId` <scope>admin</scope>
 
@@ -1533,7 +1512,7 @@ Response (200):
 }
 ```
 
-### List users
+#### List users
 
 GET `/api/v1/users` <scope>admin</scope>
 
@@ -1556,7 +1535,7 @@ Response (200):
 }
 ```
 
-### Update user
+#### Update user
 
 POST `/api/v1/users/:userId` <scope>admin</scope>
 
@@ -1577,7 +1556,7 @@ Response (204):
 {}
 ```
 
-### Re-invite user
+#### Re-invite user
 
 POST `/api/v1/users/:userId/invite` <scope>admin</scope>
 
@@ -1597,7 +1576,7 @@ Response (200):
 }
 ```
 
-### Set groups
+#### Set groups
 
 PUT `/api/v1/users/:userId/groups` <scope>admin</scope>
 
@@ -1622,7 +1601,7 @@ Response (204):
 {}
 ```
 
-### Delete user
+#### Delete user
 
 DELETE `/api/v1/users/:userId` <scope>admin</scope>
 

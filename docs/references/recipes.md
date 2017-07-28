@@ -1,4 +1,4 @@
-# Configuration Recipes
+# App Recipes
 
 ## nginx
 

@@ -1,4 +1,6 @@
-# Overview
+# Manifest
+
+## Overview
 
 Every Cloudron Application contains a `CloudronManifest.json`.
 
@@ -38,9 +40,9 @@ Here is an example manifest:
 }
 ```
 
-# Fields
+## Fields
 
-## addons
+### addons
 
 Type: object
 
@@ -68,7 +70,7 @@ Example:
   }
 ```
 
-## author
+### author
 
 Type: string
 
@@ -81,7 +83,7 @@ Example:
   "author": "Cloudron UG <girish@cloudron.io>"
 ```
 
-## changelog
+### changelog
 
 Type: markdown string
 
@@ -95,7 +97,7 @@ Example:
   "changelog": "* Add support for IE8 \n* New logo"
 ```
 
-## contactEmail
+### contactEmail
 
 Type: email
 
@@ -109,7 +111,7 @@ Example:
   "contactEmail": "support@testapp.com"
 ```
 
-## description
+### description
 
 Type: markdown string
 
@@ -132,7 +134,7 @@ Example:
   "description:": "file://DESCRIPTION.md"
 ```
 
-## healthCheckPath
+### healthCheckPath
 
 Type: url path
 
@@ -148,7 +150,7 @@ Example:
 ```
   "healthCheckPath": "/"
 ```
-## httpPort
+### httpPort
 
 Type: positive integer
 
@@ -170,7 +172,7 @@ Example:
   "httpPort": 8080
 ```
 
-## icon
+### icon
 
 Type: local image filename
 
@@ -183,7 +185,7 @@ to be square of size 256x256.
   "icon": "file://icon.png"
 ```
 
-## id
+### id
 
 Type: reverse domain string
 
@@ -199,7 +201,7 @@ the application if the id is already in use by another application.
   "id": "io.cloudron.testapp"
 ```
 
-## manifestVersion
+### manifestVersion
 
 Type: integer
 
@@ -211,7 +213,7 @@ Required: yes
   "manifestVersion": 1
 ```
 
-## mediaLinks
+### mediaLinks
 
 Type: array of urls
 
@@ -229,7 +231,7 @@ For example `600px by 200px` (with/height).
   ]
 ```
 
-## memoryLimit
+### memoryLimit
 
 Type: bytes (integer)
 
@@ -244,7 +246,7 @@ By default, all apps have a memoryLimit of 256MB. For example, to have a limit o
   "memoryLimit": 524288000
 ```
 
-## maxBoxVersion
+### maxBoxVersion
 
 Type: semver string
 
@@ -256,7 +258,7 @@ a box greater than `maxBoxVersion` will fail.
 This is useful when a new box release introduces features which are incompatible with the app. This situation is quite
 unlikely and it is recommended to leave this unset.
 
-## minBoxVersion
+### minBoxVersion
 
 Type: semver string
 
@@ -268,7 +270,7 @@ a box lesser than `minBoxVersion` will fail.
 This is useful when the app relies on features that are only available from a certain version of the box. If unset, the
 default value is `0.0.1`.
 
-## postInstallMessage
+### postInstallMessage
 
 Type: markdown string
 
@@ -284,7 +286,7 @@ The message can have the following special tags:
 * `<sso> ... </sso>` - Content in `sso` blocks are shown if SSO enabled.
 * `<nosso> ... </nosso>`- Content in `nosso` blocks are shows when SSO is disabled.
 
-## optionalSso
+### optionalSso
 
 Type: boolean
 
@@ -295,7 +297,7 @@ The `optionalSso` field can be set to true for apps that can be installed option
 This only applies if any Cloudron auth related addons are used. When set, the Cloudron will not inject the auth related addon environment variables.
 Any app startup scripts have to be able to deal with missing env variables in this case.
 
-## tagline
+### tagline
 
 Type: one-line string
 
@@ -307,7 +309,7 @@ The `tagline` is used by the Cloudron Store to display a single line short descr
   "tagline": "The very best note keeper"
 ```
 
-## tags
+### tags
 
 Type: Array of strings
 
@@ -319,7 +321,7 @@ The `tags` are used by the Cloudron Store for filtering searches by keyword.
   "tags": [ "git", "version control", "scm" ]
 ```
 
-## targetBoxVersion
+### targetBoxVersion
 
 Type: semver string
 
@@ -335,7 +337,7 @@ and will disable the SELinux feature for the app.
 
 If unspecified, this value defaults to `minBoxVersion`.
 
-## tcpPorts
+### tcpPorts
 
 Type: object
 
@@ -400,7 +402,7 @@ In more detail:
   it might be simpler to listen on `SSH_PORT` internally. In such cases, the app can omit the `containerPort` value and should
   instead reconfigure itself to listen internally on `SSH_PORT` on each start up.
 
-## title
+### title
 
 Type: string
 
@@ -413,7 +415,7 @@ Example:
   "title": "Gitlab"
 ```
 
-## version
+### version
 
 Type: semver string
 
@@ -427,7 +429,7 @@ Example:
   "version": "1.1.0"
 ```
 
-## website
+### website
 
 Type: url
 

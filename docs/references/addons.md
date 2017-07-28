@@ -1,4 +1,6 @@
-# Overview
+# Addons
+
+## Overview
 
 Addons are services like database, authentication, email, caching that are part of the
 Cloudron runtime. Setup, provisioning, scaling and maintanence of addons is taken care of
@@ -8,7 +10,7 @@ The fundamental idea behind addons is to allow sharing of Cloudron resources acr
 For example, a single MySQL server instance can be used across multiple apps. The Cloudron
 runtime sets up addons in such a way that apps are isolated from each other.
 
-# Using Addons
+## Using Addons
 
 Addons are opt-in and must be specified in the [Cloudron Manifest](/references/manifest.html).
 When the app runs, environment variables contain the necessary information to access the addon.
@@ -34,9 +36,9 @@ for this purpose to setup and update the DB schema.
     }
 ```
 
-# All addons
+## All addons
 
-## email
+### email
 
 This addon allows an app to send and recieve emails on behalf of the user. The intended use case is webmail applications.
 
@@ -58,7 +60,7 @@ MAIL_SIEVE_PORT=        # ManageSieve server port
 MAIL_DOMAIN=            # Domain of the mail server
 ```
 
-## ldap
+### ldap
 
 This addon provides LDAP based authentication via LDAP version 3.
 
@@ -90,7 +92,7 @@ cloudron exec
 > ldapsearch -x -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_GROUPS_BASE_DN}"
 ```
 
-## localstorage
+### localstorage
 
 Since all Cloudron apps run within a read-only filesystem, this addon provides a writeable folder under `/app/data/`.
 All contents in that folder are included in the backup. On first run, this folder will be empty. File added in this path
@@ -105,7 +107,7 @@ If the app is running under the recommeneded `cloudron` user, this can be achiev
 chown -R cloudron:cloudron /app/data
 ```
 
-## mongodb
+### mongodb
 
 By default, this addon provide mongodb 2.6.3.
 
@@ -126,7 +128,7 @@ cloudron exec
 # mongo -u "${MONGODB_USERNAME}" -p "${MONGODB_PASSWORD}" ${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DATABASE}
 
 ```
-## mysql
+### mysql
 
 By default, this addon provides a single database on MySQL 5.6.19. The database is already created and the application
 only needs to create the tables.
@@ -156,7 +158,7 @@ the following environment variables are injected:
 MYSQL_DATABASE_PREFIX=      # prefix to use to create databases
 ```
 
-## oauth
+### oauth
 
 The Cloudron OAuth 2.0 provider can be used in an app to implement Single Sign-On.
 
@@ -186,7 +188,7 @@ is so that apps cannot make undesired changes to the user's Cloudron.
 
 We currently provide OAuth2 integration for Ruby [omniauth](https://git.cloudron.io/cloudron/omniauth-cloudron) and Node.js [passport](https://git.cloudron.io/cloudron/passport-cloudron).
 
-## postgresql
+### postgresql
 
 By default, this addon provides PostgreSQL 9.4.4.
 
@@ -209,7 +211,7 @@ cloudron exec
 > PGPASSWORD=${POSTGRESQL_PASSWORD} psql -h ${POSTGRESQL_HOST} -p ${POSTGRESQL_PORT} -U ${POSTGRESQL_USERNAME} -d ${POSTGRESQL_DATABASE}
 ```
 
-## recvmail
+### recvmail
 
 The recvmail addon can be used to receive email for the application.
 
@@ -235,7 +237,7 @@ cloudron exec
 
 The IMAP command `? LOGIN username password` can then be used to test the authentication.
 
-## redis
+### redis
 
 By default, this addon provides redis 2.8.13. The redis is configured to be persistent and data is preserved across updates
 and restarts.
@@ -255,7 +257,7 @@ cloudron exec
 > redis-cli -h "${REDIS_HOST}" -p "${REDIS_PORT}" -a "${REDIS_PASSWORD}"
 ```
 
-## scheduler
+### scheduler
 
 The scheduler addon can be used to run tasks at periodic intervals (cron).
 
@@ -295,7 +297,7 @@ If a task is still running when a new instance of the task is scheduled to be st
 task instance is killed.
 
 
-## sendmail
+### sendmail
 
 The sendmail addon can be used to send email from the application.
 

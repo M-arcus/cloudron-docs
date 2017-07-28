@@ -1,4 +1,6 @@
-# Introduction
+# User Manual
+
+## Introduction
 
 The Cloudron is the best platform self-hosting web applications on your server. You
 can easily install apps on it, add users, manage access restriction and keep your
@@ -25,7 +27,7 @@ completely automated.
 If you want to learn more about the secret sauce that makes the Cloudron, please read our
 [architecture overview](/references/architecture.html).
 
-# Use cases
+## Use cases
 
 Here are some of the apps you can run on a Cloudron:
 
@@ -39,7 +41,7 @@ Here are some of the apps you can run on a Cloudron:
 
 Our list of apps is growing everyday, so be sure to [follow us on twitter](https://twitter.com/cloudron_io).
 
-# Activation
+## Activation
 
 When you first create the Cloudron, the setup wizard will ask you to setup an administrator
 account. Don't worry, a Cloudron adminstrator doesn't need to know anything about maintaining
@@ -52,9 +54,9 @@ the Cloudron from the `Users` menu item.
 The Cloudron administration page is located at the `my` subdomain. You might want to bookmark
 this link!
 
-# Apps
+## Apps
 
-## Installation
+### Installation
 
 You can install apps on the Cloudron by choosing the `App Store` menu item. Use the 'Search' bar
 to search for apps.
@@ -83,7 +85,7 @@ visit the Cloudron administration panel.
 
 * `Restrict to groups` - Only users in the groups can access the app.
 
-## Updates
+### Updates
 
 All your apps automatically update as and when the application author releases an update. The Cloudron
 will attempt to update around midnight of your timezone.
@@ -94,7 +96,7 @@ of clicking the `Update` button (the green star) after you read about the change
 
 <img src="/docs/img/app_update.png" class="shadow">
 
-## Backups
+### Backups
 
 <i>If you self-host, please refer to the [self-hosting documentation](/references/selfhosting.html#backups) for backups.</i>
 
@@ -102,7 +104,7 @@ All apps are automatically backed up every day. Backups are stored encrypted in 
 to do anything about it. The [Cloudron CLI](https://git.cloudron.io/cloudron/cloudron-cli) tool can be used
 to download application backups.
 
-## Configuration
+### Configuration
 
 Apps can be reconfigured using the `Configure` button.
 
@@ -118,7 +120,7 @@ You can do the following:
 
 Changing an app's configuration has a small downtime (usually around a minute).
 
-## Restore
+### Restore
 
 Apps can be restored to a previous backup by clicking on the `Restore` button.
 
@@ -128,7 +130,7 @@ Note that restoring previous data might also restore the previous version of the
 be currently using Version 5 of the app. If you restore to a backup that was made with Version 3 of the app, then the restore
 operation will install Version 3 of the app. This is because the latest version may not be able to handle old data.
 
-## Uninstall
+### Uninstall
 
 You can uninstall an app by clicking the `Uninstall` button.
 
@@ -138,7 +140,7 @@ Note that all data associated with the app will be immediately removed from the 
 persist in your old backups and the [CLI tool](https://git.cloudron.io/cloudron/cloudron-cli) provides a way to
 restore from those old backups should it be required.
 
-## Migration
+### Migration
 
 Migrating apps from one Cloudron to another works by first creating a new backup of the app on the old Cloudron,
 copying the backup tarball onto the new Cloudron's backup storage and then installing a new app, based on the backup on
@@ -167,7 +169,7 @@ cloudron install --appstore-id=<apps appstore id>@<specific version if required>
 ```
 The backupId usually also includes a path prefix and looks like: `2017-07-17-121412-248/app_2d7f2a6a-4c17-43a6-80bc-0bd47a99727f_2017-07-17-121412-269_v4.1.1.tar.gz`
 
-## Embedding Apps
+### Embedding Apps
 
 It is possible to embed Cloudron apps into other websites. By default, this is disabled to prevent
 [Clickjacking](https://cloudron.io/blog/2016-07-15-site-embedding.html).
@@ -175,14 +177,14 @@ It is possible to embed Cloudron apps into other websites. By default, this is d
 You can set a website that is allowed to embed your Cloudron app using the app's [Configure dialog](#configuration).
 Click on 'Show Advanced Settings...' and enter the embedder website name.
 
-# Custom domain
+## Custom domain
 
 When you create a Cloudron from cloudron.io, we provide a subdomain under `cloudron.me` like `girish.cloudron.me`.
 Apps are available under that subdomain using a hyphenated name like `blog-girish.cloudron.me`.
 
 Domain names are a thing of pride and the Cloudron makes it easy to make your apps accessible from memorable locations like `blog.girish.in`.
 
-## Single app on a custom domain
+### Single app on a custom domain
 
 This approach is applicable if you desire that only a single app be accessing from a custom
 domain. For this, open the app's configure dialog and choose `External Domain` in the location dropdown.
@@ -192,7 +194,7 @@ domain. For this, open the app's configure dialog and choose `External Domain` i
 This dialog will suggest you to add a `CNAME` record (for subdomains) or an `A` record (for naked domains).
 Once you setup a record with your DNS provider, the app will be accessible from that external domain.
 
-## Entire Cloudron on a custom domain
+### Entire Cloudron on a custom domain
 
 This approach is applicable if you want all your apps to be accessible from subdomains of your custom domain.
 For example, `blog.girish.in`, `notes.girish.in`, `owncloud.girish.in`, `mail.girish.in` and so on. This
@@ -209,9 +211,9 @@ Change the domain name to your custom domain. Currently, we require that your do
 Moving to a custom domain will retain all your apps and data and will take around 15 minutes. If you require assistance with another provider,
 <a href="mailto:support@cloudron.io">just let us know</a>.
 
-# User management
+## User management
 
-## Users
+### Users
 
 You can invite new users (friends, family, colleagues) with their email address from the `Users` menu. They will
 receive an invite to sign up with your Cloudron. They can now access the apps that you have given them access
@@ -221,7 +223,7 @@ to.
 
 To remove a user, simply remove them from the list. Note that the removed user cannot access any app anymore.
 
-## Administrators
+### Administrators
 
 A Cloudron administrator is a special right given to an existing Cloudron user allowing them to manage
 apps and users. To make an existing user an administator, click the edit (pencil) button corresponding to
@@ -229,7 +231,7 @@ the user and check the `Allow this user to manage apps, groups and other users` 
 
 <img src="/docs/img/administrator.png" class="shadow">
 
-## Groups
+### Groups
 
 Groups provide a convenient way to group users. It's purpose is two-fold:
 
@@ -246,19 +248,19 @@ To set the access restriction use the app's configure dialog.
 
 You can now send mails to `groupname@<domain>` to address all the group members.
 
-# Login
+## Login
 
-## Cloudron admin
+### Cloudron admin
 
 The Cloudron admin page is always located at the `my` subdomain of your Cloudron domain. For custom domains,
 this will be like `my.girish.in`. For domains from cloudron.io, this will be like `my-girish.cloudron.me`.
 
-## Apps (single sign-on)
+### Apps (single sign-on)
 
 An important feature of the Cloudron is Single Sign-On. You use the same username & password for logging in
 to all your apps. No more having to manage separate set of credentials for each service!
 
-## Single user apps
+### Single user apps
 
 Some apps only work with a single user. For example, a notes app might allow only a single user to login and add
 notes. For such apps, you will be prompted during installation to select the single user who can access the app.
@@ -267,13 +269,13 @@ notes. For such apps, you will be prompted during installation to select the sin
 
 If you want multiple users to use the app independently, simply install the app multiple times to different locations.
 
-# Email
+## Email
 
 The Cloudron has a built-in email server. The primary email address is the same as the username. Emails can be sent
 and received from `<username>@<domain>`. The Cloudron does not allow masquerading - one user cannot send email
 pretending to be another user.
 
-## Enabling Email
+### Enabling Email
 
 By default, Cloudron's email server only allows apps to send email. To enable users to send and receive email,
 turn on the option under `Settings`. Turning on this option also allows apps to _receive_ email.
@@ -282,7 +284,7 @@ Once email is enabled, the Cloudron will keep the the `MX` DNS record updated.
 
 <img src="/docs/img/enable_email.png" class="shadow">
 
-## Receiving email using IMAP
+### Receiving email using IMAP
 
 Use the following settings to receive email.
 
@@ -291,7 +293,7 @@ Use the following settings to receive email.
   * Connection Security - TLS
   * Username/password - Same as your Cloudron credentials
 
-## Sending email using SMTP
+### Sending email using SMTP
 
 Use the following settings to send email.
 
@@ -300,7 +302,7 @@ Use the following settings to send email.
   * Connection Security - STARTTLS
   * Username/password - Same as your Cloudron credentials
 
-## Email filters using Sieve
+### Email filters using Sieve
 
 Use the following settings to setup email filtering users via Manage Sieve.
 
@@ -312,7 +314,7 @@ Use the following settings to setup email filtering users via Manage Sieve.
 The [Rainloop](https://cloudron.io/appstore.html?app=net.rainloop.cloudronapp) and [Roundcube](https://cloudron.io/appstore.html?app=net.roundcube.cloudronapp)
 apps are already pre-configured to use the above settings.
 
-## Aliases
+### Aliases
 
 You can configure one or more aliases alongside the primary email address of each user. You can set aliases by editing the
 user's settings, available behind the edit button in the user listing. Note that aliases cannot conflict with existing user names.
@@ -322,29 +324,29 @@ user's settings, available behind the edit button in the user listing. Note that
 Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead, add the alias as an identity in
 your mail client but login using the Cloudron credentials.
 
-## Subaddresses
+### Subaddresses
 
 Emails addressed to `<username>+tag@<domain>` will be delivered to the `username` mailbox. You can use this feature to give out emails of the form
 `username+kayak@<domain>`, `username+aws@<domain>` and so on and have them all delivered to your mailbox.
 
-## Catch All
+### Catch All
 
 A Catch-all mailbox is one that will "catch all" of the emails addressed to non-existent addresses. You can forward
 such emails to one or more user mailboxes in the Email section. Note that if you do not select any mailbox (the default), Cloudron will send a bounce.
 
 <img src="/docs/img/catch-all-mailbox.png" width="500" class="shadow">
 
-## Forwarding addresses
+### Forwarding addresses
 
 Each group on the Cloudron is also a forwarding address. Mails can be addressed to `group@<domain>` and the mail will
 be sent to each user who is part of the group.
 
-## Marking Spam
+### Marking Spam
 
 The spam detection agent on the Cloudron requires training to identify spam. To do this, simply move your junk mails
 to a pre-created folder named `Spam`. Most mail clients have a Junk or Spam button which does this automatically.
 
-## Mail relay
+### Mail relay
 
 By default, Cloudron's built-in email server sends out email directly to recipients. You can instead configure
 the Cloudron to hand all outgoing emails to a 'mail relay' and have the relay deliver it to recipients. Such a
@@ -355,7 +357,7 @@ Sendgrid or any other external SMTP server. To setup a relay, enter the relay cr
 
 <img src="/docs/img/email-relay.png" width=500 class="shadow">
 
-# Graphs
+## Graphs
 
 The Graphs view shows an overview of the disk and memory usage on your Cloudron.
 
@@ -370,25 +372,25 @@ on the graph to see the memory consumption over time in the chart below it.
 The `System` Memory graph shows the overall memory consumption on the entire Cloudron. If you see
 the Free memory < 50MB frequently, you should consider upgrading to a Cloudron with more memory.
 
-# Activity log
+## Activity log
 
 The `Activity` view shows the activity on your Cloudron. It includes information about who is using
 the apps on your Cloudron and also tracks configuration changes.
 
 <img src="/docs/img/activity.png" class="shadow">
 
-# API Access
+## API Access
 
 All the operations listed in this manual like installing app, configuring users and groups, are
 completely programmable with a [REST API](/references/api.html).
 
-# Domains and SSL Certificates
+## Domains and SSL Certificates
 
 All apps on the Cloudron can only be reached by `https`. The Cloudron automatically installs and
 renews certificates for your apps as needed. Should installation of certificate fail for reasons
 beyond it's control, Cloudron admins will get a notification about it.
 
-# OAuth Provider
+## OAuth Provider
 
 Cloudron is an OAuth 2.0 provider. To integrate Cloudron login into an external application, create
 an OAuth application under `API Access`.
@@ -400,14 +402,14 @@ authorizationURL: https://my.<domain>/api/v1/oauth/dialog/authorize
 tokenURL:         https://my.<domain>/api/v1/oauth/token
 ```
 
-# Moving to a larger Cloudron
+## Moving to a larger Cloudron
 
 When using a Cloudron from cloudron.io, it is easy to migrate your apps and data to a bigger server.
 In the `Settings` page, you can change the plan.
 
 <insert picture>
 
-# Command line tool
+## Command line tool
 
 If you are a software developer or a sysadmin, the Cloudron comes with a CLI tool that can be
 used to develop custom apps for the Cloudron. Read more about it [here](https://git.cloudron.io/cloudron/cloudron-cli).

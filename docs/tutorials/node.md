@@ -1,11 +1,13 @@
-# Overview
+# Node.js
+
+## Overview
 
 This tutorial provides an introduction to developing applications
 for the Cloudron using node.js.
 
-# Installation
+## Installation
 
-## Install CLI tool
+### Install CLI tool
 
 The Cloudron CLI tool allows you to install, configure and test apps on your Cloudron.
 
@@ -19,7 +21,7 @@ command:
 
 Note: Depending on your setup, you can run the above command without `sudo`.
 
-## Testing your installation
+### Testing your installation
 
 The `cloudron` command should now be available in your path.
 
@@ -35,7 +37,7 @@ Password:
 Login successful.
 ```
 
-## Your First Application
+### Your First Application
 
 Creating an application for Cloudron can be summarized as follows:
 
@@ -50,7 +52,7 @@ Creating an application for Cloudron can be summarized as follows:
    about the app. This includes information required for the Cloudron Store like title, version, icon and
    runtime requirements like `addons`.
 
-## Simple Web application
+### Simple Web application
 
 To keep things simple, we will start by deploying a trivial node.js server running on port 8000.
 
@@ -68,7 +70,7 @@ server.listen(8000);
 console.log("Server running at port 8000");
 ```
 
-## Dockerfile
+### Dockerfile
 
 A Dockerfile contains commands to assemble an image.
 
@@ -92,7 +94,7 @@ See the [Dockerfile](https://docs.docker.com/reference/builder/#add) documentati
 The `CMD` command specifies how to run the server. There are multiple versions of node available under `/usr/local`. We
 choose node v6.9.5 for our app.
 
-## CloudronManifest.json
+### CloudronManifest.json
 
 The `CloudronManifest.json` specifies
 
@@ -144,9 +146,9 @@ File ```tutorial/CloudronManifest.json```
 
 You can read in more detail about each field in the [Manifest reference](/references/manifest.html).
 
-# Installing
+## Installing
 
-## Building
+### Building
 
 We now have all the necessary files in place to build and deploy the app to the Cloudron.
 Building creates an image of the app using the Dockerfile which can then be used to deploy
@@ -191,7 +193,7 @@ Pushing tag for rev [53b51eabcb89] on {https://cdn-registry-1.docker.io/v1/repos
 Build succeeded
 ```
 
-## Installing
+### Installing
 
 Now that we have built the image, we can install our latest build on the Cloudron
 using the following command:
@@ -224,7 +226,7 @@ cloudron open
 
 You should see `Hello World`.
 
-# Testing
+## Testing
 
 The application testing cycle involves `cloudron build` and `cloudron install`.
 Note that `cloudron install` updates an existing app in place.
@@ -253,7 +255,7 @@ You can also execute arbitrary commands:
 $ cloudron exec env # display the env variables that your app is running with
 ```
 
-# Storing data
+## Storing data
 
 For file system storage, an app can use the `localstorage` addon to store data under `/app/data`.
 When the `localstorage` addon is active, any data under /app/data is automatically backed up. When an
@@ -297,7 +299,7 @@ Now every time you refresh the page you will notice that the counter bumps up. Y
 also notice that if you make changes to the app and do a `cloudron install`, the `counter.dat`
 is *retained* across updates.
 
-# Database
+## Database
 
 Most web applications require a database of some form. In theory, it is possible to run any
 database you want as part of the application image. This is, however, a waste of server resources
@@ -413,7 +415,7 @@ console.log("Server running at port 8000");
 
 Simply `cloudron build` and `cloudron install` to test your app!
 
-# Authentication
+## Authentication
 
 The Cloudron has a centralized panel for managing users and groups. Apps can integrate Single Sign-On
 authentication using LDAP or OAuth.
@@ -422,7 +424,7 @@ Note that apps that are single user can skip Single Sign-On support. The Cloudro
 proxy` (accessed through the app configuration dialog) that optionally lets the Cloudron admin make the
 app visible only for logged in users.
 
-## LDAP
+### LDAP
 
 Let's start out by adding the [ldap](/references/addons.html#ldap) addon to the manifest.
 
@@ -521,7 +523,7 @@ credentials as follows:
   curl -X 'X-Username: admin' -X 'X-Password: pass' https://tutorial-craft.selfhost.io/login
 ```
 
-## OAuth
+### OAuth
 
 An app can integrate with OAuth 2.0 Authorization code grant flow by adding
 [oauth](/references/addons.html#oauth) to CloudronManifest.json `addons` section.
@@ -584,7 +586,7 @@ The following libraries implement Cloudron OAuth for Ruby and Javascript.
  * [omniauth-cloudron](https://github.com/cloudron-io/omniauth-cloudron)
  * [passport-cloudron](https://github.com/cloudron-io/passport-cloudron)
 
-# Beta Testing
+## Beta Testing
 
 Once your app is ready, you can upload it to the store for `beta testing` by
 other Cloudron users. This can be done using:
@@ -602,7 +604,7 @@ Other Cloudron users can install your app on their Cloudron's using
 requires your beta testers to install the CLI tool and put their Cloudron in
 developer mode.
 
-# Publishing
+## Publishing
 
 Once you are satisfied with the beta testing, you can submit it for review.
 
@@ -612,11 +614,11 @@ Once you are satisfied with the beta testing, you can submit it for review.
 
 The cloudron.io team will review the app and publish the app to the store.
 
-# Next steps
+## Next steps
 
 Congratulations! You are now well equipped to build web applications for the Cloudron.
 
-# Samples
+## Samples
 
   * [Lets Chat](https://github.com/cloudron-io/letschat-app)
   * [Haste bin](https://github.com/cloudron-io/haste-app)

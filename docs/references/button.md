@@ -1,5 +1,7 @@
 # Cloudron Button
 
+## Overview
+
 The `Cloudron Button` allows anyone to install an application with
 the click of a button on their Cloudron.
 
