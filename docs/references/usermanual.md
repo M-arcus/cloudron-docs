@@ -49,7 +49,7 @@ a server! It's the whole reason why we made the Cloudron. Being a Cloudron admin
 more analagous to being the owner of a smartphone. You can always add more administrators to
 the Cloudron from the `Users` menu item.
 
-<img src="/docs/img/webadmin_domain.png" class="shadow">
+<img src="/img/webadmin_domain.png" class="shadow">
 
 The Cloudron administration page is located at the `my` subdomain. You might want to bookmark
 this link!
@@ -63,11 +63,11 @@ to search for apps.
 
 Clicking on app gives you information about the app.
 
-<img src="/docs/img/app_info.png" class="shadow">
+<img src="/img/app_info.png" class="shadow">
 
 Clicking the `Install` button will show an install dialog like below:
 
-<img src="/docs/img/app_install.png" class="shadow">
+<img src="/img/app_install.png" class="shadow">
 
 The `Location` field is the subdomain in which your app will be installed. For example, if you use the
 `mail` location for your web mail client, then it will be accessible at `mail.<domain>`.
@@ -94,7 +94,7 @@ Some app updates are not automatic. This can happen if a new version of the app 
 that you were relying on. In such a case, the update has to be manually approved. This is simply a matter
 of clicking the `Update` button (the green star) after you read about the changes.
 
-<img src="/docs/img/app_update.png" class="shadow">
+<img src="/img/app_update.png" class="shadow">
 
 ### Backups
 
@@ -108,11 +108,11 @@ to download application backups.
 
 Apps can be reconfigured using the `Configure` button.
 
-<img src="/docs/img/app_configure_button.png" class="shadow">
+<img src="/img/app_configure_button.png" class="shadow">
 
 Click on the wrench button will bring up the configure dialog.
 
-<img src="/docs/img/app_configure.png" class="shadow">
+<img src="/img/app_configure.png" class="shadow">
 
 You can do the following:
 * Change the location to move the app to another subdomain. Say, you want to move your blog from `blog` to `about`.
@@ -124,7 +124,7 @@ Changing an app's configuration has a small downtime (usually around a minute).
 
 Apps can be restored to a previous backup by clicking on the `Restore` button.
 
-<img src="/docs/img/app_restore_button.png" class="shadow">
+<img src="/img/app_restore_button.png" class="shadow">
 
 Note that restoring previous data might also restore the previous version of the software. For example, you might
 be currently using Version 5 of the app. If you restore to a backup that was made with Version 3 of the app, then the restore
@@ -134,7 +134,7 @@ operation will install Version 3 of the app. This is because the latest version 
 
 You can uninstall an app by clicking the `Uninstall` button.
 
-<img src="/docs/img/app_uninstall_button.png" class="shadow">
+<img src="/img/app_uninstall_button.png" class="shadow">
 
 Note that all data associated with the app will be immediately removed from the Cloudron. App data might still
 persist in your old backups and the [CLI tool](https://git.cloudron.io/cloudron/cloudron-cli) provides a way to
@@ -186,7 +186,7 @@ Google has an [excellent document](https://developers.google.com/search/referenc
 You can set the robots.txt contents of an app in the Advanced settings of the app's configure dialog.
 
 <br/>
-<img src="/docs/img/robots-txt.png" class="shadow" width="500px">
+<img src="/img/robots-txt.png" class="shadow" width="500px">
 
 <br/>
 
@@ -204,7 +204,7 @@ Domain names are a thing of pride and the Cloudron makes it easy to make your ap
 This approach is applicable if you desire that only a single app be accessing from a custom
 domain. For this, open the app's configure dialog and choose `External Domain` in the location dropdown.
 
-<img src="/docs/img/app_external_domain.png" class="shadow">
+<img src="/img/app_external_domain.png" class="shadow">
 
 This dialog will suggest you to add a `CNAME` record (for subdomains) or an `A` record (for naked domains).
 Once you setup a record with your DNS provider, the app will be accessible from that external domain.
@@ -217,11 +217,11 @@ approach is also the only way that the Cloudron supports for sending and receivi
 
 For this, go to the 'Domains & Certs' menu item.
 
-<img src="/docs/img/custom_domain_menu.png" class="shadow">
+<img src="/img/custom_domain_menu.png" class="shadow">
 
 Change the domain name to your custom domain. Currently, we require that your domain be hosted on AWS Route53.
 
-<img src="/docs/img/custom_domain_change.png" class="shadow">
+<img src="/img/custom_domain_change.png" class="shadow">
 
 Moving to a custom domain will retain all your apps and data and will take around 15 minutes. If you require assistance with another provider,
 <a href="mailto:support@cloudron.io">just let us know</a>.
@@ -234,7 +234,7 @@ You can invite new users (friends, family, colleagues) with their email address 
 receive an invite to sign up with your Cloudron. They can now access the apps that you have given them access
 to.
 
-<img src="/docs/img/users.png" class="shadow">
+<img src="/img/users.png" class="shadow">
 
 To remove a user, simply remove them from the list. Note that the removed user cannot access any app anymore.
 
@@ -244,7 +244,7 @@ A Cloudron administrator is a special right given to an existing Cloudron user a
 apps and users. To make an existing user an administator, click the edit (pencil) button corresponding to
 the user and check the `Allow this user to manage apps, groups and other users` checkbox.
 
-<img src="/docs/img/administrator.png" class="shadow">
+<img src="/img/administrator.png" class="shadow">
 
 ### Groups
 
@@ -255,11 +255,11 @@ Groups provide a convenient way to group users. It's purpose is two-fold:
 
 You can create a group by using the `Groups` menu item.
 
-<img src="/docs/img/groups.png" class="shadow">
+<img src="/img/groups.png" class="shadow">
 
 To set the access restriction use the app's configure dialog.
 
-<img src="/docs/img/app_access_control.png" class="shadow">
+<img src="/img/app_access_control.png" class="shadow">
 
 You can now send mails to `groupname@<domain>` to address all the group members.
 
@@ -280,7 +280,7 @@ to all your apps. No more having to manage separate set of credentials for each 
 Some apps only work with a single user. For example, a notes app might allow only a single user to login and add
 notes. For such apps, you will be prompted during installation to select the single user who can access the app.
 
-<img src="/docs/img/app_single_user.png" class="shadow">
+<img src="/img/app_single_user.png" class="shadow">
 
 If you want multiple users to use the app independently, simply install the app multiple times to different locations.
 
@@ -297,7 +297,7 @@ turn on the option under `Settings`. Turning on this option also allows apps to 
 
 Once email is enabled, the Cloudron will keep the the `MX` DNS record updated.
 
-<img src="/docs/img/enable_email.png" class="shadow">
+<img src="/img/enable_email.png" class="shadow">
 
 ### Receiving email using IMAP
 
@@ -334,7 +334,7 @@ apps are already pre-configured to use the above settings.
 You can configure one or more aliases alongside the primary email address of each user. You can set aliases by editing the
 user's settings, available behind the edit button in the user listing. Note that aliases cannot conflict with existing user names.
 
-<img src="/docs/img/email_alias.png" class="shadow">
+<img src="/img/email_alias.png" class="shadow">
 
 Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead, add the alias as an identity in
 your mail client but login using the Cloudron credentials.
@@ -349,7 +349,7 @@ Emails addressed to `<username>+tag@<domain>` will be delivered to the `username
 A Catch-all mailbox is one that will "catch all" of the emails addressed to non-existent addresses. You can forward
 such emails to one or more user mailboxes in the Email section. Note that if you do not select any mailbox (the default), Cloudron will send a bounce.
 
-<img src="/docs/img/catch-all-mailbox.png" width="500" class="shadow">
+<img src="/img/catch-all-mailbox.png" width="500" class="shadow">
 
 ### Forwarding addresses
 
@@ -370,13 +370,13 @@ setup is useful when the Cloudron server does not have a good IP reputation for 
 Cloudron can be configured to send all outbound email via Amazon SES, Google, Mailgun, Postmark,
 Sendgrid or any other external SMTP server. To setup a relay, enter the relay credentials in the Email section. Cloudron only supports relaying via the STARTTLS mechanism (usually port 587).
 
-<img src="/docs/img/email-relay.png" width=500 class="shadow">
+<img src="/img/email-relay.png" width=500 class="shadow">
 
 ## Graphs
 
 The Graphs view shows an overview of the disk and memory usage on your Cloudron.
 
-<img src="/docs/img/graphs.png" class="shadow">
+<img src="/img/graphs.png" class="shadow">
 
 The `Disk Usage` graph shows you how much disk space you have left. Note that the Cloudron will
 send the Cloudron admins an email notification when the disk is ~90% full.
@@ -392,7 +392,7 @@ the Free memory < 50MB frequently, you should consider upgrading to a Cloudron w
 The `Activity` view shows the activity on your Cloudron. It includes information about who is using
 the apps on your Cloudron and also tracks configuration changes.
 
-<img src="/docs/img/activity.png" class="shadow">
+<img src="/img/activity.png" class="shadow">
 
 ## API Access
 

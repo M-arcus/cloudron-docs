@@ -235,7 +235,7 @@ First create a new bucket for the backups, using the minio commandline tools or 
 
 The information to be copied to the Cloudron's backup settings form may look similar to:
 
-<img src="/docs/img/minio_backup_config.png" class="shadow"><br/>
+<img src="/img/minio_backup_config.png" class="shadow"><br/>
 
 The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
 required to decrypt the backups when restoring the Cloudron.
@@ -339,11 +339,11 @@ To upgrade follow these steps closely:
 
   * `S3` - When storing backup ins S3, make the latest box backup public - files starting with `box_` (from v0.94.0) or `backup_`. This can be done from the AWS S3 console as seen here:
 
-    <img src="/docs/img/aws_backup_public.png" class="shadow haze"><br/>
+    <img src="/img/aws_backup_public.png" class="shadow haze"><br/>
 
     Copy the new public URL of the latest backup for use as the `--restore-url` below.
 
-    <img src="/docs/img/aws_backup_link.png" class="shadow haze"><br/>
+    <img src="/img/aws_backup_link.png" class="shadow haze"><br/>
 
   * `File system` - When storing backups in `/var/backups`, you have to make the box and the app backups available to the new Cloudron instance's `/var/backups`. This can be achieved in a variety of ways depending on the situation: like scp'ing the backup files to the machine before installation, mounting the external backup hard drive into the new Cloudron's `/var/backup` OR downloading a copy of the backup using `cloudron machine backup download` and uploading them to the new machine. After doing so, pass `file:///var/backups/<path to box backup>` as the `--restore-url` below.
 
