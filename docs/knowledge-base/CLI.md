@@ -25,6 +25,10 @@ on your PC using the following command:
 sudo npm install -g cloudron
 ```
 
+Node.js and npm can be installed by following the instructions
+[here](https://nodejs.org/en/download/package-manager/). Cloudron CLI requires atleast
+Node 4.x.
+
 The Cloudron CLI is **NOT** intended to be installed on the Cloudron. The Cloudron
 CLI is not actively tested on Mac or Windows but is known to work with varying success.
 If you use Windows/Mac, we recommend using a VM.
