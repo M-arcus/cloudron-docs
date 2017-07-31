@@ -1,4 +1,4 @@
-# Backup and Restore
+# Backup, Restore and Migrate
 
 ## How Cloudron backups work
 
@@ -11,4 +11,10 @@
 ## Import data into Cloudron apps
 
 ## Format of Cloudron backups
+
+## Changing the Cloudron domain name
+
+## Cloning a Cloudron app in same Cloudron
+
+## Cloning a Cloudron app into another Cloudron
 

@@ -6,8 +6,8 @@
 
 ## Cloudron disk layout
 
-## Move the data directory to another location
-
 ## Using overlay2 backend for Docker
+
+## Move the data directory to another location
 
 ## Resizing the Cloudron server
