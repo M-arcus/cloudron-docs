@@ -30,11 +30,12 @@ When using Let's Encrypt, please be aware of the following:
   subdomains are [discoverable](https://crt.sh/). Some [hackers](https://www.golem.de/news/certificate-transparency-hacking-web-applications-before-they-are-installed-1707-129172.html) take advantage of this to   hack web applications
   before they are in installed.
 
-## Setting fallback certificates
+## Setting fallback wildcard certificates
 
 Cloudron generates a self-signed certificates that it uses as the fallback should it fail
 to install or renew Let's Encrypt certificate. The fallback certificates can be set in the
-`Domains & Certs` settings page.
+`Domains & Certs` settings page. Note that this certificate must be a wildcard certificate
+for the domain.
 
 ## Setting custom per-application certificates
 
