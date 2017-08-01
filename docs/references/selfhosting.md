@@ -47,7 +47,7 @@ Please let us know if any of them requires tweaks or adjustments.
 
 ### Create server
 
-Create an `Ubuntu 16.04 (Xenial)` server with at-least `1gb` RAM and 20GB disk space.
+Create an `Ubuntu 16.04 (Xenial)` 64-bit server with at-least `1gb` RAM and 20GB disk space.
 Do not make any changes to vanilla ubuntu. Be sure to allocate a static IPv4 address
 for your server.
 
