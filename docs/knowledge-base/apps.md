@@ -66,3 +66,17 @@ For example, to redirect `www` to the bare domain:
 </html>
 ```
 
+## Indexing by search engines
+
+By default, Cloudron does not setup a robots.txt for apps. The app is
+free to provide it's own robots.txt. You can, however, setup a custom
+robots.txt from the app's configure dialog.
+
+<img src="/img/robots-txt.png" class="shadow">
+
+In addition, the Cloudron admin page has a robots.txt that disables indexing:
+```
+User-agent: *
+Disallow: /
+```
+
