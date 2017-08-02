@@ -66,17 +66,46 @@ For example, to redirect `www` to the bare domain:
 </html>
 ```
 
-## Indexing by search engines
+## Indexing by search engines (robots.txt)
 
-By default, Cloudron does not setup a robots.txt for apps. The app is
-free to provide it's own robots.txt. You can, however, setup a custom
-robots.txt from the app's configure dialog.
+The `Robots.txt` file is a file served from the root of a website to indicate which parts must be indexed by a search
+engine. The file follows the [Robots Exclusion Standard](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
+Google has an [excellent document](https://developers.google.com/search/reference/robots_txt) about the semantics.
+
+You can set the robots.txt contents of an app in the Advanced settings of the app's configure dialog.
+
+By default, Cloudron does not setup a robots.txt for apps. The app is free to provide it's own robots.txt. A custom
+robots.txt can be setup from the app's configure dialog.
 
 <img src="/img/robots-txt.png" class="shadow">
 
-In addition, the Cloudron admin page has a robots.txt that disables indexing:
+In addition, the Cloudron admin page has a hardcoded robots.txt that disables indexing:
 ```
 User-agent: *
 Disallow: /
 ```
+
+## Graphs
+
+The Graphs view shows an overview of the disk and memory usage on your Cloudron.
+
+<img src="/img/graphs.png" class="shadow">
+
+The `Disk Usage` graph shows you how much disk space you have left. Note that the Cloudron will
+send the Cloudron admins an email notification when the disk is ~90% full.
+
+The `Apps` Memory graph shows the memory consumed by each installed app. You can click on each segment
+on the graph to see the memory consumption over time in the chart below it.
+
+The `System` Memory graph shows the overall memory consumption on the entire Cloudron. If you see
+the Free memory < 50MB frequently, you should consider upgrading to a Cloudron with more memory.
+
+## Embedding Apps
+
+It is possible to embed Cloudron apps into other websites. By default, this is disabled to prevent
+[Clickjacking](https://cloudron.io/blog/2016-07-15-site-embedding.html).
+
+You can set a website that is allowed to embed your Cloudron app using the app's [Configure dialog](#configuration).
+Click on 'Show Advanced Settings...' and enter the embedder website name.
+
 

@@ -8,7 +8,7 @@ TLS certificates for apps automatically. It also renews certificates automatical
 ## Automatic renewal of Let's Encrypt certificates
 
 Cloudron attempts to start renewing certificates automatically about 1 month before expiry of the
-certificate. If it fails to renew, it will send an email to the Cloudron administrators.
+certificate. If it fails to renew, it will send a notification email to the Cloudron administrators.
 If the Cloudron admin does not take any action (after getting reminded 30 times), Cloudron will start
 using fallback certificates for the app.
 

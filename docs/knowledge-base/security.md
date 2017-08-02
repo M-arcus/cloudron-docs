@@ -80,6 +80,13 @@ The goal of rate limits is to prevent password brute force attacks.
     information regarding the configured backend types. This helps us focus on improving backends
     based on their use. You can review the specific code [here](https://git.cloudron.io/cloudron/box/blob/master/src/appstore.js#L147).
 
+## Activity log
+
+The `Activity` view shows the activity on your Cloudron. It includes information about who is using
+the apps on your Cloudron and also tracks configuration changes.
+
+<img src="/img/activity.png" class="shadow">
+
 ## Block IPs
 
 Cloudron uses iptables to implement rate limits and block access to incoming ports. For this purpose,
