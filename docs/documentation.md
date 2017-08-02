@@ -2,11 +2,11 @@
 
 ## Installation
 
-Get Cloudron on your server with three simple commands:
+Get Cloudron on your vanilla Ubuntu 16.04 (Xenial) 64-bit server with three simple commands as root:
 ```
 wget https://cloudron.io/cloudron-setup
-chmod + cloudron-setup
-./cloudron-setup --provider <digitalocean/ec2/ovh/...>
+chmod +x cloudron-setup
+./cloudron-setup --provider <azure|digitalocean|ec2|lightsail|linode|ovh|rosehosting|scaleway|vultr|generic>
 ```
 
 ## Shortcuts
