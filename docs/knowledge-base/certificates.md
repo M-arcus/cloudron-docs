@@ -40,7 +40,7 @@ for the domain.
 ## Setting custom per-application certificates
 
 It is possible to set a custom certificate for each installed application. This can be achieved
-by using the [REST API](/references/api/index.html#configure-app).
+by using the [REST API](/references/api/#configure-app).
 
 ## Common reasons for Let's Encrypt Certificate failure
 
