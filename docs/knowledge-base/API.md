@@ -2,12 +2,12 @@
 
 ## What is the Cloudron REST API
 
-The Cloudron provides a complete [RESTful API](/references/api/) to manage all
+The Cloudron provides a complete [RESTful API](/references/API/) to manage all
 aspects of the Cloudron like adding users, configuring groups and installing apps.
 
 ## Using the Cloudron REST API
 
-The [Cloudron API](/references/api/) is available at the `my` subdomain of your Cloudron. To access
+The [Cloudron API](/references/API/) is available at the `my` subdomain of your Cloudron. To access
 the API, you need an access token. The Cloudron can create an access token from
 the `API Access` page.
 
