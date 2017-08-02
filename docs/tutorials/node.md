@@ -519,7 +519,7 @@ Once we have used `cloudron build` and `cloudron install`, you can use `curl` to
 credentials as follows:
 
 ```bash
-  # Test with various credentials here. Your cloudon admin username and password should succeed.
+  # Test with various credentials here. Your Cloudron admin username and password should succeed.
   curl -X 'X-Username: admin' -X 'X-Password: pass' https://tutorial-craft.selfhost.io/login
 ```
 
