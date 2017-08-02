@@ -21,7 +21,7 @@ extra:
     - type: 'linkedin'
       link: 'https://linkedin.com/company/cloudron'
 site_favicon: 'img/favicon.ico'
-use_directory_urls: false
+use_directory_urls: true
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false)
