@@ -13,7 +13,7 @@ To remove a user, simply remove them from the list. Note that the removed user c
 ## Administrators
 
 A Cloudron administrator is a special right given to an existing Cloudron user allowing them to manage
-apps and users. To make an existing user an administator, click the edit (pencil) button corresponding to
+apps and users. To make another existing user an administator, click the edit (pencil) button corresponding to
 the user and check the `Allow this user to manage apps, groups and other users` checkbox.
 
 <img src="/img/administrator.png" class="shadow">

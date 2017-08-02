@@ -1,5 +1,54 @@
 # Apps
 
+## Installing an app
+
+You can install apps on the Cloudron by choosing the `App Store` menu item. Use the 'Search' bar
+to search for apps.
+
+Clicking on app gives you information about the app.
+
+<img src="/img/app_info.png" class="shadow">
+
+Clicking the `Install` button will show an install dialog like below:
+
+<img src="/img/app_install.png" class="shadow">
+
+The `Location` field is the subdomain in which your app will be installed. For example, if you use the
+`mail` location for your web mail client, then it will be accessible at `mail.<domain>`.
+
+Tip: You can access the apps directly on your browser using `mail.<domain>`. You don't have to
+visit the Cloudron administration panel.
+
+## Moving an application to another subdomain
+
+Click on the wrench button will bring up the configure dialog.
+
+<img src="/img/app_configure_button.png" class="shadow">
+
+<img src="/img/app_configure.png" class="shadow">
+
+Changing an app's configuration has a small downtime (usually about a minute).
+
+## Restoring an app from existing backup
+
+Apps can be restored to a previous backup by clicking on the `Restore` button.
+
+<img src="/img/app_restore_button.png" class="shadow">
+
+Note that restoring previous data might also restore the previous version of the software. For example, you might
+be currently using Version 5 of the app. If you restore to a backup that was made with Version 3 of the app, then the restore
+operation will install Version 3 of the app. This is because the latest version may not be able to handle old data.
+
+## Uninstall an app
+
+You can uninstall an app by clicking the `Uninstall` button.
+
+<img src="/img/app_uninstall_button.png" class="shadow">
+
+Note that all data associated with the app will be immediately removed from the Cloudron. App data might still
+persist in your old backups and the [CLI tool](https://git.cloudron.io/cloudron/cloudron-cli) provides a way to
+restore from those old backups should it be required.
+
 ## Increasing the memory limit of an app
 
 All Cloudron apps are run with a memory limit. This ensures that no app
@@ -27,6 +76,14 @@ done within the application itself (for example, to change a user to become a
 `commenter` or `author` or some other app specific role).
 
 <img src="/img/configure-group-acl.png" class="shadow">
+
+* `Every Cloudron user` - Any user in your Cloudron can access the app. Initially, you are the only
+   user in your Cloudron. Unless you explicitly invite others, nobody else can access these apps.
+   Note that the term 'access' depends on the app. For a blog, this means that nobody can post new
+   blog posts (but anybody can view them). For a chat server, this might mean that nobody can access
+   your chat server.
+
+* `Restrict to groups` - Only users in the groups can access the app.
 
 ## Specifying another domain for an app
 
