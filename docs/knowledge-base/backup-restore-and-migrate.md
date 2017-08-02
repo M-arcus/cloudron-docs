@@ -41,6 +41,25 @@ The backupId usually also includes a path prefix and looks like: `2017-07-17-121
 
 ## Changing the Cloudron domain name
 
+Cloudron's main domain can be changed without losing any data using the following steps.
+If you are wary of the steps below, simple take a backup of cloudron (Settings -> Backup)
+and restore the Cloudron with a different domain.
+
+1. Edit `/home/yellowtent/configs/cloudron.conf`. It has a field called `fqdn`.
+   Change this to the desired domain name.
+
+2. If you use the `wildcard` or `manual` DNS backend, add a DNS `A` record manually
+   for `*.example.com` and `example.com` to the server's IP. For, `route53`, `cloudflare`
+   and other automated DNS backends, you can skip this step.
+
+3. Edit `/home/yellowtent/platformdata/INFRA_VERSION`. It has a field called `version`.
+   Bump the minor version of this field. For example, if the version is a.b.c, change it
+   to a.b+1.c. It is important to _not_ change the major version (i.e 'a')
+
+4. `systemctl restart box`
+
+In 5 minutes or so, you should be able to reach `https://my.example.com`.
+
 ## Cloning a Cloudron app in same Cloudron
 
 ## Cloning a Cloudron app into another Cloudron
