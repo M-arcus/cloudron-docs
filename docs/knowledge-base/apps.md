@@ -97,7 +97,7 @@ dropdown.
 This dialog will suggest adding a CNAME record (for subdomains) or an A record (for
 naked domains). Once you setup a record with your DNS provider, the app will be accessible
 from that external domain. Cloudron will automatically get an Lets Encrypt certificate
-for the external domain. 
+for the external domain.
 
 **NOTE:** You can set the external domain only after installing the app in a subdomain.
 (For the curious, this is done so that we can 'reserve' a DNS record to CNAME to).
@@ -105,23 +105,19 @@ for the external domain.
 ## Redirecting www domain
 
 To redirect the bare domain to `www` (or `www` to the bare domain), we recommend installing
-the `Surfer` app and setting up a HTML page that redirects.
+the `LAMP` app and setting up a ``.htaccess` file based redirect.
 
 For example, to redirect `www` to the bare domain:
 
-* Install [Surfer](https://cloudron.io/store/io.cloudron.surfer.html) on the `www` subdomain.
+* Install [LAMP](https://cloudron.io/store/lamp.cloudronapp.html) on the `www` subdomain.
 
-* Login to surfer (`https://www.<domain>/_admin`) using your Cloudron credentials and upload the
-  following HTML to redirect as `index.html`:
+* Use the [CLI tool](https://git.cloudron.io/cloudron/cloudron-cli) to get remote access into the app and create a `.htaccess` file:
+```
+cloudron exec --app www
+$ echo "redirect 301 / https://domain.com/" > /app/data/public/.htaccess
+```
 
-```
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>www.girish.in</title>
-    <meta http-equiv="refresh" content="0;URL='https://girish.in/'" />
-  </head>
-</html>
-```
+This also preserves any URI components like subpaths in the original request.
 
 ## Indexing by search engines (robots.txt)
 
@@ -164,5 +160,3 @@ It is possible to embed Cloudron apps into other websites. By default, this is d
 
 You can set a website that is allowed to embed your Cloudron app using the app's [Configure dialog](#configuration).
 Click on 'Show Advanced Settings...' and enter the embedder website name.
-
-
