@@ -5,6 +5,9 @@
 Cloudron integrates with [Let's Encrypt](http://letsencrypt.org/) to install
 TLS certificates for apps automatically. It also renews certificates automatically.
 
+Cloudron utilizes the `http-01` scheme to validate the domain with Lets Encrypt (this
+scheme involves provisioning an HTTP resource under a well-known URI).
+
 ## Automatic renewal of Let's Encrypt certificates
 
 Cloudron attempts to start renewing certificates automatically about 1 month before expiry of the
@@ -51,4 +54,12 @@ Let's Encrypt.
   for issuing certificates. Please check the email id in the Account page.
 
 * Let's Encrypt [rate limit](https://letsencrypt.org/docs/rate-limits/) was reached.
+
+## CAA records for Lets Encrypt
+
+Starting Sep 2017, Lets Encrypt will check for CAA records to validate if the domain owner
+has authorized the CA to issue certificates for the domain. For this reason, make sure that
+either the CAA record for the domain is [empty](https://community.letsencrypt.org/t/how-to-use-without-caa/38539/2)
+OR setup a CAA record allowing `letsencrypt.org`.
+
 

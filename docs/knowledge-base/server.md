@@ -1,30 +1,6 @@
-# Installation
+# Server
 
-## Minimum requirements to install Cloudron
-
-* `Ubuntu 16.04 (Xenial)` 64-bit server. Do not make any changes to vanilla ubuntu.
-* At-least `1gb` RAM
-* Minimum 20GB disk space
-* Cloudron requires a domain to complete installation. Cloudron installs apps as subdomains
-  of this domain.
-
-**NOTE:** Cloudron does not support ARM (Raspberry Pi, Beagle board etc)
-
-## Installing Cloudron
-
-SSH into a `Ubuntu 16.04 (Xenial)` 64-bit server and run the following commands:
-
-```
-wget https://cloudron.io/cloudron-setup
-chmod +x cloudron-setup
-./cloudron-setup --provider <azure|digitalocean|ec2|lightsail|linode|ovh|rosehosting|scaleway|vultr|generic>
-```
-
-The setup will take around 10-15 minutes. Then, navigate to `https://<IP>` and provide the domain name
-of the Cloudron. It is entirely safe to use an _existing_ domain name for use by Cloudron. Cloudron
-only requires the `my` subdomain to be available to work.
-
-## Cloudron disk layout
+## Disk layout
 
 These are the important locations on the server:
 
@@ -89,7 +65,7 @@ Cloudron's data directory can be moved from `/home/yellowtent/appsdata` to a new
     systemctl start cloudron.target
 ```
 
-## Resizing the Cloudron server
+## Resizing the server
 
 For VPS providers that support it, you can simply resize the server (cpu/disk/memory) and Cloudron will
 automatically adapt to the available resources after a server restart.

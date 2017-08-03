@@ -100,7 +100,10 @@ Email section. Cloudron only supports relaying via the STARTTLS mechanism (usual
 
 ## Creating a mailing list
 
-## Setting mailbox aliases
+Cloudron does not support creating a mailing list i.e a list that allows members to subscribe/unsubscribe.
+
+However, Cloudron supports creating internal mailing groups. Simply create a group and add users to it.
+Any mail addressed to the `group@domain` will be forwarded to all the users.
 
 ## Changing the FROM address of an app
 
@@ -125,7 +128,30 @@ Most mail clients have a Junk or Spam button which does this automatically.
 
 ## Viewing mail server logs
 
-## Setting rDNS record
+## Setting rDNS, PTR record
+
+rDNS (reverse DNS) or PTR records are DNS entries that can be used to resolve an IP address to a
+fully-qualified domain name. For example, the PTR record of the IP 1.2.3.4 can be looked up as
+`host -t PTR 4.3.2.1.in-addr.arpa`.
+
+In the context of email, many mail servers require that the EHLO hostname used in the SMTP
+connection match the PTR record. On the Cloudron, the EHLO hostname used is `my.<domain>`.
+For this reason, you must set the PTR record value to be `my.<domain>`.
+
+**The PTR record is set by your VPS provider and not by your DNS provider.**. For example,
+if your server was created in Digital Ocean, you must go to Digital Ocean to set the PTR
+record. We have collected a few links to help you set the PTR record for different VPS:
+
+* AWS EC2 & Lightsail - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
+
+* Digital Ocean - Digital Ocean sets up a PTR record based on the droplet's name. So, simply rename
+your droplet to `my.<domain>`.
+
+* Linode - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
+
+* Scaleway - You can also set a PTR record on the interface in their control panel.
+
+Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
 
 ## Required DNS records for email
 
