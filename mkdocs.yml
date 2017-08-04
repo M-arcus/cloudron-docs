@@ -13,7 +13,6 @@ pages:
     - 'CLI': kb/cli.md
     - kb/email.md
     - kb/integrations.md
-    - kb/notifications.md
     - kb/security.md
     - kb/server.md
     - kb/updates.md
