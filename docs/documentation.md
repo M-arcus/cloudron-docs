@@ -57,17 +57,3 @@ work, the Cloudron requires a way to programmatically configure the DNS entries 
 Note that the Cloudron will never overwrite _existing_ DNS entries and refuse to install
 apps on existing subdomains (so, it is safe to reuse an existing domain that runs other services).
 
-## Shortcuts
-
-<div class="shortcuts">
-<a href="https://git.cloudron.io/cloudron/box/issues" target="_blank">
-    <br/><i class="fa fa-bug fa-3x"></i><br/>
-    Report an Issue
-</a><a href="https://chat.cloudron.io" target="_blank">
-    <br/><i class="fa fa-terminal fa-3x"></i><br/>
-    Chat
-</a><a href="/installation/">
-    <br/><i class="fa fa-file-text-o fa-3x"></i><br/>
-    Install
-</a>
-</div>
