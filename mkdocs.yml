@@ -39,6 +39,8 @@ extra:
     text: 'Noto Sans'
     code: 'Ubuntu Mono'
   social:
+    - type: 'slack'
+      link: 'https://chat.cloudron.io'
     - type: 'gitlab'
       link: 'https://git.cloudron.io'
     - type: 'twitter'
