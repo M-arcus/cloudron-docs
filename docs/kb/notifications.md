@@ -1,4 +1,3 @@
 # Notifications
 
-## Low disk space
 

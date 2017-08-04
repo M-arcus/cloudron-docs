@@ -9,6 +9,8 @@ configuration.
 
 ## HTTP Security
 
+*   All apps on the Cloudron can only be reached by `https`. `http` automatically redirects
+    to `https`.
 *   Cloudron admin has a CSP policy that prevents XSS attacks.
 *   Cloudron set various security related HTTP headers like `X-XSS-Protection`, `X-Download-Options`,
     `X-Content-Type-Options`, `X-Permitted-Cross-Domain-Policies`, `X-Frame-Options` across all apps.

@@ -85,12 +85,12 @@ done within the application itself (for example, to change a user to become a
 
 * `Restrict to groups` - Only users in the groups can access the app.
 
-## Specifying another domain for an app
+## Specifying an external domain for an app
 
 Cloudron installs apps as subdomains of the domain provided during setup time.
 It is also possible to specify an entirely different domain for an app. An external
-domain is set in the app's configure dialog and entering the domain in the location
-dropdown.
+domain is set in the app's configure dialog by choosing `External Domain` in the 
+location dropdown.
 
 <img src="/img/app-external-domain-ip.png" class="shadow">
 

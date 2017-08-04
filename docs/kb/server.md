@@ -50,7 +50,8 @@ systemctl restart cloudron.target # this will download images all over, so give 
 
 ## Move the data directory to another location
 
-Cloudron's data directory can be moved from `/home/yellowtent/appsdata` to a new location as follows:
+Cloudron's data directory can be moved from `/home/yellowtent/appsdata` to a new location `DATA_DIR`
+as follows:
 
 ```
     systemctl stop cloudron.target
@@ -65,8 +66,18 @@ Cloudron's data directory can be moved from `/home/yellowtent/appsdata` to a new
     systemctl start cloudron.target
 ```
 
+**Note**: data directory must be an `ext4` filesystem.
+
 ## Resizing the server
 
 For VPS providers that support it, you can simply resize the server (cpu/disk/memory) and Cloudron will
 automatically adapt to the available resources after a server restart.
+
+## Debugging
+
+You can SSH into your Cloudron and collect logs:
+
+* `journalctl -a -u box` to get debug output of box related code.
+* `docker ps` will give you the list of containers. The addon containers are named as `mail`, `postgresql`,
+   `mysql` etc. If you want to get a specific container's log output, `journalctl -a CONTAINER_ID=<container_id>`.
 

@@ -8,12 +8,24 @@ adding users, configuring groups and installing apps.
 If you are an app developer, the [Cloudron CLI tool](https://www.npmjs.com/package/cloudron) implements a workflow that allows
 you to develop apps on your Cloudron. The CLI tool uses the REST API documented here.
 
-## API Origin
+## Using the Cloudron REST API
 
-The Cloudron API is available at the `my` subdomain of your Cloudron.
+The [Cloudron API](/references/API/) is available at the `my` subdomain of your Cloudron. To access
+the API, you need an access token. The Cloudron can create an access token from
+the `API Access` page.
 
-For example, if the Cloudron is on a custom domain, then this would be `https://my.customdomain.com`. If the
-Cloudron is on a `cloudron.me` subdomain, then this would be `https://my-demo.cloudron.me`.
+<img src="/img/access-token2.png" class="shadow">
+
+The access token can be provided via the request query `?access_token=<token>`.
+
+```
+curl -H "Content-Type: application/json" https://my.cloudron/api/v1/users?access_token=$TOKEN
+```
+
+Alternately, the token can be provided via the Authorization header using `Bearer <token>`.
+```
+curl -H "Content-Type: application/json" -H "Authorization: Bearer <token>" https://my.cloudron/api/v1/users
+```
 
 ## Authentication
 

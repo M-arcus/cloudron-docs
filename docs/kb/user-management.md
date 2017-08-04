@@ -1,5 +1,10 @@
 # User management
 
+## Single Sign-On
+
+An important feature of the Cloudron is Single Sign-On. You use the same username & password for logging in
+to all your apps. No more having to manage separate set of credentials for each service!
+
 ## Users
 
 You can invite new users (friends, family, colleagues) with their email address from the `Users` menu. They will
@@ -34,21 +39,4 @@ To set the access restriction use the app's configure dialog.
 <img src="/img/app_access_control.png" class="shadow">
 
 You can now send mails to `groupname@<domain>` to address all the group members.
-
-## Single Sign-On
-
-An important feature of the Cloudron is Single Sign-On. You use the same username & password for logging in
-to all your apps. No more having to manage separate set of credentials for each service!
-
-## OAuth Provider
-
-Cloudron is an OAuth 2.0 provider. To integrate Cloudron login into an external application, create
-an OAuth application under `API Access`.
-
-You can use the following OAuth URLs to add Cloudron in the external app:
-```
-authorizationURL: https://my.<domain>/api/v1/oauth/dialog/authorize
-
-tokenURL:         https://my.<domain>/api/v1/oauth/token
-```
 

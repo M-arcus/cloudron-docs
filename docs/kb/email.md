@@ -6,6 +6,17 @@ The Cloudron has a built-in email server. The primary email address is the same 
 and received from `<username>@<domain>`. The Cloudron does not allow masquerading - one user cannot send email
 pretending to be another user.
 
+Cloudron has a built-in email server. By default, it only sends out email on behalf of apps
+(for example, password reset or notification). You can enable the email server for sending
+and receiving mail on the `settings` page. This feature is only available if you have setup
+a DNS provider like Digital Ocean or Route53.
+
+Your server's IP plays a big role in how emails from our Cloudron get handled. Spammers
+frequently abuse public IP addresses and as a result your Cloudron might possibly start
+out with a bad reputation. The good news is that most IP based blacklisting services cool
+down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
+reputation should be easy to get back.
+
 ## Enabling Email
 
 By default, Cloudron's email server only allows apps to send email. To enable users to send and receive email,
@@ -102,8 +113,8 @@ Email section. Cloudron only supports relaying via the STARTTLS mechanism (usual
 
 Cloudron does not support creating a mailing list i.e a list that allows members to subscribe/unsubscribe.
 
-However, Cloudron supports creating internal mailing groups. Simply create a group and add users to it.
-Any mail addressed to the `group@domain` will be forwarded to all the users.
+However, Cloudron supports creating forwarding addresses. Simply create a group and add users to it.
+Any mail addressed to the `group@domain` will be sent to each user who is part of the group.
 
 ## Changing the FROM address of an app
 
@@ -167,4 +178,42 @@ Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.a
 *   Cloudron automatically sets up SPF, DMARC policies in the DNS for best email delivery.
 *   All incoming mail is scanned via `Spamassasin`.
 
+## Notifications
+
+The Cloudron will notify the Cloudron administrator via email if apps go down, run out of memory, low disk space,
+have updates available etc.
+
+You will have to setup a 3rd party service like [Cloud Watch](https://aws.amazon.com/cloudwatch/) or [UptimeRobot](http://uptimerobot.com/) to monitor the Cloudron itself. You can use `https://my.<domain>/api/v1/cloudron/status`
+as the health check URL.
+
+## Email check list
+
+* If you are unable to receive mail, first thing to check is if your VPS provider lets you
+  receive mail on port 25.
+
+    * Digital Ocean - New accounts frequently have port 25 blocked. Write to their support to
+      unblock your server.
+
+    * EC2, Lightsail & Scaleway - Edit your security group to allow email.
+
+* Setup a Reverse DNS PTR record to be setup for the `my` subdomain.
+  **Note:** PTR records are a feature of your VPS provider and not your domain provider.
+
+    * You can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
+
+    * AWS EC2 & Lightsail - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
+
+    * Digital Ocean - Digital Ocean sets up a PTR record based on the droplet's name. So, simply rename
+    your droplet to `my.<domain>`. Note that some new Digital Ocean accounts have [port 25 blocked](https://www.digitalocean.com/community/questions/port-25-smtp-external-access).
+
+    * Linode - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
+
+    * Scaleway - Edit your security group to allow email and [reboot the server](https://community.online.net/t/security-group-not-working/2096) for the change to take effect. You can also set a PTR record on the interface with your `my.<domain>`.
+
+* Check if your IP is listed in any DNSBL list [here](http://multirbl.valli.org/) and [here](http://www.blk.mx).
+  In most cases, you can apply for removal of your IP by filling out a form at the DNSBL manager site.
+
+* When using wildcard or manual DNS backends, you have to setup the DMARC, MX records manually.
+
+* Finally, check your spam score at [mail-tester.com](https://www.mail-tester.com/). The Cloudron
 
