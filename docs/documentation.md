@@ -2,58 +2,51 @@
 
 ## What is Cloudron?
 
-The Cloudron is the best platform self-hosting web applications on your server. You
-can easily install apps on it, add users, manage access restriction and keep your
-server and apps updated with no effort.
+The Cloudron is a platform that makes it easy to install and maintain apps on your server.
 
-You might wonder that there are so many 1-click app solutions out there and what is so special
-about Cloudron? As the name implies, 1-click installers simply install code into a server
-and leave it at that. There's so much more to do:
+You can install Cloudron on your server (from say AWS, Digital Ocean etc), give it a domain
+name and start installing apps. Behind the scenes, the Cloudron automates all the tasks around
+installation like configuring databases, DNS setup and Certificate management.
 
-1. Configure a domain to point to your server
-2. Setup SSL certificates and renew them periodically
-3. Ensure apps are backed up correctly
-4. Ensure apps are uptodate and secure
-5. Have a mechanism to quickly restore apps from a backup
-6. Manage users across all your apps
-7. Get alerts and notifications about the status of apps
+Cloudron provides a centralized way to manage users and specify which apps they can access.
 
-... and so on ...
+Cloudron has a backup solution that lets you backup and restore each app individually
+(compared to server snapshots). With Cloudron backups you can easily migrate your Cloudron 
+in it's entirety from one server provider to another in no time.
 
-We made the Cloudron to dramatically lower the bar for people to run apps on servers. Just provide
-a domain name, install apps and add users. All the server management tasks listed above is
-completely automated.
+## The Cloudron Store
 
-If you want to learn more about the secret sauce that makes the Cloudron, please read our
-[architecture overview](/references/architecture.html).
+The [Cloudron Store](https://cloudron.io/appstore.html) provides a mechanism for
+distribution and continuous update of apps. A good analogy for this is the Apple App Store for iOS or
+Google Play for Android. Anyone today can easily install apps on their phones and the apps are kept up-to-date.
+Cloudron does the same but for servers. You can easily install apps and receive continuous updates for
+the apps via the Cloudron Store.
 
-## Use cases
+<br/>
 
-Here are some of the apps you can run on a Cloudron:
+<center>
+<video width="640" height="360" controls>
+  <source src="/videos/cloudron-app-install.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</center>
 
-* RSS Reader
-* Chat, IRC, Jabber servers
-* Public forum
-* Blog
-* File syncing and sharing
-* Code hosting
-* Email
+## Motivation
 
-Our list of apps is growing everyday, so be sure to [follow us on twitter](https://twitter.com/cloudron_io).
+Say you want to run a web application like Wordpress, GitLab, Rocket.chat or even an email server.
+The first step is to start reading up installation manuals and configuring the server. Web apps today
+use multiple package managers, languages and frameworks making this process very tedious and complicated.
 
-## Understand
+Once the software is installed, DNS and SSL certificates have to be setup. If the server hosts
+multiple apps, one needs to make sure that apps do not interfere with each other, setup a
+reverse proxy and configure the firewall.
 
-Before installing the Cloudron, it is helpful to understand Cloudron's design. The Cloudron
-intends to make self-hosting effortless. It takes care of updates, backups, firewall, dns setup,
-certificate management etc. All app and user configuration is carried out using the web interface.
+Installation is just one hurdle though. The server and apps must be secured and backed up
+properly. Upstream releases must be tracked and updates must be applied on time.
 
-This approach to self-hosting means that the Cloudron takes complete ownership of the server and
-only tracks changes that were made via the web interface. Any external changes made to the server
-(i.e other than via the Cloudron web interface or API) may be lost across updates.
+As you can see, self-hosting web applications is error prone and time consuming. 1-click installers
+and docker files automate some of the above tasks but requires one to have the technical know how to
+complete the installation and put in the effort to keep it up-to-date.
 
-The Cloudron requires a domain name when it is installed. Apps are installed into subdomains.
-The `my` subdomain is special and is the location of the Cloudron web interface. For this to
-work, the Cloudron requires a way to programmatically configure the DNS entries of the domain.
-Note that the Cloudron will never overwrite _existing_ DNS entries and refuse to install
-apps on existing subdomains (so, it is safe to reuse an existing domain that runs other services).
+We, at Cloudron, want to fix just that!
 

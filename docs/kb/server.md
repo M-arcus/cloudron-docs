@@ -81,3 +81,7 @@ You can SSH into your Cloudron and collect logs:
 * `docker ps` will give you the list of containers. The addon containers are named as `mail`, `postgresql`,
    `mysql` etc. If you want to get a specific container's log output, `journalctl -a CONTAINER_ID=<container_id>`.
 
+## Kimsufi servers
+
+Be sure to check the "use the distribution kernel" checkbox in the personalized installation mode.
+

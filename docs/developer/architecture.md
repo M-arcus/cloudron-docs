@@ -17,6 +17,9 @@ Web applications like blogs, wikis, password managers, code hosting, document ed
 file syncers, notes, email, forums are a natural fit for the Cloudron. Decentralized "social"
 networks are also good app candidates for the Cloudron.
 
+Apps on the Cloudron
+are containerized using Docker and run isolated from one another.
+
 ## Image
 
 Application images are created using [Docker](https://www.docker.io). Docker provides a way

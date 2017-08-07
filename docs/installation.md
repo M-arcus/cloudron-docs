@@ -18,14 +18,11 @@ chmod +x cloudron-setup
     [hosttech](https://www.hosttech.ch/?promocode=53619290), [Linode](https://www.linode.com/?r=f68d816692c49141e91dd4cef3305da457ac0f75),
     [Rosehosting](https://secure.rosehosting.com/clientarea/?affid=661), [Vultr](http://www.vultr.com/?ref=7110116-3B).
 
-!!! attention "Kimsufi"
-    Be sure to check the "use the distribution kernel" checkbox in the personalized installation mode.
-
 ## Domain Setup
 
 Once the installation is complete, navigate to `https://<IP>` and accept the self-signed certificate.
 
-Provide a [second level domain](https://en.wikipedia.org/wiki/Second-level_domain) like `girish.in`
+Provide a [second level domain](https://en.wikipedia.org/wiki/Second-level_domain) like `smartserver.io`
 for the Cloudron. Cloudron will install apps as subdomain of this domain. It is safe to use a
 domain name that is already in use.
 
@@ -55,7 +52,7 @@ available in the profile section of your account.
 ### Digital Ocean DNS
 
 Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
-with read+write access and choose `Digital Ocean` as the DNS provider.
+with read+write access.
 
 ### Route 53 DNS
 
@@ -93,7 +90,7 @@ The `<hosted zone id>` below must be replaced with your zone's id which is avail
 ### Wildcard DNS
 
 For wildcard setup, add entries for `*.domain.com` and `domain.com` to point to your server's IP.
-For sending email, Cloudron required DKIM and SPF records to be setup as well. These records will
+For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
 be displayed in the UI post installation.
 
 ## Administrator Setup
@@ -111,9 +108,13 @@ The email id you enter here is used for password recovery and not sent anywhere 
     Cloudron will setup a Let's Encrypt account with the administrator's email. If this email
     is not valid, Let's Encrypt will not issue certificates.
 
-## Appstore Setup
+## Cloudron Store Setup
 
 You are now ready to start installing apps! When you click on the `App Store` link in the UI,
 you will be prompted to create a [cloudron.io](https://cloudron.io) account. This account is
 used to manage your subscription & billing.
+
+## Community
+
+Please join our <a href="https://chat.cloudron.io" target="_blank">chat</a> for any questions.
 

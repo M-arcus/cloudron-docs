@@ -160,3 +160,15 @@ It is possible to embed Cloudron apps into other websites. By default, this is d
 
 You can set a website that is allowed to embed your Cloudron app using the app's [Configure dialog](#configuration).
 Click on 'Show Advanced Settings...' and enter the embedder website name.
+
+## Installing Docker apps or other non-Cloudron apps
+
+Cloudrons approach to self-hosting means that it takes complete ownership of the server and only
+tracks changes that are made via the web interface. For this reason, Cloudron does not support
+installing apps via Docker or apt-get or snap. Any external changes made to the server (i.e other
+than via the Cloudron web interface or API) may be lost across updates and at worst, might confuse
+the Cloudron update mechanism putting your server at risk.
+
+The best way to workaround this is to package the apps as Cloudron apps. Apps that have a Dockerfile
+can be trivially packaged for the Cloudron.
+
