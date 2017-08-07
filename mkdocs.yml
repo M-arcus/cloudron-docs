@@ -5,28 +5,28 @@ copyright: 'Copyright &copy; 2015 - 2017 Cloudron UG'
 theme_dir: 'material/'
 pages:
   - 'Introduction': 'documentation.md'
-  - 'Installation': 'installation.md'
+  - 'Installation': 'documentation/installation.md'
   - 'Knowledge base':
-    - kb/apps.md
-    - 'Backup & Restore': kb/backups.md
-    - kb/certificates.md
-    - 'CLI': kb/cli.md
-    - kb/email.md
-    - kb/integrations.md
-    - kb/security.md
-    - kb/server.md
-    - kb/updates.md
-    - 'User & Groups': kb/user-management.md
+    - documentation/apps.md
+    - 'Backup & Restore': documentation/backups.md
+    - documentation/certificates.md
+    - 'CLI': documentation/cli.md
+    - documentation/email.md
+    - documentation/integrations.md
+    - documentation/security.md
+    - documentation/server.md
+    - documentation/updates.md
+    - 'User & Groups': documentation/user-management.md
   - 'Developer':
-    - developer/architecture.md
-    - developer/authentication.md
-    - developer/addons.md
-    - 'Base Image': developer/baseimage.md
-    - 'API': developer/api.md
-    - developer/button.md
-    - developer/manifest.md
-#    - developer/node.md
-    - developer/packaging.md
+    - documentation/developer/architecture.md
+    - documentation/developer/authentication.md
+    - documentation/developer/addons.md
+    - 'Base Image': documentation/developer/baseimage.md
+    - 'API': documentation/developer/api.md
+    - documentation/developer/button.md
+    - documentation/developer/manifest.md
+#    - documentation/developer/node.md
+    - documentation/developer/packaging.md
 extra_css:
   - 'stylesheets/extra.css'
 extra:
