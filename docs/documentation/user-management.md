@@ -2,41 +2,72 @@
 
 ## Single Sign-On
 
-An important feature of the Cloudron is Single Sign-On. You use the same username & password for logging in
-to all your apps. No more having to manage separate set of credentials for each service!
+Single Sign-on (SSO) is an important feature of the Cloudron where users can use the same credentials
+(username & password) for logging in to apps.
+
+SSO integration is a feature of the app and some apps do not support Cloudron SSO. Such apps manage their
+user credentials on their own and users have to be managed inside the app itself.
+
+When SSO is available for an app, the user management options will look like below:
+
+<center>
+<img src="/img/sso-available.png" class="shadow" width="600px">
+</center>
+
+When `Leave user management to the app` is selected, the app's Cloudron SSO integration will be disabled
+and all user management has to be carried from within the app. This is useful when the app primarily caters
+to external users (like say a community chat).
+
+When SSO integration is unavailable for an app, the user management options look like below:
+
+<center>
+<img src="/img/sso-unavailable.png" class="shadow" width="600px">
+</center>
 
 ## Users
 
-You can invite new users (friends, family, colleagues) with their email address from the `Users` menu. They will
-receive an invite to sign up with your Cloudron. They can now access the apps that you have given them access
-to.
+New users can be invited to the Cloudron with their email address from the `Users` menu. They will receive
+an invite to sign up. Once signed up, they can access the apps they have been given access to.
 
-<img src="/img/users.png" class="shadow">
+<center>
+<img src="/img/user-list.png" class="shadow" width="600px">
+</center>
 
 To remove a user, simply remove them from the list. Note that the removed user cannot access any app anymore.
 
-## Administrators
-
-A Cloudron administrator is a special right given to an existing Cloudron user allowing them to manage
-apps and users. To make another existing user an administator, click the edit (pencil) button corresponding to
-the user and check the `Allow this user to manage apps, groups and other users` checkbox.
-
-<img src="/img/administrator.png" class="shadow">
+When Cloudron email is enabled, each user also get's a [mailbox](/documentation/email/#how-cloudron-email-works)
+with their username.
 
 ## Groups
 
 Groups provide a convenient way to group users. It's purpose is two-fold:
 
 * You can assign one or more groups to apps to restrict who can access for an app.
-* Each group is a mailing list (forwarding address) constituting of it's members.
+* Each group is a [mailing list](/documentation/email/#creating-a-forwarding-mailbox)
+  constituting of it's members.
 
 You can create a group by using the `Groups` menu item.
 
-<img src="/img/groups.png" class="shadow">
+<center>
+<img src="/img/user-groups.png" class="shadow">
+</center>
 
 To set the access restriction use the app's configure dialog.
 
+<center>
 <img src="/img/app_access_control.png" class="shadow">
+</center>
 
 You can now send mails to `groupname@<domain>` to address all the group members.
+
+## Administrators
+
+A Cloudron administrator is a special right given to an existing Cloudron user allowing them to manage
+apps and users. To make another existing user an administator, click the edit (pencil) button corresponding to
+the user and check the `Make this user a Cloudron admin` checkbox.
+
+<center>
+<img src="/img/user-admin.png" class="shadow" width="600px">
+</center>
+
 
