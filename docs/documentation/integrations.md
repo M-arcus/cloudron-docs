@@ -4,8 +4,10 @@
 
 Cloudron REST API can be used as part of a Zapier or IFTTT workflow.
 
-Note that the Zapier POST action automatically coerces all values to strings. To workaround this,
-use the Custom Request action instead of the POST action.
+Note that the Zapier `POST action` automatically coerces all values to strings. This means that values
+like `null` automatically become the string `"null"`.
+
+To workaround this, use the `Custom Request action` instead of the `POST action`.
 
 Here's an example that works on the Cloudron:
 ```

@@ -2,19 +2,13 @@
 
 ## What is Cloudron CLI
 
-For sysadmins, the Cloudron CLI can be used to remote control apps on the Cloudron
-and scripting common actions from the PC/Mac. Some common use cases are:
+The Cloudron CLI can be used to remote control apps on the Cloudron
+and script common actions from the PC/Mac. Some common use cases are:
 
-* View logs of an application
+* Viewing logs of an application
 * 'shell' into the file system of an app using `cloudron exec` to make
    configuration changes.
-* Build and install applications from source
-
-For app developers, the Cloudron CLI implements a workflow to develop apps
-for the Cloudron.
-
-For Cloudron developers, the Cloudron CLI provides a mechanism to `hotfix` their
-Cloudron to run the latest code from git source code.
+* Building and installing application packages from source
 
 ## Installing Cloudron CLI
 
@@ -30,8 +24,8 @@ Node.js and npm can be installed by following the instructions
 Node 4.x.
 
 The Cloudron CLI is **NOT** intended to be installed on the Cloudron. The Cloudron
-CLI is not actively tested on Mac or Windows but is known to work with varying success.
-If you use Windows/Mac, we recommend using a VM.
+CLI is not actively tested on Windows but is known to work with varying success.
+If you use Windows, we recommend using a Linux VM instead.
 
 ## Updating Cloudron CLI
 
@@ -43,8 +37,7 @@ npm install -g cloudron@<version>
 
 ## Login using Cloudron CLI
 
-You must first authenticate against your Cloudron before using Cloudron CLI commands. You can
-login to the Cloudron as follows:
+Use the following command to connect Cloudron CLI to the Cloudron:
 
 ```
 cloudron login my.<domain>
