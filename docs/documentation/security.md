@@ -94,3 +94,13 @@ the apps on your Cloudron and also tracks configuration changes.
 Cloudron uses iptables to implement rate limits and block access to incoming ports. For this purpose,
 it uses the `CLOUDRON` and `CLOUDRON_RATELIMIT` chain.
 
+## Email security
+
+*   Cloudron checks against the [Zen Spamhaus DNSBL](https://www.spamhaus.org/zen/) before accepting mail.
+*   Email can only be accessed with IMAP over TLS (IMAPS).
+*   Email can only be relayed (including same-domain emails) by authenticated users using SMTP/STARTTLS.
+*   Cloudron ensures that `MAIL FROM` is the same as the authenticated user. Users cannot spoof each other.
+*   All outbound mails from Cloudron are `DKIM` signed.
+*   Cloudron automatically sets up SPF, DMARC policies in the DNS for best email delivery.
+*   All incoming mail is scanned via `Spamassasin`.
+

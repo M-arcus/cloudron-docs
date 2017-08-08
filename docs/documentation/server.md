@@ -85,3 +85,9 @@ You can SSH into your Cloudron and collect logs:
 
 Be sure to check the "use the distribution kernel" checkbox in the personalized installation mode.
 
+## Health check monitor
+
+You will have to setup a 3rd party service like [Cloud Watch](https://aws.amazon.com/cloudwatch/) or
+[UptimeRobot](http://uptimerobot.com/) to monitor the Cloudron itself. You can use
+`https://my.<domain>/api/v1/cloudron/status` as the health check URL.
+

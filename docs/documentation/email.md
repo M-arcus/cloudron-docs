@@ -2,60 +2,66 @@
 
 ## How Cloudron Email works
 
-The Cloudron has a built-in email server. The primary email address is the same as the username. Emails can be sent
-and received from `<username>@<domain>`. The Cloudron does not allow masquerading - one user cannot send email
-pretending to be another user.
+The Cloudron has a built-in email server. By default, this email server sends out mails
+on behalf of apps (for example, password reset or notification emails). The email server
+cannot also receive any mails for the domain.
 
-Cloudron has a built-in email server. By default, it only sends out email on behalf of apps
-(for example, password reset or notification). You can enable the email server for sending
-and receiving mail on the `settings` page. This feature is only available if you have setup
-a DNS provider like Digital Ocean or Route53.
+When `Cloudron Email` is enabled, the mail server allows users to send out emails via SMTP.
+It also allows users to receive emails via IMAP and configure mail filtering rules using
+WebSieve.
 
-Your server's IP plays a big role in how emails from our Cloudron get handled. Spammers
-frequently abuse public IP addresses and as a result your Cloudron might possibly start
-out with a bad reputation. The good news is that most IP based blacklisting services cool
-down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
-reputation should be easy to get back.
+With `Cloudron Email` enabled, each user gets a mailbox named after their username and can
+send and receive mails from `username@domain`. Each group `group@domain` is a mailing group
+that forwards email to it's members.
+
+The [Rainloop](https://cloudron.io/appstore.html?app=net.rainloop.cloudronapp) and
+[Roundcube](https://cloudron.io/appstore.html?app=net.roundcube.cloudronapp) apps are already
+pre-configured to use Cloudron Email.
 
 ## Enabling Email
 
-By default, Cloudron's email server only allows apps to send email. To enable users to send and receive email,
-turn on the option under `Settings`. Turning on this option also allows apps to _receive_ email.
+By default, Cloudron's email server only sends email on behalf of apps. To enable users to
+send and receive email, turn on the option under `Settings`.
 
-Once email is enabled, the Cloudron will keep the the `MX` DNS record updated.
+<center>
+<img src="/img/mail-enable.png" class="shadow">
+</center>
 
-<img src="/img/enable_email.png" class="shadow">
+When using one of the programmatic DNS backends like Route53, DigitalOcean or Route53, the
+Cloudron will automatically update the `MX`, `SPF`, `DKIM`, `DMARC` DNS records.
 
 ## Required ports for Cloudron Email
 
 The following TCP ports must be opened in the firewall for Cloudron to send email:
+
 * Port 25
 
 The following TCP ports must be opened in the firewall for Cloudron to receive email:
+
 * Port 25
 * Port 587 (SMTP/STARTTLS)
 * Port 993 (IMAPS)
 * Port 4190 (ManageSieve for email filters)
 
-## Receiving email using IMAP
+## IMAP settings for Cloudron Email
 
-Use the following settings to receive email.
+Use the following settings to receive email via IMAP:
 
   * Server Name - Use the `my` subdomain of your Cloudron
   * Port - 993
   * Connection Security - TLS
   * Username/password - Same as your Cloudron credentials
 
-## Sending email using SMTP
+## SMTP settings for Cloudron Email
 
-Use the following settings to send email.
+Use the following settings to send email via SMTP:
 
   * Server Name - Use the `my` subdomain of your Cloudron
   * Port - 587
   * Connection Security - STARTTLS
   * Username/password - Same as your Cloudron credentials
 
-## Configuring email filters using sieve
+## Sieve settings for Cloudron Email
 
 Use the following settings to setup email filtering users via Manage Sieve.
 
@@ -64,16 +70,16 @@ Use the following settings to setup email filtering users via Manage Sieve.
   * Connection Security - TLS
   * Username/password - Same as your Cloudron credentials
 
-The [Rainloop](https://cloudron.io/appstore.html?app=net.rainloop.cloudronapp) and [Roundcube](https://cloudron.io/appstore.html?app=net.roundcube.cloudronapp)
-apps are already pre-configured to use the above settings.
-
 ## Creating a mail alias
 
-You can configure one or more aliases alongside the primary email address of each
+One or more aliases can be configured alongside the primary email address of each
 user. You can set aliases by editing the user's settings, available behind the edit
-button in the user listing. Note that aliases cannot conflict with existing user names.
+button in the user listing. Note that aliases cannot conflict with existing user or
+group names.
 
-<img src="/img/email_alias.png" class="shadow">
+<center>
+<img src="/img/email_alias.png" class="shadow" width="600px">
+</center>
 
 Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead,
 add the alias as an identity in your mail client but login using the Cloudron credentials.
@@ -85,7 +91,9 @@ to non-existent addresses. You can forward such emails to one or more user mailb
 in the Email section. Note that if you do not select any mailbox (the default), Cloudron
 will send a bounce.
 
+<center>
 <img src="/img/catch-all-mailbox.png" width="500" class="shadow">
+</center>
 
 ## Subaddresses and tags
 
@@ -107,24 +115,21 @@ Cloudron can be configured to send all outbound email via Amazon SES, Google, Ma
 Sendgrid or any other external SMTP server. To setup a relay, enter the relay credentials in the
 Email section. Cloudron only supports relaying via the STARTTLS mechanism (usually port 587).
 
+<center>
 <img src="/img/email-relay.png" width=500 class="shadow">
+</center>
 
 ## Creating a mailing list
 
-Cloudron does not support creating a mailing list i.e a list that allows members to subscribe/unsubscribe.
+Cloudron does not support creating a mailing list (i.e) a list that allows members to
+subscribe/unsubscribe.
 
-However, Cloudron supports creating forwarding addresses. Simply create a group and add users to it.
+Cloudron does support creating forwarding addresses. Simply create a group and add users to it.
 Any mail addressed to the `group@domain` will be sent to each user who is part of the group.
-
-## Changing the FROM address of an app
-
-## Disabling FROM address validation
 
 ## Setting quota for a mailbox
 
 Cloudron does not support mailbox quotas.
-
-## Setting vacation mail
 
 ## Creating a forwarding mailbox
 
@@ -136,8 +141,6 @@ to `group@<domain>` and the mail will be sent to each user who is part of the gr
 The spam detection agent on the Cloudron requires training to identify spam.
 To do this, simply move your junk mails to a pre-created folder named `Spam`.
 Most mail clients have a Junk or Spam button which does this automatically.
-
-## Viewing mail server logs
 
 ## Setting rDNS, PTR record
 
@@ -151,7 +154,9 @@ For this reason, you must set the PTR record value to be `my.<domain>`.
 
 **The PTR record is set by your VPS provider and not by your DNS provider.**. For example,
 if your server was created in Digital Ocean, you must go to Digital Ocean to set the PTR
-record. We have collected a few links to help you set the PTR record for different VPS:
+record.
+
+We have collected a few links to help you set the PTR record for different VPS:
 
 * AWS EC2 & Lightsail - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
 
@@ -164,29 +169,24 @@ your droplet to `my.<domain>`.
 
 Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
 
-## Required DNS records for email
-
 ## Blacklisting domains and IPs for email
 
-## Email security
+Domains and IPs can be blacklisted on the mail server by editing files under
+`/home/yellowtent/platformdata/mail/haraka-config`. Note that these settings are part of
+the backup and thus persisted across migrations and restores.
 
-*   Cloudron checks against the [Zen Spamhaus DNSBL](https://www.spamhaus.org/zen/) before accepting mail.
-*   Email can only be accessed with IMAP over TLS (IMAPS).
-*   Email can only be relayed (including same-domain emails) by authenticated users using SMTP/STARTTLS.
-*   Cloudron ensures that `MAIL FROM` is the same as the authenticated user. Users cannot spoof each other.
-*   All outbound mails from Cloudron are `DKIM` signed.
-*   Cloudron automatically sets up SPF, DMARC policies in the DNS for best email delivery.
-*   All incoming mail is scanned via `Spamassasin`.
+* `connect.rdns_access.blacklist` - Add IP addresses here (one per line) to block IPs
+* `mail_from.access.blacklist` - Add mail addresses here (one per line) to block specific addresses
 
-## Notifications
+The mail server needs to be restarted using `docker restart mail` after editing the files
+above.
 
-The Cloudron will notify the Cloudron administrator via email if apps go down, run out of memory, low disk space,
-have updates available etc.
+## Email Notifications
 
-You will have to setup a 3rd party service like [Cloud Watch](https://aws.amazon.com/cloudwatch/) or [UptimeRobot](http://uptimerobot.com/) to monitor the Cloudron itself. You can use `https://my.<domain>/api/v1/cloudron/status`
-as the health check URL.
+The Cloudron will notify the Cloudron administrator via email if apps go down, run out of memory,
+low disk space, have updates available etc.
 
-## Email check list
+## Mail server setup check list
 
 * If you are unable to receive mail, first thing to check is if your VPS provider lets you
   receive mail on port 25.
@@ -216,4 +216,41 @@ as the health check URL.
 * When using wildcard or manual DNS backends, you have to setup the DMARC, MX records manually.
 
 * Finally, check your spam score at [mail-tester.com](https://www.mail-tester.com/). The Cloudron
+
+Finally, the server's IP plays a big role in how emails from our Cloudron get handled. Spammers
+frequently abuse public IP addresses and as a result your server might possibly start
+out with a bad reputation. The good news is that most IP based blacklisting services cool
+down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
+reputation should be easy to get back.
+
+## Changing the FROM address of an app
+
+By default, Cloudron allocates the `location.app@domain` mailbox for each installed app. When
+an app sends an email, the FROM address is set to `location.app@domain`. The mailbox name
+can be changed by modifying the database. For example, to change the `chat.app@domain` address
+of an app to be just `chat`, use the following command:
+
+```
+mysql -uroot -ppassword box -e "UPDATE mailboxes SET name='chat' WHERE name='chat.app'";
+```
+
+After the command above is executed, trigger a re-configure of the app from the UI using
+the `configure` button and clicking `Save` (don't have to change anything).
+
+## Disabling FROM address validation
+
+By default, the Cloudron does not allow masquerading - one user cannot send email pretending
+to be another user.
+
+This can be disabled using the [API](/documentation/developer/api/#set-mail-from-validation).
+
+## Setting vacation mail
+
+An out of office / vacation mail message can be setup using Sieve filters. When using
+Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filter` -> `Vacation message` action.
+
+<center>
+<img src="/img/email-vacation-message.png" class="shadow" width="600px">
+</center>
+
 
