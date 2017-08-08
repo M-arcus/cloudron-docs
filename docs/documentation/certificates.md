@@ -3,23 +3,30 @@
 ## Lets Encrypt integration
 
 Cloudron integrates with [Let's Encrypt](http://letsencrypt.org/) to install
-TLS certificates for apps automatically. It also renews certificates automatically.
+TLS certificates for apps automatically. Certificates are renewed automatically.
+A failure notification is sent to the Cloudron administrators if renewal fails.
 
 Cloudron utilizes the `http-01` scheme to validate the domain with Lets Encrypt (this
-scheme involves provisioning an HTTP resource under a well-known URI).
+scheme involves provisioning an HTTP resource under a well-known URI). For this reason,
+the server's incoming port 80 must be kept open.
 
 ## Automatic renewal of Let's Encrypt certificates
 
-Cloudron attempts to start renewing certificates automatically about 1 month before expiry of the
+Cloudron attempts to start renewing certificates automatically 1 month before expiry of the
 certificate. If it fails to renew, it will send a notification email to the Cloudron administrators.
 If the Cloudron admin does not take any action (after getting reminded 30 times), Cloudron will start
 using fallback certificates for the app.
 
+## Manually renewing Let's Encrypt certificate
+
+Cloudron can sporadically fail to get Let's Encrypt certificates (for example, Let's Encrypt is down).
+To manually trigger the renewal, open the app's configure dialog and `Save` without making any changes.
+
 ## Revokation of Let's Encrypt Certificate
 
-Cloudron does not revoke certificates when an app is installed. Instead it keeps the
-certificate, so that it can simply be reused if another app is installed in the same
-subdomain. This allows you to install apps for testing in the same location, say 'test',
+Cloudron does not revoke certificates when an app is uninstalled. Instead, it retains the
+certificate, so that it can be reused if another app is installed in the same
+subdomain. This allows you to install apps for testing in the same location, say `test`,
 and not have to worry about running over the Let's Encrypt rate limit.
 
 ## Limitations of Let's Encrypt
@@ -36,14 +43,21 @@ When using Let's Encrypt, please be aware of the following:
 ## Setting fallback wildcard certificates
 
 Cloudron generates a self-signed certificates that it uses as the fallback should it fail
-to install or renew Let's Encrypt certificate. The fallback certificates can be set in the
-`Domains & Certs` settings page. Note that this certificate must be a wildcard certificate
-for the domain.
+to install or renew Let's Encrypt certificate. The auto-generated fallback certificate
+can be replaced with a custom wildcard certificate in the `Domains & Certs` page.
+
+<br/>
+
+<center>
+<img src="/img/cert-fallback.png" class="shadow" width="600px">
+</center>
 
 ## Setting custom per-application certificates
 
-It is possible to set a custom certificate for each installed application. This can be achieved
-by using the [REST API](/references/api/#configure-app).
+Custom certificates can be set for each installed application. This can be used to set an
+Extended Validation (EV) certificate for an app.
+
+This can be achieved by using the [REST API](/documentation/developer/api/#configure-app).
 
 ## Common reasons for Let's Encrypt Certificate failure
 
