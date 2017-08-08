@@ -2,68 +2,78 @@
 
 ## Installing an app
 
-You can install apps on the Cloudron by choosing the `App Store` menu item. Use the 'Search' bar
-to search for apps.
+Apps can be installed from the `App Store` menu item. Clicking on an app will display
+information about the app.
 
-Clicking on app gives you information about the app.
+<center>
+<img src="/img/app_info.png" class="shadow" width="600px">
+</center>
 
-<img src="/img/app_info.png" class="shadow">
+<br/>
 
 Clicking the `Install` button will show an install dialog like below:
 
-<img src="/img/app_install.png" class="shadow">
+<center>
+<img src="/img/app_install.png" class="shadow" width="600px">
+</center>
+
+<br/>
 
 The `Location` field is the subdomain in which your app will be installed. For example, if you use the
-`mail` location for your web mail client, then it will be accessible at `mail.<domain>`.
+`chat` location for Rocket.Chat, then it will be installed at `chat.domain.com`. If the subdomain field
+is empty, the app will be installed at `domain.com`.
 
-Tip: You can access the apps directly on your browser using `mail.<domain>`. You don't have to
-visit the Cloudron administration panel.
+## Moving an app to another subdomain
 
-## Moving an application to another subdomain
+Click on the wrench button will bring up the configure dialog:
 
-Click on the wrench button will bring up the configure dialog.
-
+<center>
 <img src="/img/app_configure_button.png" class="shadow">
+</center>
 
+Changing the location in the location input box will move the app to another subdomain:
+
+<center>
 <img src="/img/app_configure.png" class="shadow">
+</center>
 
 Changing an app's configuration has a small downtime (usually about a minute).
 
-## Restoring an app from existing backup
+## Specifying an external domain for an app
 
-Apps can be restored to a previous backup by clicking on the `Restore` button.
+Cloudron installs apps as subdomains of the domain provided during setup time.
+It is also possible to specify an entirely different domain for an app. An external
+domain is set in the app's configure dialog by choosing `External Domain` in the 
+location dropdown.
 
-<img src="/img/app_restore_button.png" class="shadow">
+<center>
+<img src="/img/app-external-domain-ip.png" class="shadow" width="600px">
+</center>
 
-Note that restoring previous data might also restore the previous version of the software. For example, you might
-be currently using Version 5 of the app. If you restore to a backup that was made with Version 3 of the app, then the restore
-operation will install Version 3 of the app. This is because the latest version may not be able to handle old data.
+This dialog will suggest adding a CNAME record (for subdomains) or an A record (for
+naked domains). Once you setup a record with your DNS provider, the app will be accessible
+from that external domain.
 
-## Uninstall an app
-
-You can uninstall an app by clicking the `Uninstall` button.
-
-<img src="/img/app_uninstall_button.png" class="shadow">
-
-Note that all data associated with the app will be immediately removed from the Cloudron. App data might still
-persist in your old backups and the [CLI tool](https://git.cloudron.io/cloudron/cloudron-cli) provides a way to
-restore from those old backups should it be required.
+**NOTE:** The external domain is set in the app's configure dialog _after_ installing the
+app in a subdomain. For the curious, this is done so that we can 'reserve' a DNS record
+to CNAME to.
 
 ## Increasing the memory limit of an app
 
-All Cloudron apps are run with a memory limit. This ensures that no app
-can bring down the whole Cloudron. The default memory limit of an app
-is set by the app author at packaging time. This limit is usually the
-minimum amount of memory required for the app. Cloudron admins are expected
-to tweak the memory limit of an app based on their usage.
+All apps are run with a memory limit to ensure that no app can bring down the whole
+Cloudron. The default memory limit of an app is set by the app author at packaging
+time. This limit is usually the minimum amount of memory required for the app.
+Cloudron admins are expected to tweak the memory limit of an app based on their usage.
 
-When an app runs out of memory, Cloudron automatically restarts it and
-sends an OOM email notification to Cloudron admins.
+When an app runs out of memory, Cloudron automatically restarts it and sends an OOM
+email notification to Cloudron admins.
 
 The memory limit can be set by adjusting the slider in the Configure dialog's
 `Advanced Setting` section.
 
+<center>
 <img src="/img/app-memory-slider.png" class="shadow">
+</center>
 
 ## Restricting app access to specific users
 
@@ -75,37 +85,79 @@ Note that Cloudron only handles authentication. Assigning roles to users is
 done within the application itself (for example, to change a user to become a
 `commenter` or `author` or some other app specific role).
 
-<img src="/img/configure-group-acl.png" class="shadow">
+<center>
+<img src="/img/app-configure-group-acl.png" class="shadow">
+</center>
 
-* `Every Cloudron user` - Any user in your Cloudron can access the app. Initially, you are the only
-   user in your Cloudron. Unless you explicitly invite others, nobody else can access these apps.
-   Note that the term 'access' depends on the app. For a blog, this means that nobody can post new
-   blog posts (but anybody can view them). For a chat server, this might mean that nobody can access
-   your chat server.
-
+* `Every Cloudron user` - Any user in your Cloudron can access the app. 
 * `Restrict to groups` - Only users in the groups can access the app.
 
-## Specifying an external domain for an app
+## Indexing by search engines (robots.txt)
 
-Cloudron installs apps as subdomains of the domain provided during setup time.
-It is also possible to specify an entirely different domain for an app. An external
-domain is set in the app's configure dialog by choosing `External Domain` in the 
-location dropdown.
+The `Robots.txt` file is a file served from the root of a website to indicate which parts must be indexed by a search
+engine. The file follows the [Robots Exclusion Standard](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
+Google has an [excellent document](https://developers.google.com/search/reference/robots_txt) about the semantics.
 
-<img src="/img/app-external-domain-ip.png" class="shadow">
+The robots.txt contents of an app can be set in the `Advanced settings` of the app's configure dialog.
 
-This dialog will suggest adding a CNAME record (for subdomains) or an A record (for
-naked domains). Once you setup a record with your DNS provider, the app will be accessible
-from that external domain. Cloudron will automatically get an Lets Encrypt certificate
-for the external domain.
+By default, Cloudron does not setup a robots.txt for apps. When unset, the app is free to provide it's own robots.txt.
 
-**NOTE:** You can set the external domain only after installing the app in a subdomain.
-(For the curious, this is done so that we can 'reserve' a DNS record to CNAME to).
+<center>
+<img src="/img/app-robots-txt.png" class="shadow">
+</center>
+
+In addition, the Cloudron admin page has a hardcoded robots.txt that disables indexing:
+```
+User-agent: *
+Disallow: /
+```
+
+## Embedding Apps
+
+Cloudron apps can be embedded into other websites by setting `X-Frame-Options`. By default, this HTTP header is set to
+`SAMEORIGIN` to prevent [Clickjacking](https://cloudron.io/blog/2016-07-15-site-embedding.html).
+
+To allow embedding, enter the embedder website name in the `Advanced settings` of the app's configure dialog.
+
+For example, to embed the live chat application hosted on `chat.domain.com` into `www.domain.com`, enter the value
+`https://www.domain.com` in the `chat` app's configure dialog.
+
+<center>
+<img src="/img/app-embed-url.png" class="shadow">
+</center>
+
+## Restoring an app from existing backup
+
+Apps can be restored to a previous backup by clicking on the `Restore` button.
+
+<center>
+<img src="/img/app_restore_button.png" class="shadow">
+</center>
+
+Select the backup you want to restore to:
+
+<center>
+<img src="/img/app-select-backup.png" class="shadow">
+</center>
+
+Restoring will also revert the code to the version that was running when the backup was created. This is because the
+current version of the app may not be able to handle old data.
+
+## Uninstall an app
+
+You can uninstall an app by clicking the `Uninstall` button.
+
+<center>
+<img src="/img/app_uninstall_button.png" class="shadow">
+</center>
+
+Uninstalling an app immediately remove all data associated with the app from the Cloudron. Note that app backups are
+not removed and will only be cleaned up based on the backup retention period.
 
 ## Redirecting www domain
 
 To redirect the bare domain to `www` (or `www` to the bare domain), we recommend installing
-the `LAMP` app and setting up a ``.htaccess` file based redirect.
+the `LAMP` app and setting up a `.htaccess` file based redirect.
 
 For example, to redirect `www` to the bare domain:
 
@@ -118,25 +170,6 @@ $ echo "redirect 301 / https://domain.com/" > /app/data/public/.htaccess
 ```
 
 This also preserves any URI components like subpaths in the original request.
-
-## Indexing by search engines (robots.txt)
-
-The `Robots.txt` file is a file served from the root of a website to indicate which parts must be indexed by a search
-engine. The file follows the [Robots Exclusion Standard](https://en.wikipedia.org/wiki/Robots_exclusion_standard).
-Google has an [excellent document](https://developers.google.com/search/reference/robots_txt) about the semantics.
-
-You can set the robots.txt contents of an app in the Advanced settings of the app's configure dialog.
-
-By default, Cloudron does not setup a robots.txt for apps. The app is free to provide it's own robots.txt. A custom
-robots.txt can be setup from the app's configure dialog.
-
-<img src="/img/robots-txt.png" class="shadow">
-
-In addition, the Cloudron admin page has a hardcoded robots.txt that disables indexing:
-```
-User-agent: *
-Disallow: /
-```
 
 ## Graphs
 
@@ -153,17 +186,9 @@ on the graph to see the memory consumption over time in the chart below it.
 The `System` Memory graph shows the overall memory consumption on the entire Cloudron. If you see
 the Free memory < 50MB frequently, you should consider upgrading to a Cloudron with more memory.
 
-## Embedding Apps
-
-It is possible to embed Cloudron apps into other websites. By default, this is disabled to prevent
-[Clickjacking](https://cloudron.io/blog/2016-07-15-site-embedding.html).
-
-You can set a website that is allowed to embed your Cloudron app using the app's [Configure dialog](#configuration).
-Click on 'Show Advanced Settings...' and enter the embedder website name.
-
 ## Installing Docker apps or other non-Cloudron apps
 
-Cloudrons approach to self-hosting means that it takes complete ownership of the server and only
+Cloudron's approach to self-hosting means that it takes complete ownership of the server and only
 tracks changes that are made via the web interface. For this reason, Cloudron does not support
 installing apps via Docker or apt-get or snap. Any external changes made to the server (i.e other
 than via the Cloudron web interface or API) may be lost across updates and at worst, might confuse
