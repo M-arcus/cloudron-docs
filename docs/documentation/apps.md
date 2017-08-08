@@ -126,23 +126,6 @@ For example, to embed the live chat application hosted on `chat.domain.com` into
 <img src="/img/app-embed-url.png" class="shadow">
 </center>
 
-## Restoring an app from existing backup
-
-Apps can be restored to a previous backup by clicking on the `Restore` button.
-
-<center>
-<img src="/img/app_restore_button.png" class="shadow">
-</center>
-
-Select the backup you want to restore to:
-
-<center>
-<img src="/img/app-select-backup.png" class="shadow">
-</center>
-
-Restoring will also revert the code to the version that was running when the backup was created. This is because the
-current version of the app may not be able to handle old data.
-
 ## Uninstall an app
 
 You can uninstall an app by clicking the `Uninstall` button.

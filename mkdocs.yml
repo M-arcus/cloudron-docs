@@ -8,7 +8,7 @@ pages:
   - 'Installation': 'documentation/installation.md'
   - 'Knowledge base':
     - documentation/apps.md
-    - 'Backup & Restore': documentation/backups.md
+    - documentation/backups.md
     - documentation/certificates.md
     - 'CLI': documentation/cli.md
     - documentation/email.md
