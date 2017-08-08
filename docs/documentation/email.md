@@ -186,6 +186,10 @@ above.
 The Cloudron will notify the Cloudron administrator via email if apps go down, run out of memory,
 low disk space, have updates available etc.
 
+The Cloudron administrators will receive a weekly digest email about all the activities on
+the Cloudron. At the time of this writing, the email sends out information about pending and
+applied updates.
+
 ## Mail server setup check list
 
 * If you are unable to receive mail, first thing to check is if your VPS provider lets you

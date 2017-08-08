@@ -55,3 +55,9 @@ an update. Should the backup creation fail, the update will not be performed.
 
 In the unlikely case an update fails, it can be [restored from the backup](documentation/backups/#restoring-cloudron-from-a-backup).
 
+## What happens when subscription is stopped
+
+When you cancel the subscription, the Cloudron and installed apps stop receiving updates.
+The server and the apps will continue to run forever. The subscription may be renewed at
+any time (we may contact you if we notice that you regularly cancel and renew your subscription).
+
