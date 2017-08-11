@@ -66,6 +66,8 @@ as follows:
     systemctl start cloudron.target
 ```
 
+If the disk graph does not display properly, do a `systemctl restart collectd`.
+
 **Note**: data directory must be an `ext4` filesystem.
 
 ## Resizing the server
