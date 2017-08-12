@@ -27,6 +27,7 @@ pages:
     - documentation/developer/manifest.md
 #    - documentation/developer/node.md
     - documentation/developer/packaging.md
+  - 'Managed Hosting': 'documentation/managed-hosting.md'
 extra_css:
   - 'stylesheets/extra.css'
 extra:
