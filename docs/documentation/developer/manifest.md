@@ -49,18 +49,19 @@ Type: object
 Required: no
 
 Allowed keys
-* [email](addons.html#email)
-* [ldap](addons.html#ldap)
-* [localstorage](addons.html#localstorage)
-* [mongodb](addons.html#mongodb)
-* [mysql](addons.html#mysql)
-* [oauth](addons.html#oauth)
-* [postgresql](addons.html#postgresql)
-* [recvmail](addons.html#recvmail)
-* [redis](addons.html#redis)
-* [sendmail](addons.html#sendmail)
 
-The `addons` object lists all the [addons](addons.html) and the addon configuration used by the application.
+* [email](/documentation/developer/addons/#email)
+* [ldap](/documentation/developer/addons/#ldap)
+* [localstorage](/documentation/developer/addons/#localstorage)
+* [mongodb](/documentation/developer/addons/#mongodb)
+* [mysql](/documentation/developer/addons/#mysql)
+* [oauth](/documentation/developer/addons/#oauth)
+* [postgresql](/documentation/developer/addons/#postgresql)
+* [recvmail](/documentation/developer/addons/#recvmail)
+* [redis](/documentation/developer/addons/#redis)
+* [sendmail](/documentation/developer/addons/#sendmail)
+
+The `addons` object lists all the [addons](/documentation/developer/addons/) and the addon configuration used by the application.
 
 Example:
 ```
