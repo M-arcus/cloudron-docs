@@ -212,7 +212,7 @@ To restore a Cloudron from a specific backup:
 
   * `File system` - When storing backups in `/var/backups`, you have to make the box and the app backups available to the new Cloudron instance's `/var/backups`. This can be achieved in a variety of ways depending on the situation: like scp'ing the backup files to the new machine before Cloudron installation OR mounting an external backup hard drive into the new Cloudron's `/var/backup` OR downloading a copy of the backup using `cloudron machine backup download` and uploading them to the new machine. After doing so, pass `file:///var/backups/<path to box backup>` as the `--restore-url` below.
 
-* Create a new Cloudron by following the [installing](/references/selfhosting.html#installing) section.
+* Create a new Cloudron by following the [installing](/documentation/installation/) section.
   When running the setup script, pass in the `version`, `encryption-key`, `domain` and `restore-url` flags.
   The `version` field is the version of the Cloudron that the backup corresponds to (it is embedded
   in the backup file name).

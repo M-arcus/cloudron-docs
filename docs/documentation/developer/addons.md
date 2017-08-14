@@ -4,11 +4,11 @@
 
 Addons are services like database, authentication, email, caching that are part of the
 Cloudron runtime. Setup, provisioning, scaling and maintanence of addons is taken care of
-by the runtime.
+by the platform.
 
 The fundamental idea behind addons is to allow sharing of Cloudron resources across applications.
 For example, a single MySQL server instance can be used across multiple apps. The Cloudron
-runtime sets up addons in such a way that apps are isolated from each other.
+platform sets up addons in such a way that apps are isolated from each other.
 
 ## Using Addons
 
@@ -183,7 +183,7 @@ AuthorizationURL = ${API_ORIGIN}/api/v1/oauth/dialog/authorize # see above for A
 TokenURL = ${API_ORIGIN}/api/v1/oauth/token
 ```
 
-The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/references/api.html#profile). This restriction
+The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/documentation/developer/api/#profile). This restriction
 is so that apps cannot make undesired changes to the user's Cloudron.
 
 The access token can be provided either via the request query `?access_token=<token>` or in the `Authorization` header using `Bearer <token>`.

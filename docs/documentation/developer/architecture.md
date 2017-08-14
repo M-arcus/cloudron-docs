@@ -13,13 +13,6 @@ file specifies application runtime requirements like database type and authentic
 It also provides meta information for display purposes in the [Cloudron Store](/appstore.html)
 like the title, icon and pricing.
 
-Web applications like blogs, wikis, password managers, code hosting, document editing,
-file syncers, notes, email, forums are a natural fit for the Cloudron. Decentralized "social"
-networks are also good app candidates for the Cloudron.
-
-Apps on the Cloudron
-are containerized using Docker and run isolated from one another.
-
 ## Image
 
 Application images are created using [Docker](https://www.docker.io). Docker provides a way
@@ -31,11 +24,12 @@ Application images are instantiated as `containers`. Cloudron can run one or mor
 of the same application as one or more containers.
 
 Containerizing your application provides the following benefits:
+
 * Apps run in the familiar environment that they were packaged for and can have libraries
 and packages that are independent of the host OS.
 * Containers isolate applications from one another.
 
-The [base image](/references/baseimage.html) is the parent of all app images.
+The [base image](/documentation/developer/baseimage) is the parent of all app images.
 
 ## Cloudron Manifest
 
@@ -43,18 +37,20 @@ Each app provides a `CloudronManifest.json` that specifies information required 
 `Cloudron Store` and for the installation of the image in the Cloudron.
 
 Information required for container installation includes:
+
 * List of `addons` like databases, caches, authentication mechanisms and file systems
 * The http port on which the container is listening for incoming requests
 * Additional TCP ports on which the application is listening to (for e.g., git, ssh,
 irc protocols)
 
 Information required for the Cloudron Store includes:
+
 * Unique App Id
 * Title
 * Version
 * Logo
 
-See the [manifest reference](/references/manifest.html) for more information.
+See the [manifest reference](/documentation/developer/manifest) for more information.
 
 ## Addons
 
@@ -68,7 +64,7 @@ sets up addons in such a way that apps are isolated from each other.
 
 Addons are opt-in and must be specified in the Cloudron Manifest. When the app runs, environment
 variables contain the necessary information to access the addon. See the
-[addon reference](/references/addons.html) for more information.
+[addon reference](/documenation/developer/addons) for more information.
 
 ## Authentication
 
@@ -76,14 +72,22 @@ The Cloudron provides a centralized dashboard to manage users, roles and permiss
 do not create or manage user credentials on their own and instead use one of the various
 authentication strategies provided by the Cloudron.
 
-Authentication strategies include OAuth 2.0, LDAP or Simple Auth. See the
-[Authentication Reference](/references/authentication.html) for more information.
+Authentication strategies include [OAuth 2.0](/documentation/developer/addons/#oauth)
+or [LDAP](/documentation/developer/addons/#ldap).
 
 Authorizing users is application specific and it is only authentication that is delegated to the
 Cloudron.
 
-## Cloudron App Library
+## Platform Diagram
 
-Cloudron App Library provides a market place to publish your app.
-Submitting to the app library enables any Cloudron user to discover and install your application with a few clicks.
+<center>
+<img src="/blog/img/cloudron-architecture.svg" width="80%">
+</center>
+
+
+## Cloudron Store
+
+The Cloudron Store provides a mechanism for distribution and continuous update of apps. A good analogy
+for this is the Apple App Store on iOS or Google Play on Android. App developers can publish apps to the
+Cloudron Store and deliver continous updates for their apps.
 

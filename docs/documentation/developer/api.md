@@ -10,7 +10,7 @@ you to develop apps on your Cloudron. The CLI tool uses the REST API documented 
 
 ## Using the Cloudron REST API
 
-The [Cloudron API](/references/API/) is available at the `my` subdomain of your Cloudron. To access
+The Cloudron API is available at the `my` subdomain of your Cloudron. To access
 the API, you need an access token. The Cloudron can create an access token from
 the `API Access` page.
 
@@ -89,7 +89,7 @@ apps that are not published on the Cloudron Store, skip this field and provide a
 with an `appStoreId` will automatically be kept up-to-date as newer version of the app are published on the
 store.
 
-`manifest` is the [manifest](https://cloudron.io/references/manifest.html) of the app to be installed. This
+`manifest` is the [manifest](/documentation/developer/manifest/) of the app to be installed. This
 is only required if `appStoreId` is not provided. Apps with a manifest won't receive automatic updates.
 
 `location` is the subdomain on which the app is installed. This can be empty if the app was installed on the naked domain.
@@ -129,7 +129,7 @@ Response (200):
 }
 ```
 
-On success, the installation progress can be tracked by polling [installationProgress](/references/api.html#get-app).
+On success, the installation progress can be tracked by polling [installationProgress](#get-app).
 
 Curl example to install Gogs app at subdomain git-demo.cloudron.me:
 ```
@@ -186,7 +186,7 @@ Response (200):
 
 `appStoreId` is the Cloudron Store id of this application. Cloudron will use this id to look for updates to this application. This can be null if none was provided at installation time.
 
-`manifest` is the [Cloudron Manifest](/references/manifest.html) of the app.
+`manifest` is the [Cloudron Manifest](/documentation/developer/manifest/) of the app.
 
 `installationState` is one of the values below:
 * `pending_install` - The app is being installed. Use the `installationProgress` field to track the progress.
@@ -222,9 +222,9 @@ If null, any user of this Cloudron can access this app. Note that the `accessRes
 is integrated with Cloudron Authentication.
 
 
-`lastBackupId` is the last valid backup id. The [restore API](/references/api.html#restore-app) can be used to restore the app to this backup.
+`lastBackupId` is the last valid backup id. The [restore API](#restore-app) can be used to restore the app to this backup.
 
-`manifest` is the [application manifest](/references/manifest.html).
+`manifest` is the [application manifest](/documentation/developer/manifest/).
 
 For apps that support optional single sign-on, the `sso` field can be used to disable Cloudron authentication. By default, single sign-on is enabled.
 
@@ -281,7 +281,7 @@ POST `/api/v1/apps/:appId/backup` <scope>admin</scope>
 
 Starts a backup of the application with id `appId`.
 
-The backup progress can be tracked by polling the value of [installationProgress](/references/api.html#get-app).
+The backup progress can be tracked by polling the value of [installationProgress](#get-app).
 
 #### List app backups
 
@@ -289,7 +289,7 @@ GET `/api/v1/apps/:appId/backups` <scope>admin</scope>
 
 Gets the backups of the application with id `appId`.
 
-Use the [Backup](/references/api.html#download-backup) API to download the backup. Use the [Clone](/references/api.html#clone) API to create another instance of this app from a backup.
+Use the [Backup](#download-backup) API to download the backup. Use the [Clone](#clone-app) API to create another instance of this app from a backup.
 
 Response (200):
 
@@ -323,7 +323,7 @@ Request:
 }
 ```
 
-`backupId` is an id from the [list app backups](/references/api.html#list-app-backups) API.
+`backupId` is an id from the [list app backups](#list-app-backups) API.
 
 Note that app backups are tied to the app's version (see the `version` field of the backup). So, restoring
 an app may result in reverting the app to a previous version.
@@ -347,7 +347,7 @@ Request:
 }
 ```
 
-`backupId` is an id from the [list app backups](/references/api.html#list-app-backups) API.
+`backupId` is an id from the [list app backups](#list-app-backups) API.
 
 `location` is a subdomain for the cloned app and will result in a 409 in case of a conflict.
 
@@ -361,7 +361,7 @@ Response(201):
     }
 ```
 
-The clone progress can be tracked by polling the value of [installationProgress](/references/api.html#get-app).
+The clone progress can be tracked by polling the value of [installationProgress](#get-app).
 Be sure to use the `id` of the new app returned above and not the original app's id.
 
 #### Get logs
@@ -442,7 +442,7 @@ Request:
     robotsTxt: <string>             // robots.txt file content
 ```
 
-All values are optional. See [Install app](/references/api.html#install-app) API for field descriptions.
+All values are optional. See [Install app](#install-app) API for field descriptions.
 
 #### Update app
 
@@ -452,7 +452,7 @@ Updates an app with id `appId`.
 
 Updating an app updrades (or downgrades) the app preserving existing data. To be safe, the update process
 makes a backup of existing app data first before updating the app. This allow you to
-[restore the app](/references/api.html#restore-app) should the upgrade fail.
+[restore the app](#restore-app) should the upgrade fail.
 
 Only apps that are installed, running and responding to health checks can generate a consistent back up.
 For this reason, it is not possible to update apps that are in any other state. To override this, use
@@ -490,7 +490,7 @@ each update, the app is backed up so that it may be restored easily in case of a
 `force` can be used to force an update even if the app is in a state which prevents an update. This is
 useful during app development, where you can force a crashed app to update to the latest code.
 
-The update progress can be tracked by polling the value of [installationProgress](/references/api.html#get-app).
+The update progress can be tracked by polling the value of [installationProgress](#get-app).
 
 Curl example to update Gogs to a new version 0.13.0:
 ```
@@ -602,7 +602,7 @@ POST  `/api/v1/backups` <scope>admin</scope>
 
 Schedules a complete backup of the Cloudron.
 
-Use the [Progress API](/references/api.html#get-progress) to track the progress of the backup.
+Use the [Progress API](#get-progress) to track the progress of the backup.
 
 #### List backups
 
@@ -612,7 +612,7 @@ Lists the existing `box` backups.
 
 The Cloudron has two types of backups:
 * `app` backups - Each app is backed up individually. This approach allows one to restore each app
-independently of other apps. Use the [app backup API](/references/api.html#list-app-backups), if
+independently of other apps. Use the [app backup API](#list-app-backups), if
 you want to list the backups of a specific app.
 * `box` backups - The Cloudron backs up certificates, user information, settings separately. This
 backup contains a (virtual) link to all the app backups .
@@ -696,7 +696,7 @@ If no new version is available, the response code will be 422.
 Some actions and events on the Cloudron like backups, app installs may block the Cloudron from updating.
 In such a case, the response code will be 409.
 
-If the update request was accepted, the response code will be 202. Use the [Progress API](/references/api.html#get-progress)
+If the update request was accepted, the response code will be 202. Use the [Progress API](#get-progress)
 to track the progress of the update.
 
 #### Reboot the Cloudron
@@ -755,7 +755,7 @@ Content-Type: image/png
 
 GET `/api/v1/cloudron/config` <scope>admin</scope>
 
-Gets information on how the Cloudron is configured. This is similar to the [Status API](/references/api.html#get-status)
+Gets information on how the Cloudron is configured. This is similar to the [Status API](#get-status)
 except this contains some sensitive information and is not public.
 
 ```
@@ -837,7 +837,7 @@ The `action` query parameter can be used to list events of a specific action.
 
 The `search` query parameter can be used to do a wildcard ('*search*') on the data field.
 
-This API supports [pagination](/references/api.html#pagination) - use the `page` and `per_page` query parameters to get specific pages.
+This API supports [pagination](#pagination) - use the `page` and `per_page` query parameters to get specific pages.
 
 Response (200):
 
@@ -1072,7 +1072,7 @@ GET `/api/v1/settings/autoupdate_pattern` <scope>admin</scope>
 
 Gets the auto update pattern that the Cloudron uses to automatically update itself and installed apps.
 
-Patterns are matched based on the Cloudron's [timezone](references/api.html#get-timezone).
+Patterns are matched based on the Cloudron's [timezone](#get-timezone).
 
 Response (200):
 ```
@@ -1103,7 +1103,7 @@ Some examples of patterns are:
 * `00 00 1,3,5,23 * * *` would run updates at 1am, 3am, 5am, 11pm every night.
 * `0 030 4 1,15 * 5` would run updates at 4:30 am on the 1st and 15th of each month, plus every Friday.
 
-Patterns are matched based on the Cloudron's [timezone](references/api.html#get-timezone).
+Patterns are matched based on the Cloudron's [timezone](#get-timezone).
 
 #### Get Cloudron Avatar
 
@@ -1111,7 +1111,7 @@ GET `/api/v1/settings/cloudron_avatar` <scope>admin</scope>
 
 Gets the Cloudron avatar image as `Content-Type: image/png`.
 
-Note that the avatar is also available without authentication using the [Get avatar](/references/api.html#get-avatar) API.
+Note that the avatar is also available without authentication using the [Get avatar](#get-avatar) API.
 
 Response (200):
 ```
@@ -1338,7 +1338,7 @@ GET `/api/v1/settings/cloudron_name` <scope>admin</scope>
 
 Gets the name of the Cloudron.
 
-Note that the name is also available without authentication using the [Get status](/references/api.html#get-status) API.
+Note that the name is also available without authentication using the [Get status](#get-status) API.
 
 ```
 Response (200):
@@ -1379,7 +1379,7 @@ Response(200):
 }
 ```
 
-See the [set mail relay](/references/api.html#set-relay) API for more information on the fields.
+See the [set mail relay](#set-relay) API for more information on the fields.
 
 #### Set Mail Relay
 
@@ -1415,7 +1415,7 @@ GET `/api/v1/settings/time_zone` <scope>admin</scope>
 
 Gets the timezone of the Cloudron.
 
-Timezone is automatically set based on the IP address from where the Cloudron was activated. This timezone is used with the [auto update pattern](/references/api.html#get-auto-update-pattern) to trigger updates at the
+Timezone is automatically set based on the IP address from where the Cloudron was activated. This timezone is used with the [auto update pattern](#get-auto-update-pattern) to trigger updates at the
 correct time.
 
 ```
@@ -1431,7 +1431,7 @@ POST  `/api/v1/settings/time_zone` <scope>admin</scope>
 
 Sets the time zone of the Cloudron.
 
-Timezone is automatically set based on the IP address from where the Cloudron was activated. This timezone is used with the [auto update pattern](/references/api.html#get-auto-update-pattern) to trigger updates at the
+Timezone is automatically set based on the IP address from where the Cloudron was activated. This timezone is used with the [auto update pattern](#get-auto-update-pattern) to trigger updates at the
 correct time.
 
 See the [Tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for a list of valid values.
@@ -1529,7 +1529,7 @@ Response (200):
 
 POST `/api/v1/users/:userId` <scope>admin</scope>
 
-Modify user's email or display name. As noted in [Create user](/references/api.html#create-user), username
+Modify user's email or display name. As noted in [Create user](#create-user), username
 cannot be changed.
 
 Request:
@@ -1573,7 +1573,7 @@ PUT `/api/v1/users/:userId/groups` <scope>admin</scope>
 Sets the groups for the user with id `userId`.
 
 Groups are identified by groupIds which can be retrieved using the
-[Groups API](/references/api.html#list-all-groups).
+[Groups API](#list-all-groups).
 
 An admin cannot remove himself from the special `admin` group. This will result in a response code of 403.
 

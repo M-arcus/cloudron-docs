@@ -91,13 +91,14 @@ cloudron exec --app blog                   # shell into the app's file system
 To push a local file (i.e on the PC/Mac) to the app's file system, use the following command:
 
 ```
-cloudron push --app blog blogdump.sql /tmp/blogdump.sql
+cloudron push --app blog blogdump.sql /tmp/blogdump.sql 
+cloudron push --app blog blogdump.sql /tmp/               # same as above. trailing slash is required
 ```
 
 To push a directory recursively to the app's file system, use the following command:
 
 ```
-cloudron push --app blog files/ /tmp/
+cloudron push --app blog files /tmp
 ```
 
 ## Pulling a file from the app's file system using Cloudron CLI
@@ -105,13 +106,14 @@ cloudron push --app blog files/ /tmp/
 To pull a file from apps's file system to the PC/Mac, use the following command:
 
 ```
-cloudron pull --app blog /tmp/blogdump.sql blogdump.sql
+cloudron pull --app blog /app/code/wp-includes/load.php .  # pulls file to current dir
 ```
 
 To pull a directory from the app's file system, use the following command:
 
 ```
-cloudron pull --app blog /app/code/ ./code
+cloudron pull --app blog /app/code/ .            # pulls content of code to current dir
+cloudron pull --app blog /app/code/ code_backup  # pulls content of code to ./code_backup
 ```
 
 ## Browsing the app's file system using Cloudron CLI
