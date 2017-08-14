@@ -19,7 +19,6 @@ pages:
     - 'User & Groups': documentation/user-management.md
   - 'Developer':
     - documentation/developer/architecture.md
-    - documentation/developer/authentication.md
     - documentation/developer/addons.md
     - 'Base Image': documentation/developer/baseimage.md
     - 'API': documentation/developer/api.md
