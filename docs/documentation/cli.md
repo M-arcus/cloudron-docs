@@ -86,6 +86,34 @@ cloudron exec --app blog                   # shell into the app's file system
 # tail -f /run/wordpress/wp-debug.log      # note that log file path and name is specific to the app
 ```
 
+## Pushing a file to the app's file system using Cloudron CLI
+
+To push a local file (i.e on the PC/Mac) to the app's file system, use the following command:
+
+```
+cloudron push --app blog blogdump.sql /tmp/blogdump.sql
+```
+
+To push a directory recursively to the app's file system, use the following command:
+
+```
+cloudron push --app blog files/ /tmp/
+```
+
+## Pulling a file from the app's file system using Cloudron CLI
+
+To pull a file from apps's file system to the PC/Mac, use the following command:
+
+```
+cloudron pull --app blog /tmp/blogdump.sql blogdump.sql
+```
+
+To pull a directory from the app's file system, use the following command:
+
+```
+cloudron pull --app blog /app/code/ ./code
+```
+
 ## Browsing the app's file system using Cloudron CLI
 
 On the Cloudron, apps are containerized and run with a virtual file system. To navigate the
@@ -102,7 +130,26 @@ up periodically).
 If you need to fix a bug in the app source, you must build the app from source code. Please
 submit a merge/pull request, so we can incorporate the fixes into the next version of app.
 
-## Installing app from source code using Cloudron CLI
+## Executing a command using Cloudron CLI
+
+The Cloudron CLI tool can be used to execute arbitrary commands in the context of app.
+
+```
+cloudron exec --app blog         # where 'blog' is the subdomain of the app
+# ls                             # list files in the app's current dir
+# mysql --user=${MYSQL_USERNAME} --password=${MYSQL_PASSWORD} --host=${MYSQL_HOST} ${MYSQL_DATABASE} # connect to app's mysql
+```
+
+Once exec'ed into the app, addons can be accessed as follows:
+
+* LDAP - `ldapsearch -x -D cn=<username>,${LDAP_USERS_BASE_DN} -w <password> -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_USERS_BASE_DN}"`
+* MongoDB - `mongo -u "${MONGODB_USERNAME}" -p "${MONGODB_PASSWORD}" ${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DATABASE}`
+* MySQL - `mysql --user=${MYSQL_USERNAME} --password=${MYSQL_PASSWORD} --host=${MYSQL_HOST} ${MYSQL_DATABASE}`
+* PostgreSQL - `PGPASSWORD=${POSTGRESQL_PASSWORD} psql -h ${POSTGRESQL_HOST} -p ${POSTGRESQL_PORT} -U ${POSTGRESQL_USERNAME} -d ${POSTGRESQL_DATABASE}
+`
+* Redis - `redis-cli -h "${REDIS_HOST}" -p "${REDIS_PORT}" -a "${REDIS_PASSWORD}"`
+
+## Installing an app from source code using Cloudron CLI
 
 To install an app from source code:
 

@@ -12,7 +12,7 @@ runtime sets up addons in such a way that apps are isolated from each other.
 
 ## Using Addons
 
-Addons are opt-in and must be specified in the [Cloudron Manifest](/references/manifest.html).
+Addons are opt-in and must be specified in the [Cloudron Manifest](/documentation/developer/manifest).
 When the app runs, environment variables contain the necessary information to access the addon.
 For example, the mysql addon sets the `MYSQL_URL` environment variable which is the
 connection string that can be used to connect to the database.
@@ -25,7 +25,7 @@ applications must never cache the value of environment variables across restarts
 * Addons must be setup or updated on each application start up. Most applications use DB migration frameworks
 for this purpose to setup and update the DB schema.
 
-* Addons are configured in the [addons section](/references/manifest.html#addons) of the manifest as below:
+* Addons are configured in the [addons section](/documentation/developer/manifest/#addons) of the manifest as below:
 ```
     {
       ...
@@ -42,9 +42,9 @@ for this purpose to setup and update the DB schema.
 
 This addon allows an app to send and recieve emails on behalf of the user. The intended use case is webmail applications.
 
-If an app wants to send mail (e.g notifications), it must use the [sendmail](/references/addons#sendmail)
+If an app wants to send mail (e.g notifications), it must use the [sendmail](#sendmail)
 addon. If the app wants to receive email (e.g user replying to notification), it must use the
-[recvmail](/references/addons#recvmail) addon instead.
+[recvmail](#recvmail) addon instead.
 
 Apps using the IMAP and ManageSieve services below must be prepared to accept self-signed certificates (this is not a problem
 because these are addresses internal to the Cloudron).
@@ -75,7 +75,7 @@ LDAP_BIND_DN=                               # DN to perform LDAP requests
 LDAP_BIND_PASSWORD=                         # Password to perform LDAP requests
 ```
 
-For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `ldapsearch` client within the context of the app:
+For debugging, [cloudron exec](/documentation/cli/) can be used to run the `ldapsearch` client within the context of the app:
 ```
 cloudron exec
 
@@ -121,7 +121,7 @@ MONGODB_PORT=         # server port
 MONGODB_DATABASE=     # database name
 ```
 
-For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `mongo` shell within the context of the app:
+For debugging, [cloudron exec](/documentation/cli/) can be used to run the `mongo` shell within the context of the app:
 ```
 cloudron exec
 
@@ -143,7 +143,7 @@ MYSQL_PORT=           # server port
 MYSQL_DATABASE=       # database name (only set when using a single database, see below)
 ```
 
-For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `mysql` client within the context of the app:
+For debugging, [cloudron exec](/documentation/cli/) can be used to run the `mysql` client within the context of the app:
 ```
 cloudron exec
 
@@ -206,7 +206,7 @@ POSTGRESQL_DATABASE=  # database name
 
 The postgresql addon whitelists the hstore and pg_trgm extensions to be installable by the database owner.
 
-For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `psql` client within the context of the app:
+For debugging, [cloudron exec](/documentation/cli/) can be used to run the `psql` client within the context of the app:
 ```
 cloudron exec
 
@@ -252,7 +252,7 @@ REDIS_PORT=           # server port
 REDIS_PASSWORD=       # password
 ```
 
-For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `redis-cli` client within the context of the app:
+For debugging, [cloudron exec](/documentation/cli/) can be used to run the `redis-cli` client within the context of the app:
 ```
 cloudron exec
 
@@ -289,7 +289,7 @@ _NOTE_: scheduler does not support seconds
 
  * Asterisk. E.g. *
  * Ranges. E.g. 1-3,5
- * Steps. E.g. */2
+ * Steps. E.g. \*/2
 
 `command` is executed through a shell (sh -c). The command runs in the same launch environment
 as the application. Environment variables, volumes (`/tmp` and `/run`) are all
@@ -315,7 +315,7 @@ MAIL_DOMAIN=          # the domain name to use for email sending (i.e username@d
 
 The SMTP server does not require STARTTLS. If STARTTLS is used, the app must be prepared to accept self-signed certs.
 
-For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `swaks` tool within the context of the app:
+For debugging, [cloudron exec](/documentation/cli/) can be used to run the `swaks` tool within the context of the app:
 ```
 cloudron exec
 
