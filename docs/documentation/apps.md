@@ -133,6 +133,9 @@ To allow embedding, enter the embedder website name in the `Advanced settings` o
 For example, to embed the live chat application hosted on `chat.domain.com` into `www.domain.com`, enter the value
 `https://www.domain.com` in the `chat` app's configure dialog.
 
+`ALLOW-FROM` is [not supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)
+in Chrome. You can safely ignore the `Invalid 'X-Frame-Options' header encountered` message in the browser console.
+
 <center>
 <img src="/img/app-embed-url.png" class="shadow">
 </center>
