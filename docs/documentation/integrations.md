@@ -26,10 +26,32 @@ Data Pass-Through?
 Basic Auth
 ```
 
-## OAuth Provider
+## OAuth 2.0 Login Provider
 
 Cloudron is an OAuth 2.0 provider. To integrate Cloudron login into an external application, create
 an OAuth application under `API Access`.
+
+<center>
+<img src="/img/add-oauth-client.png" class="shadow" width="600px">
+</center>
+
+The dialog requires 3 parameters:
+
+*   The `Application Name` is the name of the external application. Set this
+    to something memorable.
+
+*   `Authorization Callback URL` is the URL that the Cloudron will callback
+    after authentication.
+
+*   Once authenticated, `Scope` specifies the resources to which the application
+    has access. The `profile` scope indicates that the app only gets access to
+    the user's profile and nothing else.
+
+<br/>
+<center>
+<img src="/img/oauth-tokens.png" class="shadow" height="300px">
+</center>
+<br/>
 
 You can use the following OAuth URLs to add Cloudron in the external app:
 ```
@@ -37,4 +59,8 @@ authorizationURL: https://my.<domain>/api/v1/oauth/dialog/authorize
 
 tokenURL:         https://my.<domain>/api/v1/oauth/token
 ```
+
+Read this [blog post](https://cloudron.io/blog/2017-03-21-oauth-provider.html) for
+a demonstration.
+
 

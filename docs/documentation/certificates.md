@@ -1,10 +1,9 @@
 # Certificates
 
-## Lets Encrypt integration
+## Let's Encrypt integration
 
 Cloudron integrates with [Let's Encrypt](http://letsencrypt.org/) to install
-TLS certificates for apps automatically. Certificates are renewed automatically.
-A failure notification is sent to the Cloudron administrators if renewal fails.
+and renew TLS certificates for apps automatically.
 
 Cloudron utilizes the `http-01` scheme to validate the domain with Lets Encrypt (this
 scheme involves provisioning an HTTP resource under a well-known URI). For this reason,
@@ -13,14 +12,28 @@ the server's incoming port 80 must be kept open.
 ## Automatic renewal of Let's Encrypt certificates
 
 Cloudron attempts to start renewing certificates automatically 1 month before expiry of the
-certificate. If it fails to renew, it will send a notification email to the Cloudron administrators.
+certificate. If renewal fails, a notification email will be sent to the Cloudron administrators.
 If the Cloudron admin does not take any action (after getting reminded 30 times), Cloudron will start
 using fallback certificates for the app.
 
+## Setting fallback wildcard certificate
+
+Cloudron generates a self-signed certificate that is used as the fallback should it fail
+to install or renew Let's Encrypt certificate. The auto-generated fallback certificate
+can be replaced with a custom wildcard certificate in the `Domains & Certs` page.
+
+<br/>
+
+<center>
+<img src="/img/cert-fallback.png" class="shadow" width="600px">
+</center>
+
+
 ## Manually renewing Let's Encrypt certificate
 
-Cloudron can sporadically fail to get Let's Encrypt certificates (for example, Let's Encrypt is down).
-To manually trigger the renewal, open the app's configure dialog and `Save` without making any changes.
+To manually trigger re-installation or renewal of Let's encrypt certificate, open the
+app's [configure dialog](/documentation/apps/#re-configuring-an-app) and `Save` without
+making any changes.
 
 ## Revokation of Let's Encrypt Certificate
 
@@ -40,24 +53,14 @@ When using Let's Encrypt, please be aware of the following:
   subdomains are [discoverable](https://crt.sh/). Some [hackers](https://www.golem.de/news/certificate-transparency-hacking-web-applications-before-they-are-installed-1707-129172.html) take advantage of this to   hack web applications
   before they are in installed.
 
-## Setting fallback wildcard certificates
+## Setting custom certificates
 
-Cloudron generates a self-signed certificates that it uses as the fallback should it fail
-to install or renew Let's Encrypt certificate. The auto-generated fallback certificate
-can be replaced with a custom wildcard certificate in the `Domains & Certs` page.
+Custom certificates can be set for each installed application using the [REST API](/documentation/developer/api/#configure-app).
+This can be used to set an Extended Validation (EV) certificate for an app.
 
-<br/>
-
-<center>
-<img src="/img/cert-fallback.png" class="shadow" width="600px">
-</center>
-
-## Setting custom per-application certificates
-
-Custom certificates can be set for each installed application. This can be used to set an
-Extended Validation (EV) certificate for an app.
-
-This can be achieved by using the [REST API](/documentation/developer/api/#configure-app).
+To set a custom wildcard certificate to be used across all the apps, pass the
+`--tls-provider fallback` option at installation time to the `cloudron-setup` script
+and set it as a [fallback certificate](/documentation/certificates/#setting-fallback-wildcard-certificate).
 
 ## Common reasons for Let's Encrypt Certificate failure
 

@@ -11,7 +11,7 @@ information about the app.
 
 <br/>
 
-Clicking the `Install` button will show an install dialog like below:
+Clicking the `Install` button will show an install dialog:
 
 <center>
 <img src="/img/app_install.png" class="shadow" width="600px">
@@ -19,25 +19,37 @@ Clicking the `Install` button will show an install dialog like below:
 
 <br/>
 
-The `Location` field is the subdomain in which your app will be installed. For example, if you use the
+The `Location` field is the subdomain into which the app will be installed. For example, if you use the
 `chat` location for Rocket.Chat, then it will be installed at `chat.domain.com`. If the subdomain field
 is empty, the app will be installed at `domain.com`.
 
-## Moving an app to another subdomain
+## Re-configuring an app
 
-Click on the wrench button will bring up the configure dialog:
+Click on the pencil button will bring up the configure dialog:
 
 <center>
 <img src="/img/app_configure_button.png" class="shadow">
 </center>
 
-Changing the location in the location input box will move the app to another subdomain:
+<br/>
+
+The configure dialog can be used for:
+
+* Relocating an app to another subdomain
+* Make the app available from another domain
+* Specify the groups that can access the app
+* Set `X-Frame-Options` to make the app embeddable in another website
+* Change the maximum amount of memory that the app can use
+* Specify a `robots.txt` to control indexing by search engines (Google, Bing, DDG)
+
+## Moving an app to another subdomain
+
+Changing the location field in the app's configure dialog will move the app to
+another subdomain:
 
 <center>
 <img src="/img/app_configure.png" class="shadow">
 </center>
-
-Changing an app's configuration has a small downtime (usually about a minute).
 
 ## Specifying an external domain for an app
 
@@ -54,9 +66,8 @@ This dialog will suggest adding a CNAME record (for subdomains) or an A record (
 naked domains). Once you setup a record with your DNS provider, the app will be accessible
 from that external domain.
 
-**NOTE:** The external domain is set in the app's configure dialog _after_ installing the
-app in a subdomain. For the curious, this is done so that we can 'reserve' a DNS record
-to CNAME to.
+**NOTE:** An external domain can be set only _after_ installing the app.
+For the curious, this is done so that we can 'reserve' a DNS subdomain record to CNAME to.
 
 ## Increasing the memory limit of an app
 
@@ -78,8 +89,8 @@ The memory limit can be set by adjusting the slider in the Configure dialog's
 ## Restricting app access to specific users
 
 Most apps in Cloudron are integrated with Cloudron's Single Sign-On. For such
-apps, you can assign one or more groups to an app and the Cloudron will restrict
-login to only the users in those groups.
+apps, one or more groups can be assigned to an app and the Cloudron will restrict
+login to only the users that are part of those groups.
 
 Note that Cloudron only handles authentication. Assigning roles to users is
 done within the application itself (for example, to change a user to become a
@@ -89,7 +100,7 @@ done within the application itself (for example, to change a user to become a
 <img src="/img/app-configure-group-acl.png" class="shadow">
 </center>
 
-* `Every Cloudron user` - Any user in your Cloudron can access the app. 
+* `Every Cloudron user` - Any user in the Cloudron can access the app. 
 * `Restrict to groups` - Only users in the groups can access the app.
 
 ## Indexing by search engines (robots.txt)
@@ -128,14 +139,16 @@ For example, to embed the live chat application hosted on `chat.domain.com` into
 
 ## Uninstall an app
 
-You can uninstall an app by clicking the `Uninstall` button.
+An app can be uninstalled clicking the `Uninstall` button.
 
 <center>
 <img src="/img/app_uninstall_button.png" class="shadow">
 </center>
 
-Uninstalling an app immediately remove all data associated with the app from the Cloudron. Note that app backups are
-not removed and will only be cleaned up based on the backup retention period.
+Uninstalling an app immediately removes all data associated with the app from the Cloudron.
+
+Note that app backups are not removed when it is uninstalled and are only cleaned up
+based on the backup policy.
 
 ## Redirecting www domain
 
@@ -146,7 +159,7 @@ For example, to redirect `www` to the bare domain:
 
 * Install [LAMP](https://cloudron.io/store/lamp.cloudronapp.html) on the `www` subdomain.
 
-* Use the [CLI tool](https://git.cloudron.io/cloudron/cloudron-cli) to get remote access into the app and create a `.htaccess` file:
+* Use the [CLI tool](/documentation/cli/) to get remote access into the app and create a `.htaccess` file:
 ```
 cloudron exec --app www
 $ echo "redirect 301 / https://domain.com/" > /app/data/public/.htaccess
@@ -169,7 +182,7 @@ on the graph to see the memory consumption over time in the chart below it.
 The `System` Memory graph shows the overall memory consumption on the entire Cloudron. If you see
 the Free memory < 50MB frequently, you should consider upgrading to a Cloudron with more memory.
 
-## Installing Docker apps or other non-Cloudron apps
+## Installing Docker images or other non-Cloudron apps
 
 Cloudron's approach to self-hosting means that it takes complete ownership of the server and only
 tracks changes that are made via the web interface. For this reason, Cloudron does not support
@@ -177,6 +190,6 @@ installing apps via Docker or apt-get or snap. Any external changes made to the 
 than via the Cloudron web interface or API) may be lost across updates and at worst, might confuse
 the Cloudron update mechanism putting your server at risk.
 
-The best way to workaround this is to package the apps as Cloudron apps. Apps that have a Dockerfile
-can be trivially packaged for the Cloudron.
+The best way to workaround this is to [package](/documentation/developer/packaging/) the apps as
+Cloudron apps. Apps that have a Dockerfile can be trivially packaged for the Cloudron.
 

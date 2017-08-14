@@ -1384,7 +1384,7 @@ Request:
 }
 ```
 
-#### Get Relay
+#### Get Mail Relay
 
 GET `/api/v1/settings/mail_relay` <scope>admin</scope>
 
@@ -1403,7 +1403,7 @@ Response(200):
 
 See the [set mail relay](/references/api.html#set-relay) API for more information on the fields.
 
-#### Set Relay
+#### Set Mail Relay
 
 PUT `/api/v1/settings/mail_relay` <scope>admin</scope>
 

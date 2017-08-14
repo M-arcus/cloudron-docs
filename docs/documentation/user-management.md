@@ -2,11 +2,15 @@
 
 ## Single Sign-On
 
-Single Sign-on (SSO) is an important feature of the Cloudron where users can use the same credentials
+Single Sign-on (SSO) is a feature of Cloudron where users can use the same credentials
 (username & password) for logging in to apps.
 
-SSO integration is a feature of the app and some apps do not support Cloudron SSO. Such apps manage their
-user credentials on their own and users have to be managed inside the app itself.
+SSO integration is optional and can be selected at the time of app installation. Turning off SSO
+can be beneficial when the app is meant to be used primarily by external users (for example, a community
+chat or a public forum).
+
+Note that some apps do not support Cloudron SSO. Such apps manage their user credentials on their
+own and users have to be managed inside the app itself.
 
 When SSO is available for an app, the user management options will look like below:
 
@@ -43,7 +47,7 @@ with their username.
 Groups provide a convenient way to group users. It's purpose is two-fold:
 
 * You can assign one or more groups to apps to restrict who can access for an app.
-* Each group is a [mailing list](/documentation/email/#creating-a-forwarding-mailbox)
+* When Cloudron Email is enabled, each group is a [mailing list](/documentation/email/#creating-a-forwarding-mailbox)
   constituting of it's members.
 
 You can create a group by using the `Groups` menu item.
@@ -58,7 +62,7 @@ To set the access restriction use the app's configure dialog.
 <img src="/img/app_access_control.png" class="shadow">
 </center>
 
-You can now send mails to `groupname@<domain>` to address all the group members.
+When Cloudron Email is enabled, mails can be sent to `groupname@<domain>` to address all the group members.
 
 ## Administrators
 

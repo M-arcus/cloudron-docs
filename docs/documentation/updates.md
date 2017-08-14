@@ -2,11 +2,11 @@
 
 ## How app updates work
 
-App updates are pushed via the Cloudron Store. The Cloudron checks for updates every midnight
-and updates apps automatically.
+Cloudron Apps are installed from the [Cloudron Store](/appstore.html). Cloudron checks the Cloudron Store
+for updates periodically and updates apps automatically.
 
 Cloudron always takes a backup of an app before performing an update. Should the backup creation fail,
-the update will not be performed. Should an update fail or misbehave after it has been applied, the
+the update will not be applied. If an update fails or the updated app misbehaves, the
 Cloudron administrator can rollback to the backup. Rolling back to a backup reverts not just the data
 but also the code (so the app now runs the earlier working version).
 
@@ -14,7 +14,9 @@ Some app updates are not applied automatically. This can happen if a new version
 some features that may be relied upon. In such a case, the update has to be manually approved. This is simply
 a matter of clicking the `Update` button after reading the changelog.
 
-<img src="/img/app_update.png" class="shadow">
+<center>
+<img src="/img/app_update.png" class="shadow" width="600px">
+</center>
 
 ## Changing the update interval
 
@@ -47,13 +49,13 @@ current version of the app may not be able to handle old data.
 
 ## Cloudron Updates
 
-Cloudron checks [cloudron.io](https://cloudron.io) for any update every night and applies
-it automatically.
+Cloudron checks [cloudron.io](https://cloudron.io) periodically and applies any updates
+automatically.
 
 Cloudron always takes a complete backup of the platform data and all apps before applying
 an update. Should the backup creation fail, the update will not be performed.
 
-In the unlikely case an update fails, it can be [restored from the backup](documentation/backups/#restoring-cloudron-from-a-backup).
+In the unlikely case an update fails, it can be [restored from the backup](/documentation/backups/#restoring-cloudron-from-a-backup).
 
 ## What happens when subscription is stopped
 

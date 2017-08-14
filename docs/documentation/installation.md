@@ -2,7 +2,7 @@
 
 ## Install
 
-Create a server with Ubuntu 16.04 (64-bit) and run these commands:
+Create a server with Ubuntu Xenial 16.04 (x64) and run these commands:
 ```
 wget https://cloudron.io/cloudron-setup
 chmod +x cloudron-setup
@@ -22,11 +22,15 @@ chmod +x cloudron-setup
 
 Once the installation is complete, navigate to `https://<IP>` and accept the self-signed certificate.
 
-Provide a [second level domain](https://en.wikipedia.org/wiki/Second-level_domain) like `smartserver.io`
-for the Cloudron. Cloudron will install apps as subdomain of this domain. It is safe to use a
+<center>
+<img src="/img/setupdns.png" class="shadow" width="500px">
+</center>
+
+Provide a [second level domain](https://en.wikipedia.org/wiki/Second-level_domain) like `smartserver.io`.
+Cloudron will install apps into subdomains of this domain. It is safe to use a
 domain name that is already in use.
 
-If you choose one of the programmable DNS backends like Route53, Digital Ocean or Cloudflare, the
+If you choose one of the programmable DNS backends like Route53, Digital Ocean or Cloudflare,
 Cloudron will automatically make changes to DNS as and when required.
 
 During installation, Cloudron makes the following changes to DNS:
@@ -38,7 +42,7 @@ During installation, Cloudron makes the following changes to DNS:
 *   Modifies the SPF record to permit `my` subdomain (required for sending emails)
 
 !!! note "Third level domain installation"
-    Cloudron can also be installed on a non-registrable domain like `cloudron.example.com`
+    Cloudron can also be installed on a non-registrable domain like `customer.myhosting.com`
     with an Enterprise subscription. This allows for setups where you can host
     Cloudrons under the same top level domain for each of your customers like `customer1.myhosting.com`,
     `customer2.myhosting.com` and so on.
@@ -59,8 +63,8 @@ with read+write access.
 When using root credentials on AWS, follow the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
 to create access keys.
 
-When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) to create a user and use the following policy to give the user access to your domain's Route53.
-The `<hosted zone id>` below must be replaced with your zone's id which is available from the Route53 console.
+When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) to create a user and use the following policy to give the user access to the domain.
+The `<hosted zone id>` below must be replaced with the zone's id which is available from the Route53 console.
 
 ```
 {
@@ -90,22 +94,25 @@ The `<hosted zone id>` below must be replaced with your zone's id which is avail
 ### Wildcard DNS
 
 For wildcard setup, add entries for `*.domain.com` and `domain.com` to point to your server's IP.
+Note that adding add wildcard entry does _not_ affect your existing domains because the wildcard
+only applies to subdomains that are not explicitly defined.
+
 For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
-be displayed in the UI post installation.
+be displayed in the UI after installation.
 
 ## Administrator Setup
 
-Once you enter the DNS credentials, Cloudron will get a certificate via Let's Encrypt
-and redirect to `https://my.<domain>`. The browser address bar will show a green lock to indicate
+Once the DNS is setup, Cloudron will get a certificate via Let's Encrypt and redirect to 
+`https://my.<domain>`. The browser address bar will show a green lock to indicate
 that the connection to your Cloudron is now secure.
 
 Enter the adminstrator username, email and password for the Cloudron. Some usernames like `admin`
 are unfortunately reserved because apps attach special meanings to them.
 
-The email id you enter here is used for password recovery and not sent anywhere (including cloudron.io).
+The email id entered here is local to your Cloudron and not sent anywhere (including cloudron.io).
 
 !!! warning "Let's Encrypt requires a valid email"
-    Cloudron will setup a Let's Encrypt account with the administrator's email. If this email
+    Cloudron sets up a Let's Encrypt account with the administrator's email. If this email
     is not valid, Let's Encrypt will not issue certificates.
 
 ## Cloudron Store Setup

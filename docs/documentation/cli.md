@@ -2,8 +2,9 @@
 
 ## What is Cloudron CLI
 
-The Cloudron CLI can be used to remote control apps on the Cloudron
-and script common actions from the PC/Mac. Some common use cases are:
+The Cloudron CLI is a command line tool that uses the [REST API](/documentation/developer/api/)
+to remote control apps on the Cloudron. The CLI tool is installed on Linux/Mac and can be used
+for the following use cases:
 
 * Viewing logs of an application
 * 'shell' into the file system of an app using `cloudron exec` to make
@@ -13,7 +14,7 @@ and script common actions from the PC/Mac. Some common use cases are:
 ## Installing Cloudron CLI
 
 The Cloudron CLI is distributed via `npm`. The Cloudron CLI can be installed
-on your PC using the following command:
+on Linux/Mac using the following command:
 
 ```
 sudo npm install -g cloudron
@@ -54,12 +55,12 @@ to install wordpress:
 cloudron install --appstore-id org.wordpress.cloudronapp
 ```
 
-You can figure the Appstore Id by navigating to the [Cloudron Store](https://cloudron.io/store/index.html)
-and clicking on the app (see the URL).
+The Appstore Id of an app can be found by navigating to the [Cloudron Store](https://cloudron.io/store/index.html)
+and clicking on the app. The id can be deduced from the URL.
 
-## Listing apps on the Cloudron using Cloudron CLI
+## Listing apps using Cloudron CLI
 
-The Cloudron CLI can be used to list all the apps on your Cloudron using the following command:
+The Cloudron CLI can be used to list the installed apps using the following command:
 
 ```
 cloudron list
@@ -77,7 +78,7 @@ cloudron logs --app blog                                 # if the app is located
 cloudron logs --app 52aae895-5b7d-4625-8d4c-52980248ac21 # using the app id (for bare/naked domains)
 ```
 
-You can pass `-f` to follow the logs. Note that not all apps log to stdout/stderr. For this
+Pass the `-f` to follow the logs. Note that not all apps log to stdout/stderr. For this
 reason, you may need to look further in the file system for logs:
 
 ```
@@ -85,7 +86,7 @@ cloudron exec --app blog                   # shell into the app's file system
 # tail -f /run/wordpress/wp-debug.log      # note that log file path and name is specific to the app
 ```
 
-## Instrospecting the app's file system using Cloudron CLI
+## Browsing the app's file system using Cloudron CLI
 
 On the Cloudron, apps are containerized and run with a virtual file system. To navigate the
 file system, use the following command:
@@ -98,8 +99,8 @@ Apart from 3 special directories - `/app/data`, `/run` and `/tmp`, the file syst
 read-only. Changes made to `/run` and `/tmp` will be lost across restarts (they are also cleaned
 up periodically).
 
-If you need to fix a bug in the app source, you must build the app from source code. If you
-submit a pull request, we can incorporate the fixes into the next version of app.
+If you need to fix a bug in the app source, you must build the app from source code. Please
+submit a merge/pull request, so we can incorporate the fixes into the next version of app.
 
 ## Installing app from source code using Cloudron CLI
 
@@ -113,5 +114,10 @@ cloudron install
 ```
 
 Note that, as expected, apps installed this way do not get updates via the Cloudron Store.
-You can use this approach to make custom changes to apps.
+Use this approach to make custom changes to apps.
+
+## Source code for apps
+
+The source code of apps is located in our [GitLab](https://git.cloudron.io/cloudron). Look
+for repos with the `-app` suffix.
 
