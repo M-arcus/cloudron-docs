@@ -87,6 +87,3 @@ Cloudron.
 Cloudron App Library provides a market place to publish your app.
 Submitting to the app library enables any Cloudron user to discover and install your application with a few clicks.
 
-## What next?
-
-* [Package an existing app for the Cloudron](/tutorials/packaging.html)
