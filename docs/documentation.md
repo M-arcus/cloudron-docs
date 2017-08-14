@@ -2,7 +2,7 @@
 
 ## What is Cloudron?
 
-The Cloudron is a platform that makes it easy to install and maintain apps on your server.
+Cloudron is a platform that makes it easy to install, manage and secure web apps on your server.
 
 You can install Cloudron on your server (from say AWS, Digital Ocean etc), give it a domain
 name and start installing apps. Behind the scenes, the Cloudron automates all the tasks around
@@ -11,8 +11,8 @@ installation like configuring databases, DNS setup and Certificate management.
 Cloudron provides a centralized way to manage users and specify which apps they can access.
 
 Cloudron has a backup solution that lets you backup and restore each app individually
-(compared to server snapshots). With Cloudron backups you can easily migrate your Cloudron 
-in it's entirety from one server provider to another in no time.
+(compared to server snapshots). With Cloudron backups, you can even migrate your Cloudron 
+in it's entirety from one server provider to another.
 
 ## The Cloudron Store
 
