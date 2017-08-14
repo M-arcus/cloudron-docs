@@ -11,7 +11,7 @@ and README.md files in GitHub repositories.
 ## Prerequisites
 
 The `Cloudron Button` is intended to work only for applications that have been
-published on the Cloudron Store. The [basic tutorial](/tutorials/basic.html#publishing)
+published on the Cloudron Store. The [basic tutorial](/documentation/developer/packaging/)
 gives an overview of how to package and publish your application for the
 Cloudron Store.
 
@@ -46,4 +46,4 @@ or as SVG
 
 [![Install](/img/button.svg)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
 
-_Note_: Clicking the buttons above will install [Gogs](http://gogs.io/) on your Cloudron.
+_Note_: Clicking the buttons above will install [Gogs](http://gogs.io/).

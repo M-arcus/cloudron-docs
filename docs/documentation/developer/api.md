@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Cloudron provides a RESTful API to manage all aspects of the Cloudron like
+Cloudron provides a RESTful API to manage all aspects of the Cloudron like
 adding users, configuring groups and installing apps.
 
 If you are an app developer, the [Cloudron CLI tool](https://www.npmjs.com/package/cloudron) implements a workflow that allows
@@ -14,7 +14,9 @@ The [Cloudron API](/references/API/) is available at the `my` subdomain of your 
 the API, you need an access token. The Cloudron can create an access token from
 the `API Access` page.
 
-<img src="/img/access-token2.png" class="shadow">
+<center>
+<img src="/img/access-token2.png" class="shadow" width="600px">
+</center>
 
 The access token can be provided via the request query `?access_token=<token>`.
 
@@ -26,63 +28,6 @@ Alternately, the token can be provided via the Authorization header using `Beare
 ```
 curl -H "Content-Type: application/json" -H "Authorization: Bearer <token>" https://my.cloudron/api/v1/users
 ```
-
-## Authentication
-
-### Getting API Tokens
-
-POST `/api/v1/developer/login` <scope>admin</scope>
-
-Creates a token given user credentials.
-
-Request:
-```
-{
-    username: <string>,
-    password: <string>
-}
-```
-
-Set `username` to your username and `password` to your password. Currently, only Cloudron administrators can
-create API tokens.
-
-Response (200):
-```
-{
-    token: <string>,        // Token used for accessing the API
-    expiresAt: <date>       // ISO-8601 UTC date the token expires
-}
-```
-
-Curl example:
-```
-curl -X POST -H "Content-Type: application/json" -d '{"username": "cloudron", "password":"cloudron"}' https://my-demo.cloudron.me/api/v1/developer/login
-```
-
-### Using API tokens
-
-The access token can either be provided via the request query `?access_token=<token>`.
-
-```
-curl -H "Content-Type: application/json" https://$CLOUDRON_ORIGIN/api/v1/users?access_token=$TOKEN
-```
-
-Alternately, the token can be provided via the `Authorization` header using `Bearer <token>`.
-
-```
-curl -H "Content-Type: application/json" -H "Authorization: Bearer <token>" https://$CLOUDRON_ORIGIN/api/v1/users
-```
-
-### OAuth
-
-OAuth authentication is meant to be used by apps. An app can get an OAuth token using the
-[oauth](addons.html#oauth) addon.
-
-Tokens obtained via OAuth have a restricted scope wherein they can only access the user's profile.
-This restriction is so that apps cannot make undesired changes to the user's Cloudron.
-
-The access token can be provided either via the request query `?access_token=<token>` or in the
-`Authorization` header using `Bearer <token>`.
 
 ## REST
 
@@ -617,6 +562,38 @@ Uninstalls an app.
 The existing backups of the app are still preserved (as per the backup configuration) and the
 backup can be used to restore the app to the same state later.
 
+### Authentication
+
+#### Getting API Tokens
+
+POST `/api/v1/developer/login` <scope>admin</scope>
+
+Creates a token given user credentials.
+
+Request:
+```
+{
+    username: <string>,
+    password: <string>
+}
+```
+
+Set `username` to your username and `password` to your password. Currently, only Cloudron administrators can
+create API tokens.
+
+Response (200):
+```
+{
+    token: <string>,        // Token used for accessing the API
+    expiresAt: <date>       // ISO-8601 UTC date the token expires
+}
+```
+
+Curl example:
+```
+curl -X POST -H "Content-Type: application/json" -d '{"username": "cloudron", "password":"cloudron"}' https://my-demo.cloudron.me/api/v1/developer/login
+```
+
 ### Backups
 
 #### Create a backup
@@ -1129,6 +1106,7 @@ Some examples of patterns are:
 Patterns are matched based on the Cloudron's [timezone](references/api.html#get-timezone).
 
 #### Get Cloudron Avatar
+
 GET `/api/v1/settings/cloudron_avatar` <scope>admin</scope>
 
 Gets the Cloudron avatar image as `Content-Type: image/png`.

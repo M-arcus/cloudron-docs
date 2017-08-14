@@ -186,6 +186,8 @@ TokenURL = ${API_ORIGIN}/api/v1/oauth/token
 The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/references/api.html#profile). This restriction
 is so that apps cannot make undesired changes to the user's Cloudron.
 
+The access token can be provided either via the request query `?access_token=<token>` or in the `Authorization` header using `Bearer <token>`.
+
 We currently provide OAuth2 integration for Ruby [omniauth](https://git.cloudron.io/cloudron/omniauth-cloudron) and Node.js [passport](https://git.cloudron.io/cloudron/passport-cloudron).
 
 ### postgresql
