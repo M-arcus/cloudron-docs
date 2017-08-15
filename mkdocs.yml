@@ -29,6 +29,7 @@ pages:
   - 'Apps':
     - documentation/apps/lamp.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
+  - 'Billing': 'documentation/billing.md'
 extra_css:
   - 'stylesheets/extra.css'
 extra:
