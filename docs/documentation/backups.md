@@ -102,6 +102,7 @@ the new Cloudron.
 **Both Cloudrons have to use the same backup encryption key!**
 
 The following step will migrate an app:
+
 * Against the old Cloudron
 ```
 cloudron backup create --app <subdomain/appid>
