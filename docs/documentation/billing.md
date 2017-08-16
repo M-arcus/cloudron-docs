@@ -1,26 +1,40 @@
 # Pricing & Billing
 
-## How am I billed?
-We charge on a 30 day subscription basis. Any charges will be made on the last day of the 30 day period. Any service can be cancelled at any time, the service will then be terminated at the end of the current 30 days period.
+## Form of payments
 
-## Do you offer refunds?
+We accept Visa, MasterCard, American Express and Discover.
 
-No, we do not offer refunds. If there are extenuating circumstances, please open contact us directly.
+We do not store any credit card information and all payments are handled through [Stripe](https://stripe.com).
 
-## How do I cancel my account?
-You can cancel your account anytime through the control panel, under the account page, as soon as all services have been terminated.
+## Billing period
 
-## What form of payments do you accept?
+For managed hosting, we charge on a 30 day subscription basis (postpaid). Any charges will be made on the last day
+of the 30 day period. Any service can be cancelled at any time, the service will then
+be terminated at the end of the current 30 days period.
 
-We accept Visa, MasterCard, American Express and Discover. All payments are handled through stripe.
+For selfhosted, we charge on a 30 day subscription basis (prepaid). Any charges will be made on the first day
+of the 30 day period. Any service can be cancelled at any time, the service will then
+be terminated at the end of the current 30 days period.
 
-## Will taxes be included in my monthly invoice?
+## Canceling subscription
 
-For customers in the EU, VAT (value added taxes) will be included in the price, the amount depends on the rate of the country of your billing address. Customers outside the EU won't have any taxes applied.
+Subscription can be cancelled anytime at [cloudron.io](https://cloudron.io/console.html#/login). Once cancelled,
+we will stop billing you from the next month.
 
-## Am I charged when I enter a credit card?
+## VAT & Taxes
 
-No. When you enter a card, we only verify the card through our external payment provider stripe. Your card is charged at the end of the billing cycle. We will attempt a hold on your card over the amount of the first month cost. This hold will get removed after a 7 days.
-My credit card expired or was declined and the payment failed. How do I fix it to prevent my account from being suspended?
-You can resolve this issue by adding a new credit card to your account. As we only allow one credit card per account, you will need to overwrite the old credit card information in your account page. Our billing system will also send you payment reminders before any actions such as service suspension are taken on your account.
+For customers in the EU, VAT (value added taxes) will be included in the price, the amount depends on the rate
+of the country of your billing address. Customers outside the EU won't have any taxes applied.
+
+## Credit Card Hold & Duration
+
+When you enter a card, we verify the card through our external payment provider stripe.
+We will attempt a small hold on your card. This hold will get removed after 7 days.
+
+## Payment failures
+
+Payment failures can be resolved by adding a new credit card to your account. As we only allow one
+credit card per account, you will need to overwrite the old credit card information in your
+account page. Our billing system will also send you payment reminders before any actions such
+as service suspension are taken on your account.
 
