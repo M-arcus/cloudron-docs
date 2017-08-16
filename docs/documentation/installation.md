@@ -27,78 +27,26 @@ Once the installation is complete, navigate to `https://<IP>` and accept the sel
 </center>
 
 Provide a [second level domain](https://en.wikipedia.org/wiki/Second-level_domain) like `smartserver.io`.
-Cloudron will install apps into subdomains of this domain. It is safe to use a
-domain name that is already in use.
+Cloudron's web interface will then be available at the `my.smartserver.io` and apps will be installed
+into subdomains like `blog.smartserver.io`, `git.smartserver.io` and so son.
 
-If you choose one of the programmable DNS backends like Route53, Digital Ocean or Cloudflare,
-Cloudron will automatically make changes to DNS as and when required.
+It is safe to use a domain name that is already in use, just make sure that the `my` subdomain is available.
 
-During installation, Cloudron makes the following changes to DNS:
+Select the DNS service in which the domain in hosted:
 
-*   Sets the `my` subdomain to the server's public IP
+*   [Cloudflare](/documentation/domains/#cloudflare-dns)
+*   [Digital Ocean](/documentation/domains/#cloudflare-dns)
+*   [Route53](/documentation/domains/#route-53-dns)
+*   [Wildcard](/documentation/domains/#wildcard-dns)
 
-*   Sets `cloudron._domainkey` TXT record to the public DKIM key (required for sending emails)
-
-*   Modifies the SPF record to permit `my` subdomain (required for sending emails)
+When using one of the programmable backends, Cloudron will automatically make changes to DNS
+as and when required.
 
 !!! note "Third level domain installation"
     Cloudron can also be installed on a non-registrable domain like `customer.myhosting.com`
     with an Enterprise subscription. This allows for setups where you can host
     Cloudrons under the same top level domain for each of your customers like `customer1.myhosting.com`,
     `customer2.myhosting.com` and so on.
-
-### Cloudflare DNS
-
-Use the [Global API Key](https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-CloudFlare-API-key-)
-available in the profile section of your account.
-
-
-### Digital Ocean DNS
-
-Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
-with read+write access.
-
-### Route 53 DNS
-
-When using root credentials on AWS, follow the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
-to create access keys.
-
-When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) to create a user and use the following policy to give the user access to the domain.
-The `<hosted zone id>` below must be replaced with the zone's id which is available from the Route53 console.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "route53:*",
-            "Resource": [
-                "arn:aws:route53:::hostedzone/<hosted zone id>"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "route53:ListHostedZones",
-                "route53:GetChange"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
-```
-
-### Wildcard DNS
-
-For wildcard setup, add entries for `*.domain.com` and `domain.com` to point to your server's IP.
-Note that adding add wildcard entry does _not_ affect your existing domains because the wildcard
-only applies to subdomains that are not explicitly defined.
-
-For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
-be displayed in the UI after installation.
 
 ## Administrator Setup
 

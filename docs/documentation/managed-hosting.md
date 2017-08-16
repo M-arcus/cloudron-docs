@@ -2,22 +2,48 @@
 
 ## What is Managed Cloudron
 
-Each managed Cloudron consists of one or more virtual private servers. These private servers are not shared among our other users.
+Managed Cloudron is a service offered by Cloudron.io that includes the hardware,
+software, and ongoing upkeep of Cloudron on a virtual private server.
 
-## Where do you host Cloudrons?
-All Cloudrons are hosted on DigitalOcean, backups are stored on AWS S3. If you are a VPS/IaaS provider and would like to integrate Cloudron as part of your solution, please contact us support@cloudron.io.
+Managed Cloudrons run on [DigitalOcean](https://digitalocean.com) and use
+[AWS S3](https://aws.amazon.com/s3/) for backups.
 
-## What is your data retention policy?
+Managed Cloudrons are created on a subdomain of `cloudron.me` but they can be moved
+to a [custom domain](#custom-domain).
 
-Once you delete your Cloudron, all data and backups will be gone in 30 days. If you want it deleted sooner, just let us know.
+## Custom domain
 
-## Do I have full access to my data?
+Managed Cloudrons can be moved to a custom domain like `example.com`. When using a custom
+domain, the cloudron UI will become available at `my.example.com`. Apps will also be automatically
+migrated to be available under subdomains like `git.example.com`, `blog.example.com` and so on.
 
-Absolutely. You can download all data and configuration whenever you want.
+To move to a custom domain:
 
-## Can I use a custom domain?
+* Click `Change` in the `Domains & Certs` menu item
+* Select the DNS provider of your domain:
 
-Yes! Currently, the only requirement is that you have to use Amazon Route53 as your nameserver. If you would like us to support others, please let us know.
+<center>
+<img src="/img/custom-domain.png" class="shadow" width="600px">
+</center>
 
-Note that your existing DNS records are untouched. The Cloudron will only change the records you asked it to change (e.g app subdomains).
+* Cloudron supports the following DNS providers:
+    *   [Cloudflare](/documentation/domains/#cloudflare-dns)
+    *   [Digital Ocean](/documentation/domains/#cloudflare-dns)
+    *   [Route53](/documentation/domains/#route-53-dns)
+    *   [Wildcard](/documentation/domains/#wildcard-dns)
+
+## Data retention policy
+
+All data and backups of a managed Cloudron are deleted in 30 days. If you want it deleted
+sooner, just let us know.
+
+## Downloading backups
+
+You can download all data and configuration whenever you want. Just drop us a note at
+support@cloudron.io and we will provide you a link to download your backups.
+
+## Mail server
+
+Cloudron [mail server](/documentation/email/#how-cloudron-email-works) is available
+when the Cloudron uses a [custom domain](#custom-domain).
 

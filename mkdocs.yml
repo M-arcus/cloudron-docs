@@ -11,6 +11,7 @@ pages:
     - documentation/backups.md
     - documentation/certificates.md
     - 'CLI': documentation/cli.md
+    - documentation/domains.md
     - documentation/email.md
     - documentation/integrations.md
     - documentation/security.md
