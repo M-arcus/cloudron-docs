@@ -428,13 +428,14 @@ should something go wrong with the update.
 
 ### Logging
 
-Cloudron applications stream their logs to stdout and stderr. In practice, this ideal is hard to achieve.
-Some programs like apache simply don't log to stdout. In those cases, simply log to `/tmp` or `/run`.
-
-Logging to stdout has many advantages:
+Cloudron applications stream their logs to stdout and stderr. Logging to stdout has many advantages:
 * App does not need to rotate logs and the Cloudron takes care of managing logs.
 * App does not need special mechanism to release log file handles (on a log rotate).
 * Integrates better with tooling like cloudron cli.
+
+In practice, this ideal is hard to achieve. Some programs like apache simply don't log to stdout.
+In such cases, simply log to a subdirectory in  `/run` (two levels deep) into files with `.log`
+extension and Cloudron will autorotate the logs.
 
 ### supervisor
 
