@@ -133,7 +133,7 @@ On success, the installation progress can be tracked by polling [installationPro
 
 Curl example to install Gogs app at subdomain git-demo.cloudron.me:
 ```
-curl -X POST -d '{ "appStoreId": "io.gogs.cloudronapp", "location": "git", "accessRestriction": null }' -H 'Authorization: Bearer f34eb4d0d942c8f8b3c060f356f1bb6961bc07bfb3fa2b24188a240f3de975f5' https://my-demo.cloudron.me/api/v1/apps/install
+curl -X POST -H "Content-Type: application/json" -d '{ "appStoreId": "io.gogs.cloudronapp", "location": "git", "accessRestriction": null }' -H 'Authorization: Bearer f34eb4d0d942c8f8b3c060f356f1bb6961bc07bfb3fa2b24188a240f3de975f5' https://my-demo.cloudron.me/api/v1/apps/install
 ```
 
 Curl example to install specific version of Gogs app with SSH Port exposed at 6000:
