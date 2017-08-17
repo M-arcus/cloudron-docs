@@ -25,7 +25,7 @@ storage location like S3 as soon as possible.
 To take a complete backup, click the `Backup now` button in the `Settings` page:
 
 <center>
-<img src="/img/backups.png" class="shadow">
+<img src="/img/backup.png" class="shadow">
 </center>
 
 Please be careful that if you have no-op backend, no backups are taken. If your backups
