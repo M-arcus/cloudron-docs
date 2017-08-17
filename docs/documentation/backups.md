@@ -20,6 +20,19 @@ By default, backups reside in `/var/backups`. Please note that having backups re
 physical machine as the Cloudron server instance is dangerous and it must be changed to an external
 storage location like S3 as soon as possible.
 
+## Making a complete backup
+
+To take a complete backup, click the `Backup now` button in the `Settings` page:
+
+<center>
+<img src="/img/backups.png" class="shadow">
+</center>
+
+Please be careful that if you have no-op backend, no backups are taken. If your backups
+are stored on the same server, be sure to download them before making changes in the server.
+
+## Backup a specific app
+
 ## Backing up to Amazon S3
 
 Provide S3 backup credentials in the `Backups` section of the `Settings` page.

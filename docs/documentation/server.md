@@ -20,6 +20,9 @@ The other important locations on the server are:
 
 ## Using overlay2 backend for Docker
 
+Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
+following the procedure below.
+
 Cloudron uses the `devicemapper` storage backend for Docker. This backend is very slow when used with non-SSD disks (HDD).
 Changing the docker storage backend to `overlay2` greatly speeds things up. This can be done as follows:
 
@@ -49,6 +52,9 @@ systemctl restart cloudron.target # this will download images all over, so give 
 ```
 
 ## Move the data directory to another location
+
+Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
+following the procedure below.
 
 Apps store their data under `/home/yellowtent/appsdata`. If the server is running out of disk space,
 this directory can be moved to another ext4 disk/location as follows:
@@ -106,5 +112,4 @@ applied updates.
 #### Kimsufi servers
 
 Be sure to check the "use the distribution kernel" checkbox in the personalized installation mode.
-
 
