@@ -84,6 +84,31 @@ Example:
   "author": "Cloudron UG <girish@cloudron.io>"
 ```
 
+### capabilities
+
+Type: array of strings
+
+Required: no
+
+The `capabilities` field can be used to request extra [capabilities](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities).
+
+By default, Cloudron apps are unprivileged and cannot perform many operations including
+changing network configuration, launch docker containers etc.
+
+Currently, the only permitted value is [`net_admin`](http://man7.org/linux/man-pages/man7/capabilities.7.html).
+This capability can be used to perform various network related operations like:
+
+* interface configuration;
+* administration of IP firewall, masquerading, and accounting;
+* modify routing tables;
+
+Example:
+```
+  "capabilities": [
+    "net_admin"
+  ]
+```
+
 ### changelog
 
 Type: markdown string
