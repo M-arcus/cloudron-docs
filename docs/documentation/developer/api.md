@@ -532,6 +532,12 @@ Curl example to execute 'ls' command:
 curl -H 'Upgrade: tcp' -H 'Connection: Upgrade' -H 'Authorization: Bearer eba011a45eb056c7497820c408d1170e94ac7ed0fb10cef798fcdaacbcbcd2ee' 'https://my-demo.cloudron.me/api/v1/apps/41dfe1f1-edb3-4011-9ba3-889d0b24a177/exec?cmd=%5B%22ls%22%5D&tty=true'
 ```
 
+#### Exec Websocket
+
+WS `/api/v1/apps/:appId/execws` <scope>admin</scope>
+
+This is the websocket version of the [exec](#exec) API.
+
 #### Start app
 
 POST `/api/v1/apps/:appId/start` <scope>admin</scope>
@@ -552,6 +558,27 @@ app is in a state where it cannot stopped (for example, it is installing).
 
 When an app is stopped, the app's location will show an error page indicating
 that the app is not running.
+
+#### Upload file
+
+POST `/api/v1/apps/:appId/upload` <scope>admin</scope>
+
+Uploads a file to the file system of the app.
+
+The `file` query parameter must be set to the destination path.
+
+The file contents must be uploaded as a multipart request with a part named `file`.
+
+#### Download file
+
+GET `/api/v1/apps/:appId/download` <scope>admin</scope>
+
+Downloads a file from the file system of the app.
+
+The `file` query parameter must be set to the path of the file.
+
+If the file exists, the response will contain the contents of the file with
+`Content-Disposition: attachment`.
 
 #### Uninstall app
 
