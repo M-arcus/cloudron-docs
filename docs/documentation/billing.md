@@ -23,8 +23,11 @@ we will stop billing you from the next month.
 
 ## VAT & Taxes
 
-For customers in the EU, VAT (value added taxes) will be included in the price, the amount depends on the rate
-of the country of your billing address. Customers outside the EU won't have any taxes applied.
+For managed hosting customers in the EU, VAT (value added taxes) will be included in the price, the amount depends
+on the rate of the country of your billing address. Customers outside the EU won't have any taxes applied.
+
+For selfhosted customers in the EU, VAT (value added taxes) is NOT included in the price. The VAT amount depends
+on the rate of the country of your billing address. Customers outside the EU won't have any taxes applied.
 
 ## Credit Card Hold & Duration
 
@@ -33,8 +36,12 @@ We will attempt a small hold on your card. This hold will get removed after 7 da
 
 ## Payment failures
 
-Payment failures can be resolved by adding a new credit card to your account. As we only allow one
-credit card per account, you will need to overwrite the old credit card information in your
+Payment failures can be resolved by adding a [new credit card](/console.html#/userprofile?view=credit_card)
+to your account. As we only allow one credit card per account, you will need to overwrite the old credit card information in your
 account page. Our billing system will also send you payment reminders before any actions such
 as service suspension are taken on your account.
+
+## Invoices
+
+Monthly invoices can be download from [here](/console.html#/userprofile?view=invoice_list).
 
