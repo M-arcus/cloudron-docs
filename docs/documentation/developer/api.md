@@ -569,6 +569,11 @@ The `file` query parameter must be set to the destination path.
 
 The file contents must be uploaded as a multipart request with a part named `file`.
 
+Example:
+```
+curl -X POST -F "file=@sample.txt" 'https://my.forwardbias.in/api/v1/apps/baa2b3c1-e8bb-4db6-86e0-e09b02ca587d/upload?access_token=d556eb6892f38c3acbfaf5d75577b405bd00d8fa9db5f3cecd241a20df8c1bfa&file=/tmp/sample.txt'
+```
+
 #### Download file
 
 GET `/api/v1/apps/:appId/download` <scope>admin</scope>
