@@ -107,6 +107,54 @@ The Cloudron administrators will receive a weekly digest email about all the act
 the Cloudron. At the time of this writing, the email sends out information about pending and
 applied updates.
 
+## Recovery after disk full
+
+One or more system services may go down if the disk becomes full. Once some space has been freed up,
+follow the steps below to repair the Cloudron:
+
+### Unbound
+
+Check the status of unbound using:
+```
+systemctl status unbound
+```
+
+It must say `active (running)`. If not, run the following command:
+```
+unbound-anchor -a /var/lib/unbound/root.key
+systemctl restart unbound
+```
+
+### Nginx
+
+Check the status of nginx:
+```
+systemctl status nginx
+```
+
+If nginx is not running:
+```
+systemctl restart nginx
+```
+
+### Docker
+
+Docker can be restarted using the following command:
+```
+systemctl restart docker
+```
+
+Note that the above command will restart all the apps and addon services.
+
+### Box
+
+Once the above services are up and running, the box code can be restarted using:
+```
+systemctl restart box
+```
+
+The above command can be run to get new certificates for the web admin.
+
 ## VPS Quirks
 
 #### Kimsufi servers
