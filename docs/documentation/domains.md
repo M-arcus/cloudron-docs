@@ -85,4 +85,23 @@ easy for Cloudron admins to use the same domain for Cloudron and for external no
 
 To use the subdomain, remove the entry manually in the DNS provider's website and re-install.
 
+### Recreate DNS Records
 
+If DNS records for Cloudron apps or the email solution are lost or accidentally deleted on the nameserver,
+then they can be easily recreated or resetup by the Cloudron if one of the automated DNS backends
+([Route53](#route53-dns), [DigitalOcean](#digital-ocean-dns) or [Cloudflare](#cloudflare-dns)) is used.
+
+#### Recreate App DNS Record
+
+For apps, simply [reconfigure](/documentation/apps/#re-configuring-an-app) the app without changing any of the settings. This will ensure the DNS records
+are setup correctly and thus will recreate them. In case they exist but are wrong, they have to be manually deleted first.
+
+#### Recreate Email DNS Records
+
+In order to recreate all Email related DNS records, the main Cloudron service has to be restarted.
+While restarting it will ensure all records are correct and in-sync on all nameservers.
+
+Connect via ssh to your server and run the following command:
+```
+systemctl restart box
+```
