@@ -84,6 +84,8 @@ If the disk graph does not display properly, do a `systemctl restart collectd`.
 For VPS providers that support it, the server (cpu/disk/memory) can be resized and
 Cloudron will automatically adapt to the available resources after a server restart.
 
+
+
 ## Debugging
 
 You can SSH into your Cloudron and collect logs:

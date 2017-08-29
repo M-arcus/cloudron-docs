@@ -106,9 +106,9 @@ Cloudron automatically creates a backup every night (in the timezone of your Clo
 To instantly make a complete backup, click the `Backup now` button in the `Backups` section of the `Settings` page.
 Alternately, use the CLI command `cloudron machine backup create`.
 
-## Migrate Cloudron to another server
+## Migrate Apps from one Cloudron to another
 
-Migrating apps from one Cloudron to another works by first creating a new backup of the app on the old Cloudron,
+Migrating apps or moving apps from one Cloudron to another works by first creating a new backup of the app on the old Cloudron,
 copying the backup tarball onto the new Cloudron's backup storage and then installing a new app, based on the backup on
 the new Cloudron.
 
