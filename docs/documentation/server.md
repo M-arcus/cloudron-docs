@@ -157,6 +157,15 @@ systemctl restart box
 
 The above command can be run to get new certificates for the web admin.
 
+## Identifying the container of an app
+
+Cloudron creates app containers with the `location` and `appId` label set. For example,
+to find the container id of the app running on the `redmine` subdomain:
+
+```
+docker ps -f label=location=redmine
+```
+
 ## VPS Quirks
 
 #### Kimsufi servers
