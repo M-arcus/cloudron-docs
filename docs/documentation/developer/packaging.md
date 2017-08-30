@@ -458,6 +458,14 @@ Design your application runtime for concurrent use by 50 users. The Cloudron is 
 concurrent access by 100s or 1000s of users.
 
 An app can determine it's memory limit by reading `/sys/fs/cgroup/memory/memory.limit_in_bytes`.
+For example, to spin one worker for every 150M RAM available to the app:
+
+```
+memory_limit=$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes)
+worker_count=$((memory_limit/1024/1024/150)) # 1 worker for 150M
+worker_count=$((worker_count > 8 ? 8 : worker_count )) # max of 8
+worker_count=$((worker_count < 1 ? 1 : worker_count )) # min of 1
+```
 
 ### Authentication
 
