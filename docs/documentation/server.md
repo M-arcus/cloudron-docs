@@ -94,6 +94,7 @@ the server with the equivalent of a 634 length password with random letters and 
 To disable password authentication, check for the following line in `/etc/ssh/sshd_config`:
 ```
 PasswordAuthentication no
+PermitRootLogin yes        # Store the ssh keys in /root/.ssh/authorized_keys
 ```
 
 By default, the SSH server runs on port 22. We recommend moving this to port 202 to prevent
