@@ -103,7 +103,8 @@ brute force attacks. To do so, change the following line in `/etc/ssh/sshd_confi
 Port 202   # Do not use any other port. Only this port is not blocked by the Cloudron firewall
 ```
 
-The SSH service can be restarted using `systemctl restart sshd`.
+The SSH service can be restarted using `systemctl restart sshd`. Use `ssh -p 202 root@ip` to
+connect to the server.
 
 ## Debugging
 
