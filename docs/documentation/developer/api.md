@@ -79,7 +79,11 @@ Request:
     backupId: <string>,              // initialize the app from this backup
     altDomain: <string>,             // alternate domain from which this app can be reached
     xFrameOptions: <string>,         // set X-Frame-Options header, to control which websites can embed this app
-    robotsTxt: <string>              // robots.txt file content
+    robotsTxt: <string>,             // robots.txt file content
+    debugMode: null || {             // launch app in debugging mode
+        cmd: [ ],                    // array of strings with the command to run
+        readonlyRootfs: <boolean>    // set to true if the app's file system must be read-only
+    }
 }
 ```
 
@@ -178,7 +182,11 @@ Response (200):
     iconUrl: <url>,                  // a relative url providing the icon
     memoryLimit: <number>,           // memory constraint in bytes
     sso: <boolean>,                  // Enable single sign-on
-    robotsTxt: <string>              // robots.txt file content
+    robotsTxt: <string>,             // robots.txt file content
+    debugMode: null || {             // debug mode parameters
+        cmd: [ ],                    // array of strings with the launch command
+        readonlyRootfs: <boolean>    // set to true if the app's file system is read-only
+    }
 }
 ```
 
@@ -439,7 +447,11 @@ Request:
     memoryLimit: <number>,          // memory constraint in bytes
     altDomain: <string>,            // alternate domain from which this app can be reached
     xFrameOptions: <string>,        // set X-Frame-Options header, to control which websites can embed this app
-    robotsTxt: <string>             // robots.txt file content
+    robotsTxt: <string>,            // robots.txt file content
+    debugMode: null || {            // debug mode parameters
+        cmd: [ ],                   // array of strings with the launch command
+        readonlyRootfs: <boolean>   // set to true if the app's file system is read-only
+    }
 ```
 
 All values are optional. See [Install app](#install-app) API for field descriptions.
