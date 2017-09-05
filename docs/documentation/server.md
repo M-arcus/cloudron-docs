@@ -51,6 +51,40 @@ docker network create --subnet=172.18.0.0/16 cloudron
 systemctl restart cloudron.target # this will download images all over, so give it some time
 ```
 
+## Moving docker images to another location
+
+Cloudron uses Docker for containerizing applications and docker images tend to consume a lot of space.
+The docker images are stored by default at `/var/lib/docker`. They can be moved to an external storage
+as follows:
+
+* Stop docker
+```
+systemctl stop docker
+```
+
+* Move existing contents to external storage. Any external storage must be formatted as ext4. Assuming, `/mnt/docker` is the new location:
+
+```
+rsync -aHSX /var/lib/docker /mnt/docker
+```
+
+* Link `/var/lib/docker` to the new location
+
+```
+rm -rf /var/lib/docker
+ln -s /mnt/docker /var/lib/docker 
+```
+
+Alternately, you can bind mount `mount --bind /mnt/docker /var/lib/docker`. This, however, requires adding
+an [entry in /etc/fstab](https://serverfault.com/questions/141504/mount-bind-persistence-over-reboot)
+to persist across reboots.
+
+* Start docker
+
+```
+systemctl start docker
+```
+
 ## Move the data directory to another location
 
 Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
