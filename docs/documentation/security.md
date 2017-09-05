@@ -3,7 +3,7 @@
 ## Turnkey security
 
 Security is a core feature of the Cloudron and we continue to push out updates
-to tighten the Cloudron's security policy. Our goal is that Cloudron users should
+to tighten the Cloudron firewall's security policy. Our goal is that Cloudron users should
 be able to rely on Cloudron being secure out of the box without having to do manual
 configuration.
 
