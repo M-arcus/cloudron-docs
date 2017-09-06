@@ -94,6 +94,8 @@ the apps on your Cloudron and also tracks configuration changes.
 It is highly recommended to disable password based access to your server since many online
 attackers brute force passwords. Configuring SSH access to be based on a SSH key secures
 the server with the equivalent of a 634 length password with random letters and numbers.
+It is [not possible](https://blog.codinghorror.com/brute-force-key-attacks-are-for-dummies/)
+to brute force SSH keys even with modern technology.
 
 To disable password authentication, check for the following line in `/etc/ssh/sshd_config`:
 ```
