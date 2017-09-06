@@ -142,7 +142,7 @@ can be used to:
 The web terminal can be accessed from the 'Terminal & Logs' menu item.
 
 <center>
-<img src="/img/terminal-menuitem.png" class="shadow" width="600px">
+<img src="/img/terminal-menuitem.png" class="shadow" width="400px">
 </center>
 
 Select the app from the select box on the right hand side to get a shell into the app's file system.
