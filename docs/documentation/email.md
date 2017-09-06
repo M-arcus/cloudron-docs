@@ -27,6 +27,14 @@ mail solution include:
 * [REST API](/documentation/developer/api/) to add users and groups
 * [Secure](/documentation/security/#email-security) out of the box
 
+## Email Settings
+
+Email settings are located under the `Email` menu item.
+
+<center>
+<img src="/img/mail-settings.png" class="shadow">
+</center>
+
 ## Enabling Email
 
 By default, Cloudron's mail server only sends email on behalf of apps. To enable users to
@@ -248,5 +256,3 @@ Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filte
 <center>
 <img src="/img/email-vacation-message.png" class="shadow" width="600px">
 </center>
-
-
