@@ -58,6 +58,8 @@ You can use the following OAuth URLs to add Cloudron in the external app:
 authorizationURL: https://my.<domain>/api/v1/oauth/dialog/authorize
 
 tokenURL:         https://my.<domain>/api/v1/oauth/token
+
+logoutURL:        https://my.<domain>/api/v1/session/logout?redirect=<callback url>
 ```
 
 Read this [blog post](https://cloudron.io/blog/2017-03-21-oauth-provider.html) for

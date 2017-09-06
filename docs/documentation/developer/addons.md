@@ -181,6 +181,7 @@ OAuth2 URLs can be constructed as follows:
 ```
 AuthorizationURL = ${API_ORIGIN}/api/v1/oauth/dialog/authorize # see above for API_ORIGIN
 TokenURL = ${API_ORIGIN}/api/v1/oauth/token
+LogoutURL = ${API_ORIGIN}/api/v1/session/logout?redirect=<callback url>
 ```
 
 The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/documentation/developer/api/#profile). This restriction
