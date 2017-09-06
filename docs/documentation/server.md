@@ -118,28 +118,6 @@ If the disk graph does not display properly, do a `systemctl restart collectd`.
 For VPS providers that support it, the server (cpu/disk/memory) can be resized and
 Cloudron will automatically adapt to the available resources after a server restart.
 
-
-## Securing SSH access
-
-It is highly recommended to disable password based access to your server since many online
-attackers brute force passwords. Configuring SSH access to be based on a SSH key secures
-the server with the equivalent of a 634 length password with random letters and numbers.
-
-To disable password authentication, check for the following line in `/etc/ssh/sshd_config`:
-```
-PasswordAuthentication no
-PermitRootLogin yes        # Store the ssh keys in /root/.ssh/authorized_keys
-```
-
-By default, the SSH server runs on port 22. We recommend moving this to port 202 to prevent
-brute force attacks. To do so, change the following line in `/etc/ssh/sshd_config`:
-```
-Port 202   # Do not use any other port. Only this port is not blocked by the Cloudron firewall
-```
-
-The SSH service can be restarted using `systemctl restart sshd`. Use `ssh -p 202 root@ip` to
-connect to the server.
-
 ## Debugging
 
 You can SSH into your Cloudron and collect logs:

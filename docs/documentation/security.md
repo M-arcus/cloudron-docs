@@ -89,10 +89,99 @@ the apps on your Cloudron and also tracks configuration changes.
 
 <img src="/img/activity.png" class="shadow">
 
+## Securing SSH access
+
+It is highly recommended to disable password based access to your server since many online
+attackers brute force passwords. Configuring SSH access to be based on a SSH key secures
+the server with the equivalent of a 634 length password with random letters and numbers.
+
+To disable password authentication, check for the following line in `/etc/ssh/sshd_config`:
+```
+PasswordAuthentication no
+PermitRootLogin yes        # If set to 'yes', store the ssh keys in root user (/root/.ssh/authorized_keys)
+                           # If set to 'no', store the ssh keys in sudo user (/home/ubuntu/.ssh/authorized_keys)
+```
+
+By default, the SSH server runs on port 22. We recommend moving this to port 202 to prevent
+brute force attacks. Be careful to not lock yourself out when following the instructions below.
+
+To change the SSH port, change the following line in `/etc/ssh/sshd_config`:
+```
+Port 202   # Do not use any other port. Only this port is not blocked by the Cloudron firewall
+```
+
+The SSH service can be restarted using `systemctl restart sshd`. Use `ssh -p 202 root@ip` to
+connect to the server.
+
 ## Block IPs
 
 Cloudron uses iptables to implement rate limits and block access to incoming ports. For this purpose,
-it uses the `CLOUDRON` and `CLOUDRON_RATELIMIT` chain.
+it uses the `CLOUDRON` and `CLOUDRON_RATELIMIT` chain. These chains are managed by Cloudron and should
+not be edited. Cloudron creates these chains at installation time and on every reboot automatically.
+If these chains are already present, it will not alter the position of the chains in the iptables.
+With this information, you can add custom rules and chains before and after the `CLOUDRON` and
+`CLOUDRON_RATELIMIT`.
+
+### Fail2Ban
+
+Fail2Ban read app log files and automatically block IPs. Be aware that Fail2Ban only
+works partially on Cloudron because most apps do not log failed authenticated attempts in a manner that
+Fail2Ban can parse (even if they did, the reverse proxy hides the remote IP). That said, Fail2Ban can
+be used to block brute force SSH logins by simply installing it:
+
+```
+apt install fail2ban
+```
+
+### Static IP ranges
+
+It is also possible to blacklist IPs manually using iptables. Before resorting to the approach below,
+we recommend investigating blocking IPs using your service provider's firewall settings instead. For example,
+[AWS Security Groups](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html),
+[Azure Network Security Groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg)
+or [Digital Ocean Firewall](https://www.digitalocean.com/community/tutorials/an-introduction-to-digitalocean-cloud-firewalls).
+These solutions have the advantage that traffic is blocked at the network edge of the service provider (as
+opposed to the VM's kernel).
+
+For an iptables based approach, just prepend rules to the `INPUT` chain:
+
+```
+iptables -I INPUT -s 192.168.1.1 -j DROP            # Drop a specific IP
+iptables -I INPUT -s 192.168.0.0/16 -j DROP         # Drop a whole block of IPs
+```
+
+To persist the changes across reboots:
+
+```
+apt install iptables-persistent          # this is a service that restores iptables
+iptables-save >/etc/iptables/rules.v4    # current snapshot of iptables
+```
+
+### Geo IP block
+
+Please note that these instructions are provided here for convenience. Please make sure that you
+understand each command before executing them to prevent yourself from being locked out of the
+server.
+
+Create and insert an IPSet named `BANNED_RANGES` by following the instructions:
+
+```
+apt install ipset unzip
+ipset create BLACKLIST hash:net
+wget http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
+awk -F "," -v COUNTRY_CODE=CN -v IPSET_TABLE=BLACKLIST '$5 ~ COUNTRY_CODE { gsub(/"/, "", $1); gsub(/"/, "", $2); print "add "IPSET_TABLE" "$1"-"$2; }' GeoIPCountryWhois.csv > ipset.BLACKLIST.conf
+ipset restore < ipset.BLACKLIST.conf    # ipset list BLACKLIST to list contents
+iptables -I INPUT -p tcp -m set --match-set BLACKLIST src -j DROP
+```
+
+To persist the changes across reboots:
+
+```
+apt install iptables-persistent          # this is a service that restores iptables
+iptables-save > /etc/iptables/rules.v4    # current snapshot of iptables
+```
+
+The content above was derived from [here](https://superuser.com/questions/997426/is-there-any-other-way-to-get-iptables-to-filter-ip-addresses-based-on-geolocati).
 
 ## Email security
 
