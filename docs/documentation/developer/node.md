@@ -533,9 +533,9 @@ Doing so will get the following environment variables:
 $ cloudron exec env
 OAUTH_CLIENT_ID=cid-addon-4089f65a-2adb-49d2-a6d1-e519b7d85e8d
 OAUTH_CLIENT_SECRET=5af99a9633283aa15f5e6df4a108ff57f82064e4845de8bce8ad3af54dfa9dda
-OAUTH_ORIGIN=https://my-craft.selfhost.io
-API_ORIGIN=https://my-craft.selfhost.io
-HOSTNAME=tutorial-craft.selfhost.io
+OAUTH_ORIGIN=https://my.domain.com
+API_ORIGIN=https://my.domain.com
+HOSTNAME=tutorial.domain.com
 ```
 
 OAuth Authorization code grant flow works as follows:

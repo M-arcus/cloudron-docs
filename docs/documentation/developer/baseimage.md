@@ -66,8 +66,7 @@ The following environment variables are set as part of the application runtime.
 
 ### API_ORIGIN
 
-API_ORIGIN is set to the HTTP(S) origin of this Cloudron's API. For example,
-`https://my-girish.cloudron.us`.
+API_ORIGIN is set to the HTTP(S) origin of this Cloudron's API. For example, `https://my.cloudron.io`.
 
 ### APP_DOMAIN
 
@@ -76,7 +75,7 @@ APP_DOMAIN is set to the domain name of the application. For example, `app-giris
 ### APP_ORIGIN
 
 APP_ORIGIN is set to the HTTP(S) origin on the application. This is origin which the
-user can use to reach the application. For example, `https://app-girish.cloudron.us`.
+user can use to reach the application. For example, `https://my.cloudron.io`.
 
 ### CLOUDRON
 
@@ -84,8 +83,7 @@ CLOUDRON is always set to '1'. This is useful to write Cloudron specific code.
 
 ### WEBADMIN_ORIGIN
 
-WEBADMIN_ORIGIN is set to the HTTP(S) origin of the Cloudron's web admin. For example,
-`https://my-girish.cloudron.us`.
+WEBADMIN_ORIGIN is set to the HTTP(S) origin of the Cloudron's web admin. For example, `https://my.cloudron.io`.
 
 ## Node.js
 

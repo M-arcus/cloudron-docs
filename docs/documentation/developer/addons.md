@@ -173,7 +173,7 @@ The callback url required for the OAuth transaction can be contructed from the e
 ```
 APP_DOMAIN=           # hostname of the app
 APP_ORIGIN=           # origin of the app of the form https://domain
-API_ORIGIN=      # origin of the OAuth provider of the form https://my-cloudrondomain
+API_ORIGIN=           # origin of the OAuth provider of the form https://my.domain
 ```
 
 OAuth2 URLs can be constructed as follows:
