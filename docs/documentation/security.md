@@ -124,9 +124,9 @@ With this information, you can add custom rules and chains before and after the 
 
 ### Fail2Ban
 
-Fail2Ban read app log files and automatically block IPs. Be aware that Fail2Ban only
+Fail2Ban reads app log files and automatically block IPs. Be aware that Fail2Ban only
 works partially on Cloudron because most apps do not log failed authenticated attempts in a manner that
-Fail2Ban can parse (even if they did, the reverse proxy hides the remote IP). That said, Fail2Ban can
+Fail2Ban can parse (even if they did, Cloudron's reverse proxy hides the remote IP). That said, Fail2Ban can
 be used to block brute force SSH logins by simply installing it:
 
 ```
@@ -163,14 +163,19 @@ Please note that these instructions are provided here for convenience. Please ma
 understand each command before executing them to prevent yourself from being locked out of the
 server.
 
-Create and insert an IPSet named `BANNED_RANGES` by following the instructions:
+Create and insert an IPSet named `BLACKLIST` by following the instructions:
 
 ```
 apt install ipset unzip
 ipset create BLACKLIST hash:net
+
+# download the database
 wget http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
+
+# convert the CSV to ipset format
 awk -F "," -v COUNTRY_CODE=CN -v IPSET_TABLE=BLACKLIST '$5 ~ COUNTRY_CODE { gsub(/"/, "", $1); gsub(/"/, "", $2); print "add "IPSET_TABLE" "$1"-"$2; }' GeoIPCountryWhois.csv > ipset.BLACKLIST.conf
-ipset restore < ipset.BLACKLIST.conf    # ipset list BLACKLIST to list contents
+
+ipset restore < ipset.BLACKLIST.conf    # 'ipset list BLACKLIST' can be used to list contents
 iptables -I INPUT -p tcp -m set --match-set BLACKLIST src -j DROP
 ```
 

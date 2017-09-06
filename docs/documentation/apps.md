@@ -123,6 +123,34 @@ User-agent: *
 Disallow: /
 ```
 
+## Modifying files of an app
+
+Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data), 
+`/app/data` (backup data) and `/tmp` (temporary files) are writable at runtime.
+
+Cloudron provides a web terminal that gives access to the app's file system. The web terminal
+can be used to:
+
+* Introspect the app's file system
+* Access and modify the app's database (mysql, postgres, mongodb, redis)
+* Modify the app's data directory
+* Upload files to the /tmp directory. You can then work on this file from the terminal.
+* Download files and directories (as tar.gz) from the app.
+* Install plugins
+* Repair an app if a plugin installation failed or database needs some modification
+
+The web terminal can be accessed from the 'Terminal & Logs' menu item.
+
+<center>
+<img src="/img/terminal-menuitem.png" class="shadow" width="600px">
+</center>
+
+Select the app from the select box on the right hand side to get a shell into the app's file system.
+
+<center>
+<img src="/img/terminal-exec.png" class="shadow" width="600px">
+</center>
+
 ## Embedding Apps
 
 Cloudron apps can be embedded into other websites by setting `X-Frame-Options`. By default, this HTTP header is set to
