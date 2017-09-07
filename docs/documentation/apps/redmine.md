@@ -18,6 +18,7 @@ add the line to the top of Gemfile
 
 ```
 cd /app/data/plugins/redmine_contacts
+vi Gemfile                  # ensure first line is "source 'https://rubygems.org'"
 bundle install              # this installs gems into /app/data/bundle/vendor
 ```
 
