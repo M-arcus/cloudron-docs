@@ -3,6 +3,7 @@
 ## Desktop and Mobile Clients
 
 The OpenVPN app has been tested with the following clients:
+
 * NetworkManager on Ubuntu
 * [Tunnelblick](https://www.tunnelblick.net/) on Mac OS X
 * [OpenVPN for Android](https://play.google.com/store/apps/details?id=de.blinkt.openvpn)
