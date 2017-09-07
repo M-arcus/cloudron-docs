@@ -1,3 +1,5 @@
+# <img src="/img/redmine-logo.png" width="25px"> Redmine App
+
 ## Installing plugins
 
 To install plugins in redmine, simply extract them to `/app/data/plugins`

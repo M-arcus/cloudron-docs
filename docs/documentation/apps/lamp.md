@@ -1,8 +1,4 @@
-# LAMP App
-
-<center>
-<img src="/blog/img/lamp.png">
-</center>
+# <img src="/img/lamp-logo.png" width="25px"> Lamp App
 
 ## LAMP App on Cloudron
 

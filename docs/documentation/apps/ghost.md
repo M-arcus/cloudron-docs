@@ -1,8 +1,4 @@
-# Ghost App
-
-<center>
-<img src="/img/ghost-logo.png">
-</center>
+# <img src="/img/ghost-logo.png" width="25px"> Ghost App
 
 ## Migrating from Ghost 0.11
 
