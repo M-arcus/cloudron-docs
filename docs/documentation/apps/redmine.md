@@ -31,3 +31,16 @@ bundle install              # this installs gems into /app/data/bundle/vendor
 
 * Restart redmine using the `restart` button
 
+## Installing themes
+
+To install plugins in redmine, simply extract them to `/app/data/themes`,
+install dependancies and run the build script
+
+```
+cd /app/data/themes/
+git clone https://github.com/hardpixel/minelab.git
+cd minelab
+bundle install
+./bundle.sh
+```
+
