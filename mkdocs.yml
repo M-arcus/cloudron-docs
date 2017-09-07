@@ -28,7 +28,7 @@ pages:
 #    - documentation/developer/node.md
     - documentation/developer/packaging.md
   - 'Apps':
-    - documentation/apps/lamp.md
+    - 'LAMP': documentation/apps/lamp.md
     - documentation/apps/redmine.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
