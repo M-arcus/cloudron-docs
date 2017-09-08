@@ -94,29 +94,31 @@ Apps store their data under `/home/yellowtent/appsdata`. Each subdirectory is th
 a single app to another location, simply create a symlink of this subdirectory to the alternate
 location. Note that the new location must be on an ext4 file system.
 
-To find the app id, first find the container id:
+* Stop all the containers of the app. To find all the container for an app at subdomain `files`:
 
 ```
-docker ps -qf label=location=redmine # location is the subdomain of the app
+# docker ps -q -f label=location=files --format 'table {{.ID}}\t{{.Label "appId"}}'
+CONTAINER ID        APPID
+12465cd72d01        217f33a5-f4a8-4abe-bc32-76256906818f
+cf9ae0ad5808        
+
+# docker stop 12465cd72d01 cf9ae0ad5808
 ```
 
-The container is labeled with the app id, which can be displayed using:
-```
-docker inspect -f '{{.Config.Labels.appId}}' d741d6543d4f   # use the container name from above
-```
-
-Now we can move the app's data directory to an alternate location:
+* Move the app's data directory to an alternate location:
 
 ```
-    docker stop d741d6543d4f                       # stop the app
-
-    APP_ID="c7f61761-bf68-416d-880a-5a3ed9224dd0"  # identified above
-    NEW_LOC="/var/appdata"                         # we will move appdata under this ext4 directory
+    APP_ID="217f33a5-f4a8-4abe-bc32-76256906818f"  # identified above
+    NEW_LOC="/mnt/appdata"                         # we will move appdata under this ext4 directory
 
     mv "/home/yellowtent/appsdata/${APP_ID}" "${NEW_LOC}"
     ln -s "${NEW_LOC}/${APP_ID}" "/home/yellowtent/appsdata/${APP_ID}"
+```
 
-    docker start d741d6543d4f        # start the app
+* Start the app containers:
+
+```
+# docker stop 12465cd72d01 cf9ae0ad5808
 ```
 
 ## Move the data directory to another location
