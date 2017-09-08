@@ -100,7 +100,7 @@ location. Note that the new location must be on an ext4 file system.
 # docker ps -q -f label=location=files --format 'table {{.ID}}\t{{.Label "appId"}}'
 CONTAINER ID        APPID
 12465cd72d01        217f33a5-f4a8-4abe-bc32-76256906818f
-cf9ae0ad5808        
+cf9ae0ad5808
 
 # docker stop 12465cd72d01 cf9ae0ad5808
 ```
