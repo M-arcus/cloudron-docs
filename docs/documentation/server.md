@@ -85,6 +85,40 @@ to persist across reboots.
 systemctl start docker
 ```
 
+## Moving a single app's data directory to another location
+
+Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
+following the procedure below.
+
+Apps store their data under `/home/yellowtent/appsdata`. Each subdirectory is the app id. To move
+a single app to another location, simply create a symlink of this subdirectory to the alternate
+location. Note that the new location must be on an ext4 file system.
+
+To find the app id, first find the container id:
+
+```
+docker ps -qf label=location=redmine # location is the subdomain of the app
+```
+
+The container is labeled with the app id, which can be displayed using:
+```
+docker inspect -f '{{.Config.Labels.appId}}' d741d6543d4f   # use the container name from above
+```
+
+Now we can move the app's data directory to an alternate location:
+
+```
+    docker stop d741d6543d4f                       # stop the app
+
+    APP_ID="c7f61761-bf68-416d-880a-5a3ed9224dd0"  # identified above
+    NEW_LOC="/var/appdata"                         # we will move appdata under this ext4 directory
+
+    mv "/home/yellowtent/appsdata/${APP_ID}" "${NEW_LOC}"
+    ln -s "${NEW_LOC}/${APP_ID}" "/home/yellowtent/appsdata/${APP_ID}"
+
+    docker start d741d6543d4f        # start the app
+```
+
 ## Move the data directory to another location
 
 Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
