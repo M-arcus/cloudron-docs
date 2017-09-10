@@ -64,7 +64,7 @@ sets up addons in such a way that apps are isolated from each other.
 
 Addons are opt-in and must be specified in the Cloudron Manifest. When the app runs, environment
 variables contain the necessary information to access the addon. See the
-[addon reference](/documenation/developer/addons) for more information.
+[addon reference](/documentation/developer/addons) for more information.
 
 ## Authentication
 
