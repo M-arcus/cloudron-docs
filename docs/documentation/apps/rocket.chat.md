@@ -1,5 +1,12 @@
 # <img src="/img/apps/rocketchat-square.png" width="25px"> Rocket.Chat App
 
+## Mobile Clients
+
+Rocket.Chat [mobile clients](https://rocket.chat/download) are available for most mobile platforms:
+
+* [Play Store](https://play.google.com/store/apps/details?id=chat.rocket.android)
+* [Apple App Store](https://itunes.apple.com/app/rocket-chat/id1148741252)
+
 ## Webhook Integrations
 
 Webhook Integrations can be added in the Administration panel under `Integrations`.
