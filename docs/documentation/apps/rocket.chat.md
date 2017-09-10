@@ -20,7 +20,7 @@ Create a new `Incoming WebHook Integration` and configure the destination channe
 GitLab supports multiple types of webhook notifications and thus requires a more sophisticated transform script.
 The below works for issue, comment, merge request, push and tag events:
 
-```
+```javascript
 /*jshint  esnext:true*/
 // see https://gitlab.com/help/web_hooks/web_hooks for full json posted by GitLab
 const NOTIF_COLOR = '#6498CC';
