@@ -28,8 +28,8 @@ delete the legacy app and change the location of the 2.0 app.
 Per default, each user can only access their own calendar and contacts. If you
 want something more complicated you can change the permissions.
 
-You can change the permissions by pushing a file using the Cloudron CLI tool at
-`/app/data/rights`. The default content of that file is:
+You can change the permissions editing `/app/data/rights` in the app instance.
+The default content of that file is:
 
     [owner-write]
     user = .+
