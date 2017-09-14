@@ -123,7 +123,7 @@ User-agent: *
 Disallow: /
 ```
 
-## Modifying files of an app
+## Web terminal
 
 Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data), 
 `/app/data` (backup data) and `/tmp` (temporary files) are writable at runtime.
@@ -131,7 +131,7 @@ Cloudron runs apps as containers with a read-only file system. Only `/run` (dyna
 Cloudron provides a web terminal that gives access to the app's file system. The web terminal
 can be used to:
 
-* Introspect the app's file system
+* Introspect and modify the app's files
 * Access and modify the app's database (mysql, postgres, mongodb, redis)
 * Modify the app's data directory
 * Upload files to the /tmp directory. You can then work on this file from the terminal.
