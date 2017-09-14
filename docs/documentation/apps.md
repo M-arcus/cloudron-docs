@@ -125,9 +125,6 @@ Disallow: /
 
 ## Web terminal
 
-Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data), 
-`/app/data` (backup data) and `/tmp` (temporary files) are writable at runtime.
-
 Cloudron provides a web terminal that gives access to the app's file system. The web terminal
 can be used to:
 
@@ -138,6 +135,9 @@ can be used to:
 * Download files and directories (as tar.gz) from the app.
 * Install plugins
 * Repair an app if a plugin installation failed or database needs some modification
+
+Note that Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data), 
+`/app/data` (backup data) and `/tmp` (temporary files) are writable at runtime.
 
 The web terminal can be accessed from the 'Terminal & Logs' menu item.
 
