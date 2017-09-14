@@ -190,9 +190,10 @@ For example, to redirect `www` to the bare domain:
 
 * Install [LAMP](https://cloudron.io/store/lamp.cloudronapp.html) on the `www` subdomain.
 
-* Use the [CLI tool](/documentation/cli/) to get remote access into the app and create a `.htaccess` file:
+* Use the [Web terminal](/documentation/apps/#web-terminal) to get access to the app's file system.
+  Create a `/app/data/public/.htaccess` file:
+
 ```
-cloudron exec --app www
 $ echo "redirect 301 / https://domain.com/" > /app/data/public/.htaccess
 ```
 
