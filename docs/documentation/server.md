@@ -23,17 +23,25 @@ The other important locations on the server are:
 Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
 following the procedure below.
 
-Cloudron uses the `devicemapper` storage backend for Docker. This backend is very slow when used with non-SSD disks (HDD).
-Changing the docker storage backend to `overlay2` greatly speeds things up. This can be done as follows:
+Starting [Cloudron 1.5](https://cloudron.io/blog/2017-08-16-cloudron-1.5.0.html), Cloudron uses the overlay2
+storage backend. Older versions have not been migrated yet and use the `devicemapper` backend.
 
-* Cleanup docker
+The `devicemapper` backend can be very slow especially when used with non-SSD disks (HDD).
+Changing the docker storage backend to `overlay2` for older Cloudrons can be done as follows:
+
+* Verify you are using devicemapper backend
+```
+docker info | grep Storage
+```
+
+* Remove existing docker images
 ```
 systemctl stop box
 systemctl stop docker
 rm -rf /var/lib/docker
 ```
 
-* Change the backend setting
+* Change docker storage backend setting
 ```
 vi /etc/systemd/system/docker.service.d/cloudron.conf
 # change --storage-driver=devicemapper to --storage-driver=overlay2
@@ -42,7 +50,8 @@ vi /etc/systemd/system/docker.service.d/cloudron.conf
 * Make Cloudron code re-pull all images. Edit `/home/yellowtent/platformdata/INFRA_VERSION` and change the minor version
 in the "version" field. For example, if it is 48.3.0, change it to 48.2.0.
 
-**NOTE:** Do not change the major version field since it will try to restore from a backup.
+**NOTE:** Please be very careful when making the above change. Do not change the major version field since it will try
+to restore from a backup and will lose data since your last backup.
 
 ```
 systemctl daemon-reload
