@@ -227,7 +227,38 @@ Note that the above command will restart all the apps and addon services.
 
 ### Box
 
-Once the above services are up and running, the box code can be restarted using:
+In some rare cases, `/home/yellowtent/configs/cloudron.conf` can be missing.
+
+If this is the case, recreate it using the following contents. Be sure to edit
+the `version`, `fqdn`, `zoneName` and `provider` arguments below:
+```
+{
+    "version": "1.6.4",
+    "token": "",
+    "apiServerOrigin": "https://api.cloudron.io",
+    "webServerOrigin": "https://cloudron.io",
+    "fqdn": "mydomain.com",
+    "zoneName": "mydomain.com",
+    "isCustomDomain": true,
+    "provider": "digitalocean",
+    "isDemo": false,
+    "database": {
+        "hostname": "127.0.0.1",
+        "username": "root",
+        "password": "password",
+        "port": 3306,
+        "name": "box"
+    },
+    "appBundle": []
+}
+```
+
+Make sure `cloudron.conf` has the right permissions:
+```
+chown yellowtent:yellowtent /home/yellowtent/configs/cloudron.conf
+```
+
+The box code can now be started using:
 ```
 systemctl restart box
 ```
