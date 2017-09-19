@@ -32,8 +32,9 @@ pages:
     - 'LAMP': documentation/apps/lamp.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'Radicale': documentation/apps/radicale.md
-    - 'Rocket.Chat': documentation/apps/rocket.chat.md
     - documentation/apps/redmine.md
+    - 'Rocket.Chat': documentation/apps/rocket.chat.md
+    - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
 extra_css:
