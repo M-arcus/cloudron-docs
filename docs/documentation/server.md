@@ -163,6 +163,11 @@ If the disk graph does not display properly, do a `systemctl restart collectd`.
 For VPS providers that support it, the server (cpu/disk/memory) can be resized and
 Cloudron will automatically adapt to the available resources after a server restart.
 
+### AWS EBS
+
+On AWS, the partition and the filesystem must be resized after resizing the EBS
+volume. This can be done by following the [AWS Guide](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html).
+
 ## Debugging
 
 You can SSH into your Cloudron and collect logs:
