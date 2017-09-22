@@ -6,7 +6,7 @@ Create a server with Ubuntu Xenial 16.04 (x64) and run these commands:
 ```
 wget https://cloudron.io/cloudron-setup
 chmod +x cloudron-setup
-./cloudron-setup --provider <azure|digitalocean|ec2|linode|ovh|scaleway|vultr|generic>
+./cloudron-setup --provider <azure|cloudscale|digitalocean|ec2|exoscale|linode|ovh|scaleway|vultr|generic>
 ```
 
 !!! note "Minimum Requirements"
