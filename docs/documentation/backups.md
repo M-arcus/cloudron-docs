@@ -218,47 +218,61 @@ current version of the app may not be able to handle old data.
 
 To restore a Cloudron from a specific backup:
 
-* Make a note of the latest backup. You can do this by simply listing the backups (based on the configured backup backend).
+* Identify the backup id. This can be done by listing the backups in the backup backend.
 
-  * For `Filesystem` backend, list the backup directory. Backups are sorted by time. Each backup directory, contains a file with prefix
-    `box_` which contains the backup of platform and a number of files with the prefix `app_` that contain the application backups.
+    * For `S3` backend, use the [AWS console](https://console.aws.amazon.com/s3/) to list the backups.
+
+    * For `Filesystem` backend, list the backup directory. Backups are sorted by time.
+      Each backup directory, contains a file with prefix `box_` which contains the
+      backup of platform and a number of files with the prefix `app_` that contain the
+      application backups.
 
 ```
-root@intranet:~# ls -l /var/backups/
-total 8
-drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210206-153
-drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210210-192
+        root@intranet:~# ls -l /var/backups/
+        total 8
+        drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210206-153
+        drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210210-192
 ```
 
-   * For `S3` backend, use the [AWS console](https://console.aws.amazon.com/s3/) to list the backups.
 
 * Make the backup accessible to the new server:
 
-  * For `Filesystem` backend - If the backup directory (`/var/backups`) is an external mount, make sure it's mounted in the new server. Otherwise, scp the backup files
-    from the old server to the new server's `/var/backups`. Please be careful about maintaining the same folder structure for backups in the old and new server.
+    * For `S3` backend - Make the box backup publicly readable. This can be done from the AWS S3
+      console. Once the box has restored, it can be made private again.
 
-  * For `S3` backend - Make the box backup publicly readable. This can be done from the AWS S3 console. Once the box has restored, it can be made private again.
+    * For `Filesystem` backend - Copy the backup files from the old server to the new server.
+      Be careful about maintaining the same folder structure for backups in the old and new server.
+      Note that only the specific backup needs to be copied. For example, just scp'ing the directory
+      `/var/backups/2017-09-25-210210-192` in the above listing is sufficient to restore from the latest
+      backup.
 
 * Create a new Cloudron by running the following commands on the new server:
+
 ```
-    # wget https://cloudron.io/cloudron-setup
-    # chmod +x cloudron-setup
-    # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5.tar.gz
+        # wget https://cloudron.io/cloudron-setup
+        # chmod +x cloudron-setup
+        # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5.tar.gz
 ```
 
-    **NOTE**: If backups are encrypted, pass the encryption key in `--encryption-key`.
+**NOTE**: If backups are encrypted, pass the encryption key in `--encryption-key`.
 
-* Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and provide the domain name setup.
+* Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and finish
+  the domain name setup. It is possible to provide a domain that was different from the Cloudron's previous
+  domain. If a new domain is provided, all apps are migrated to subdomains of this new domain.
 
-* After providing domain name details, Cloudron will automatically start restoring all the apps.
+* After providing the domain name details, Cloudron will automatically start restoring all the apps.
 
 ## Migrating Cloudron to another server
 
 To migrate to a different server:
 
-* Take a [complete backup](/documentation/backups/#making-a-complete-backup) of the existing Cloudron. Click the `Backup now` button in the `Settings` page.
+* Take a [complete backup](/documentation/backups/#making-a-complete-backup) of the existing
+  Cloudron. Click the `Backup now` button in the `Settings` page.
 
-* On the new server, follow the steps to [restore from the latest backup](/documentation/backups/#restoring-cloudron-from-a-backup).
+* Follow the steps to [restore from the latest backup](/documentation/backups/#restoring-cloudron-from-a-backup)
+  on the new server.
 
-Note that the above migration procedure is required only if you want to migrate to another server. If the server cpu/disk/memory can be resized, then resize
-it and reboot the server. Cloudron will automatically adapt to the available resources after a server restart.
+Note that the above migration procedure is required only if you want to migrate
+to another server. If the exisitng server's cpu/disk/memory can be resized (as is
+the case with most server providers), then resize it and reboot the server.
+Cloudron will automatically adapt to the available resources after a server restart.
