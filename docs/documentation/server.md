@@ -60,6 +60,12 @@ docker network create --subnet=172.18.0.0/16 cloudron
 systemctl restart cloudron.target # this will download images all over, so give it some time
 ```
 
+* Reboot the server. This is required because docker networking changes do not seem to take effect immediately.
+
+``
+reboot
+```
+
 ## Moving docker images to another location
 
 Cloudron uses Docker for containerizing applications and docker images tend to consume a lot of space.
