@@ -68,8 +68,8 @@ The `<hosted zone id>` below must be replaced with the zone's id which is availa
 ## Wildcard DNS
 
 For wildcard setup, add entries for `*.domain.com` and `domain.com` to point to your server's IP.
-Note that adding add wildcard entry does _not_ affect your existing domains because the wildcard
-only applies to subdomains that are not explicitly defined.
+Note that adding add wildcard entry does _not_ affect any existing DNS entries in `domain.com` 
+because the wildcard only applies to subdomains that are not explicitly defined.
 
 For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
 be displayed in the UI after installation.
