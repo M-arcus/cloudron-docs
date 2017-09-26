@@ -1191,6 +1191,7 @@ Response(200):
   "prefix": <string>,      // s3 bucket prefix
   "token": <string>,       // 'caas' specific token
   "backupFolder": <string> // 'filesystem' specific backup directory
+  "format": "tgz" | "flat-file" // backup storage format
 }
 ```
 
