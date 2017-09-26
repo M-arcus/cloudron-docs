@@ -47,8 +47,9 @@ vi /etc/systemd/system/docker.service.d/cloudron.conf
 # change --storage-driver=devicemapper to --storage-driver=overlay2
 ```
 
-* Make Cloudron code re-pull all images. Edit `/home/yellowtent/platformdata/INFRA_VERSION` and change the minor version
-in the "version" field. For example, if it is 48.3.0, change it to 48.2.0.
+* Edit `/home/yellowtent/platformdata/INFRA_VERSION` and change the minor version in the "version" field.
+  For example, if it is 48.3.0, change it to 48.2.0. This makes Cloudron code re-pull all the docker images
+  in the new storage format.
 
 **NOTE:** Please be very careful when making the above change. Do not change the major version field since it will try
 to restore from a backup and will lose data since your last backup.
@@ -62,7 +63,7 @@ systemctl restart cloudron.target # this will download images all over, so give 
 
 * Reboot the server. This is required because docker networking changes do not seem to take effect immediately.
 
-``
+```
 reboot
 ```
 
