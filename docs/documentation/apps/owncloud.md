@@ -18,7 +18,8 @@ sudo apt-get update
 sudo apt-get install owncloud-client
 ```
 
-**NOTE:** As of this writing, the ownCloud website links to the opensuse website for installing the owncloud client.
-The packages in the opensuse website do not work. See the [forum](https://central.owncloud.org/t/repository-bug-on-ubuntu-16-04/9546/7)
-and [GitHub issue](https://github.com/owncloud/client/issues/6034) for more information.
+!!! note
+    As of this writing, the ownCloud website links to the opensuse website for installing the owncloud client.
+    The packages in the opensuse website do not work. See the [forum](https://central.owncloud.org/t/repository-bug-on-ubuntu-16-04/9546/7)
+    and [GitHub issue](https://github.com/owncloud/client/issues/6034) for more information.
 

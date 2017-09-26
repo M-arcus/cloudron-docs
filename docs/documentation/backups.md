@@ -254,7 +254,8 @@ To restore a Cloudron from a specific backup:
         # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5.tar.gz
 ```
 
-**NOTE**: If backups are encrypted, pass the encryption key in `--encryption-key`.
+!!! warning
+    If backups are encrypted, pass the encryption key in `--encryption-key`.
 
 * Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and finish
   the domain name setup. It is possible to provide a domain that was different from the Cloudron's previous
