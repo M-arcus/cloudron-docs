@@ -18,8 +18,8 @@ be terminated at the end of the current 30 days period.
 
 ## Canceling subscription
 
-Subscription can be cancelled anytime at [cloudron.io](https://cloudron.io/console.html#/login). Once cancelled,
-we will stop billing you from the next month.
+Subscription can be cancelled anytime at [cloudron.io](/console.html#/userprofile?view=subscriptions).
+Once cancelled, we will stop billing you from the next month.
 
 ## VAT & Taxes
 
