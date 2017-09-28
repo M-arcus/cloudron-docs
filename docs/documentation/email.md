@@ -185,6 +185,17 @@ Cloudron does not support mailbox quotas.
 Each group on the Cloudron is also a forwarding address. Mails can be addressed
 to `group@<domain>` and the mail will be sent to each user who is part of the group.
 
+## Forward all emails to an external address
+
+To forward some or all emails to an external address, create a Sieve filter. Sieve
+filters can be created using [Rainloop](/documentation/apps/rainloop/),
+[Roundcube](/documentation/apps/roundcube/) or any other client that supports
+Manage Sieve.
+
+<center>
+<img src="/img/forward-all-emails.png" class="shadow" width="600px">
+</center>
+
 ## Marking emails as spam
 
 The spam detection agent on the Cloudron requires training to identify spam.
