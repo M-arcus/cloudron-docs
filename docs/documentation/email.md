@@ -66,10 +66,13 @@ The following TCP ports must be opened in the firewall for Cloudron to receive e
   send mail on port 25. The Cloudron UI will show a warning if it detects that it is unable
   to contact other mail servers on port 25.
 
-    * Digital Ocean - New accounts frequently have port outbound 25 blocked. Write to their support to
+    * Digital Ocean - New accounts frequently have outbound port 25 blocked. Write to their support to
       unblock your server.
 
     * EC2, Lightsail & Scaleway - Edit your security group to allow outbound port 25.
+
+    * Vultr - [New accounts](https://www.vultr.com/faq/#outboundsmtp) have outbound port 25 blocked. Write
+      to their support to unblock your server.
 
 * If you are unable to receive mail, check if the security group allows inbound port 25.
 
