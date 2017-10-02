@@ -65,7 +65,8 @@ systemctl restart cloudron.target # this will download images all over, so give 
 ```
 
 * Watch the output of `journalctl -fa` to wait for the docker images to be downloaded by Cloudron. Once, the
-  download completes, there will be some network errors displayed. At this point, proceed to the next step.
+  download completes, there will be some network errors displayed like `org.ghost.cloudronapp2 not alive (network error)`.
+  At this point, proceed to the next step.
 
 ```
 journalctl -fa          # watch the logs
