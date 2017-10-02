@@ -48,11 +48,12 @@ vi /etc/systemd/system/docker.service.d/cloudron.conf
 ```
 
 * Edit `/home/yellowtent/platformdata/INFRA_VERSION` and change the minor version in the "version" field.
-  For example, if it is 48.3.0, change it to 48.2.0. This makes Cloudron code re-pull all the docker images
+  For example, if it is 48.5.0, change it to 48.4.0. This makes Cloudron code re-pull all the docker images
   in the new storage format.
 
-**NOTE:** Please be very careful when making the above change. Do not change the major version field since it will try
-to restore from a backup and will lose data since your last backup.
+!!! warning "Changing the version field"
+    Please be very careful when changing the version field. Do not change the major version field since it will try
+    to restore from a backup and will lose data since your last backup.
 
 ```
 systemctl daemon-reload
@@ -60,6 +61,9 @@ systemctl start docker
 docker network create --subnet=172.18.0.0/16 cloudron
 systemctl restart cloudron.target # this will download images all over, so give it some time
 ```
+
+* Watch the output of `journalctl -fa` to wait for the docker images to be downloaded by Cloudron. Once, the
+  download completes, there will be some network errors displayed. At this point, proceed to the next step.
 
 * Reboot the server. This is required because docker networking changes do not seem to take effect immediately.
 
