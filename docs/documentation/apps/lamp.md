@@ -3,69 +3,131 @@
 ## LAMP App on Cloudron
 
 Running LAMP apps on the Cloudron is no different than what is available on
-many hosting providers. You can upload your PHP code using SFTP and then modify
-the .htaccess and php.ini files as required. Most commonly used PHP extensions
-are pre-installed and you don't have to worry about keeping them up-to-date.
+many hosting providers. You can upload your PHP code using SFTP or the
+[Web terminal](/documentation/apps/#web-terminal) and then modify
+the .htaccess and php.ini files as required. Most commonly used
+[PHP extensions](#php-extensions) are pre-installed and you don't have to worry
+about keeping them up-to-date.
 
-The main advantage of using the Cloudron to host your LAMP apps are:
+The main advantage of using the Cloudron to host LAMP apps are:
+
 *   DNS configuration, Let's Encrypt (SSL) certificate installation and renewal are automated.
-*   You can use MySQL, LDAP, OAuth and send email out of the box.
+*   Can use MySQL, LDAP, OAuth and send email out of the box.
 *   Don't have to worry about app and server backups, restore and updates since the Cloudron takes care of it.
 *   Run multiple LAMP apps, isolated from one another, on same server easily.
 
 ## Installing LAMP app on Cloudron
 
-First, install the LAMP app on your Cloudron from the [Cloudron App Store](https://cloudron.io/store/lamp.cloudronapp.html).
+The LAMP app can be installed from the [Cloudron App Store](https://cloudron.io/store/lamp.cloudronapp.html).
 
-When installing the app, you can specify the port in which SFTP will be
-available. You can disable SFTP by unchecking the checkbox, after you
-are done with using SFTP.
+When installing the app, the SFTP port can be specified. SFTP can be disabled by unchecking the checkbox.
 
 <center>
-<img src="/blog/img/lamp-install.png" class="shadow">
+<img src="/img/lamp-install.png" class="shadow">
 </center>
 
-## Uploading LAMP app using SFTP
+## Uploading LAMP app
 
-Once installed, you can upload the ImpressPages app using an SFTP client like
-[FileZilla](https://filezilla-project.org/).
+The LAMP app can be upload using the Web terminal or SFTP.
 
-*   Download and extract [ImpressPages](https://www.impresspages.org/download)
-*   Connect the SFTP client. The hostname is app's domain name. The SFTP port is 2222.
-    The username/password is the same as your cloudron credentials.
+### Web terminal
+
+* Open a [web terminal](/documentation/apps/#web-terminal) for the app.
+
+* Upload the app .zip or .tar.gz to `/tmp` using the upload button
+
+* Use the terminal to extract the code to `/app/data/public`
+
+```
+# unzip /tmp/app.zip -d /app/data/public       # for zip files
+
+# tar zxvf /tmp/app.tar.gz -C /app/data/public # for tarballs
+```
+
+### Using SFTP
+
+The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
+
+*   Connect the SFTP client. The hostname is app's domain name. The default SFTP port is 2222.
+    The username/password is the same as Cloudron credentials.
+
 *   Upload it to the `public/` folder.
 
 <center>
-<img src="/blog/img/lamp-filezilla.png" class="shadow">
+<img src="/img/lamp-filezilla.png" class="shadow">
 </center>
+
+## Configuring MySQL
+
+On the Cloudron, MySQL credentials are exposed as environment variables to the app.
+These variables can change over time. This approach makes it possible for Cloudron
+to transparently rotate the MySQL password periodically as a security measure and
+also makes app easily migratable across Cloudrons.
+
+The exposed environment variables are:
+```
+MYSQL_URL=            # the mysql url (only set when using a single database, see below)
+MYSQL_USERNAME=       # username
+MYSQL_PASSWORD=       # password
+MYSQL_HOST=           # server IP/hostname
+MYSQL_PORT=           # server port
+MYSQL_DATABASE=       # database name (only set when using a single database, see below)
+```
+
+If the PHP app has a `config.php` that requires the MySQL credentials to be set, they can set as below:
+```
+'db' => array (
+    'hostname' => getenv("MYSQL_HOST"),
+    'username' => getenv("MYSQL_USERNAME"),
+    'password' => getenv("MYSQL_PASSWORD"),
+    'database' => getenv("MYSQL_DATABASE")
+  ), // Database configuration
+```
+
+Some apps show a setup screen and will require the raw MySQL credentials. For such apps, the MySQL
+credentials can be obtained from the [Web terminal](/documentation/apps/#web-terminal) by executing
+the following command:
+
+```
+# env | grep MYSQL_
+```
+
+<center>
+<img src="/img/lamp-webterminal-mysql.png" class="shadow">
+</center>
+
+**IMPORTANT:** Once the installation is completed, be sure to switch the config file of the app to use
+the environment variables using `getenv()` instead of the raw credentials. Otherwise, future updates
+might break the app.
 
 ## phpMyAdmin
 
-You can now access the [phpMyAdmin](https://www.phpmyadmin.net/) at the
-`/phpmyadmin` path of your app. Note that you have to authenticate using
-your Cloudron credentials to access it.
+[phpMyAdmin](https://www.phpmyadmin.net/) can be accessed at the
+`/phpmyadmin` path of the app. Use the Cloudron credentials for
+authentication.
 
 <br/>
 <center>
-<img src="/blog/img/phpmyadmin.png" class="shadow" height="300px">
+<img src="/img/lamp-phpmyadmin.png" class="shadow" height="300px">
 </center>
 <br/>
 
-We recommend that users lock down their LAMP app once they have done modifying it.
-You can disable SFTP and phpMyAdmin access by unchecking the SFTP port in the
-app's configure dialog.
+It is recommended to disable SFTP access after the LAMP app is setup.
+This can be done by by unchecking the SFTP port in the app's configure
+dialog.
 
 <br/>
 <center>
-<img src="/blog/img/lamp-disable-sftp.png" class="shadow" height="300px">
+<img src="/img/lamp-disable-sftp.png" class="shadow" height="300px">
 </center>
 <br/>
 
 ## Cron support
 
-You can now add a file named `/app/data/crontab` for cron support. This is
-how it looks in `FileZilla` (I added `0 * * * * php /app/code/update.php --feeds`
-to the crontab):
+For cron support, add a file named `/app/data/crontab` support.
+
+The file can be edited using the [Web terminal](/documentation/apps/#web-terminal)
+or `FileZilla`.
 
 <br/>
 <center>
@@ -73,9 +135,14 @@ to the crontab):
 </center>
 <br/>
 
-Note that you must restart the app after making any changes to the `crontab`
-file. You can do this by pressing the 'Restart' button in the app's configure
-dialog.
+The crontab contains a line like:
+
+```
+0 * * * * php /app/code/update.php --feeds
+```
+
+The app must be restarted after making any changes to the `crontab`
+file. You can do this by pressing the 'Restart' button in the web terminal.
 
 ## PHP extensions
 
@@ -107,28 +174,23 @@ of the app that prints out `phpInfo()`.
 
 ## Installing custom PHP extensions
 
-As an example, we will install [ionCube Loader](http://www.ioncube.com/), which is often required
-to install commercial PHP apps.
+The LAMP app supports installing custom PHP extensions. As an example, we will install [ionCube Loader](http://www.ioncube.com/),
+which is often required to install commercial PHP apps.
 
 #### Step 1: Download ionCube
 
 Download and extract the `tar.gz` or `zip` Linux 64-bit ionCube packages to your PC/Mac from the
-[ionCube website](https://www.ioncube.com/loaders.php) or use the [direct link](http://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz).
-
-<br/>
+[ionCube website](https://www.ioncube.com/loaders.php) or use the
+[direct link](http://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz).
 
 #### Step 2: Upload using SFTP
 
 Upload the extracted directory to the SFTP root directory (`/app/data`) of the Cloudron app
 (i.e one level above `public/`).
 
-<br/>
-
 <center>
-<img src="/blog/img/lamp-upload-ioncube.png" class="shadow">
+<img src="/img/lamp-upload-ioncube.png" class="shadow">
 </center>
-
-<br/>
 
 #### Step 3: Enable extension
 
@@ -142,24 +204,14 @@ zend_extension=/app/data/ioncube/ioncube_loader_lin_7.0.so
 
 The LAMP app has thread safety disabled, so we choose the extension without the `ts` extension.
 
-<br/>
-
 #### Step 4: Restart app
 
 Lastly, restart the app for the extension to be enabled. You can do this using the `Restart` button
-in the app's configure dialog (the pencil icon in the app grid).
+in the [web terminal](/documentation/apps/#web-terminal).
 
-<br/>
-
-<center>
-<img src="/blog/img/lamp-restart.png" class="shadow">
-</center>
-
-## Verifying installation
+#### Step 5: Verifying installation
 
 Visit the LAMP app's default page to verify that the extension is enabled.
-
-<br/>
 
 <center>
 <img src="/blog/img/lamp-ioncube-installed.png" class="shadow">
