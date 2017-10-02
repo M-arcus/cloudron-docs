@@ -55,6 +55,8 @@ vi /etc/systemd/system/docker.service.d/cloudron.conf
     Please be very careful when changing the version field. Do not change the major version field since it will try
     to restore from a backup and will lose data since your last backup.
 
+* Restart docker and box code
+
 ```
 systemctl daemon-reload
 systemctl start docker
@@ -65,6 +67,9 @@ systemctl restart cloudron.target # this will download images all over, so give 
 * Watch the output of `journalctl -fa` to wait for the docker images to be downloaded by Cloudron. Once, the
   download completes, there will be some network errors displayed. At this point, proceed to the next step.
 
+```
+journalctl -fa          # watch the logs
+```
 * Reboot the server. This is required because docker networking changes do not seem to take effect immediately.
 
 ```
@@ -138,7 +143,7 @@ cf9ae0ad5808
 * Start the app containers:
 
 ```
-# docker stop 12465cd72d01 cf9ae0ad5808
+# docker start 12465cd72d01 cf9ae0ad5808
 ```
 
 ## Move the data directory to another location
