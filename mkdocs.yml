@@ -34,11 +34,12 @@ pages:
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
     - 'Radicale': documentation/apps/radicale.md
-    - documentation/apps/redmine.md
+    - 'Redmine': documentation/apps/redmine.md
     - 'RainLoop': documentation/apps/rainloop.md
     - 'Rocket.Chat': documentation/apps/rocket.chat.md
     - 'Roundcube': documentation/apps/roundcube.md
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
+    - 'Wallabag': documentation/apps/wallbag.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
 extra_css:
