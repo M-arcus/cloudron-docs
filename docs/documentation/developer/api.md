@@ -80,6 +80,7 @@ Request:
     altDomain: <string>,             // alternate domain from which this app can be reached
     xFrameOptions: <string>,         // set X-Frame-Options header, to control which websites can embed this app
     robotsTxt: <string>,             // robots.txt file content
+    sso: <boolean>,                  // integrate with Cloudron user management
     debugMode: null || {             // launch app in debugging mode
         cmd: [ ],                    // array of strings with the command to run
         readonlyRootfs: <boolean>    // set to true if the app's file system must be read-only
@@ -124,6 +125,9 @@ If `robotsTxt` if set, it will be returned as the response for `/robots.txt`. Yo
 [Robots Exclustion Protocol](http://www.robotstxt.org/robotstxt.html) site.
 
 If `backupId` is provided the app will be initialized with the data from the backup.
+
+The `sso` field can be set to `false` to disable Cloudron authentication. By default, single sign-on is
+enabled. Note that this field works only if the app support Cloudron single sign-on.
 
 Response (200):
 
@@ -197,6 +201,7 @@ Response (200):
 `manifest` is the [Cloudron Manifest](/documentation/developer/manifest/) of the app.
 
 `installationState` is one of the values below:
+
 * `pending_install` - The app is being installed. Use the `installationProgress` field to track the progress.
 * `pending_configure` - The app is being re-configured. For example, if the app was moved to a new location or the port bindings was changed.
 * `pending_uinstall` - The app is being uninstalled.
@@ -211,12 +216,14 @@ Response (200):
 of the format `<percent>, <message>`.
 
 `runState` is one of the values below:
+
 * `pending_start` - The app is being started.
 * `pending_stop` - The app is being stopped.
 * `stopped` - The app was stopped.
 * `running` - The app is running.
 
 `health` is one of the values below:
+
 * `healthy` - The app is responding to health checks and is healthy.
 * `unhealthy` - The app is not responding to health checks.
 * `error` - There was an error checking the health of the app.
@@ -655,6 +662,7 @@ GET `/api/v1/backups` <scope>admin</scope>
 Lists the existing `box` backups.
 
 The Cloudron has two types of backups:
+
 * `app` backups - Each app is backed up individually. This approach allows one to restore each app
 independently of other apps. Use the [app backup API](#list-app-backups), if
 you want to list the backups of a specific app.
@@ -901,6 +909,7 @@ Response (200):
 ```
 
 `action` is one of the values below:
+
 * cloudron.activate
 * app.configure
 * app.install
@@ -1144,6 +1153,7 @@ Note that unlike classic crontab format, the pattern contains seconds as the fir
 Setting pattern to `never` disables auto update.
 
 Some examples of patterns are:
+
 * `00 00 1,3,5,23 * * *` would run updates at 1am, 3am, 5am, 11pm every night.
 * `0 030 4 1,15 * 5` would run updates at 4:30 am on the 1st and 15th of each month, plus every Friday.
 
