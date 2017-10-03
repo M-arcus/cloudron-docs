@@ -38,6 +38,7 @@ pages:
     - 'RainLoop': documentation/apps/rainloop.md
     - 'Rocket.Chat': documentation/apps/rocket.chat.md
     - 'Roundcube': documentation/apps/roundcube.md
+    - 'Shaarli': documentation/apps/shaarli.md
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
     - 'Wallabag': documentation/apps/wallabag.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
