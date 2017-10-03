@@ -39,7 +39,7 @@ pages:
     - 'Rocket.Chat': documentation/apps/rocket.chat.md
     - 'Roundcube': documentation/apps/roundcube.md
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
-    - 'Wallabag': documentation/apps/wallbag.md
+    - 'Wallabag': documentation/apps/wallabag.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
 extra_css:
