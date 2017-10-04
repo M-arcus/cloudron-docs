@@ -31,6 +31,7 @@ pages:
     - documentation/apps/ghost.md
     - 'LAMP': documentation/apps/lamp.md
     - 'Mailtrain': documentation/apps/mailtrain.md
+    - 'Mattermost': documentation/apps/mattermost.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
     - 'Radicale': documentation/apps/radicale.md
