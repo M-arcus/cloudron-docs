@@ -28,7 +28,8 @@ pages:
 #    - documentation/developer/node.md
     - documentation/developer/packaging.md
   - 'Apps':
-    - documentation/apps/ghost.md
+    - 'Ghost': documentation/apps/ghost.md
+    - 'Kanboard': documentation/apps/kanboard.md
     - 'LAMP': documentation/apps/lamp.md
     - 'Mailtrain': documentation/apps/mailtrain.md
     - 'Mattermost': documentation/apps/mattermost.md
