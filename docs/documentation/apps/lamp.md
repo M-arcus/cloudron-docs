@@ -217,3 +217,23 @@ Visit the LAMP app's default page to verify that the extension is enabled.
 <img src="/blog/img/lamp-ioncube-installed.png" class="shadow">
 </center>
 
+### Reverse proxy setup
+
+If you want to run for example a custom WordPress within this app, please note that the code will run behind a nginx proxy.
+Apps like WordPress require some code in `wp-config.php` to handle such a setup:
+
+```
+/*
+ http://cmanios.wordpress.com/2014/04/12/nginx-https-reverse-proxy-to-wordpress-with-apache-http-and-different-port/
+ http://wordpress.org/support/topic/compatibility-with-wordpress-behind-a-reverse-proxy
+ https://wordpress.org/support/topic/wp_home-and-wp_siteurl
+ */
+// If WordPress is behind reverse proxy which proxies https to http
+if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+    $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
+
+    if ($_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+        $_SERVER['HTTPS']='on';
+}
+```
+
