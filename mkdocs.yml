@@ -45,6 +45,7 @@ pages:
     - 'Wordpress': documentation/apps/wordpress.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
+  - 'Support': 'documentation/support.md'
 extra_css:
   - 'stylesheets/extra.css'
 extra:
