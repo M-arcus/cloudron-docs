@@ -160,13 +160,28 @@ and have the relay deliver it to recipients. Such a setup is useful when the Clo
 server does not have a good IP reputation for mail delivery or if server service provider
 does not allow sending email via port 25 (which is the case with Google Cloud and Amazon EC2).
 
-Cloudron can be configured to send all outbound email via Amazon SES, Google, Mailgun, Postmark,
-Sendgrid or any other external SMTP server. To setup a relay, enter the relay credentials in the
-Email section. Cloudron only supports relaying via the STARTTLS mechanism (usually port 587).
+Cloudron can be configured to send all outbound email via:
+
+* Amazon SES
+* Google
+* Mailgun
+* Postmark
+* Sendgrid
+* Any other external SMTP server.
+
+To setup a relay, enter the relay credentials in the Email section. Cloudron only supports relaying
+via the STARTTLS mechanism (usually port 587).
 
 <center>
 <img src="/img/email-relay.png" width=500 class="shadow">
 </center>
+
+
+### Google
+
+When using Google to relay mail, if you encounter an error message of the form `Invalid login` or 
+`Please log in via your web browser and then try again`, you must configure your Google account
+to either use App passwords or enable less secure apps. See [Google Support](https://support.google.com/mail/answer/7126229?visit_id=1-636433350211034673-1786624518&rd=1#cantsignin) for more information.
 
 ## Creating a mailing list
 
