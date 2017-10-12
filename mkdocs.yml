@@ -10,7 +10,6 @@ pages:
     - documentation/apps.md
     - documentation/backups.md
     - documentation/certificates.md
-    - 'CLI': documentation/cli.md
     - documentation/domains.md
     - documentation/email.md
     - documentation/integrations.md
@@ -19,11 +18,12 @@ pages:
     - documentation/updates.md
     - 'User & Groups': documentation/user-management.md
   - 'Developer':
-    - documentation/developer/architecture.md
-    - documentation/developer/addons.md
-    - 'Base Image': documentation/developer/baseimage.md
     - 'API': documentation/developer/api.md
+    - documentation/developer/addons.md
+    - documentation/developer/architecture.md
+    - 'Base Image': documentation/developer/baseimage.md
     - documentation/developer/button.md
+    - 'CLI': documentation/cli.md
     - documentation/developer/manifest.md
 #    - documentation/developer/node.md
     - documentation/developer/packaging.md
