@@ -22,16 +22,33 @@ storage location like S3 as soon as possible.
 
 ## Making a complete backup
 
-To take a complete backup, click the `Backup now` button in the `Settings` page:
+To take a backup of Cloudron and all the apps, click the `Backup now` button in the `Settings` page:
 
 <center>
 <img src="/img/backup.png" class="shadow">
 </center>
 
-Please be careful that if you have no-op backend, no backups are taken. If your backups
-are stored on the same server, be sure to download them before making changes in the server.
+!!! warning
+    When using the no-op backend, no backups are taken. If backups are stored on the same server, be
+    sure to download them before making changes in the server.
 
-## Backup a specific app
+## Disabling automatic backups for a specific app
+
+Cloudron makes a complete backup every day. When using apps that contain a large number of files (like
+NextCloud, ownCloud) the backup storage may quickly add up. An app can be excluded from daily automatic
+backups from the 'Advanced settings' in the Configure UI:
+
+<center>
+<img src="/img/app-disable-automatic-backup.png" class="shadow">
+</center>
+
+Note that the Cloudron will still create backups before an app or Cloudron update. This is required so
+that it can be reverted to a sane state should the update fail.
+
+!!! warning
+    Disabling automatic backup for an app puts the onus on the Cloudron adminstrator to backup the app's files
+    regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's 
+    `cloudron backup create` command.
 
 ## Backing up to Amazon S3
 
