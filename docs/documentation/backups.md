@@ -216,6 +216,8 @@ current version of the app may not be able to handle old data.
 
 ## Restoring Cloudron from a backup
 
+### tgz backup
+
 To restore a Cloudron from a specific backup:
 
 * Identify the backup id. This can be done by listing the backups in the backup backend.
@@ -262,6 +264,59 @@ To restore a Cloudron from a specific backup:
   domain. If a new domain is provided, all apps are migrated to subdomains of this new domain.
 
 * After providing the domain name details, Cloudron will automatically start restoring all the apps.
+
+### rsync backup
+
+To restore a Cloudron from a specific backup:
+
+* Identify the backup id. This can be done by listing the backups in the backup backend.
+
+    * For `S3` backend, use the [AWS console](https://console.aws.amazon.com/s3/) to list the backups.
+
+    * For `Filesystem` backend, list the backup directory. Backups are sorted by time.
+      Each backup directory, contains a file with prefix `box_` which contains the
+      backup of platform and a number of files with the prefix `app_` that contain the
+      application backups.
+
+```
+        root@intranet:~# ls -l /var/backups/
+        total 8
+        drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210206-153
+        drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210210-192
+```
+
+* Download the backup to the new server:
+
+    * For `S3` backend, download the box backup locally to the server:
+
+```
+        # apt install awscli
+        # export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+        # export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+        # aws --endpoint-url=<s3-compat-url> --region=us-east-1 cp s3://<bucket>/<box backup> .
+```
+
+    * For `Filesystem` backend - Copy the backup files from the old server to the new server.
+      Be careful about maintaining the same folder structure for backups in the old and new server.
+      Note that only the specific backup needs to be copied. For example, just scp'ing the directory
+      `/var/backups/2017-09-25-210210-192` in the above listing is sufficient to restore from the latest
+      backup.
+
+* Create a new Cloudron by running the following commands on the new server:
+
+```
+        # wget https://cloudron.io/cloudron-setup
+        # chmod +x cloudron-setup
+        # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5
+```
+
+* Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and finish
+  the domain name setup. It is possible to provide a domain that was different from the Cloudron's previous
+  domain. If a new domain is provided, all apps are migrated to subdomains of this new domain.
+
+* After providing the domain name details, Cloudron will automatically start restoring all the apps.
+
+* The box backup downloaded above (from S3) can be deleted.
 
 ## Migrating Cloudron to another server
 
