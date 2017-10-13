@@ -37,6 +37,7 @@ pages:
     - 'Nextcloud': documentation/apps/nextcloud.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
+    - 'Phabricator': documentation/apps/phabricator.md
     - 'Piwik': documentation/apps/piwik.md
     - 'Radicale': documentation/apps/radicale.md
     - 'RainLoop': documentation/apps/rainloop.md
