@@ -14,34 +14,7 @@ Rocket.Chat supports notifications from and to other apps or services through it
 Incoming notifications require a message body parsing code snippet, which transforms the incoming webhook to a readable message,
 which will be posted into a selected chat channel.
 
-## Live Chat
-
-Rocket.Chat has a live chat feature that allows you to embed a chat widget into your website.
-
-* Allow the Rocket.Chat live chat widget to be embedded in your website. For this, configure Rocket.Chat through the Cloudron app [configure dialog](/documentation/apps/#re-configuring-an-app) to [allow embedding](https://cloudron.io/documentation/apps/#embedding-apps) into your website. This will protect the live chat widget from being used in unwanted websites.
-
-<br/>
-<center><img src="/img/app-embed-url.png" class="shadow"></center>
-<br/>
-
-*As an example, we have configured it for a website at https://smartserver.io*
-
-* Head over to Rocket.Chat app's Administration view, select the Livechat section and enable it. After this, you will find a `Livechat` entry in the side bar.
-
-<center>
-<img src="/blog/img/live-chat-4.png" class="shadow" width="30%">
-<img src="/blog/img/live-chat-2.png" class="shadow" width="30%">
-<img src="/blog/img/live-chat-3.png" class="shadow" width="30%">
-</center>
-<br/>
-
-*You will also find options to customize the live chat widget appearance to match your look and feel there.*
-
-* As the last step, copy the Javascript code snippet shown in the Livechat Installation view and paste it to the bottom of your website's html code as the last thing before the `</body>` tag. Wordpress users can use the [Rocket.Chat LiveChat Wordpress plugin](https://wordpress.org/plugins/rocketchat-livechat/) instead.
-
-You will now see the live chat widget on the bottom right of your page.
-
-## GitLab
+### GitLab
 
 Create a new `Incoming WebHook Integration` and configure the destination channel and user, then enalbe a custom sript.
 GitLab supports multiple types of webhook notifications and thus requires a more sophisticated transform script.
@@ -174,3 +147,32 @@ After the integration is setup, the Webhook URL and Secret Token is generated an
 
 !!! warning "Webhook test"
     Triggering a test webhook from GitLab will likely result in an error, since the above transform script expects a body, which is not provided from GitLab while running a test call. A test has to be made with a real action on the repo.
+
+## Live Chat
+
+Rocket.Chat has a live chat feature that allows you to embed a chat widget into your website.
+
+* Allow the Rocket.Chat live chat widget to be embedded in your website. For this, configure Rocket.Chat through the Cloudron app [configure dialog](/documentation/apps/#re-configuring-an-app) to [allow embedding](https://cloudron.io/documentation/apps/#embedding-apps) into your website. This will protect the live chat widget from being used in unwanted websites.
+
+<br/>
+<center><img src="/img/app-embed-url.png" class="shadow"></center>
+<br/>
+
+*As an example, we have configured it for a website at https://smartserver.io*
+
+* Head over to Rocket.Chat app's Administration view, select the Livechat section and enable it. After this, you will find a `Livechat` entry in the side bar.
+
+<center>
+<img src="/blog/img/live-chat-4.png" class="shadow" width="30%">
+<img src="/blog/img/live-chat-2.png" class="shadow" width="30%">
+<img src="/blog/img/live-chat-3.png" class="shadow" width="30%">
+</center>
+<br/>
+
+*You will also find options to customize the live chat widget appearance to match your look and feel there.*
+
+* As the last step, copy the Javascript code snippet shown in the Livechat Installation view and paste it to the bottom of your website's html code as the last thing before the `</body>` tag. Wordpress users can use the [Rocket.Chat LiveChat Wordpress plugin](https://wordpress.org/plugins/rocketchat-livechat/) instead.
+
+You will now see the live chat widget on the bottom right of your page.
+
+
