@@ -37,6 +37,7 @@ pages:
     - 'Nextcloud': documentation/apps/nextcloud.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
+    - 'Piwiki': documentation/apps/piwik.md
     - 'Radicale': documentation/apps/radicale.md
     - 'RainLoop': documentation/apps/rainloop.md
     - 'Redmine': documentation/apps/redmine.md
