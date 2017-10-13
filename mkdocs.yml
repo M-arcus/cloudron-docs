@@ -29,6 +29,7 @@ pages:
     - documentation/developer/packaging.md
   - 'Apps':
     - 'Ghost': documentation/apps/ghost.md
+    - 'GitLab': documentation/apps/gitlab.md
     - 'Kanboard': documentation/apps/kanboard.md
     - 'LAMP': documentation/apps/lamp.md
     - 'Mailtrain': documentation/apps/mailtrain.md
