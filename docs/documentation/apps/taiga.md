@@ -1,6 +1,8 @@
 ## Importing a project
 
-* Connect to taiga using the Webterminal
+An existing project's json can be imported into Taiga as follows:
+
+* Connect to taiga using the [Web terminal](/documentation/apps/#web-terminal)
 * Upload the project.json using the 'Upload to /tmp' button
 * `su cloudron`
 * `source /app/code/taiga/bin/activate`

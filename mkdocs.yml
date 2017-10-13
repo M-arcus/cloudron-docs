@@ -33,6 +33,7 @@ pages:
     - 'LAMP': documentation/apps/lamp.md
     - 'Mailtrain': documentation/apps/mailtrain.md
     - 'Mattermost': documentation/apps/mattermost.md
+    - 'Nextcloud': documentation/apps/nextcloud.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
     - 'Radicale': documentation/apps/radicale.md

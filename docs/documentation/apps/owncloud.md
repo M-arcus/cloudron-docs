@@ -18,8 +18,18 @@ sudo apt-get update
 sudo apt-get install owncloud-client
 ```
 
-!!! note
+!!! warning
     As of this writing, the ownCloud website links to the opensuse website for installing the owncloud client.
     The packages in the opensuse website do not work. See the [forum](https://central.owncloud.org/t/repository-bug-on-ubuntu-16-04/9546/7)
     and [GitHub issue](https://github.com/owncloud/client/issues/6034) for more information.
+
+## Running occ tool
+
+The `occ` tool can be used for ownCloud [administrative tasks](https://doc.owncloud.org/server/9.0/admin_manual/configuration_server/occ_command.html#using-the-occ-command).
+
+The occ command can be run using the [Web terminal](/documentation/apps/#web-terminal). For example, to list the users:
+
+```
+    sudo -u www-data php -f /app/code/occ user:list
+```
 
