@@ -290,6 +290,13 @@ To restore a Cloudron from a specific backup:
 
     * For `S3` backend, use the [AWS console](https://console.aws.amazon.com/s3/) to list the backups.
 
+```
+        # apt install -y awscli
+        # export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+        # export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+        # aws --region=us-east-1 ls s3://<bucket>/<prefix>/     # pass --endpoint-url for s3 compat sources
+```
+
     * For `Filesystem` backend, list the backup directory. Backups are sorted by time.
       Each backup directory, contains a file with prefix `box_` which contains the
       backup of platform and a number of files with the prefix `app_` that contain the
@@ -307,10 +314,11 @@ To restore a Cloudron from a specific backup:
     * For `S3` backend, download the box backup locally to the server:
 
 ```
-        # apt install awscli
+        # apt install -y awscli
         # export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
         # export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-        # aws --endpoint-url=<s3-compat-url> --region=us-east-1 cp s3://<bucket>/<box backup> .
+        # mkdir backup
+        # aws --region=us-east-1 cp --recursive s3://<bucket>/<box backup> backup      # pass --endpoint-url for s3 compat sources
 ```
 
     * For `Filesystem` backend - Copy the backup files from the old server to the new server.
@@ -324,7 +332,7 @@ To restore a Cloudron from a specific backup:
 ```
         # wget https://cloudron.io/cloudron-setup
         # chmod +x cloudron-setup
-        # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5
+        # ./cloudron-setup --provider digitalocean --restore-url file://<path-to-backup-dir>
 ```
 
 * Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and finish
