@@ -214,8 +214,14 @@ Manage Sieve.
 ## Marking emails as spam
 
 The spam detection agent on the Cloudron requires training to identify spam.
-To do this, simply move your junk mails to a pre-created folder named `Spam`.
+To do this, simply move your junk mails to the pre-created folder named `Spam`.
 Most mail clients have a Junk or Spam button which does this automatically.
+
+If you marked a mail as Spam incorrectly, just move it out to the Inbox and
+the server will unlearn accordingly.
+
+The mail server is configured to act upon training only after seeing atleast 
+50 spam and 50 ham messages.
 
 ## Setting rDNS, PTR record
 
