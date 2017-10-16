@@ -22,6 +22,15 @@ chmod +x cloudron-setup
 
 Once the installation is complete, navigate to `https://<IP>` and accept the self-signed certificate.
 
+!!! note "Enterprise version"
+    Cloudron can also be installed on a non-registrable domain like `customer.myhosting.com`
+    with an Enterprise subscription. This allows for setups where you can host
+    Cloudrons under the same top level domain for each of your customers like `customer1.myhosting.com`,
+    `customer2.myhosting.com` and so on.
+
+    For installing the [enterprise version](/documentation/enterprise/) of Cloudron, navigate to
+    `https://<IP>?enterprise=true` instead.
+
 <center>
 <img src="/img/setupdns.png" class="shadow" width="500px">
 </center>
@@ -41,12 +50,6 @@ Select the DNS service in which the domain in hosted:
 
 When using one of the programmable backends, Cloudron will automatically make changes to DNS
 as and when required.
-
-!!! note "Third level domain installation"
-    Cloudron can also be installed on a non-registrable domain like `customer.myhosting.com`
-    with an Enterprise subscription. This allows for setups where you can host
-    Cloudrons under the same top level domain for each of your customers like `customer1.myhosting.com`,
-    `customer2.myhosting.com` and so on.
 
 ## Administrator Setup
 

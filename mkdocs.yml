@@ -48,6 +48,7 @@ pages:
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
     - 'Wallabag': documentation/apps/wallabag.md
     - 'Wordpress': documentation/apps/wordpress.md
+  - 'Enterprise': 'documentation/enterprise.md'
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
   - 'Support': 'documentation/support.md'
