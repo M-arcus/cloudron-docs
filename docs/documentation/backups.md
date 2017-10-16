@@ -178,14 +178,14 @@ In 5 minutes or so, you should be able to reach `https://my.example.com`.
 
 To clone an existing app to a new location within the same Cloudron, use the CLI tool's `clone` command.
 
-To clone the app at location `myfiles` with it's latest backup into a new location `dolly`
+To clone the app at location `staging` with it's latest backup into a new location `production`
 use the following commands:
 
 ```
-$ cloudron clone --app myfiles # create a backup
+$ cloudron clone --app staging # create a backup
 
-$ cloudron clone --app myfiles --backup latest # clone from the backup just created
-Location: dolly
+$ cloudron clone --app staging --backup latest # clone from the backup just created
+Location: production
 App cloned as id a426fdec-94e7-42c5-a1f4-ab1a5ac22427
 
  => Waiting to start installation
@@ -210,8 +210,9 @@ perform the following steps:
 1. Make the app backup available in the destination Cloudron's backup directory.
 
 2. Install the app using the following command:
+
 ```
-cloudron install --backup <id> --appstore-id org.wordpress.cloudronapp@0.9.1
+    cloudron install --backup <id> --appstore-id org.wordpress.cloudronapp@0.9.1
 ```
 
 ## Restoring an app from existing backup
