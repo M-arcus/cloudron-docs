@@ -276,16 +276,29 @@ the `version`, `fqdn`, `zoneName` and `provider` arguments below:
 ```
 
 Make sure `cloudron.conf` has the right permissions:
+
 ```
 chown yellowtent:yellowtent /home/yellowtent/configs/cloudron.conf
 ```
 
 The box code can now be started using:
+
 ```
 systemctl restart box
 ```
 
 The above command can be run to get new certificates for the web admin.
+
+## Docker errors
+
+### Devicemapper issues
+
+If you encounter the following error in the logs (`journalctl -u docker`),
+we recommend switching Cloudron to use the [overlay2 backend](#using-overlay2-backend-for-docker).
+
+```
+level=error msg="Handler for POST /v1.27/containers/create returned error: devmapper: Thin Pool has 14428 free data blocks which is less than minimum required 163840 free data blocks. Create more free space in thin pool or use dm.min_free_space option to change behavior"
+```
 
 ## Identifying the container of an app
 
