@@ -26,11 +26,15 @@ that they can be setup manually.
 Use the [Global API Key](https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-CloudFlare-API-key-)
 available in the profile section of your account.
 
-
 ## Digital Ocean DNS
 
 Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
 with read+write access.
+
+## Google Cloud DNS
+
+Create a [service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) in JSON
+format.
 
 ## Route 53 DNS
 

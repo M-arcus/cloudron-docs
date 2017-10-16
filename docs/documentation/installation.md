@@ -43,9 +43,10 @@ It is safe to use a domain name that is already in use, just make sure that the 
 
 Select the DNS service in which the domain in hosted:
 
+*   [AWS Route53](/documentation/domains/#route-53-dns)
 *   [Cloudflare](/documentation/domains/#cloudflare-dns)
 *   [Digital Ocean](/documentation/domains/#cloudflare-dns)
-*   [Route53](/documentation/domains/#route-53-dns)
+*   [Google Cloud DNS](/documentation/domain/#google-cloud-dns)
 *   [Wildcard](/documentation/domains/#wildcard-dns)
 
 When using one of the programmable backends, Cloudron will automatically make changes to DNS
