@@ -29,3 +29,14 @@ Once you have a subscription, follow the 3 simple steps in our [installation gui
 The main difference from the non-enterprise version is that you have to navigate to `https://<IP>?enterprise=true`
 to complete the setup.
 
+## Lets Encrypt
+
+Cloudron uses [Let's Encrypt](https://letsencrypt.org) for provisioning TLS certificates for apps. LE has a 
+[rate limit](https://letsencrypt.org/docs/rate-limits/) of ~20 new issuances per week per top level domain (renewals
+are not counted as part of this limit). This limit means that you can install atmost 20 apps in a week across all
+your Cloudron instances.
+
+We recommend purchasing a wildcard certificate. [GarrisonHost](http://www.garrisonhost.com/) provides them for 45 USD.
+Once purchased, it can be set as the fallback certificate in the [Certificate UI](/documentation/certificates/#setting-fallback-wildcard-certificate). Let's Encrypt recently [announced](https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html)
+that they will start issuing wildcard certificates from Jan 2018, so this is expected to be a temporary workaround.
+
