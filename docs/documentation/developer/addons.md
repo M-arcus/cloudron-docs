@@ -18,6 +18,7 @@ For example, the mysql addon sets the `MYSQL_URL` environment variable which is 
 connection string that can be used to connect to the database.
 
 When working with addons, developers need to remember the following:
+
 * Environment variables are subject to change every time the app restarts. This can happen if the
 Cloudron is rebooted or restored or the app crashes or an addon is re-provisioned. For this reason,
 applications must never cache the value of environment variables across restarts.
@@ -26,6 +27,7 @@ applications must never cache the value of environment variables across restarts
 for this purpose to setup and update the DB schema.
 
 * Addons are configured in the [addons section](/documentation/developer/manifest/#addons) of the manifest as below:
+
 ```
     {
       ...
@@ -50,6 +52,7 @@ Apps using the IMAP and ManageSieve services below must be prepared to accept se
 because these are addresses internal to the Cloudron).
 
 Exported environment variables:
+
 ```
 MAIL_SMTP_SERVER=       # SMTP server IP or hostname. Supports STARTTLS (TLS upgrade is enforced).
 MAIL_SMTP_PORT=         # SMTP server port
@@ -65,6 +68,7 @@ MAIL_DOMAIN=            # Domain of the mail server
 This addon provides LDAP based authentication via LDAP version 3.
 
 Exported environment variables:
+
 ```
 LDAP_SERVER=                                # ldap server IP
 LDAP_PORT=                                  # ldap server port
@@ -76,6 +80,7 @@ LDAP_BIND_PASSWORD=                         # Password to perform LDAP requests
 ```
 
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `ldapsearch` client within the context of the app:
+
 ```
 cloudron exec
 
@@ -103,6 +108,7 @@ The permissions and ownership of data within that directory are not guranteed to
 has to restore permissions as required by the app as part of the app's startup script.
 
 If the app is running under the recommeneded `cloudron` user, this can be achieved with:
+
 ```
 chown -R cloudron:cloudron /app/data
 ```
@@ -112,6 +118,7 @@ chown -R cloudron:cloudron /app/data
 By default, this addon provide mongodb 2.6.3.
 
 Exported environment variables:
+
 ```
 MONGODB_URL=          # mongodb url
 MONGODB_USERNAME=     # username
@@ -122,6 +129,7 @@ MONGODB_DATABASE=     # database name
 ```
 
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `mongo` shell within the context of the app:
+
 ```
 cloudron exec
 
@@ -134,6 +142,7 @@ By default, this addon provides a single database on MySQL 5.6.19. The database 
 only needs to create the tables.
 
 Exported environment variables:
+
 ```
 MYSQL_URL=            # the mysql url (only set when using a single database, see below)
 MYSQL_USERNAME=       # username
@@ -144,6 +153,7 @@ MYSQL_DATABASE=       # database name (only set when using a single database, se
 ```
 
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `mysql` client within the context of the app:
+
 ```
 cloudron exec
 
@@ -163,6 +173,7 @@ MYSQL_DATABASE_PREFIX=      # prefix to use to create databases
 The Cloudron OAuth 2.0 provider can be used in an app to implement Single Sign-On.
 
 Exported environment variables:
+
 ```
 OAUTH_CLIENT_ID=      # client id
 OAUTH_CLIENT_SECRET=  # client secret
@@ -196,6 +207,7 @@ We currently provide OAuth2 integration for Ruby [omniauth](https://git.cloudron
 By default, this addon provides PostgreSQL 9.4.4.
 
 Exported environment variables:
+
 ```
 POSTGRESQL_URL=       # the postgresql url
 POSTGRESQL_USERNAME=  # username
@@ -205,9 +217,10 @@ POSTGRESQL_PORT=      # server port
 POSTGRESQL_DATABASE=  # database name
 ```
 
-The postgresql addon whitelists the hstore and pg_trgm extensions to be installable by the database owner.
+The postgresql addon whitelists the hstore and pg\_trgm extensions to be installable by the database owner.
 
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `psql` client within the context of the app:
+
 ```
 cloudron exec
 
@@ -219,6 +232,7 @@ cloudron exec
 The recvmail addon can be used to receive email for the application.
 
 Exported environment variables:
+
 ```
 MAIL_IMAP_SERVER=     # the IMAP server. this can be an IP or DNS name
 MAIL_IMAP_PORT=       # the IMAP server port
@@ -232,6 +246,7 @@ The IMAP server only accepts TLS connections. The app must be prepared to accept
 imap address is internal to the Cloudron).
 
 For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be used to run the `openssl` tool within the context of the app:
+
 ```
 cloudron exec
 
@@ -246,6 +261,7 @@ By default, this addon provides redis 2.8.13. The redis is configured to be pers
 and restarts.
 
 Exported environment variables:
+
 ```
 REDIS_URL=            # the redis url
 REDIS_HOST=           # server name
@@ -254,6 +270,7 @@ REDIS_PASSWORD=       # password
 ```
 
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `redis-cli` client within the context of the app:
+
 ```
 cloudron exec
 
@@ -265,6 +282,7 @@ cloudron exec
 The scheduler addon can be used to run tasks at periodic intervals (cron).
 
 Scheduler can be configured as below:
+
 ```
     "scheduler": {
         "update_feeds": {
@@ -305,9 +323,11 @@ task instance is killed.
 The sendmail addon can be used to send email from the application.
 
 Exported environment variables:
+
 ```
 MAIL_SMTP_SERVER=     # the mail server (relay) that apps can use. this can be an IP or DNS name
-MAIL_SMTP_PORT=       # the mail server port
+MAIL_SMTP_PORT=       # the mail server port. Currently, this port disables TLS and STARTTLS.
+MAIL_SMTPS_PORT=      # SMTPS server port.
 MAIL_SMTP_USERNAME=   # the username to use for authentication as well as the `from` username when sending emails
 MAIL_SMTP_PASSWORD=   # the password to use for authentication
 MAIL_FROM=            # the "From" address to use
@@ -317,8 +337,12 @@ MAIL_DOMAIN=          # the domain name to use for email sending (i.e username@d
 The SMTP server does not require STARTTLS. If STARTTLS is used, the app must be prepared to accept self-signed certs.
 
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `swaks` tool within the context of the app:
+
 ```
 cloudron exec
 
 > swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_SMTP_USERNAME}@${MAIL_DOMAIN}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"
+
+
+> swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_SMTP_USERNAME}@${MAIL_DOMAIN}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc
 ```
