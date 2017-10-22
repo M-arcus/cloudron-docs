@@ -161,8 +161,8 @@ cloudron exec
 
 ```
 
-The `multipleDatabases` option can be set to `true` if the app requires more than one database. When enabled,
-the following environment variables are injected:
+The `multipleDatabases` option can be set to `true` if the app requires more than one database.
+When enabled, the following environment variables are injected and the `MYSQL_DATABASE` is removed:
 
 ```
 MYSQL_DATABASE_PREFIX=      # prefix to use to create databases
