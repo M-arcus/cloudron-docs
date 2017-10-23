@@ -483,8 +483,6 @@ Request:
 {
     appStoreId: <string>[@<semver>], // the new version of the app
     manifest: <manifest>,            // the manifest of the app
-    portBindings: {                  // optional
-    },
     icon: <string>,                  // optional
     force: <boolean>                 // optional. default: false
 }
@@ -498,9 +496,6 @@ the format of existing data (for example, new db schema may not be understod by 
 `manifest` provides information of the new app version that the app needs to be updated to. This is
 only required if appStoreId was not provided at installation time.
 
-If the new version of the app requires new ports to be allocated for the app, then mapping for the new ports
-can be provided in `portBindings`.
-
 `icon` specifies any new icon as a base64 encoded string for the updated version of the app.
 
 The Cloudron will only update apps that are installed, running and responding to health checks. Before
@@ -508,6 +503,9 @@ each update, the app is backed up so that it may be restored easily in case of a
 
 `force` can be used to force an update even if the app is in a state which prevents an update. This is
 useful during app development, where you can force a crashed app to update to the latest code.
+
+!!! warning "New port bindings"
+    If the new version of the app requires new ports to be allocated for the app, then any such new port will be disabled after the update and needs to be manually enabled by reconfiguring the app.
 
 The update progress can be tracked by polling the value of [installationProgress](#get-app).
 
