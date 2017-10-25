@@ -291,3 +291,34 @@ Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filte
 <center>
 <img src="/img/email-vacation-message.png" class="shadow" width="600px">
 </center>
+
+## Custom Domain Authentication
+
+### SPF
+
+SPF records specify which servers are allows to send emails using the Cloudron's domain
+name. By default, Cloudron sets up SPF records such that only the Cloudron server itself can send
+email for the domain:
+
+```
+    v=spf1 a:my.girish.in ~all      # this record disallows all servers except my.girish.in
+```
+
+To authorize another service, say mailchimp and a custom application, to send emails on behalf of
+the domain, edit the SPF record:
+
+```
+    v=spf1 a:my.girish.in include:servers.mcsv.net ip4:16.9.35.90 ~all
+```
+
+### DMARC
+
+A DMARC policy specifies what action the receiver of a spoofed email must take when SPF validation
+fails. By default, Cloudron sets up DMARC records to reject all mails that fail SPF validation.
+
+```
+    v=DMARC1; p=reject; pct=100
+```
+
+This record can be edited as seen fit by the Cloudron administrator.
+
