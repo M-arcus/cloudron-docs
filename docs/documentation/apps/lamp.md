@@ -177,13 +177,13 @@ of the app that prints out `phpInfo()`.
 The LAMP app supports installing custom PHP extensions. As an example, we will install [ionCube Loader](http://www.ioncube.com/),
 which is often required to install commercial PHP apps.
 
-#### Step 1: Download ionCube
+### Step 1: Download ionCube
 
 Download and extract the `tar.gz` or `zip` Linux 64-bit ionCube packages to your PC/Mac from the
 [ionCube website](https://www.ioncube.com/loaders.php) or use the
 [direct link](http://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz).
 
-#### Step 2: Upload using SFTP
+### Step 2: Upload using SFTP
 
 Upload the extracted directory to the SFTP root directory (`/app/data`) of the Cloudron app
 (i.e one level above `public/`).
@@ -192,7 +192,7 @@ Upload the extracted directory to the SFTP root directory (`/app/data`) of the C
 <img src="/img/lamp-upload-ioncube.png" class="shadow">
 </center>
 
-#### Step 3: Enable extension
+### Step 3: Enable extension
 
 In the top level directory of the Cloudron app (in `/app/data`), you will find a `php.ini`.
 
@@ -204,12 +204,12 @@ zend_extension=/app/data/ioncube/ioncube_loader_lin_7.0.so
 
 The LAMP app has thread safety disabled, so we choose the extension without the `ts` extension.
 
-#### Step 4: Restart app
+### Step 4: Restart app
 
 Lastly, restart the app for the extension to be enabled. You can do this using the `Restart` button
 in the [web terminal](/documentation/apps/#web-terminal).
 
-#### Step 5: Verifying installation
+### Step 5: Verifying installation
 
 Visit the LAMP app's default page to verify that the extension is enabled.
 
@@ -217,7 +217,7 @@ Visit the LAMP app's default page to verify that the extension is enabled.
 <img src="/blog/img/lamp-ioncube-installed.png" class="shadow">
 </center>
 
-### Running composer
+## Running composer
 
 `composer` is installed in `/usr/local/bin/composer` but is missing the the executable permissions.
 This can be worked around by running it via the php cli. In addition, composer might complain about
@@ -228,7 +228,7 @@ composer as the `www-data` user to avoid the warning.
     sudo -u www-data php /usr/local/bin/composer install symfony/symfony-demo
 ```
 
-### Reverse proxy setup
+## Reverse proxy setup
 
 If you want to run for example a custom WordPress within this app, please note that the code will run behind a nginx proxy.
 Apps like WordPress require some code in `wp-config.php` to handle such a setup:
