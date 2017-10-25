@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="512"
-   height="512"
-   viewBox="0 0 512.00001 512.00001"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
    id="svg4519"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="logo_0.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="logo.svg"
    inkscape:export-filename="/home/nebulon/Cloudron/Assets/logo_512.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -28,17 +28,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="276.17104"
-     inkscape:cy="272.56905"
+     inkscape:zoom="5.6"
+     inkscape:cx="39.738645"
+     inkscape:cy="47.924196"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1280"
-     inkscape:window-height="736"
+     inkscape:window-width="2560"
+     inkscape:window-height="1385"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="55"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata4524">
@@ -56,10 +56,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-540.36216)">
+     transform="translate(0,-1028.3622)">
     <g
        id="g4467"
-       transform="matrix(20.073146,0,0,20.415681,-509.92962,-75.099857)">
+       transform="matrix(0.97447476,0,0,0.99110353,-25.182965,998.05604)">
       <g
          inkscape:export-ydpi="67.349998"
          inkscape:export-xdpi="67.349998"
@@ -82,7 +82,7 @@
              inkscape:rounded="0.12490573"
              inkscape:randomized="0"
              d="m 29.166669,-109.50348 c 1.200386,2.08567 1.17988,17.183595 -0.02617,19.265993 -1.206046,2.082397 -14.291486,9.613601 -16.697919,9.610333 -2.406432,-0.0033 -15.4713664,-7.56999 -16.671752,-9.655655 -1.2003857,-2.085666 -1.1798799,-17.183591 0.026167,-19.265991 1.2060467,-2.0824 14.2914862,-9.6136 16.6979192,-9.61033 2.406432,0.003 15.471366,7.56999 16.671752,9.65565 z"
-             transform="matrix(0.8660254,-0.49999999,0.49999999,0.8660254,51.102849,-7.8015133)"
+             transform="rotate(-30,10.993604,-99.259973)"
              inkscape:export-xdpi="67.349998"
              inkscape:export-ydpi="67.349998" />
           <rect

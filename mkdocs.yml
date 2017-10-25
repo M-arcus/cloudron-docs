@@ -58,7 +58,7 @@ extra:
   palette:
     primary: 'blue grey'
     accent: 'green'
-  logo: 'img/logo.svg'
+  logo: 'img/logo_small.svg'
   font:
     text: 'Noto Sans'
     code: 'Ubuntu Mono'
