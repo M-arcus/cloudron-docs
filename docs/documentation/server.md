@@ -12,9 +12,11 @@ Most of the Cloudron code and data is sandboxed in `/home/yellowtent` (For the c
 * `platformdata` - This contains 'runtime' data of the platform for mysql, postgres,
   mongodb, nginx.
 
+`boxdata`, `appsdata` and `platformdata` are [relocatable](#move-the-data-directory-to-another-location).
+
 The other important locations on the server are:
 
-* `/var/lib/docker` - This contains docker images
+* `/var/lib/docker` - This contains docker images. This is [relocatable](#moving-docker-images-to-another-location).
 * `/etc/nginx` - These contains the reverse proxy configuration. It is not meant to be edited manually.
 * `/apps.swap` - This is a swap file that is dynamically resized by Cloudron. It will be no more than 4GB.
 
@@ -152,16 +154,24 @@ cf9ae0ad5808
 Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
 following the procedure below.
 
-Apps store their data under `/home/yellowtent/appsdata`. If the server is running out of disk space,
-this directory can be moved to another ext4 disk/location as follows:
+Apps store their data under `/home/yellowtent/appsdata`. Cloudron itself stores it's data (users, groups, certs, mails etc) 
+under `/home/yellowtent/boxdata`.
+
+If the server is running out of disk space, one or more of these directories can be moved to another ext4 disk/location as follows:
 
 ```
     systemctl stop cloudron.target
     systemctl stop docker
-    DATA_DIR="/var/data"  # this is the new location for appsdata
+    DATA_DIR="/var/data"  # this is the external disk location
     mkdir -p "${DATA_DIR}"
+
+    # (optional) move out apps data to the external disk
     mv /home/yellowtent/appsdata "${DATA_DIR}"
     ln -s "${DATA_DIR}/appsdata" /home/yellowtent/appsdata
+
+    # (optional) move out box data to the external disk
+    mv /home/yellowtent/boxdata "${DATA_DIR}"
+    ln -s "${DATA_DIR}/boxdata " /home/yellowtent/boxdata
 
     # (optional) move out app database storage to the external disk
     mv /home/yellowtent/platformdata "${DATA_DIR}"
