@@ -148,7 +148,7 @@ cloudron list
 ```
 * Then login to the new Cloudron and install the new app based on the created backup:
 ```
-cloudron login <new Cloudron domain>
+cloudron login my.<new Cloudron domain>
 cloudron install --appstore-id=<apps appstore id>@<specific version if required> --backup <backupId>
 ```
 The backupId usually also includes a path prefix and looks like: `2017-07-17-121412-248/app_2d7f2a6a-4c17-43a6-80bc-0bd47a99727f_2017-07-17-121412-269_v4.1.1.tar.gz`

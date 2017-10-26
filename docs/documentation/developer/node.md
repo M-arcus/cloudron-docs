@@ -29,9 +29,9 @@ Let's login to the Cloudron as follows:
 
 ```
 $ cloudron login
-Cloudron Hostname: craft.selfhost.io
+Cloudron Hostname: my-craft.selfhost.io
 
-Enter credentials for craft.selfhost.io:
+Enter credentials for my-craft.selfhost.io:
 Username: girish
 Password:
 Login successful.
