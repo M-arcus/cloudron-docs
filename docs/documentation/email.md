@@ -311,6 +311,12 @@ the domain, edit the SPF record:
     v=spf1 a:my.girish.in include:servers.mcsv.net ip4:16.9.35.90 ~all
 ```
 
+### DKIM
+
+DKIM records specify a public key that is used to sign all outbound email. Cloudron stores the public
+key in `cloudron._domainkey`. This DNS name is specific to Cloudron and each external service has it's
+own. For this reason, no changes are required to DKIM records to allow external services to send email.
+
 ### DMARC
 
 A DMARC policy specifies what action the receiver of a spoofed email must take when SPF validation
