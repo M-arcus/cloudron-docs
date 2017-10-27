@@ -93,10 +93,13 @@ required to decrypt the backups when restoring the Cloudron.
 [Minio](https://minio.io/) is a distributed object storage server, providing the same API as Amazon S3.
 
 Minio can be setup, by following the [installation instructions](https://docs.minio.io/) on any server,
-which is reachable by the Cloudron. **Do not setup Minio on the same server as the Cloudron, this will
-inevitably result in data loss, if backups are stored on the same instance.**
+which is reachable by the Cloudron.
 
-Once setup, minio will print the necessary information, like login credentials, region and endpoints in its logs.
+!!! warning "Be sure to install Minio on another server"
+    Do not setup Minio on the same server as the Cloudron! Using the same server will inevitably result
+    in data loss if something goes wrong with the server's disk.
+
+Once setup, minio will print the necessary information, like login credentials, region and endpoints in it's logs.
 
 ```
 $ ./minio server ./storage
@@ -107,11 +110,14 @@ SecretKey: /fEWk66E7GsPnzE1gohqKDovaytLcxhr0tNWnv3U
 Region:    us-east-1
 ```
 
-First create a new bucket for the backups, using the minio commandline tools or the webinterface. The bucket has to have **read and write** permissions.
+The credentials can now be used to setup Minio backups:
 
 <center>
-<img src="/img/backups-minio.png" class="shadow">
+<img src="/img/backups-minio.png" class="shadow" width="500px">
 </center>
+
+The `Bucket` must exist and can be created using Minio CLI or the web interface. For HTTPS installations using a
+self-signed certificate, select the `Accept Self-Signed certificate` option.
 
 The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
 required to decrypt the backups when restoring the Cloudron.
