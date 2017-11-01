@@ -2,24 +2,10 @@
 
 set -eu
 
-mkdir -p /tmp/mkdocs
+echo "Installing mkdocs"
+sudo pip install mkdocs==0.17.1
 
-echo "Fetching latest mkdocs-material"
-curl -sL https://api.github.com/repos/squidfunk/mkdocs-material/tarball | tar -C /tmp/mkdocs -xz --strip-components 1 -f -
-
-echo "Removing old mkdocs files"
-rm -rf ./material
-
-echo "Copying new files to docs/"
-cp -rf /tmp/mkdocs/material .
-
-echo "Remove 404 file to not interfere with our main 404 file from appstore"
-rm ./material/404.html
-
-echo "Cleanup tmp files"
-rm -rf /tmp/mkdocs
+echo "Installing mkdocs-material"
+sudo pip install mkdocs-material==2.0.1
 
 echo "Done."
-echo ""
-echo "Now test if it works and commit the old file removal and add new files to repo"
-echo ""

@@ -2,11 +2,10 @@ This repository holds the Cloudron documentation and knowledge base
 
 ## Prerequisites
 
-`mkdocs` has to be installed.
+* mkdocs
+* mkdocs-material
 
-## Update
-
-To update to latest mkdocs-material just run ./update.sh in this folder and follow instructions.
+Just run ./update.sh it will install the dependencies
 
 ## Preview
 
