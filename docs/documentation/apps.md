@@ -86,6 +86,10 @@ The memory limit can be set by adjusting the slider in the Configure dialog's
 <img src="/img/app-memory-slider.png" class="shadow">
 </center>
 
+!!! note "Memory limit includes swap"
+    The memory limit set here is a combination of RAM and swap space to be allocated
+    for the app. Cloudron allocates 50% of this value as RAM and 50% as swap.
+
 ## Restricting app access to specific users
 
 Most apps in Cloudron are integrated with Cloudron's Single Sign-On. For such
