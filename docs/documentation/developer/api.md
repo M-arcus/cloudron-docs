@@ -909,7 +909,7 @@ Response (200):
 `action` is one of the values below:
 
 | Event name        | Data                                                 |
-| ----------------- |:----------------------------------------------------:|
+| ----------------- |:-----------------------------------------------------|
 | cloudron.activate | none                                                 |
 | app.configure     | appId                                                |
 | app.install       | appId, location, manifest, backupId                  |
