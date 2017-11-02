@@ -908,28 +908,31 @@ Response (200):
 
 `action` is one of the values below:
 
-* cloudron.activate
-* app.configure
-* app.install
-* app.restore
-* app.uninstall
-* app.update
-* backup.finish
-* backup.start
-* certificate.renew
-* settings.climode
-* cloudron.start
-* cloudron.update
-* user.add
-* user.login
-* user.remove
-* user.update
-
+| Event name        | Data                                                 |
+| ----------------- |:----------------------------------------------------:|
+| cloudron.activate | none                                                 |
+| app.configure     | appId                                                |
+| app.install       | appId, location, manifest, backupId                  |
+| app.restore       | appId                                                |
+| app.uninstall     | appId                                                |
+| app.update        | appId, toManifest, fromManifest, force               |
+| backup.finish     | errorMessage, filename                               |
+| backup.start      | none                                                 |
+| certificate.renew | domain, errorMessage                                 |
+| settings.climode  | enabled                                              |
+| cloudron.start    | version                                              |
+| cloudron.update   | boxUpdateInfo (sourceTarballUrl, version, changelog) |
+| user.add          | userId, email                                        |
+| user.login        | authType (oauth, ldap), appId, mailboxId             |
+| user.remove       | userId                                               |
+| user.update       | userId                                               |
+ 
 `source` contains information on the originator of the action. For example, for user.login, this contains the IP address, the appId and the authType (ldap or oauth).
 
 `data` contains information on the event itself. For example, for user.login, this contains the userId that logged in. For app.install, it contains the manifest and location of the app that was installed.
 
 To list all the app installation events:
+
 ```
 curl -X GET -H 'Authorization: Bearer cb0463455a6606482be7956fc3abd53330ae23244e3492cda3914a2c5154c47e' https://my.domain.com/api/v1/cloudron/eventlog?action=app.install
 ```
