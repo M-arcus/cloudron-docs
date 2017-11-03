@@ -916,7 +916,7 @@ Response (200):
 | app.restore       | appId                                                |
 | app.uninstall     | appId                                                |
 | app.update        | appId, toManifest, fromManifest, force               |
-| backup.finish     | errorMessage, filename                               |
+| backup.finish     | errorMessage, backupId                               |
 | backup.start      | none                                                 |
 | certificate.renew | domain, errorMessage                                 |
 | settings.climode  | enabled                                              |
