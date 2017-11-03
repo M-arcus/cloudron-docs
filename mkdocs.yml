@@ -34,6 +34,7 @@ pages:
     - 'Kanboard': documentation/apps/kanboard.md
     - 'LAMP': documentation/apps/lamp.md
     - 'Lets Chat': documentation/apps/letschat.md
+    - 'Lychee': documentation/apps/lychee.md
     - 'Mailtrain': documentation/apps/mailtrain.md
     - 'Mattermost': documentation/apps/mattermost.md
     - 'Nextcloud': documentation/apps/nextcloud.md
