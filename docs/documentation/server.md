@@ -232,7 +232,7 @@ systemctl status unbound
 
 It must say `active (running)`. If not, run the following command:
 ```
-unbound-anchor -a /var/lib/unbound/root.key
+sudo unbound-anchor -a /var/lib/unbound/root.key
 systemctl restart unbound
 ```
 
