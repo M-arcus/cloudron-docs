@@ -183,6 +183,10 @@ When using Google to relay mail, if you encounter an error message of the form `
 `Please log in via your web browser and then try again`, you must configure your Google account
 to either use App passwords or enable less secure apps. See [Google Support](https://support.google.com/mail/answer/7126229?visit_id=1-636433350211034673-1786624518&rd=1#cantsignin) for more information.
 
+### Office 365
+
+To setup Office 365 as relay, add a connector under mail flow following the instructions under [Option 3](https://support.office.com/en-us/article/How-to-set-up-a-multifunction-device-or-application-to-send-email-using-Office-365-69f58e99-c550-4274-ad18-c805d654b4c4). Note that relaying via Office 365 requires port 25 to be open and requires a static IP.
+
 ## Creating a mailing list
 
 Cloudron does not support creating a mailing list (i.e) a list that allows members to
