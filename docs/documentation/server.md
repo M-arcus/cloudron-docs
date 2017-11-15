@@ -265,7 +265,7 @@ If this is the case, recreate it using the following contents. Be sure to edit
 the `version`, `fqdn`, `zoneName` and `provider` arguments below:
 ```
 {
-    "version": "1.6.4",
+    "version": "1.8.0",
     "token": "",
     "apiServerOrigin": "https://api.cloudron.io",
     "webServerOrigin": "https://cloudron.io",
