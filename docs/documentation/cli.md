@@ -46,6 +46,9 @@ cloudron login my.<domain>
 
 A successful login stores the authentication token in `~/.cloudron.json`.
 
+!!! note "Self-signed certificates"
+    When using Cloudron with self-signed certificates, use the `--allow-selfsigned` option.
+
 ## Installing apps from Cloudron Store using Cloudron CLI
 
 The Cloudron CLI can install apps from the Cloudron Store using the Appstore Id. For example,
