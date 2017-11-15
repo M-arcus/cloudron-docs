@@ -32,11 +32,14 @@ The `devicemapper` backend can be very slow especially when used with non-SSD di
 Changing the docker storage backend to `overlay2` for older Cloudrons can be done as follows:
 
 * Verify you are using devicemapper backend
+
 ```
 docker info | grep Storage
 ```
 
-* Remove existing docker images
+* Remove existing docker images. Note that removing `/var/lib/docker` is entirely safe as it only contains
+docker images. It does not remove any Cloudron data (which is under `/home/yellowtent/appsdata` and `/home/yellowtent/platformdata`).
+
 ```
 systemctl stop box
 systemctl stop docker
@@ -44,6 +47,7 @@ rm -rf /var/lib/docker
 ```
 
 * Change docker storage backend setting
+
 ```
 vi /etc/systemd/system/docker.service.d/cloudron.conf
 # change --storage-driver=devicemapper to --storage-driver=overlay2
