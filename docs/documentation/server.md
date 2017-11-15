@@ -53,13 +53,13 @@ vi /etc/systemd/system/docker.service.d/cloudron.conf
 # change --storage-driver=devicemapper to --storage-driver=overlay2
 ```
 
-* Edit `/home/yellowtent/platformdata/INFRA_VERSION` and change the minor version in the "version" field.
-  For example, if it is 48.5.0, change it to 48.4.0. This makes Cloudron code re-pull all the docker images
+* Edit `/home/yellowtent/platformdata/INFRA_VERSION` and change the `minor` version in the "version" field.
+  For example, if it is 48.8.0, change it to 48.7.0. This makes Cloudron code re-pull all the docker images
   in the new storage format.
 
 !!! warning "Changing the version field"
-    Please be very careful when changing the version field. Do not change the major version field since it will try
-    to restore from a backup and will lose data since your last backup.
+    Please be very careful when changing the version field. Do not change the major version field (i.e the number
+    48 above) since it will try to restore from a backup and will lose data since your last backup.
 
 * Restart docker and box code
 
