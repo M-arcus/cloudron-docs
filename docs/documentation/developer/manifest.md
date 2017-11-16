@@ -160,6 +160,19 @@ Example:
   "description:": "file://DESCRIPTION.md"
 ```
 
+### documentationUrl
+
+Type: url
+
+Required: yes
+
+The `documentationUrl` field is a URL where the user can read docs about the application.
+
+Example:
+```
+  "website": "https://example.com/myapp/docs"
+```
+
 ### healthCheckPath
 
 Type: url path
