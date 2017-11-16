@@ -179,7 +179,6 @@ Response (200):
         users: [ ],
         groups: [ ]
     },
-    lastBackupId: <string>,          // last known backup of this app
     manifest: <manifest>,            // the application manifest
     portBindings: {                  // mapping from application ports to public ports
     },
@@ -237,8 +236,6 @@ If null, any user of this Cloudron can access this app. Note that the `accessRes
 is integrated with Cloudron Authentication.
 
 
-`lastBackupId` is the last valid backup id. The [restore API](#restore-app) can be used to restore the app to this backup.
-
 `manifest` is the [application manifest](/documentation/developer/manifest/).
 
 For apps that support optional single sign-on, the `sso` field can be used to disable Cloudron authentication. By default, single sign-on is enabled.
@@ -270,7 +267,6 @@ Response (200):
                 users: [ ],
                 groups: [ ]
             },
-            lastBackupId: <string>,          // last known backup of this app
             manifest: <manifest>,            // the application manifest
             portBindings: {                  // mapping for application ports to public ports
             },
