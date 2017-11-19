@@ -140,19 +140,26 @@ the new Cloudron.
 The following step will migrate an app:
 
 * Against the old Cloudron
+
 ```
 cloudron backup create --app <subdomain/appid>
 ```
+
 * Copy the new backup from the old Cloudron's backup storage to the new one. This can be done via the s3 webinterface
   or scp if the filesystem backend is used. The backup can be located by its backup ID, which can be seen with:
+
 ```
 cloudron backup list --app <subdomain/appid>
 ```
+
 * Make note of the app's appstore id and version from:
+
 ```
 cloudron list
 ```
+
 * Then login to the new Cloudron and install the new app based on the created backup:
+
 ```
 cloudron login my.<new Cloudron domain>
 cloudron install --appstore-id=<apps appstore id>@<specific version if required> --backup <backupId>
@@ -277,11 +284,12 @@ To restore a Cloudron from a specific backup:
 ```
         # wget https://cloudron.io/cloudron-setup
         # chmod +x cloudron-setup
-        # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5.tar.gz
+        # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5.tar.gz --version 1.6.5
 ```
 
 !!! warning
-    If backups are encrypted, pass the encryption key in `--encryption-key`.
+    If backups are encrypted, pass the encryption key in `--encryption-key`. Pass `--version` to match
+    the version listed in the filename.
 
 * Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and finish
   the domain name setup. It is possible to provide a domain that was different from the Cloudron's previous
@@ -341,6 +349,9 @@ To restore a Cloudron from a specific backup:
         # chmod +x cloudron-setup
         # ./cloudron-setup --provider digitalocean --restore-url file://<path-to-backup-dir>
 ```
+
+!!! warning
+    Pass `--version` to match the version listed in the filename.
 
 * Once the installation is complete, navigate to `https://<IP>`. Accept the self-signed cert and finish
   the domain name setup. It is possible to provide a domain that was different from the Cloudron's previous
