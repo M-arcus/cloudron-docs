@@ -64,7 +64,7 @@ theme:
   feature:
     tabs: false
   palette:
-    primary: 'blue grey'
+    primary: 'white'
     accent: 'green'
   logo: 'img/logo_small.svg'
   font:
