@@ -498,7 +498,12 @@ The Cloudron will only update apps that are installed, running and responding to
 each update, the app is backed up so that it may be restored easily in case of a bad update.
 
 `force` can be used to force an update even if the app is in a state which prevents an update. This is
-useful during app development, where you can force a crashed app to update to the latest code.
+useful during app development, where you can force a crashed app to update to the latest code. The
+`force` flag has the following implications tailored for app development:
+
+* App is not backed up before an update
+* The manifest `appStoreId` does not need to match the installed app's `appStoreId`
+* An update is attempted even if the app is currently in an inconsistent state
 
 !!! warning "New port bindings"
     If the new version of the app requires new ports to be allocated for the app, then any such new port will be disabled after the update and needs to be manually enabled by reconfiguring the app.
@@ -922,7 +927,7 @@ Response (200):
 | user.login        | authType (oauth, ldap), appId, mailboxId             |
 | user.remove       | userId                                               |
 | user.update       | userId                                               |
- 
+
 `source` contains information on the originator of the action. For example, for user.login, this contains the IP address, the appId and the authType (ldap or oauth).
 
 `data` contains information on the event itself. For example, for user.login, this contains the userId that logged in. For app.install, it contains the manifest and location of the app that was installed.
