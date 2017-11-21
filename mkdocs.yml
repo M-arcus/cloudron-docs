@@ -38,6 +38,7 @@ pages:
     - 'Mailtrain': documentation/apps/mailtrain.md
     - 'Mattermost': documentation/apps/mattermost.md
     - 'Nextcloud': documentation/apps/nextcloud.md
+    - 'NodeBB': documentation/apps/nodebb.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
     - 'Phabricator': documentation/apps/phabricator.md
