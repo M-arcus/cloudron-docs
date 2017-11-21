@@ -1,12 +1,11 @@
 # <img src="/img/kanboard-logo.png" width="25px"> Kanboard App
 
-## Plugin configuration
+## Installing plugins
 
 Plugins are used to extend Kanboard. See the [plugin docs](http://kanboard.net/plugins)
 for a complete list.
 
-Plugins are installed into `/app/data/plugins`. CUsotm plugin configuration can
-be stored in `/app/data/customconfig.php`.
+Plugins are installed into `/app/data/plugins`.
 
 * Open a [web terminal](/documentation/apps/#web-terminal) for the app.
 
@@ -17,4 +16,9 @@ be stored in `/app/data/customconfig.php`.
 ```
 # unzip /tmp/plugin.zip -d /app/data/plugins # for zip files
 ```
+
+## Custom configuration
+
+Custom plugin configuration can be stored in `/app/data/customconfig.php`. To edit
+the file, use the [web terminal](/documentation/apps/#web-terminal) for the app.
 
