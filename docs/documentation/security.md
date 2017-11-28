@@ -74,7 +74,8 @@ The goal of rate limits is to prevent password brute force attacks.
 *   Let's Encrypt [submits](https://letsencrypt.org/certificates/)
     all certificates to [Certificate Transparency Logs](https://www.certificate-transparency.org/).
     This means that the apps that you install and use are going to be guessable. For example,
-    [crt.sh](https://crt.sh) can display all your subdomains and you can visit those subdomains and
+    [crt.sh](https://crt.sh), [Google transparency report](https://transparencyreport.google.com/https/certificates)
+    can display all your subdomains and you can visit those subdomains and
     guess the app. Generally, this is not a problem because using hidden DNS names is not a security
     measure. If you want to avoid this, you can always use a wildcard certificate.
 

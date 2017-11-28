@@ -50,7 +50,8 @@ When using Let's Encrypt, please be aware of the following:
   for a domain per week.
 
 * Let's Encrypt participates in Certificate transparency. This means that your apps and
-  subdomains are [discoverable](https://crt.sh/). Some [hackers](https://www.golem.de/news/certificate-transparency-hacking-web-applications-before-they-are-installed-1707-129172.html) take advantage of this to   hack web applications
+  subdomains are discoverable via the Certificate transparency project ([crt.sh](https://crt.sh/)
+  and [Google's website](https://transparencyreport.google.com/https/certificates)) Some [hackers](https://www.golem.de/news/certificate-transparency-hacking-web-applications-before-they-are-installed-1707-129172.html) take advantage of this to   hack web applications
   before they are in installed.
 
 ## Setting custom certificates
