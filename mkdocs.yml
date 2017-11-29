@@ -50,6 +50,7 @@ pages:
     - 'Rocket.Chat': documentation/apps/rocket.chat.md
     - 'Roundcube': documentation/apps/roundcube.md
     - 'Shaarli': documentation/apps/shaarli.md
+    - 'Surfer': documentation/apps/surfer.md
     - 'The Lounge': documentation/apps/thelounge.md
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
     - 'Wallabag': documentation/apps/wallabag.md
