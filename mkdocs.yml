@@ -27,6 +27,7 @@ pages:
 #    - documentation/developer/node.md
     - documentation/developer/packaging.md
   - 'Apps':
+    - 'Confluence': documentation/apps/confluence.md
     - 'Ghost': documentation/apps/ghost.md
     - 'Gitea': documentation/apps/gitea.md
     - 'GitLab': documentation/apps/gitlab.md
