@@ -71,6 +71,10 @@ Let's Encrypt.
 * The Cloudron administrator email is not valid. Let's Encrypt requires a valid email id
   for issuing certificates. Please check the email id in the Account page.
 
+* Let's Encrypt requires incoming port 80 to be [accepted from all IPs](https://community.letsencrypt.org/t/ip-addresses-le-is-validating-from-to-build-firewall-rule/5410/5). Note that Cloudron enforces
+  port 443/HTTPS [for all communication](https://cloudron.io/documentation/security/#ssl-security) and
+  any request on port 80 is redirected to HTTPS. For this reason,, it is safe to keep port 80 unblocked.
+
 * Let's Encrypt [rate limit](https://letsencrypt.org/docs/rate-limits/) was reached.
 
 ## CAA records for Lets Encrypt
