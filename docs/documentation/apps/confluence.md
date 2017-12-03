@@ -26,3 +26,8 @@ To finish the installation, do the following:
     * `Mail Servers` -> `Add SMTP mail`
     * Use the [cloudron logs](https://git.cloudron.io/cloudron/cloudron-cli) to get SMTP settings
 
+## Oracle Java
+
+OpenJDK is [not supported](https://confluence.atlassian.com/confkb/is-openjdk-supported-by-confluence-297667642.html)
+by Confluence. For this reason, the Cloudron app uses Oracle Java.
+
