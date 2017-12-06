@@ -55,6 +55,7 @@ pages:
     - 'Surfer': documentation/apps/surfer.md
     - 'The Lounge': documentation/apps/thelounge.md
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
+    - 'Verdaccio': documentation/apps/verdaccio.md
     - 'Wallabag': documentation/apps/wallabag.md
     - 'Wordpress': documentation/apps/wordpress.md
   - 'Enterprise': 'documentation/enterprise.md'
