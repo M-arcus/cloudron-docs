@@ -33,3 +33,5 @@ To unlink the account, run the following command on the Cloudron:
     mysql -uroot -ppassword -e "DELETE FROM box.settings WHERE name='appstore_config';"
 ```
 
+You can now navigate to the `App store` view on the Cloudron and register a new account.
+
