@@ -329,3 +329,29 @@ docker ps -f label=location=redmine
 
 Be sure to check the "use the distribution kernel" checkbox in the personalized installation mode.
 
+## Changing the timezone
+
+The Cloudron server is configured to be in UTC. This is intentional and should not be changed.
+
+Cloudron has an internal timezone setting that controls various cron jobs like backup, updates,
+date display in emails etc. This timezone is detected based on the browser IP that was used to
+activate the Cloudron. The auto-detected timezone can be displayed by running:
+
+* `mysql -uroot -ppassword -e "SELECT box.settings WHERE name='time_zone'"`
+
+```
+mysql: [Warning] Using a password on the command line interface can be insecure.
++-----------+--------------+
+| name      | value        |
++-----------+--------------+
+| time_zone | Asia/Kolkata |
++-----------+--------------+
+```
+
+To change the timezone, run the following commands:
+
+* `mysql -uroot -ppassword -e "UPDATE box.settings SET value='Asia/Kolkata' where name='time_zone'"`.
+   The value is a timezone from the [tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+
+* `systemctl restart box`
+
