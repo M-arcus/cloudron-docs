@@ -22,16 +22,17 @@ Head to your Cloudron's webinterface and go to the **Support** view. At the bott
 
 <img src="/img/support-ssh.png" class="shadow">
 
-## Change Cloudron.io Account email
+## Changing Cloudron.io Account email
 
-Currently, it is not possible to change the email of the Cloudron.io account. Instead, you can unlink the
-Cloudron.io account from the Cloudron and setup a new Cloudron.io account with the new email.
+The email of the Cloudron.io account cannot be changed. We recommend creating another Cloudron.io
+account with the desired email id instead.
 
-To unlink the account, run the following command on the Cloudron:
+First unlink the Cloudron.io account. To do so, run the following command on the Cloudron:
 
 ```
     mysql -uroot -ppassword -e "DELETE FROM box.settings WHERE name='appstore_config';"
 ```
 
-You can now navigate to the `App store` view on the Cloudron and register a new account.
+Next, navigate to the `App store` view on the Cloudron and register a new account or login
+with another existing account.
 
