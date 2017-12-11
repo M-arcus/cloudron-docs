@@ -28,6 +28,7 @@ pages:
     - documentation/developer/packaging.md
   - 'Apps':
     - 'Confluence': documentation/apps/confluence.md
+    - 'Dokuwiki': documentation/apps/dokuwiki.md
     - 'Etherpad': documentation/apps/etherpad.md
     - 'Ghost': documentation/apps/ghost.md
     - 'Gitea': documentation/apps/gitea.md
