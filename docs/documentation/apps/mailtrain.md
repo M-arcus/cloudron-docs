@@ -23,3 +23,14 @@ unintentionally sending out emails that they are not supposed to send.
 Cloudron assigns `location.app@domain` address by default to apps.
 To change this email address, follow the instructions [here](/documentation/email/#changing-the-from-address-of-an-app).
 
+## External mail server
+
+To revert from an external email server setup to the Cloudron setup,
+set the SMTP Hostname to `localhost` and then restart the app.
+This will inject the Cloudrons SMTP credentials automatically.
+
+## Customizations
+ 
+Additional settings can be added to `/app/data/production.toml` using
+the [Web terminal](/documentation/apps/#web-terminal).
+
