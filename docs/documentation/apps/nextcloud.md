@@ -35,3 +35,14 @@ The occ command can be run using the [Web terminal](/documentation/apps/#web-ter
     sudo -u www-data php -f /app/code/occ user:list
 ```
 
+## Managing deleted files
+
+When you delete a file in Nextcloud, it is not [immediately deleted](https://docs.nextcloud.com/server/12.0/user_manual/files/deleted_file_management.html) permanently. Instead, it is moved into the trash bin.
+It is not permanently deleted until you manually delete it, or when the Deleted Files app deletes it to make room for
+new files.
+
+To configure, how items are permanently deleted, configure the [trashbin_retention_obligation](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/config_sample_php_parameters.html#deleted-items-trash-bin) parameter.
+
+The parameter can be edited using the [Web terminal](/documentation/apps/#web-terminal) and editing the file
+`/app/data/config/config.php`.
+
