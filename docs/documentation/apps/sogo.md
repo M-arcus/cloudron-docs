@@ -9,3 +9,11 @@ Open a [Web terminal](/documentation/apps/#web-terminal) for SOGo:
 
 * Restart SOGo
 
+## UI Issues
+
+SOGo behaves differently depending on how you access the app.
+If you navigate to SOGo by clicking on the icon on your Cloudron
+dashboard, parts of the SOGo UI do not work. To workaround this,
+always use SOGo by opening a new browser tab and entering the
+SOGo domain name directly.
+
