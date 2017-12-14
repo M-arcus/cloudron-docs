@@ -13,7 +13,15 @@ Open a [Web terminal](/documentation/apps/#web-terminal) for SOGo:
 
 SOGo behaves differently depending on how you access the app.
 If you navigate to SOGo by clicking on the icon on your Cloudron
-dashboard, parts of the SOGo UI do not work. To workaround this,
-always use SOGo by opening a new browser tab and entering the
+dashboard, parts of the SOGo UI [do not work](https://sogo.nu/bugs/view.php?id=3900).
+
+This issue manifests itself as:
+
+* Email delete button not working
+* Compose email popup not closing. Sometimes, it ends up closing the tab itself.
+* The browser's web inspector console displays a DOMException with the message
+`"Permission denied to access property \"$mailboxController\" on cross-origin object"`.
+
+To workaround this, always use SOGo by opening a new browser tab and entering the
 SOGo domain name directly.
 
