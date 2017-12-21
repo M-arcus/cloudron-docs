@@ -12,7 +12,7 @@ about keeping them up-to-date.
 The main advantage of using the Cloudron to host LAMP apps are:
 
 *   DNS configuration, Let's Encrypt (SSL) certificate installation and renewal are automated.
-*   Can use MySQL, LDAP, OAuth and send email out of the box.
+*   Can use MySQL, LDAP and send email out of the box.
 *   Don't have to worry about app and server backups, restore and updates since the Cloudron takes care of it.
 *   Run multiple LAMP apps, isolated from one another, on same server easily.
 
