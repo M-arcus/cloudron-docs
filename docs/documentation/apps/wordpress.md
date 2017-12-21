@@ -38,5 +38,8 @@ Wordpress installation.
   plugin can be installed.
 
 * For CDN caching, we recommend [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/) or
-[W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/) for CDN based cache
+[W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/) for CDN based cache. Ryan Kite has a
+[good tutorial](https://ryan-kite.com/how-to-create-a-cdn-for-wp-fastest-cache-with-aws-cloudfront/) on
+how to setup AWS Cloudfront with WP Fastest Cache.
+
 
