@@ -22,3 +22,21 @@ Wordpress' built-in cron task schedule `wp-cron` is disabled since
 it is [not effective](https://www.lucasrolff.com/wordpress/why-wp-cron-sucks/)
 for low traffic websites.
 
+## Plugins
+
+Cloudron does not support plugins that modify the code. Code is read-only
+and immutable. This property is essential for Cloudron to update apps correctly.
+
+A list of plugins known to not work can be found [here](https://git.cloudron.io/cloudron/wordpress-app/issues?label_name%5B%5D=plugin).
+
+## Performance
+
+[GTmetrix](https://gtmetrix.com) is a great site for getting performance metrics on the
+Wordpress installation.
+
+* To set the expires headers for all pages, the [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/)
+  plugin can be installed.
+
+* For CDN caching, we recommend [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/) or
+[W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/) for CDN based cache
+

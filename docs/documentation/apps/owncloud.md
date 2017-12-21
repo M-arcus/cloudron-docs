@@ -44,3 +44,7 @@ To configure, how items are permanently deleted, configure the [trashbin_retenti
 The parameter can be edited using the [Web terminal](/documentation/apps/#web-terminal) and editing the file
 `/app/data/config/config.php`.
 
+## Max upload size
+
+The app is configured to allow maximum uploads of up to 5GB.
+
