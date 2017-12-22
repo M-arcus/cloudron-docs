@@ -11,7 +11,7 @@ chmod +x cloudron-setup
 
 !!! note "Minimum Requirements"
     Cloudron requires atleast 1GB RAM, 20GB Disk space. Make sure the firewall does not block port 80 (http)
-    and 443 (https). Cloudron does not support ARM.
+    and 443 (https). Cloudron does not support running on ARM, OpenVZ or LXC.
 
 !!! tip "Referral codes"
     [DigitalOcean](https://m.do.co/c/933831d60a1e),
