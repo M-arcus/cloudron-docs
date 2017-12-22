@@ -10,11 +10,12 @@ A complete list of available plugins is available [here](https://static.etherpad
 
 ## Custom settings
 
-Use a web terminal and edit /app/data/credentials.json
+Use a [Web terminal](/documentation/apps/#web-terminal) and add any custom
+settings to `/app/data/settings.json`
 
 ## Customizing CSS
 
-/app/data/custom/
-
-## Delete pad
+The CSS and Javascript can be customized by editing the files at `/app/data/custom/`.
+See the [etherpad docs](http://etherpad.org/doc/v1.2.7/#index_custom_static_files) for
+more information.
 
