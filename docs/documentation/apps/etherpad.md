@@ -8,6 +8,28 @@ this page.
 
 A complete list of available plugins is available [here](https://static.etherpad.org/plugins.html).
 
+## Admin user
+
+When using Cloudron SSO, admins on the Cloudron automatically become admins
+on etherpad.
+
+When Cloudron SSO is disabled, an admin user can be created by adding users
+to `settings.json`. Use the [Web terminal](/documentation/apps/#web-terminal)
+to edit `/app/data/settings.json` and add or edit the following section:
+
+```
+  "users": {
+    "admin": {
+      "password": "changeme1",
+      "is_admin": true
+    },
+    "user": {
+      "password": "changeme1",
+      "is_admin": false
+    }
+  }
+```
+
 ## Custom settings
 
 Use a [Web terminal](/documentation/apps/#web-terminal) and add any custom
