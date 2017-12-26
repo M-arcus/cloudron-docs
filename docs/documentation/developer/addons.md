@@ -97,6 +97,18 @@ cloudron exec
 > ldapsearch -x -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_GROUPS_BASE_DN}"
 ```
 
+The following attributes can be used from the LDAP response:
+
+* `uid` - Unique identifier
+* `mail` - User's email
+* `displayName` - Full name of the user
+* `mailAlternateAddress` - Alternate email address of the user
+* `givenName` - First name of the user
+* `username` - Username set during account creation
+* `samaccountname` - Same as username
+* `isadmin` - Integer value set to 1 for admin users
+* `memberof` - List of Cloudron groups the user is a memer of
+
 ### localstorage
 
 Since all Cloudron apps run within a read-only filesystem, this addon provides a writeable folder under `/app/data/`.
