@@ -1,3 +1,5 @@
+# <img src="/img/taiga-logo.png" width="25px"> Taiga App
+
 ## Importing a project
 
 An existing project's json can be imported into Taiga as follows:
