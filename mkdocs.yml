@@ -49,6 +49,7 @@ pages:
     - 'Piwik': documentation/apps/piwik.md
     - 'Radicale': documentation/apps/radicale.md
     - 'RainLoop': documentation/apps/rainloop.md
+    - 'Redash': documentation/apps/redash.md
     - 'Redmine': documentation/apps/redmine.md
     - 'Rocket.Chat': documentation/apps/rocket.chat.md
     - 'Roundcube': documentation/apps/roundcube.md
