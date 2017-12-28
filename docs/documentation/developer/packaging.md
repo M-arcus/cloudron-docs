@@ -704,24 +704,19 @@ java ${JAVA_OPTS} -jar ...
 
 ### Requirements
 
-The Cloudron Store is a mechanism to share your app with others who use Cloudron. Currently, to ensure that
-apps are maintained, secure and well supported there are some restrictions imposed on apps submitted to
-the Cloudron Store. See [#292](https://git.cloudron.io/cloudron/box/issues/292) and [#327](https://git.cloudron.io/cloudron/box/issues/327) for an in-depth discussion.
+The Cloudron Store is a mechanism to share your app with others who use Cloudron. To ensure that
+apps are maintained, secure and well supported, we enforce the following rules:
 
-The following criteria must be met before submitting an app for review:
+* The app packaging code will be relocated to the [Cloudron Git Repo](https://git.cloudron.io/cloudron/).
 
-* You must be willing to relocate your app packaging code to the [Cloudron Git Repo](https://git.cloudron.io/cloudron/).
+* Contributed apps must have browser tests. You can see the various [app repos](https://git.cloudron.io/cloudron/)
+  to get an idea on how to write these tests. The Cloudron team can help you write the tests.
 
-* Contributed apps must have browser tests. You can see the various [app repos](https://git.cloudron.io/cloudron/) to get an idea on how to write these tests. The Cloudron team can help you write the tests.
-
-* For all practical purposes, you are the maintainer of the app and Cloudron team will not commit to the repo
-  directly. Any changes will be submitted as Merge Requests.
-
-* You agree that the Cloudron team can take over the responsibility of progressing the app further if you become unresponsive (48 hours), lose interest, lack time etc. Please send us an email if your priorities change.
+* You agree that the Cloudron team will take over the responsibility of progressing the app further.
 
 * You must sign the [Cloudron CLA](https://cla.cloudron.io/).
 
-As a token of our appreciation, 3rd party app authors can use the Cloudron for personal or business use for free.
+* The code must be licensed under MIT License.
 
 ### Upload for Testing
 
