@@ -277,15 +277,7 @@ the `version`, `fqdn`, `zoneName` and `provider` arguments below:
     "zoneName": "domain.com",
     "isCustomDomain": true,
     "provider": "digitalocean",
-    "isDemo": false,
-    "database": {
-        "hostname": "127.0.0.1",
-        "username": "root",
-        "password": "password",
-        "port": 3306,
-        "name": "box"
-    },
-    "appBundle": []
+    "isDemo": false
 }
 ```
 
