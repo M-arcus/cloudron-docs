@@ -340,7 +340,7 @@ Exported environment variables:
 MAIL_SMTP_SERVER=     # the mail server (relay) that apps can use. this can be an IP or DNS name
 MAIL_SMTP_PORT=       # the mail server port. Currently, this port disables TLS and STARTTLS.
 MAIL_SMTPS_PORT=      # SMTPS server port.
-MAIL_SMTP_USERNAME=   # the username to use for authentication as well as the `from` username when sending emails
+MAIL_SMTP_USERNAME=   # the username to use for authentication
 MAIL_SMTP_PASSWORD=   # the password to use for authentication
 MAIL_FROM=            # the "From" address to use
 MAIL_DOMAIN=          # the domain name to use for email sending (i.e username@domain)
