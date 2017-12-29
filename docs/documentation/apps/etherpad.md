@@ -41,3 +41,13 @@ The CSS and Javascript can be customized by editing the files at `/app/data/cust
 See the [etherpad docs](http://etherpad.org/doc/v1.2.7/#index_custom_static_files) for
 more information.
 
+## API Access
+
+The [Etherpad API](http://etherpad.org/doc/v1.3.0/#index_http_api) can be accessed by
+obtaining the APIKEY. For this, open a [Web terminal](/documentation/apps/#web-terminal)
+and view the contents of the file `/app/data/APIKEY.txt`.
+
+Example usage:
+
+    curl https://etherpad.domain/api/1.2.7/listAllPads?apikey=c5513793f24a6fbba161e4497b26c734ff5b2701fad0f1211097ccb405ea65c7
+
