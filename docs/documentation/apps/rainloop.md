@@ -19,3 +19,17 @@ To forward all emails to an external mail, setup a Sieve filter in
 <img src="/img/forward-all-emails.png" class="shadow" width="600px">
 </center>
 
+### Admin panel
+
+The admin panel is located at `/?admin` and is disabled by default.
+
+To enable it, open a [Web terminal](/documentation/apps/#web-terminal)
+and edit the file `/app/data/_data_/_default_/configs/application.ini`.
+Set the value of `allow_admin_panel` to `On`. The admin username and
+password can be set in the same file using the values `admin_login`
+and `admin_password`.
+
+Restart the app for the changes to take effect.
+
+We highly recommend disabling the admin panel after use.
+
