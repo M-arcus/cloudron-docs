@@ -19,7 +19,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 <img src="/img/forward-all-emails.png" class="shadow" width="600px">
 </center>
 
-### Admin panel
+## Admin panel
 
 The admin panel is located at `/?admin` and is disabled by default.
 
