@@ -1,6 +1,8 @@
 # <img src="/img/dokuwiki-logo.png" width="25px"> Dokuwiki App
 
-## Cloudron SSO integration
+## User management
+
+### Cloudron SSO
 
 When Cloudron SSO is enabled, only Cloudorn users can login to the wiki and
 edit pages. Any Cloudron admin automatically becomes a dokuwiki admin.
@@ -9,11 +11,11 @@ By default, the pages are readable by all. The wiki can be made readable
 only for logged in users by changing the ACL Rules for the `@ALL` group
 in dokuwiki's `Access Control List Management` admin page.
 
-## User management
-
 When not using Cloudron authentication, first register a new user.
 
-### Making user an admin
+### Without Cloudron SSO
+
+#### Making user an admin
 
 To make the new user an admin, use the [Web terminal](https://cloudron.io/documentation/apps/#web-terminal)
 to edit `/app/data/conf/users.auth.php` and add the `admins` group to the new
@@ -23,10 +25,18 @@ user's groups. For example:
     girish:$1$bLd0HfJ8$HYI5uZgZfHYo8pgIAqXbE.:Me:mail@girish.in:user,admins
 ```
 
-### Disabling registration
+#### Disabling registration
 
 To [disable registration](https://www.dokuwiki.org/faq:regdisable), `Admin` -> `Configuration Manager` -> `Disable DokuWiki actions`
 and check `Register`.
+
+## Configuring
+
+At a high level, Dokuwiki applies configuration as follows:
+
+* `conf/foo.conf` – default value that comes with Dokuwiki. **Do not make changes to these files, they will be lost across updates.**
+* `conf/foo.protected.conf` – settings applied by the Cloudron package. **Do not make changes to these files, they will be lost across updates.**
+* `conf/foo.local.conf` – changed by plugin manager or Cloudron user. Changes can be freely made to these files and they will be retained across updates.
 
 ## Plugins
 
