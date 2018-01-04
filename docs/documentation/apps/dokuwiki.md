@@ -32,7 +32,7 @@ and check `Register`.
 
 ## Configuring
 
-At a high level, Dokuwiki applies configuration as follows:
+At a high level, Dokuwiki applies [configuration](https://www.dokuwiki.org/config) as follows:
 
 * `conf/foo.conf` – default value that comes with Dokuwiki. **Do not make changes to these files, they will be lost across updates.**
 * `conf/foo.protected.conf` – settings applied by the Cloudron package. **Do not make changes to these files, they will be lost across updates.**
