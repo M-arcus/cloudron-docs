@@ -62,6 +62,7 @@ pages:
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
     - 'Verdaccio': documentation/apps/verdaccio.md
     - 'Wallabag': documentation/apps/wallabag.md
+    - 'Wekan': documentation/apps/wekan.md
     - 'Wordpress': documentation/apps/wordpress.md
   - 'Enterprise': 'documentation/enterprise.md'
   - 'Managed Hosting': 'documentation/managed-hosting.md'
