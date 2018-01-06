@@ -42,6 +42,7 @@ pages:
     - 'Mailtrain': documentation/apps/mailtrain.md
     - 'Mattermost': documentation/apps/mattermost.md
     - 'Mediawiki': documentation/apps/mediawiki.md
+    - 'Meemo': documentation/apps/meemo.md
     - 'Minio': documentation/apps/minio.md
     - 'Nextcloud': documentation/apps/nextcloud.md
     - 'NodeBB': documentation/apps/nodebb.md
