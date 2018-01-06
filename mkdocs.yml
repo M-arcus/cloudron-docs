@@ -47,6 +47,7 @@ pages:
     - 'Minio': documentation/apps/minio.md
     - 'Nextcloud': documentation/apps/nextcloud.md
     - 'NodeBB': documentation/apps/nodebb.md
+    - 'OpenProject': documentation/apps/openproject.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
     - 'Paperwork': documentation/apps/paperwork.md
