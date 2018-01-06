@@ -4,7 +4,7 @@
 
 ### Cloudron SSO
 
-When Cloudron SSO is enabled, only Cloudorn users can login to the wiki and
+When Cloudron SSO is enabled, only Cloudron users can login to the wiki and
 edit pages. Any Cloudron admin automatically becomes a dokuwiki admin.
 
 By default, the pages are readable by all. The wiki can be made readable
