@@ -48,6 +48,7 @@ pages:
     - 'NodeBB': documentation/apps/nodebb.md
     - 'OpenVPN': documentation/apps/openvpn.md
     - 'ownCloud': documentation/apps/owncloud.md
+    - 'Paperwork': documentation/apps/paperwork.md
     - 'Phabricator': documentation/apps/phabricator.md
     - 'Piwik': documentation/apps/piwik.md
     - 'Radicale': documentation/apps/radicale.md
