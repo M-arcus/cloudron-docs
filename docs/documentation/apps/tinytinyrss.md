@@ -24,3 +24,11 @@ Some suggested [themes](https://git.tt-rss.org/git/tt-rss/wiki/Themes):
 * [Clean GReader](https://github.com/naeramarth7/clean-greader)
 * [Feedly](https://github.com/levito/tt-rss-feedly-theme)
 
+## Fever support
+
+TinyTinyRSS supports Fever API using a plugin. There are many version of 
+fever API floating around but [this version](https://github.com/wodev/tinytinyrss-fever-plugin#installation)
+is known to work.
+
+Instruction on how to setup the apps is in the [old forum page](https://tt-rss.org/oldforum/viewtopic.php?f=22&t=1981)
+
