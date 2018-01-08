@@ -1,5 +1,17 @@
 # <img src="/img/ghost-logo.png" width="25px"> Ghost App
 
+## Structured data
+
+Ghost outputs basic meta tags to allow rich snippets of your content to be recognised by popular social networks.
+Currently there are 3 supported rich data protocols which are output in `{{ghost_head}}`:
+
+- Schema.org - http://schema.org/docs/documents.html
+- Open Graph - http://ogp.me/
+- Twitter cards - https://dev.twitter.com/cards/overview
+
+The Cloudron app enables output of [structured data](https://github.com/TryGhost/Ghost/blob/master/PRIVACY.md#structured-data)
+by default.
+
 ## Migrating from Ghost 0.11
 
 Ghost 1.0.0 is a major upgrade, with breaking changes and no automatic
@@ -27,4 +39,5 @@ tar zxvf /tmp/content.tar.gz -C /app/data/content/
 * Once everything looks fine, [uninstall](/documentation/apps/#uninstall-an-app) the old app
   and [move](/documentation/apps/#moving-an-app-to-another-subdomain) the new blog to the old
   location.
+
 
