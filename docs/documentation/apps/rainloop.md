@@ -28,8 +28,8 @@ and edit the file `/app/data/_data_/_default_/configs/application.ini`.
 Set the value of `allow_admin_panel` to `On`. The default admin credentials
 are:
 
-    Username: `admin`
-    Password: `12345`
+    Username: admin
+    Password: 12345
 
 
 Restart the app for the changes to take effect.
