@@ -25,11 +25,13 @@ The admin panel is located at `/?admin` and is disabled by default.
 
 To enable it, open a [Web terminal](/documentation/apps/#web-terminal)
 and edit the file `/app/data/_data_/_default_/configs/application.ini`.
-Set the value of `allow_admin_panel` to `On`. The admin username and
-password can be set in the same file using the values `admin_login`
-and `admin_password`.
+Set the value of `allow_admin_panel` to `On`. The default admin credentials
+are:
+
+Username: `admin`
+Password: `12345`
+
 
 Restart the app for the changes to take effect.
 
-We highly recommend disabling the admin panel after use.
-
+We highly recommend disabling the admin panel after use. 
