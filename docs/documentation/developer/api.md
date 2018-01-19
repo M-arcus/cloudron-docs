@@ -943,7 +943,7 @@ curl -X GET -H 'Authorization: Bearer cb0463455a6606482be7956fc3abd53330ae23244e
 Cloudron domains hold the necessary settings required to automate DNS setup. When installing an app,
 the admin can select the domain to install.
 
-### Create domain
+#### Create domain
 
 POST `/api/v1/domains` <scope>admin</scope>
 
@@ -985,7 +985,7 @@ Response (201):
 }
 ```
 
-### Get domain
+#### Get domain
 
 GET `/api/v1/domains/:domain` <scope>admin</scope>
 
@@ -1005,7 +1005,7 @@ Response (200):
 }
 ```
 
-### Update domain
+#### Update domain
 
 PUT `/api/v1/domains/:domain` <scope>admin</scope>
 
