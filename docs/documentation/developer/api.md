@@ -938,6 +938,150 @@ To list all the app installation events:
 curl -X GET -H 'Authorization: Bearer cb0463455a6606482be7956fc3abd53330ae23244e3492cda3914a2c5154c47e' https://my.domain.com/api/v1/cloudron/eventlog?action=app.install
 ```
 
+### Domains
+
+Cloudron domains hold the necessary settings required to automate DNS setup. When installing an app,
+the admin can select the domain to install.
+
+### Create domain
+
+POST `/api/v1/domains` <scope>admin</scope>
+
+Creates a new domain.
+
+Request:
+```
+{
+    "name": <string>,            // required: the domain name
+    "provider": <string>         // required: 'route53', 'gcdns' or 'digitalocean' or 'cloudflare' or 'noop' or 'manual'
+    "config": <object>,          // required: provider specific DNS settings
+    "zoneName": <string>,       // optional: the DNS zone name. defaults to the domain name itself
+    "fallbackCertificate": {    // optional
+        "cert": <string>        // certificate
+        "key":  <string>        // certificate private key
+    }
+}
+```
+
+The value of `config` depends on the `provider`:
+
+| Provider          | config                                               |
+| ----------------- |:-----------------------------------------------------|
+| cloudflare        | token (API token), email                             |
+| digitalocean      | token (API token)                                    |
+| gcdns             | projectId, credentials.client\_email, credentials.private\_key |
+| manual            | wildcard (boolean)                                   |
+| noop              |                                                      |
+| route53           | accessKeyId, secretAccessKey, region, endpoint       |
+
+When adding a domain, the credentials are validated. As a result, this requires the `provider` service
+to be online and functional.
+
+Response (201):
+```
+{
+    domain: <string>,
+    config: <object>
+}
+```
+
+### Get domain
+
+GET `/api/v1/domains/:domain` <scope>admin</scope>
+
+Gets an existing domain with name `domain`.
+
+Response (200):
+```
+{
+    "name": <string>,            // required: the domain name
+    "provider": <string>         // required: 'route53', 'gcdns' or 'digitalocean' or 'cloudflare' or 'noop' or 'manual'
+    "config": <object>,          // required: provider specific DNS settings
+    "zoneName": <string>,       // optional: the DNS zone name. defaults to the domain name itself
+    "fallbackCertificate": {    // optional
+        "cert": <string>        // certificate
+        "key":  <string>        // certificate private key
+    }
+}
+```
+
+### Update domain
+
+PUT `/api/v1/domains/:domain` <scope>admin</scope>
+
+Request:
+```
+{
+    "provider": <string>        // required: 'route53', 'gcdns' or 'digitalocean' or 'cloudflare' or 'noop' or 'manual'
+    "config": <object>,         // required: provider specific DNS settings
+    "zoneName": <string>,       // optional: the DNS zone name. defaults to the domain name itself
+    "fallbackCertificate": {    // optional
+        "cert": <string>        // certificate
+        "key":  <string>        // certificate private key
+    }
+}
+```
+
+When updating a domain, the credentials are validated. As a result, this requires the `provider` service
+to be online and functional.
+
+Response (204):
+```
+{
+}
+```
+
+#### List domains
+
+GET `/api/v1/domains` <scope>admin</scope>
+
+Lists all domains.
+
+Response (200):
+```
+{
+    domains: [
+        {
+            "name": <string>,            // required: the domain name
+            "provider": <string>         // required: 'route53', 'gcdns' or 'digitalocean' or 'cloudflare' or 'noop' or 'manual'
+            "config": <object>,          // required: provider specific DNS settings
+            "zoneName": <string>,       // optional: the DNS zone name. defaults to the domain name itself
+            "fallbackCertificate": {    // optional
+                "cert": <string>        // certificate
+                "key":  <string>        // certificate private key
+            }
+        },
+        ...
+    ]
+}
+```
+
+#### Delete domain
+
+DELETE `/api/v1/domains/:domain` <scope>admin</scope>
+
+Deletes an existing domain with id `domain`.
+
+Response (204):
+```
+{}
+```
+
+#### Get Email Configuration
+
+GET `/api/v1/settings/mail_config` <scope>admin</scope>
+
+Gets the email configuration. The Cloudron has a built-in email server for users.
+This configuration can be used to disable the server. Note that the Cloudron will
+always be able to send email on behalf of apps, regardless of this setting.
+
+Response(200):
+```
+{
+  "enabled": <boolean> // true to enable email
+}
+```
+
 ### Groups
 
 Cloudron groups are a mechanism to restrict application access to a subset of users. You can add one or more users
@@ -1253,44 +1397,6 @@ Request:
 ```
 {
     "address": [ <string> ] // array of mailbox names
-}
-```
-
-#### Get DNS Configuration
-
-GET `/api/v1/settings/dns_config` <scope>admin</scope> <scope>internal</scope>
-
-Gets the credentials used to configure DNS.
-
-This is currently internal API and is documented here for completeness.
-
-Response(200):
-```
-{
-  "provider": <string>  // 'caas' or 'route53' or 'digitalocean' or 'cloudflare' or 'noop' or 'manual'
-}
-```
-
-#### Set DNS Configuration
-
-POST `/api/v1/settings/dns_config` <scope>admin</scope> <scope>internal</scope>
-
-Sets the credentials used to configure DNS.
-
-This is currently internal API and is documented here for completeness.
-
-#### Get Email Configuration
-
-GET `/api/v1/settings/mail_config` <scope>admin</scope>
-
-Gets the email configuration. The Cloudron has a built-in email server for users.
-This configuration can be used to disable the server. Note that the Cloudron will
-always be able to send email on behalf of apps, regardless of this setting.
-
-Response(200):
-```
-{
-  "enabled": <boolean> // true to enable email
 }
 ```
 
