@@ -122,6 +122,14 @@ self-signed certificate, select the `Accept Self-Signed certificate` option.
 The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
 required to decrypt the backups when restoring the Cloudron.
 
+## Backing up to Google Cloud Storage
+
+Provide [Google Cloud Storage](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
+
+<center>
+<img src="/img/backups-gcs.png" class="shadow">
+</center>
+
 ## Backup interval
 
 Cloudron automatically creates a backup every night (in the timezone of your Cloudron).
