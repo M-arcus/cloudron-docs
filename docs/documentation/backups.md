@@ -124,7 +124,7 @@ required to decrypt the backups when restoring the Cloudron.
 
 ## Backing up to Google Cloud Storage
 
-Provide [Google Cloud Storage](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
+Provide [GCS](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
 
 <center>
 <img src="/img/backups-gcs.png" class="shadow">
