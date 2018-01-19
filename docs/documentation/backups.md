@@ -47,7 +47,7 @@ that it can be reverted to a sane state should the update fail.
 
 !!! warning
     Disabling automatic backup for an app puts the onus on the Cloudron adminstrator to backup the app's files
-    regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's 
+    regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's
     `cloudron backup create` command.
 
 ## Backing up to Amazon S3
@@ -247,7 +247,44 @@ current version of the app may not be able to handle old data.
 
 ## Restoring Cloudron from a backup
 
-### tgz backup
+Cloudron 1.9 introduced a UI to restore Cloudron. To restore from a backup:
+
+* Install Cloudron on a new server with Ubuntu 16.04:
+
+```
+  wget https://cloudron.io/cloudron-setup
+  chmod +x cloudron-setup
+  ./cloudron-setup --provider digitalocean # change this to your new server provider
+```
+
+* Complete the DNS setup
+
+* Click on `Looking to restore` located at the bottom:
+
+    <center>
+    <img src="/img/looking-to-restore.png" class="shadow" width="500px">
+    </center>
+
+* Provide the backup information to restore from:
+
+    <center>
+    <img src="/img/cloudron-restore.png" class="shadow" width="500px">
+    </center>
+
+* Cloudron will download the backup and start restoring:
+
+    <center>
+    <img src="/img/cloudron-restore2.png" class="shadow" width="500px">
+    </center>
+
+The new Cloudron server is an exact clone of the old one - all your users, groups, email, apps,
+DNS settings, backup settings, certificates, will be exactly as-is before.
+
+### Legacy restore (pre 1.9)
+
+Follow these instructions for restoring a Cloudron prior to version 1.9.
+
+#### tgz backup
 
 To restore a Cloudron from a specific backup:
 
@@ -297,7 +334,7 @@ To restore a Cloudron from a specific backup:
 
 * After providing the domain name details, Cloudron will automatically start restoring all the apps.
 
-### rsync backup
+#### rsync backup
 
 To restore a Cloudron from a specific backup:
 
@@ -363,15 +400,18 @@ To restore a Cloudron from a specific backup:
 
 ## Migrating Cloudron to another server
 
-To migrate to a different server:
+If the existing server's cpu/disk/memory can be resized (as is the case with most server providers),
+then simply resize it and reboot the server. Cloudron will automatically adapt to the available resources
+after a server resize.
+
+To migrate to a different server or move Cloudron to a different server provider:
 
 * Take a [complete backup](/documentation/backups/#making-a-complete-backup) of the existing
-  Cloudron. Click the `Backup now` button in the `Settings` page.
+  Cloudron. Click the `Backup now` button in the `Settings` page and make a note of the backup id.
+
+<center>
+<img src="/img/backup-done.png" class="shadow">
+</center>
 
 * Follow the steps to [restore from the latest backup](/documentation/backups/#restoring-cloudron-from-a-backup)
   on the new server.
-
-Note that the above migration procedure is required only if you want to migrate
-to another server. If the exisitng server's cpu/disk/memory can be resized (as is
-the case with most server providers), then resize it and reboot the server.
-Cloudron will automatically adapt to the available resources after a server restart.
