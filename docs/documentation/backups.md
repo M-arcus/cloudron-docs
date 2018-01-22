@@ -137,6 +137,16 @@ Cloudron automatically creates a backup every night (in the timezone of your Clo
 To instantly make a complete backup, click the `Backup now` button in the `Backups` section of the `Settings` page.
 Alternately, use the CLI command `cloudron machine backup create`.
 
+## Decrypting backups
+
+When encryption is used, backups can be downloaded and decrypted locally with the following command:
+
+```
+cat backupfile.tar.gz.enc | openssl aes-256-cbc -d -nosalt -pass "pass:secretkey" > backupfile.tar.gz
+```
+
+`secretkey` is the encryption key that was used for creating backups
+
 ## Migrate Apps from one Cloudron to another
 
 Migrating apps or moving apps from one Cloudron to another works by first creating a new backup of the app on the old Cloudron,
