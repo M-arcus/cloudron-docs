@@ -749,14 +749,16 @@ To create an update for an app, simply bump up the [semver version](/documentati
 the manifest and publish a new version to the store.
 
 The Cloudron chooses the next app version to update to based on the following algorithm:
-* Choose the maximum `patch` version matching the app's current `major` and `minor` version.
-* Failing the above, choose the maximum patch version of the next minor version matching the app's current `major` version.
-* Failing the above, choose the maximum patch and minor version of the next major version
+* Choose the maximum `package` version matching the app's current `major`, `minor`, `patch` version.
+* Failing the above, choose the next patch version matching the app's current `major` and `minor` version.
+* Failing the above, choose the next minor version matching the app's current `major` version.
+* Failing the above, choose the next major version
 
-For example, let's assume the versions 1.1.3, 1.1.4, 1.1.5, 1.2.4, 1.2.6, 1.3.0, 2.0.0 are published.
+For example, let's assume the versions 1.1.3, 1.1.4, 1.1.4-1, 1.1.4-2, 1.1.5, 1.2.6, 1.3.0, 2.0.0 are published.
 
-* If the app is running 1.1.3, then app will directly update to 1.1.5 (skipping 1.1.4)
-* Once in 1.1.5, the app will update to 1.2.6 (skipping 1.2.4)
+* If the app is running 1.1.3, then app will directly update to 1.1.4-2 (skipping 1.1.4 and 1.1.4-1)
+* Once in 1.1.4-2, the app will update to 1.1.5
+* Once in 1.1.5, the app will update to 1.2.6
 * Once in 1.2.6, the app will update to 1.3.0
 * Once in 1.3.0, the app will update to 2.0.0
 
