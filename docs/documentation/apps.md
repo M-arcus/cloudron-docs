@@ -143,16 +143,16 @@ can be used to:
 Note that Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data), 
 `/app/data` (backup data) and `/tmp` (temporary files) are writable at runtime.
 
-The web terminal can be accessed from the 'Terminal & Logs' menu item.
+The web terminal can be accessed by clicking the 'Terminal' icon.
 
 <center>
-<img src="/img/terminal-menuitem.png" class="shadow" width="400px">
+<img src="/img/app-grid-icons.png" class="shadow" width="400px">
 </center>
 
 Select the app from the select box on the right hand side to get a shell into the app's file system.
 
 <center>
-<img src="/img/terminal-exec.png" class="shadow" width="600px">
+<img src="/img/terminal-exec2.png" class="shadow" width="600px">
 </center>
 
 ## Embedding Apps
