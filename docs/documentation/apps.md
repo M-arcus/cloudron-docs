@@ -146,10 +146,10 @@ Note that Cloudron runs apps as containers with a read-only file system. Only `/
 The web terminal can be accessed by clicking the 'Terminal' icon.
 
 <center>
-<img src="/img/app-grid-icons.png" class="shadow" width="400px">
+<img src="/img/app-grid-icons.png" class="shadow" width="300px">
 </center>
 
-Select the app from the select box on the right hand side to get a shell into the app's file system.
+Clicking the icon will pop up a new window. The terminal is essentially a shell into the app's file system.
 
 <center>
 <img src="/img/terminal-exec2.png" class="shadow" width="600px">
