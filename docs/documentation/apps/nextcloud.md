@@ -27,12 +27,20 @@ sudo apt-get install owncloud-client
 
 ## Running occ tool
 
-The `occ` tool can be used for ownCloud [administrative tasks](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/occ_command.html).
+The `occ` tool can be used for NextCloud [administrative tasks](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/occ_command.html).
 
 The occ command can be run using the [Web terminal](/documentation/apps/#web-terminal). For example, to list the users:
 
 ```
     sudo -u www-data php -f /app/code/occ user:list
+```
+
+## Resetting admin password
+
+To reset the admin password, run the following occ command using the [Web terminal](/documentation/apps/#web-terminal):
+
+```
+    sudo -u www-data php -f /app/code/occ user:resetpassword admin
 ```
 
 ## Managing deleted files
