@@ -42,4 +42,13 @@ Wordpress installation.
 [good tutorial](https://ryan-kite.com/how-to-create-a-cdn-for-wp-fastest-cache-with-aws-cloudfront/) on
 how to setup AWS Cloudfront with WP Fastest Cache.
 
+## Database access
+
+Cloudron does not support FTP access or PHPMyAdmin. It is, however, possible to access the database
+using other methods:
+
+* Open a [Web terminal](/documentation/apps/#web-terminal) and press the 'MySQL' button to get console
+  access. You can execute SQL commands directly.
+
+* Use a plugin like [ARI Adminer](https://wordpress.org/plugins/ari-adminer/) for a GUI.
 
