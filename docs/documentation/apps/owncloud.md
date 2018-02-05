@@ -35,7 +35,7 @@ The occ command can be run using the [Web terminal](/documentation/apps/#web-ter
 
 ## Managing deleted files
 
-When you delete a file in Nextcloud, it is not [immediately deleted](https://doc.owncloud.org/server/9.0/user_manual/files/deleted_file_management.html) permanently. Instead, it is moved into the trash bin.
+When you delete a file in ownCloud, it is not [immediately deleted](https://doc.owncloud.org/server/9.0/user_manual/files/deleted_file_management.html) permanently. Instead, it is moved into the trash bin.
 It is not permanently deleted until you manually delete it, or when the Deleted Files app deletes it to make room for
 new files.
 
@@ -47,4 +47,23 @@ The parameter can be edited using the [Web terminal](/documentation/apps/#web-te
 ## Max upload size
 
 The app is configured to allow maximum uploads of up to 5GB.
+
+## Attaching external storage
+
+Many VPS providers like Digital Ocean, Linode allow attaching external block storage to the server. ownCloud has a feature
+that allows mounting additional directories on the server as [external storage](https://doc.owncloud.org/server/9.0/admin_manual/configuration_files/external_storage_configuration_gui.html).
+
+Mounting an existing server directory as 'external storage' on ownCloud is currently not supported.
+
+If the intent is to simply increase the amount of storage available to ownCLoud (since you have run out of disk
+space in the default data partition), there are two options:
+
+* Configure ownCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc.
+
+* Configure Cloudron to store all of ownCloud's data in the external block storage. To achieve this, follow the
+  [guide](/documentation/server/#moving-a-single-apps-data-directory-to-another-location) for
+  moving a single app's data directory to another location.
+
+Moving ownCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
+this new disk.
 

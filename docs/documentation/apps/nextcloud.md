@@ -54,3 +54,22 @@ To configure, how items are permanently deleted, configure the [trashbin_retenti
 The parameter can be edited using the [Web terminal](/documentation/apps/#web-terminal) and editing the file
 `/app/data/config/config.php`.
 
+## Attaching external storage
+
+Many VPS providers like Digital Ocean, Linode allow attaching external block storage to the server. NextCloud has a feature
+that allows mounting additional directories on the server as [external storage](https://docs.nextcloud.com/server/9/admin_manual/configuration_files/external_storage_configuration_gui.html).
+
+Mounting an existing server directory as 'external storage' on NextCloud is currently not supported.
+
+If the intent is to simply increase the amount of storage available to NextCloud (since you have run out of disk
+space in the default data partition), there are two options:
+
+* Configure NextCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc.
+
+* Configure Cloudron to store all of NextCloud's data in the external block storage. To achieve this, follow the
+  [guide](/documentation/server/#moving-a-single-apps-data-directory-to-another-location) for
+  moving a single app's data directory to another location.
+
+Moving NextCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
+this new disk.
+
