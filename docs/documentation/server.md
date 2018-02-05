@@ -141,7 +141,7 @@ cf9ae0ad5808
 
 ```
     APP_ID="217f33a5-f4a8-4abe-bc32-76256906818f"  # identified above
-    NEW_LOC="/mnt/appdata"                         # we will move appdata under this ext4 directory
+    NEW_LOC="/mnt/appdata"                         # we will move the app's data under this EXT4 directory
 
     mv "/home/yellowtent/appsdata/${APP_ID}" "${NEW_LOC}"
     ln -s "${NEW_LOC}/${APP_ID}" "/home/yellowtent/appsdata/${APP_ID}"
