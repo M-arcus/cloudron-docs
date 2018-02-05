@@ -126,10 +126,10 @@ Apps store their data under `/home/yellowtent/appsdata`. Each subdirectory is th
 a single app to another location, simply create a symlink of this subdirectory to the alternate
 location. Note that the new location must be on an ext4 file system.
 
-* Stop all the containers of the app. To find all the container for an app at subdomain `files`:
+* Stop all the containers of the app. To find all the container for an app at domain `files.smartserver.io`:
 
 ```
-# docker ps -q -f label=location=files --format 'table {{.ID}}\t{{.Label "appId"}}'
+# docker ps -q -f label=fqdn=files.smartserver.io --format 'table {{.ID}}\t{{.Label "appId"}}'
 CONTAINER ID        APPID
 12465cd72d01        217f33a5-f4a8-4abe-bc32-76256906818f
 cf9ae0ad5808
@@ -309,10 +309,10 @@ level=error msg="Handler for POST /v1.27/containers/create returned error: devma
 ## Identifying the container of an app
 
 Cloudron creates app containers with the `location` and `appId` label set. For example,
-to find the container id of the app running on the `redmine` subdomain:
+to find the container id of the app running on the `redmine.smartserver.io` domain:
 
 ```
-docker ps -f label=location=redmine
+docker ps -f label=fqdn=redmine.smartserver.io
 ```
 
 ## VPS Quirks
