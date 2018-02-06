@@ -180,6 +180,20 @@ When enabled, the following environment variables are injected and the `MYSQL_DA
 MYSQL_DATABASE_PREFIX=      # prefix to use to create databases
 ```
 
+All the databases use `utf8mb4` encoding by default.
+
+```
+mysql> SELECT @@character_set_database, @@collation_database;
++--------------------------+----------------------+
+| @@character_set_database | @@collation_database |
++--------------------------+----------------------+
+| utf8mb4                  | utf8mb4_unicode_ci   |
++--------------------------+----------------------+
+```
+
+To see the charset of a table: `SHOW CREATE TABLE <tablename>`.  Columns can have a collation order
+of their own which can seen using `SHOW TABLE STATUS LIKE <tablename>`.
+
 ### oauth
 
 The Cloudron OAuth 2.0 provider can be used in an app to implement Single Sign-On.
