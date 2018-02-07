@@ -69,7 +69,6 @@ pages:
     - 'Wallabag': documentation/apps/wallabag.md
     - 'Wekan': documentation/apps/wekan.md
     - 'Wordpress': documentation/apps/wordpress.md
-  - 'Enterprise': 'documentation/enterprise.md'
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
   - 'Support': 'documentation/support.md'
