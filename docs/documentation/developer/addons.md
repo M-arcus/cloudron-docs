@@ -79,6 +79,9 @@ LDAP_BIND_DN=                               # DN to perform LDAP requests
 LDAP_BIND_PASSWORD=                         # Password to perform LDAP requests
 ```
 
+The suggested LDAP filter is `(&(objectclass=user)(|(username=%uid)(mail=%uid)))`. This allows the user to login
+via username or email.
+
 For debugging, [cloudron exec](/documentation/cli/) can be used to run the `ldapsearch` client within the context of the app:
 
 ```
@@ -99,10 +102,13 @@ cloudron exec
 
 The following attributes can be used from the LDAP response:
 
+* `objectclass` - array that contains `user`
+* `objectcategory` - set to 'person',
 * `uid` - Unique identifier
-* `mail` - User's email
+* `cn` - Unique identifier (same as `uid`)
+* `mail` - User's primary email
 * `displayName` - Full name of the user
-* `mailAlternateAddress` - Alternate email address of the user
+* `mailAlternateAddress` - Alternate/Fallback email address of the user (for password reset)
 * `givenName` - First name of the user
 * `username` - Username set during account creation
 * `samaccountname` - Same as username
