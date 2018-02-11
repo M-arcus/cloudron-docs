@@ -1,13 +1,26 @@
 # <img src="/img/rainloop-logo.png" width="25px"> Rainloop App
 
+## Default Setup
+
+Rainloop is pre-configured for use with Cloudron Email. As such, Rainloop
+has to be installed on a domain that has email enabled.
+
+Users can login with their Cloudron username and password to access their
+mailbox. Aliases can be added as indentities under the settings.
+
+!!! note "Multiple domains"
+    Cloudron does not support using the same rainloop installation for multiple
+    domains.
+
 ## Vacation Email
 
 An out of office / vacation mail message can be setup using Sieve filters.
 
-A vacation message can be set in `Settings` -> `Filters` -> `Add filter` -> `Vacation message` action.
+A vacation message can be set in `Settings` -> `Filters` -> `Add a filter`. Choose
+`Vacation message` action.
 
 <center>
-<img src="/img/email-vacation-message.png" class="shadow" width="600px">
+<img src="/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Forwarding all emails
@@ -16,7 +29,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 `Settings` -> `Filters` -> `Add a filter` -> `Forward to`
 
 <center>
-<img src="/img/forward-all-emails.png" class="shadow" width="600px">
+<img src="/img/forward-all-emails-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Admin panel

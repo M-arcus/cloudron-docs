@@ -212,7 +212,7 @@ filters can be created using [Rainloop](/documentation/apps/rainloop/),
 Manage Sieve.
 
 <center>
-<img src="/img/forward-all-emails.png" class="shadow" width="600px">
+<img src="/img/forward-all-emails-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Marking emails as spam
@@ -293,7 +293,7 @@ An out of office / vacation mail message can be setup using Sieve filters. When 
 Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filter` -> `Vacation message` action.
 
 <center>
-<img src="/img/email-vacation-message.png" class="shadow" width="600px">
+<img src="/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Custom Domain Authentication
