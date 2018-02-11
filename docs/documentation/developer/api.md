@@ -77,7 +77,6 @@ Request:
     key: <string>,                   // pem encoded TLS key
     memoryLimit: <number>,           // memory constraint in bytes
     backupId: <string>,              // initialize the app from this backup
-    altDomain: <string>,             // alternate domain from which this app can be reached
     xFrameOptions: <string>,         // set X-Frame-Options header, to control which websites can embed this app
     robotsTxt: <string>,             // robots.txt file content
     sso: <boolean>,                  // integrate with Cloudron user management
@@ -109,8 +108,6 @@ from the Cloudron Store (or uses a fallback icon).
 
 `cert` and `key` provide the TLS certificates. If the domain name of the app does not must match with the certificate
 provided, a 400 will be returned.
-
-If `altDomain` is set, the app can be accessed from `https://<altDomain>`.
 
 `xFrameOptions` can hold one of the following values:
 * `DENY` - to prevent embedding from any website
@@ -173,8 +170,6 @@ Response (200):
     health: <enum>,                  // health of the application
     location: <string>,              // subdomain on which app is installed
     fqdn: <string>,                  // the FQDN of this app
-    altDomain: <string>,             // alternate domain from which this app can be reached
-    cnameTarget: <string> || null,   // If altDomain is set, this contains the CNAME location for the app
     accessRestriction: null || {     // list of users and groups who can access this application
         users: [ ],
         groups: [ ]
@@ -229,7 +224,7 @@ of the format `<percent>, <message>`.
 * `dead` - The app is dead. Most likely it was stopped or being uninstalled.
 
 `location` is the subdomain on which the app is installed. This can be empty if the app was installed on the naked domain. The app can be
-accessed from `fqdn` i.e `https//<fqdn>`. If `altDomain` is set, the app should be accessed from `https://<altDomain>`.
+accessed from `fqdn` i.e `https//<fqdn>`.
 
 For apps that require login, `accessRestriction` is the *restricted* list of users and groups that can access this app.
 If null, any user of this Cloudron can access this app. Note that the `accessRestriction` field only works if the app
@@ -261,8 +256,6 @@ Response (200):
             health: <enum>,                  // health of the application
             location: <string>,              // subdomain on which app is installed
             fqdn: <string>,                  // the FQDN of this app
-            altDomain: <string>,             // alternate domain from which this app can be reached
-            cnameTarget: <string> || null,   // If altDomain is set, this contains the CNAME location for the app
             accessRestriction: null || {     // list of users and groups who can access this application
                 users: [ ],
                 groups: [ ]
@@ -448,7 +441,6 @@ Request:
     cert: <string>,                 // pem encoded TLS cert
     key: <string>,                  // pem encoded TLS key
     memoryLimit: <number>,          // memory constraint in bytes
-    altDomain: <string>,            // alternate domain from which this app can be reached
     xFrameOptions: <string>,        // set X-Frame-Options header, to control which websites can embed this app
     robotsTxt: <string>,            // robots.txt file content
     debugMode: null || {            // debug mode parameters
