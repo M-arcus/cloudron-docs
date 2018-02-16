@@ -20,6 +20,60 @@ By default, backups reside in `/var/backups`. Please note that having backups re
 physical machine as the Cloudron server instance is dangerous and it must be changed to an external
 storage location like S3 as soon as possible.
 
+## Backup formats
+
+Cloudron supports two backup formats - `tgz` (default) and `rsync`. Both the formats are complete and
+portable i.e can be cloned within the same cloudron or across cloudrons. If you are looking to
+archive backups, simply keep a copy of the `.tar.gz` file in the case of `tgz` backups or the
+entire directory in the case of `rsync` backups.
+
+!!! note Both formats have the same content
+    The contents of the `tgz` file when extracted to disk will be the exact same as the contents of the
+    `rsync` directory.
+
+The formats differ only on how the final backup blobs are created and uploaded. We recommend
+using tgz format unless you have app(s) that create large amounts of data (say > 5GB).
+
+### tgz format
+
+The `tgz` format uploads an app's backup as a gzipped tarball. This format is very efficient when
+having a small number of files. This is the case for most apps that use the database to store all
+information and the database dump file is just a single file on the filesystem. This format also
+works well when there are a very large number of small files.
+
+This format has the following caveats:
+
+* Most Cloud storage API require the content length to be known in advance before uploading data. This
+  means that the tar.gz has to be buffered completely in disk (doubling the disk space requirement).
+  Cloudron does upload the big tgz backups in chunks. However, chunked (multi-part) uploads cannot be
+  parallelized and also take up as much RAM as the chunk size.
+
+* `tgz` backup uploads are not incremental. This means that if an app generated 10GB of data, Cloudron
+  has to upload 10GB every time it makes a new backup.
+
+* Encrpytion is currently only supported with the tgz format.
+
+### rsync format
+
+The `rsync` format uploads individual files to the backup storage. It keeps track of what
+was copied the last time around, detects what changed locally and uploads only the changed files
+on every backup. Note that despite uploading 'incrementally', tgz format can be significantly
+faster when uploading a large number of small files (like source code repositories) because
+of the large number HTTP requests that need to be made for each file.
+
+This format has the following caveats:
+
+* By tracking the files that were uploaded the last time around, Cloudron minimizes uploads
+  when using the rsync format. To make sure that each backup directory is "self contained"
+  (i.e can be simply copied without additional tools), Cloudron issues a 'remote copy' request
+  for each file.
+
+* When using the file system backend, the rsync format can hardlink 'same' files across backups
+  to conserve space. If you happen to use a file system that does not support hardlinks, just
+  turn off the hardlinks option.
+
+* Encryption is currently not supposed with the rsync format.
+
 ## Making a complete backup
 
 To take a backup of Cloudron and all the apps, click the `Backup now` button in the `Settings` page:
