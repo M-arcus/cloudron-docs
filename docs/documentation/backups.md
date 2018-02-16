@@ -22,16 +22,21 @@ storage location like S3 as soon as possible.
 
 ## Backup formats
 
-Cloudron supports two backup formats - `tgz` (default) and `rsync`. Both the formats are complete and
-portable i.e can be cloned within the same cloudron or across cloudrons. If you are looking to
-archive backups, simply keep a copy of the `.tar.gz` file in the case of `tgz` backups or the
-entire directory in the case of `rsync` backups.
+Cloudron supports two backup formats - `tgz` (default) and `rsync`. The `tgz` format stores
+all the backup information in a single tarball whereas the `rclone` format stores all backup
+information as files inside a directory.
 
-!!! note Both formats have the same content
+!!! note "Both formats have the same content"
     The contents of the `tgz` file when extracted to disk will be the exact same as the contents of the
     `rsync` directory.
 
-The formats differ only on how the final backup blobs are created and uploaded. We recommend
+Both the formats are complete and portable. They can be cloned and restored within the same cloudron or across
+cloudrons. If you are looking to archive backups, simply keep a copy of the `.tar.gz` file in the
+case of `tgz` backups or the entire directory in the case of `rsync` backups.
+
+The backup format is set globally and applies to all apps and the Cloudron data.
+
+The formats only differ on how the final backup blobs are created and uploaded. We recommend
 using tgz format unless you have app(s) that create large amounts of data (say > 5GB).
 
 ### tgz format
@@ -45,7 +50,7 @@ This format has the following caveats:
 
 * Most Cloud storage API require the content length to be known in advance before uploading data. This
   means that the tar.gz has to be buffered completely in disk (doubling the disk space requirement).
-  Cloudron does upload the big tgz backups in chunks. However, chunked (multi-part) uploads cannot be
+  Cloudron does upload big tgz backups in chunks. However, chunked (multi-part) uploads cannot be
   parallelized and also take up as much RAM as the chunk size.
 
 * `tgz` backup uploads are not incremental. This means that if an app generated 10GB of data, Cloudron
@@ -67,6 +72,8 @@ This format has the following caveats:
   when using the rsync format. To make sure that each backup directory is "self contained"
   (i.e can be simply copied without additional tools), Cloudron issues a 'remote copy' request
   for each file.
+
+* File uploads and remote copies are parallelized.
 
 * When using the file system backend, the rsync format can hardlink 'same' files across backups
   to conserve space. If you happen to use a file system that does not support hardlinks, just
