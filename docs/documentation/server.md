@@ -269,14 +269,13 @@ If this is the case, recreate it using the following contents. Be sure to edit
 the `version`, `fqdn`, `zoneName` and `provider` arguments below:
 ```
 {
-    "version": "1.8.0",
-    "token": "",
+    "version": "1.10.2",
     "apiServerOrigin": "https://api.cloudron.io",
     "webServerOrigin": "https://cloudron.io",
-    "fqdn": "domain.com",
-    "zoneName": "domain.com",
-    "isCustomDomain": true,
-    "provider": "digitalocean",
+    "adminDomain": "girish.in",
+    "adminFqdn": "my.girish.in",
+    "adminLocation": "my",
+    "provider": "caas",
     "isDemo": false
 }
 ```
