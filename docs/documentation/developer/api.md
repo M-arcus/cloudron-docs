@@ -1059,19 +1059,98 @@ Response (204):
 {}
 ```
 
-#### Get Email Configuration
+### Groups
 
-GET `/api/v1/settings/mail_config` <scope>admin</scope>
+Cloudron groups are a mechanism to restrict application access to a subset of users. You can add one or more users
+to a group and assign one or more groups to an application. Only users that are members of any of the groups can access the application.
 
-Gets the email configuration. The Cloudron has a built-in email server for users.
-This configuration can be used to disable the server. Note that the Cloudron will
-always be able to send email on behalf of apps, regardless of this setting.
+Group membership is dynamic. Users instantly lose or gain access to an application based on their group
+membership.
 
-Response(200):
+#### Create group
+
+POST `/api/v1/groups` <scope>admin</scope>
+
+Creates a new group.
+
+Request:
 ```
 {
-  "enabled": <boolean> // true to enable email
+    name: <string>
 }
+```
+
+`name` must be atleast 2 characters. The special built-in group named `admin` has all the
+Cloudron administrators.
+
+Response (200):
+```
+{
+    id: <string>,
+    name: <string>
+}
+```
+
+#### Get group
+
+GET `/api/v1/groups/:groupId` <scope>admin</scope>
+
+Gets an existing group with id `groupId`.
+
+Response (200):
+```
+{
+    id: <string>,
+    name: <string>,
+    userIds: [ <string>, ... ]  // list of users that are part of this group
+}
+```
+
+#### Set members
+
+PUT `/api/v1/groups/:groupId/members` <scope>admin</scope>
+
+Sets the members of an existing group with id `groupId`. Note that this replaces the
+existing users with the provided userIds.
+
+Request:
+```
+{
+    userIds: [ <string>, ... ] // list of users to be part of this group
+}
+```
+
+#### List groups
+
+GET `/api/v1/groups` <scope>admin</scope>
+
+Lists all groups.
+
+Response (200):
+```
+{
+    groups: [
+        {
+            id: <string>,
+            name: <string>,
+            userIds: [ <string>, ... ]  // list of users that are part of this group
+        },
+        ...
+    ]
+}
+```
+
+#### Delete group
+
+DELETE `/api/v1/groups/:groupId` <scope>admin</scope>
+
+Deletes an existing group with id `groupId`.
+
+The special `admin` group cannot be removed.
+
+Response (204):
+```
+{}
 ```
 
 ### Mail
@@ -1170,7 +1249,7 @@ Request:
 
 Cloudron requires the relay to support `STARTTLS`. Relaying using `SMTPS` (SMTP over TLS) is not supported.
 
-#### Get mail from validation
+#### Get MAIL FROM validation
 
 GET `/api/v1/mail/:domain/mail_from_validation` <scope>admin</scope>
 
@@ -1190,7 +1269,7 @@ Response (200):
 }
 ```
 
-#### Set mail from validation
+#### Set MAIL FROM validation
 
 POST  `/api/v1/mail/:domain/mail_from_validation` <scope>admin</scope>
 
@@ -1210,99 +1289,6 @@ Request:
 }
 ```
 
-### Groups
-
-Cloudron groups are a mechanism to restrict application access to a subset of users. You can add one or more users
-to a group and assign one or more groups to an application. Only users that are members of any of the groups can access the application.
-
-Group membership is dynamic. Users instantly lose or gain access to an application based on their group
-membership.
-
-#### Create group
-
-POST `/api/v1/groups` <scope>admin</scope>
-
-Creates a new group.
-
-Request:
-```
-{
-    name: <string>
-}
-```
-
-`name` must be atleast 2 characters. The special built-in group named `admin` has all the
-Cloudron administrators.
-
-Response (200):
-```
-{
-    id: <string>,
-    name: <string>
-}
-```
-
-#### Get group
-
-GET `/api/v1/groups/:groupId` <scope>admin</scope>
-
-Gets an existing group with id `groupId`.
-
-Response (200):
-```
-{
-    id: <string>,
-    name: <string>,
-    userIds: [ <string>, ... ]  // list of users that are part of this group
-}
-```
-
-#### Set members
-
-PUT `/api/v1/groups/:groupId/members` <scope>admin</scope>
-
-Sets the members of an existing group with id `groupId`. Note that this replaces the
-existing users with the provided userIds.
-
-Request:
-```
-{
-    userIds: [ <string>, ... ] // list of users to be part of this group
-}
-```
-
-#### List groups
-
-GET `/api/v1/groups` <scope>admin</scope>
-
-Lists all groups.
-
-Response (200):
-```
-{
-    groups: [
-        {
-            id: <string>,
-            name: <string>,
-            userIds: [ <string>, ... ]  // list of users that are part of this group
-        },
-        ...
-    ]
-}
-```
-
-#### Delete group
-
-DELETE `/api/v1/groups/:groupId` <scope>admin</scope>
-
-Deletes an existing group with id `groupId`.
-
-The special `admin` group cannot be removed.
-
-Response (204):
-```
-{}
-```
 
 ### Profile
 
