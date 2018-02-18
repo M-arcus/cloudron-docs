@@ -1153,17 +1153,56 @@ Response (204):
 Cloudron Mail API can be used to configure the email settings for a domain. The API
 can configure mailboxes, aliases and lists.
 
-### Get Catch All Address
+### Enable Outbound
 
-GET `/api/v1/mail/:domain/catch_all_address` <scope>admin</scope>
+POST `/api/v1/mail` <scope>admin</scope>
 
-Gets the address(es) to which emails addressed to a non-existent mailbox are forwarded to.
-Configuring a catch-all address can help avoid losing emails due to misspelling.
+Sets the email configuration. The Cloudron has a built-in email server for users.
+This configuration can be used to enable or disable the email server. Note that
+the Cloudron will always be able to send email on behalf of apps, regardless of
+this setting.
+
+Request:
+```
+{
+    "domain": <string>
+}
+```
+
+### Enable Inbound
+
+POST `/api/v1/mail/:domain/enable` <scope>admin</scope>
+
+Sets the email configuration. The Cloudron has a built-in email server for users.
+This configuration can be used to enable or disable the email server. Note that
+the Cloudron will always be able to send email on behalf of apps, regardless of
+this setting.
+
+Request:
+```
+{
+    "enabled": <boolean>
+}
+```
+
+
+### Get Mail configuration
+
+GET `/api/v1/mail/:domain` <scope>admin</scope>
 
 Response(200):
 ```
 {
-  "address": [ <string> ] // array of mailbox names
+    "enabled": <boolean>,                // whether incoming mail is enabled
+    "catchAll": [ <string> ],            // array of mailbox names
+    "mailFromValidation": <boolean>,     // whether MAIL FROM validation is enabled
+    "relay": {                     // smtp server via which outbound mail is sent
+        provider: <smtp provider>, // cloudron-smtp, external-smtp etc
+        host: <string>, // the host name of the SMTP relay
+        port: <number>, // the port number of the SMTP relay
+        username: <string>, // the username for authenticating with the SMTP relay
+        password: <string>  // the password for authenticating with the SMTP relay
+    }
 }
 ```
 
@@ -1180,41 +1219,6 @@ Request:
     "address": [ <string> ] // array of mailbox names
 }
 ```
-
-### Set Email Configuration
-
-POST `/api/v1/mail` <scope>admin</scope>
-
-Sets the email configuration. The Cloudron has a built-in email server for users.
-This configuration can be used to enable or disable the email server. Note that
-the Cloudron will always be able to send email on behalf of apps, regardless of
-this setting.
-
-Request:
-```
-{
-    "domain": <string>
-}
-```
-
-### Get Mail Relay
-
-GET `/api/v1/mail/:domain/relay` <scope>admin</scope>
-
-Gets the SMTP server through which outbound mails are relayed.
-
-Response(200):
-```
-{
-    provider: <smtp provider>, // cloudron-smtp, external-smtp etc
-    host: <string>, // the host name of the SMTP relay
-    port: <number>, // the port number of the SMTP relay
-    username: <string>, // the username for authenticating with the SMTP relay
-    password: <string>  // the password for authenticating with the SMTP relay
-}
-```
-
-See the [set mail relay](#set-relay) API for more information on the fields.
 
 ### Set Mail Relay
 
@@ -1244,26 +1248,6 @@ Request:
 
 Cloudron requires the relay to support `STARTTLS`. Relaying using `SMTPS` (SMTP over TLS) is not supported.
 
-### Get MAIL FROM validation
-
-GET `/api/v1/mail/:domain/mail_from_validation` <scope>admin</scope>
-
-Gets the configuration of mail from header check for outbound mails.
-
-Cloudron only allows authenticated users and apps to send outbound mail. After authentication, it ensures
-that the SMTP MAIL FROM header matches either the authenticated username or the aliases of the username. This
-prevents apps and users from impersonating using other email ids.
-
-You can disable this to skip the MAIL FROM header check. Do so only if you completely trust your apps and users.
-By default, this value is true.
-
-```
-Response (200):
-{
-    enabled: <boolean>
-}
-```
-
 ### Set MAIL FROM validation
 
 POST  `/api/v1/mail/:domain/mail_from_validation` <scope>admin</scope>
@@ -1284,6 +1268,53 @@ Request:
 }
 ```
 
+### Status
+
+GET `/api/v1/mail/:domain/status`   <scope>admin</scope>
+
+### Create user mailbox
+
+POST `/api/v1/mail/:domain/mailboxes`
+
+### Get user mailbox
+
+GET `/api/v1/mail/:domain/mailboxes/:userId`
+
+### Enable user mailbox
+
+POST `/api/v1/mail/:domain/mailboxes/:userId`
+
+### Disable user mailbox
+
+DEL `/api/v1/mail/:domain/mailboxes/:userId`
+
+### List user mailboxes
+
+GET `/api/v1/mail/:domain/mailboxes`
+
+### Get aliases
+
+GET `/api/v1/mail/:domain/aliases/:userId`
+
+### Set aliases
+
+POST `/api/v1/mail/:domain/aliases/:userId`
+
+### List forwarding groups
+
+GET `/api/v1/mail/:domain/lists`
+
+### Create mailing group
+
+POST `/api/v1/mail/:domain/lists`
+
+### Get mailing group
+
+GET `/api/v1/mail/:domain/lists/:groupId`
+
+### Delete mailing group
+
+DEL `/api/v1/mail/:domain/lists/:groupId`
 
 ## Profile
 
