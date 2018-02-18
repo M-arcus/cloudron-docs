@@ -32,6 +32,7 @@ pages:
     - 'Etherpad': documentation/apps/etherpad.md
     - 'Ghost': documentation/apps/ghost.md
     - 'Gitea': documentation/apps/gitea.md
+    - 'GitHub Pages': documentation/apps/githubpages.md
     - 'GitLab': documentation/apps/gitlab.md
     - 'Gogs': documentation/apps/gogs.md
     - 'Hastebin': documentation/apps/hastebin.md

@@ -23,7 +23,7 @@ storage location like S3 as soon as possible.
 ## Backup formats
 
 Cloudron supports two backup formats - `tgz` (default) and `rsync`. The `tgz` format stores
-all the backup information in a single tarball whereas the `rclone` format stores all backup
+all the backup information in a single tarball whereas the `rsync` format stores all backup
 information as files inside a directory.
 
 !!! note "Both formats have the same content"
