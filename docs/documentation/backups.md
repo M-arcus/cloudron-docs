@@ -183,31 +183,6 @@ self-signed certificate, select the `Accept Self-Signed certificate` option.
 The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
 required to decrypt the backups when restoring the Cloudron.
 
-### Debugging minio
-
-If there is an error when backing up to minio, it might be helpful to inspect the server
-logs. minio's [configuration file](https://docs.minio.io/docs/minio-server-configuration-guide) is 
-located `~/.minio/config.json`. This file can be edited to enable logging:
-
-```
-    "logger": {
-        "console": {
-            "enable": true,
-            "level": "debug"
-        },
-        "file": {
-            "enable": false,
-            "fileName": "",
-            "level": "error"
-        },
-        "syslog": {
-            "enable": false,
-            "address": "",
-            "level": "debug"
-        }
-    }
-```
-
 ## Backing up to Google Cloud Storage
 
 Provide [GCS](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
