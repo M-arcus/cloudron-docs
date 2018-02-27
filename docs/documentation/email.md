@@ -353,3 +353,37 @@ $ host -t TXT _dmarc.girish.in
 _dmarc.girish.in descriptive text "v=DMARC1; p=reject; pct=100"
 ```
 
+## Debugging mail delivery
+
+* Make sure that the 'Outbound SMTP' check is green in the Email view. This step makes sure that your
+  VPS provider has not blocked outbound port 25 which is required for mail delivery.
+
+    * If it shows an error, check the status of mail container using `docker ps mail` and 
+      `docker exec mail supervisorctl status`.
+
+    * If the mail container is not running, try restarting it using `docker restart mail`.
+
+    * If the mail container appears fine, try to see if `telnet smtp.google.com 25` connects to a
+      server. If it doesn't, it means that your VPS provider has blocked outgoing mail. This can
+      be resolved by contacting their support.
+
+* Send a test email via the 'Send Test Email' button. Be sure to test out atleast two different email
+  address for the off chance that the VPS IP address or the domain is blacklisted one of the servers.
+
+    * If no email is received, check the output of `docker logs -f mail` and send another test email
+
+* When an app is not receiving email, try the following?:
+
+    * Use `docker ps --format "table {{.ID}}\t{{.Labels}}"` and check the fqdn label to identify the
+      container id.
+
+    * `docker exec -ti <container id> /bin/bash`. In the shell, try sending a mail as if an app would
+      send it. The command depends on whether the app is written using Go (language) or not.
+
+        * Non-Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_SMTP_USERNAME}@${MAIL_DOMAIN}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
+
+        * Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_SMTP_USERNAME}@${MAIL_DOMAIN}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc`
+
+    * If the command above works, double check how the app or the plugin is configured to send email.
+      `docker exec -ti <container id> env | grep SMTP_` gives the SMTP credentials for sending email.
+
