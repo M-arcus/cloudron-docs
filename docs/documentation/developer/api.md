@@ -25,8 +25,15 @@ curl -H "Content-Type: application/json" https://my.cloudron/api/v1/users?access
 ```
 
 Alternately, the token can be provided via the Authorization header using `Bearer <token>`.
+
 ```
 curl -H "Content-Type: application/json" -H "Authorization: Bearer <token>" https://my.cloudron/api/v1/users
+```
+
+When sending POST data be sure to set the `content-type` to `application/json`.
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{ "enabled": false }' 'https://my.domain.com/api/v1/mail/domain.com/mail_from_validation?access_token=token
 ```
 
 ### Requests
