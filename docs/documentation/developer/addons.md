@@ -346,9 +346,8 @@ _NOTE_: scheduler does not support seconds
 as the application. Environment variables, volumes (`/tmp` and `/run`) are all
 shared with the main application.
 
-If a task is still running when a new instance of the task is scheduled to be started, the previous
-task instance is killed.
-
+Tasks are given a grace period of 30 minutes to complete. If a task is still running after 30 minutes
+and a new instance of the task is scheduled to be started, the previous task instance is killed.
 
 ### sendmail
 
