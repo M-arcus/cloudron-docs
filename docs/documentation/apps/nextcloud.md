@@ -73,3 +73,18 @@ space in the default data partition), there are two options:
 Moving NextCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
 this new disk.
 
+## Recan files
+
+NextCloud will not pick up files if they are added directly in the data directory of the user on the server.
+To make it rescan, open a [Web terminal](/documentation/apps/#web-terminal) and run the following command:
+
+```
+sudo -u www-data php -f /app/code/occ files:scan <username>
+```
+
+To rescan external storage, use the `--path` parameter.
+
+```
+sudo -u www-data php -f /app/code/occ files:scan <username> --path=/<username>/files/externaltest
+```
+
