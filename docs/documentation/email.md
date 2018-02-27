@@ -372,13 +372,13 @@ _dmarc.girish.in descriptive text "v=DMARC1; p=reject; pct=100"
 
     * If no email is received, check the output of `docker logs -f mail` and send another test email
 
-* When an app is not receiving email, try the following?:
+* When an app is not sending email, try the following:
 
     * Use `docker ps --format "table {{.ID}}\t{{.Labels}}"` and check the fqdn label to identify the
       container id.
 
     * `docker exec -ti <container id> /bin/bash`. In the shell, try sending a mail as if an app would
-      send it. The command depends on whether the app is written using Go (language) or not.
+      send it. The command depends on whether the app is written using Go or not.
 
         * Non-Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_SMTP_USERNAME}@${MAIL_DOMAIN}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
 
