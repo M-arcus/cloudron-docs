@@ -63,6 +63,7 @@ pages:
     - 'Shaarli': documentation/apps/shaarli.md
     - 'SOGo': documentation/apps/sogo.md
     - 'Surfer': documentation/apps/surfer.md
+    - 'Syncthing': documentation/apps/syncthing.md
     - 'Taiga': documentation/apps/taiga.md
     - 'The Lounge': documentation/apps/thelounge.md
     - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
