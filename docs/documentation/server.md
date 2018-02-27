@@ -314,6 +314,12 @@ to find the container id of the app running on the `redmine.smartserver.io` doma
 docker ps -f label=fqdn=redmine.smartserver.io
 ```
 
+To view all container and the apps they correspond to:
+
+```
+docker ps --format "table {{.ID}}\t{{.Labels}}"
+```
+
 ## VPS Quirks
 
 #### Kimsufi servers
