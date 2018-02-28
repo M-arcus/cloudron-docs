@@ -36,6 +36,7 @@ pages:
     - 'GitLab': documentation/apps/gitlab.md
     - 'Gogs': documentation/apps/gogs.md
     - 'Hastebin': documentation/apps/hastebin.md
+    - 'Invoice Ninja': documentation/apps/invoiceninja.md
     - 'Jingo': documentation/apps/jingo.md
     - 'Kanboard': documentation/apps/kanboard.md
     - 'LAMP': documentation/apps/lamp.md
