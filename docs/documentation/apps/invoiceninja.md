@@ -6,7 +6,7 @@ The app is pre-configured to send any invoices every 6 hours. To run the invoice
 sending task manually, open a [Web terminal](/documentation/apps/#web-terminal) and run:
 
 ```
-/usr/local/bin/php /app/code/artisan ninja:send-invoices
+sudo -u www-data /usr/local/bin/php /app/code/artisan ninja:send-invoices
 ```
 
 ## Reminders
@@ -19,7 +19,7 @@ is because running the send-reminders cron more than once a day would
 To run the reminders task manually, open a [Web terminal](/documentation/apps/#web-terminal) and run:
 
 ```
-/usr/local/bin/php /app/code/artisan ninja:send-reminders
+sudo -u www-data /usr/local/bin/php /app/code/artisan ninja:send-reminders
 ```
 
 ## Cron logs
