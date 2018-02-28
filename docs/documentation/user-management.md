@@ -80,8 +80,8 @@ the user and check the `Make this user a Cloudron admin` checkbox.
 
 The password reset mechanism relies on email delivery working reliably. Users can reset their own passwords.
 
-In the event that email delivery is not working, an administrator can generate a new password reset link for
-another user by clicking on the 'Send invitation email' button.
+In the event that [email delivery is not working](/documentation/email/#debugging-mail-delivery), an administrator
+can generate a new password reset link for another user by clicking on the 'Send invitation email' button.
 
 <center>
 <img src="/img/reinvite.png" class="shadow" width="600px">
@@ -99,7 +99,8 @@ reason, the link can be sent to the user by some other means.
 The password reset mechanism relies on email delivery working reliably. Admins can reset their own passwords
 by navigating to `https://my.domain.com/api/v1/session/password/resetRequest.html`.
 
-In the event that email delivery is not working, the reset token can be determined by SSHing into the server:
+In the event that [email delivery is not working](/documentation/email/#debugging-mail-delivery), the reset token
+can be determined by SSHing into the server:
 
 ```
 mysql -uroot -ppassword -e "select username, resetToken from box.users";
