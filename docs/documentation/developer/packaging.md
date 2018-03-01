@@ -766,6 +766,10 @@ Packages with a major version bump are not auto-updated. They require the Cloudr
 update button. The intention is that the packager can pass on some instructions about possible breakages
 in the changelog.
 
+!!! note "Package version"
+    A semver with no package version is treated as package version 0. This means that 1.2.4 is semantically
+    the same as 1.2.4-0.
+
 ### Failed updates
 
 The Cloudron always makes a backup of the app before making an update. Should the
