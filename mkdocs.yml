@@ -7,7 +7,7 @@ pages:
   - 'Installation': 'documentation/installation.md'
   - 'Knowledge base':
     - documentation/apps.md
-    - documentation/backups.md
+    - 'Backups': documentation/backups.md
     - documentation/certificates.md
     - documentation/domains.md
     - documentation/email.md
