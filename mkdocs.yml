@@ -1,7 +1,7 @@
 site_name: Cloudron Docs
 site_description: 'Cloudron is a platform to host apps on your server and keep them up-to-date and secure.'
 site_url: 'https://cloudron.io'
-copyright: 'Copyright &copy; 2015 - 2017 Cloudron UG'
+copyright: 'Copyright &copy; 2015 - 2018 Cloudron UG'
 pages:
   - 'Introduction': 'documentation.md'
   - 'Installation': 'documentation/installation.md'
