@@ -60,7 +60,8 @@ MAIL_IMAP_SERVER=       # IMAP server IP or hostname. TLS required.
 MAIL_IMAP_PORT=         # IMAP server port
 MAIL_SIEVE_SERVER=      # ManageSieve server IP or hostname. TLS required.
 MAIL_SIEVE_PORT=        # ManageSieve server port
-MAIL_DOMAIN=            # Domain of the mail server
+MAIL_DOMAIN=            # Primary mail domain of the app
+MAIL_DOMAINS=           # Comma separate list of domains handled by the server
 ```
 
 ### ldap
