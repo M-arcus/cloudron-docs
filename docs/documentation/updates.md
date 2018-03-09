@@ -2,7 +2,7 @@
 
 ## How app updates work
 
-Cloudron Apps are installed from the [Cloudron Store](/appstore.html). Cloudron checks the Cloudron Store
+Cloudron Apps are installed from the [Cloudron App Store](/appstore.html). Cloudron checks the Cloudron App Store
 for updates periodically and updates apps automatically.
 
 Cloudron always takes a backup of an app before performing an update. Should the backup creation fail,

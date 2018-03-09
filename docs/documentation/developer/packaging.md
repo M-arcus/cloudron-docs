@@ -18,7 +18,7 @@ Cloudron. Roughly, the steps involved are:
 
 * Test the app on your Cloudron with the CLI tool.
 
-* Optionally, submit the app to [Cloudron Store](/appstore.html).
+* Optionally, submit the app to [Cloudron App Store](/appstore.html).
 
 ## Prerequisites
 
@@ -110,7 +110,7 @@ The `CloudronManifest.json` specifies
 
 * Information for installing and running the app on the Cloudron. This includes fields like addons, httpPort, tcpPorts.
 
-* Information about displaying the app on the Cloudron Store. For example, fields like title, author, description.
+* Information about displaying the app on the Cloudron App Store. For example, fields like title, author, description.
 
 Create the CloudronManifest.json using `cloudron init` as follows:
 
@@ -118,9 +118,9 @@ Create the CloudronManifest.json using `cloudron init` as follows:
 $ cloudron init
 id: io.cloudron.tutorial                       # unique id for this app. use reverse domain name convention
 author: John Doe                               # developer or company name of the for user <email>
-title: Tutorial App                            # Cloudron Store title of this app
+title: Tutorial App                            # Cloudron App Store title of this app
 description: App that uses node.js             # A string or local file reference like file://DESCRIPTION.md
-tagline: Changing the world one app at a time  # A tag line for this app for the Cloudron Store
+tagline: Changing the world one app at a time  # A tag line for this app for the Cloudron App Store
 website: https://cloudron.io                   # A link to this app's website
 contactEmail: support@cloudron.io              # Contact email of developer or company
 httPort: 8000                                  # The http port on which this application listens to
@@ -160,8 +160,8 @@ You can read in more detail about each field in the [Manifest reference](/docume
 down in this tutorial.
 
 Additional files created by `init` are:
-* `DESCRIPTION.md` - A markdown file providing description of the app for the Cloudron Store.
-* `CHANGELOG` - A file containing change information for each version released to the Cloudron Store. This
+* `DESCRIPTION.md` - A markdown file providing description of the app for the Cloudron App Store.
+* `CHANGELOG` - A file containing change information for each version released to the Cloudron App Store. This
   information is shown when the user updates the app.
 
 ## Installing
@@ -423,7 +423,7 @@ Be sure to pick a process manager that [forwards signals](#sigterm-handling) to 
 
 Some apps support automatic updates by overwriting themselves. A Cloudron app cannot overwrite itself
 because of the read-only file system. For this reason, disable auto updates for app and let updates be
-triggered through the Cloudron Store. This ties in better to the Cloudron's update and restore approach
+triggered through the Cloudron App Store. This ties in better to the Cloudron's update and restore approach
 should something go wrong with the update.
 
 ### Logging
@@ -704,7 +704,7 @@ java ${JAVA_OPTS} -jar ...
 
 ### Requirements
 
-The Cloudron Store is a mechanism to share your app with others who use Cloudron. To ensure that
+The Cloudron App Store is a mechanism to share your app with others who use Cloudron. To ensure that
 apps are maintained, secure and well supported, we enforce the following rules:
 
 * The app packaging code will be relocated to the [Cloudron Git Repo](https://git.cloudron.io/cloudron/).

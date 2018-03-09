@@ -63,7 +63,7 @@ your Cloudron and not sent anywhere (including cloudron.io).
     Cloudron sets up a Let's Encrypt account with the administrator's email. If this email
     address is not valid, Let's Encrypt will not issue certificates.
 
-## Cloudron Store Setup
+## Cloudron App Store Setup
 
 You are now ready to start installing apps! When you click on the `App Store` link in the UI,
 you will be prompted to create a [cloudron.io](https://cloudron.io) account. This account is

@@ -98,7 +98,7 @@ Request:
 ```
 {
     location: <string>,              // required: the subdomain on which to install the app
-    appStoreId: <string>[@<semver>], // required: Cloudron Store Id of the app. Alternately, provide a manifest
+    appStoreId: <string>[@<semver>], // required: Cloudron App Store Id of the app. Alternately, provide a manifest
     manifest: <manifest>,            // manifest of the app to install. required if appStoreId is unset.
     portBindings: null || {          // mapping from application ports to public ports
     },
@@ -121,9 +121,9 @@ Request:
 }
 ```
 
-`appStoreId` is the [Cloudron Store](https://cloudron.io/appstore.html) Id of this application. For example,
+`appStoreId` is the [Cloudron App Store](https://cloudron.io/appstore.html) Id of this application. For example,
 `io.gogs.cloudronapp` is the id of Gogs app. A specific version can be specified using the '@' suffix. For
-apps that are not published on the Cloudron Store, skip this field and provide a `manifest` instead. Apps
+apps that are not published on the Cloudron App Store, skip this field and provide a `manifest` instead. Apps
 with an `appStoreId` will automatically be kept up-to-date as newer version of the app are published on the
 store.
 
@@ -138,7 +138,7 @@ If null, any user of this Cloudron can access this app. Note that the `accessRes
 is integrated with Cloudron Authentication.
 
 `icon` is an application icon that is displayed in the web ui. If not provided, this is automatically downloaded
-from the Cloudron Store (or uses a fallback icon).
+from the Cloudron App Store (or uses a fallback icon).
 
 `cert` and `key` provide the TLS certificates. If the domain name of the app does not must match with the certificate
 provided, a 400 will be returned.
@@ -196,7 +196,7 @@ Response (200):
 ```
 {
     id: <string>,                    // a unique id for the app
-    appStoreId: <string>,            // Cloudron Store Id for updates
+    appStoreId: <string>,            // Cloudron App Store Id for updates
     manifest: <manifest>,            // current manifest of the app
     installationState: <enum>,       // See below
     installationProgress: <string>,  // friendly string indicating installation progress
@@ -224,7 +224,7 @@ Response (200):
 
 `id` is an unique id for this application.
 
-`appStoreId` is the Cloudron Store id of this application. Cloudron will use this id to look for updates to this application. This can be null if none was provided at installation time.
+`appStoreId` is the Cloudron App Store id of this application. Cloudron will use this id to look for updates to this application. This can be null if none was provided at installation time.
 
 `manifest` is the [Cloudron Manifest](/documentation/developer/manifest/) of the app.
 
@@ -282,7 +282,7 @@ Response (200):
     apps: [
         {
             id: <string>,                    // a unique id for the app
-            appStoreId: <string>,            // Cloudron Store Id for updates
+            appStoreId: <string>,            // Cloudron App Store Id for updates
             manifest: <manifest>,            // current manifest of the app
             installationState: <enum>,       // See below
             installationProgress: <string>,  // friendly string indicating installation progress
@@ -510,7 +510,7 @@ Request:
 }
 ```
 
-`appStoreId` is the id of the app to install from the Cloudron Store. The API does not verify that
+`appStoreId` is the id of the app to install from the Cloudron App Store. The API does not verify that
 the version provided here is greater than the existing app version allowing you to downgrade apps.
 Downgrading should be used with extreme care because the older version of the app may not understand
 the format of existing data (for example, new db schema may not be understod by the older version).
@@ -1399,7 +1399,7 @@ Response (200):
 
 POST  `/api/v1/settings/appstore_config` <scope>admin</scope>
 
-Sets the credentials used for the Cloudron Store.
+Sets the credentials used for the Cloudron App Store.
 
 Request:
 ```

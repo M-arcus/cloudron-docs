@@ -14,13 +14,13 @@ Cloudron has a backup solution that lets you backup and restore each app individ
 (compared to server snapshots). With Cloudron backups, you can even migrate your Cloudron 
 in it's entirety from one server provider to another.
 
-## The Cloudron Store
+## The Cloudron App Store
 
-The [Cloudron Store](https://cloudron.io/appstore.html) provides a mechanism for
+The [Cloudron App Store](https://cloudron.io/appstore.html) provides a mechanism for
 distribution and continuous update of apps. A good analogy for this is the Apple App Store for iOS or
 Google Play for Android. Anyone today can easily install apps on their phones and the apps are kept up-to-date.
 Cloudron does the same but for servers. You can easily install apps and receive continuous updates for
-the apps via the Cloudron Store.
+the apps via the Cloudron App Store.
 
 <br/>
 

@@ -49,7 +49,7 @@ Creating an application for Cloudron can be summarized as follows:
    and it's dependencies.
 
 3. Create a [CloudronManifest.json](/references/manifest.html) file that provides essential information
-   about the app. This includes information required for the Cloudron Store like title, version, icon and
+   about the app. This includes information required for the Cloudron App Store like title, version, icon and
    runtime requirements like `addons`.
 
 ### Simple Web application
@@ -98,7 +98,7 @@ choose node v6.9.5 for our app.
 
 The `CloudronManifest.json` specifies
 
-* Information about displaying the app on the Cloudron Store. For example,
+* Information about displaying the app on the Cloudron App Store. For example,
   the title, author information, description etc
 
 * Information for installing the app on the Cloudron. This includes fields
@@ -110,9 +110,9 @@ Create the CloudronManifest.json using the following command:
 $ cloudron init
 id: io.cloudron.tutorial                       # unique id for this app. use reverse domain name convention
 author: John Doe                               # developer or company name of the for user <email>
-title: Tutorial App                            # Cloudron Store title of this app
+title: Tutorial App                            # Cloudron App Store title of this app
 description: App that uses node.js             # A string or local file reference like file://DESCRIPTION.md
-tagline: Changing the world one app at a time  # A tag line for this app for the Cloudron Store
+tagline: Changing the world one app at a time  # A tag line for this app for the Cloudron App Store
 website: https://cloudron.io                   # A link to this app's website
 contactEmail: support@cloudron.io              # Contact email of developer or company
 httPort: 8000                                  # The http port on which this application listens to

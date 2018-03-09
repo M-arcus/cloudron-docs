@@ -49,16 +49,16 @@ A successful login stores the authentication token in `~/.cloudron.json`.
 !!! note "Self-signed certificates"
     When using Cloudron with self-signed certificates, use the `--allow-selfsigned` option.
 
-## Installing apps from Cloudron Store using Cloudron CLI
+## Installing apps from Cloudron App Store using Cloudron CLI
 
-The Cloudron CLI can install apps from the Cloudron Store using the Appstore Id. For example,
+The Cloudron CLI can install apps from the Cloudron App Store using the Appstore Id. For example,
 to install wordpress:
 
 ```
 cloudron install --appstore-id org.wordpress.cloudronapp
 ```
 
-The Appstore Id of an app can be found by navigating to the [Cloudron Store](https://cloudron.io/store/index.html)
+The Appstore Id of an app can be found by navigating to the [Cloudron App Store](https://cloudron.io/store/index.html)
 and clicking on the app. The id can be deduced from the URL.
 
 ## Listing apps using Cloudron CLI
@@ -165,7 +165,7 @@ cloudron build              # login using cloudron.io credentials
 cloudron install
 ```
 
-Note that, as expected, apps installed this way do not get updates via the Cloudron Store.
+Note that, as expected, apps installed this way do not get updates via the Cloudron App Store.
 Use this approach to make custom changes to apps.
 
 ## Source code for apps

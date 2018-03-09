@@ -10,7 +10,7 @@ etc. This allows app developers to focus on their application logic instead of d
 At a high level, an application provides an `image` and a `manifest`. The image is simply
 a docker image that is a bundle of the application code and it's dependencies.  The manifest
 file specifies application runtime requirements like database type and authentication scheme.
-It also provides meta information for display purposes in the [Cloudron Store](/appstore.html)
+It also provides meta information for display purposes in the [Cloudron App Store](/appstore.html)
 like the title, icon and pricing.
 
 ## Image
@@ -34,7 +34,7 @@ The [base image](/documentation/developer/baseimage) is the parent of all app im
 ## Cloudron Manifest
 
 Each app provides a `CloudronManifest.json` that specifies information required for the
-`Cloudron Store` and for the installation of the image in the Cloudron.
+`Cloudron App Store` and for the installation of the image in the Cloudron.
 
 Information required for container installation includes:
 
@@ -43,7 +43,7 @@ Information required for container installation includes:
 * Additional TCP ports on which the application is listening to (for e.g., git, ssh,
 irc protocols)
 
-Information required for the Cloudron Store includes:
+Information required for the Cloudron App Store includes:
 
 * Unique App Id
 * Title
@@ -85,9 +85,9 @@ Cloudron.
 </center>
 
 
-## Cloudron Store
+## Cloudron App Store
 
-The Cloudron Store provides a mechanism for distribution and continuous update of apps. A good analogy
+The Cloudron App Store provides a mechanism for distribution and continuous update of apps. A good analogy
 for this is the Apple App Store on iOS or Google Play on Android. App developers can publish apps to the
-Cloudron Store and deliver continous updates for their apps.
+Cloudron App Store and deliver continous updates for their apps.
 

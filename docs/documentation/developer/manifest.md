@@ -6,14 +6,14 @@ Every Cloudron Application contains a `CloudronManifest.json`.
 
 The manifest contains two categories of information:
 
-* Information about displaying the app on the Cloudron Store. For example,
+* Information about displaying the app on the Cloudron App Store. For example,
   the title, author information, description etc
 
 * Information for installing the app on the Cloudron. This includes fields
   like httpPort, tcpPorts.
 
 A CloudronManifest.json can **only** contain fields that are listed as part of this
-specification. The Cloudron Store and the Cloudron *may* reject applications that have
+specification. The Cloudron App Store and the Cloudron *may* reject applications that have
 extra fields.
 
 Here is an example manifest:
@@ -113,7 +113,7 @@ Example:
 
 Type: markdown string
 
-Required: no (required for submitting to the Cloudron Store)
+Required: no (required for submitting to the Cloudron App Store)
 
 The `changelog` field contains the changes in this version of the application. This string
 can be a markdown style bulleted list.
@@ -144,7 +144,7 @@ Type: markdown string
 Required: yes
 
 The `description` field contains a detailed description of the app. This information is shown
-to the user when they install the app from the Cloudron Store.
+to the user when they install the app from the Cloudron App Store.
 
 Example:
 ```
@@ -215,9 +215,9 @@ Example:
 
 Type: local image filename
 
-Required: no (required for submitting to the Cloudron Store)
+Required: no (required for submitting to the Cloudron App Store)
 
-The `icon` field is used to display the application icon/logo in the Cloudron Store. Icons are expected
+The `icon` field is used to display the application icon/logo in the Cloudron App Store. Icons are expected
 to be square of size 256x256.
 
 ```
@@ -230,7 +230,7 @@ Type: reverse domain string
 
 Required: yes
 
-The `id` is a unique human friendly Cloudron Store id. This is similar to reverse domain string names used
+The `id` is a unique human friendly Cloudron App Store id. This is similar to reverse domain string names used
 as java package names. The convention is to base the `id` based on a domain that you own.
 
 The Cloudron tooling allows you to build applications with any `id`. However, you will be unable to publish
@@ -256,9 +256,9 @@ Required: yes
 
 Type: array of urls
 
-Required: no (required for submitting to the Cloudron Store)
+Required: no (required for submitting to the Cloudron App Store)
 
-The `mediaLinks` field contains an array of links that the Cloudron Store uses to display a slide show of pictures of the application.
+The `mediaLinks` field contains an array of links that the Cloudron App Store uses to display a slide show of pictures of the application.
 
 They have to be publicly reachable via `https` and should have an aspect ratio of 3 to 1.
 For example `600px by 200px` (with/height).
@@ -340,9 +340,9 @@ Any app startup scripts have to be able to deal with missing env variables in th
 
 Type: one-line string
 
-Required: no (required for submitting to the Cloudron Store)
+Required: no (required for submitting to the Cloudron App Store)
 
-The `tagline` is used by the Cloudron Store to display a single line short description of the application.
+The `tagline` is used by the Cloudron App Store to display a single line short description of the application.
 
 ```
   "tagline": "The very best note keeper"
@@ -352,9 +352,9 @@ The `tagline` is used by the Cloudron Store to display a single line short descr
 
 Type: Array of strings
 
-Required: no (required for submitting to the Cloudron Store)
+Required: no (required for submitting to the Cloudron App Store)
 
-The `tags` are used by the Cloudron Store for filtering searches by keyword.
+The `tags` are used by the Cloudron App Store for filtering searches by keyword.
 
 ```
   "tags": [ "git", "version control", "scm" ]
@@ -447,7 +447,7 @@ Type: string
 
 Required: yes
 
-The `title` is the primary application title displayed on the Cloudron Store.
+The `title` is the primary application title displayed on the Cloudron App Store.
 
 Example:
 ```
