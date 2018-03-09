@@ -152,6 +152,15 @@ username will be delivered to the `username` mailbox. You can use this feature t
 
 This trick works for email aliases as well.
 
+## Send test email
+
+Use the 'Send Test EMail' button in the SMTP status section to test relay of email from the Cloudron.
+
+<center>
+<img src="/img/test-email-button.png" class="shadow">
+</center>
+
+
 ## Relaying outbound mails
 
 By default, Cloudron's built-in mail server sends out email directly to recipients.
@@ -162,11 +171,12 @@ does not allow sending email via port 25 (which is the case with Google Cloud an
 
 Cloudron can be configured to send all outbound email via:
 
-* Amazon SES
+* [Amazon SES](#amazon-ses)
 * Google
 * Mailgun
 * Postmark
 * Sendgrid
+* [Office 365](#office-365)
 * Any other external SMTP server.
 
 To setup a relay, enter the relay credentials in the Email section. Cloudron only supports relaying
@@ -176,6 +186,40 @@ via the STARTTLS mechanism (usually port 587).
 <img src="/img/email-relay.png" width=500 class="shadow">
 </center>
 
+### Amazon SES
+
+To setup Cloudron to relay via Amazon SES:
+
+* Go to Amazon SES dashboard and add a new domain to verify under `Domains`. Leave the `Generate DKIM Settings` unchecked
+  since Cloudron has already generated DKIM keys.
+    * Setup the DNS records as suggested by the `Verify a New Domain`. SES will automatically set
+      these up if your domain is on AWS Route53.
+
+* Once domain is verified, click on `SMTP Settings` on the left pane and then click the `Create My SMTP Credentials`
+  button.
+    * Follow through the wizard to create a new IAM user that has the following policy
+
+    ```
+        "Statement": [{  "Effect":"Allow",  "Action":"ses:SendRawEmail",  "Resource":"*"}]
+    ```
+
+* Setup the relay on the Cloudron under the Email section:
+
+<center>
+<img src="/img/email-relay-ses.png" width=500 class="shadow">
+</center>
+
+* Use the [Send Test Email](#send-test-email) button to verify emails are sent.
+
+* If you do not receive the email, please verify that your AWS SES is not in sandbox mode. In this mode, new AWS
+   accounts are only able to send mails to verified domains or the simulator. You can check this in the
+   `Sending Statistics` page and looking for a note that looks like below:
+
+<center>
+<img src="/img/ses-sandbox.png" width=500 class="shadow">
+</center>
+
+To remove sandbox, log a request to increase the sending limit to say 500 emails a day.
 
 ### Google
 
