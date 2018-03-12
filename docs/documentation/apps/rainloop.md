@@ -2,15 +2,29 @@
 
 ## Default Setup
 
-Rainloop is pre-configured for use with Cloudron Email. As such, Rainloop
-has to be installed on a domain that has email enabled.
+Rainloop is pre-configured for use with Cloudron Email. The app automatically
+generates domain configuration for all the apps that have email enabled at
+_installation_ time. If you enable or disable email on one or more domains,
+simply reconfigure the app and it will re-generate the necessary configuration.
 
-Users can login with their Cloudron username and password to access their
-mailbox. Aliases can be added as indentities under the settings.
+## Multi-domain Setup
 
-!!! note "Multiple domains"
-    Cloudron does not support using the same rainloop installation for multiple
-    domains.
+There are two ways to use Rainloop when using Cloudron Email with multiple
+domains.
+
+* Users can login with their email and password to access their mailbox. If the
+  Cloudron has two domains, `example1.com` and `example2.com`, the user can login
+  using `user@example1.com` and `user@example2.com`. Aliases can be added as identities
+  under Rainloop settings.
+
+* Users can login using one of the email domains and add the other domains
+  using the `Add Account` dialog. For example, user can login as `user@example1.com`
+  and add `user@example2.com` in the `Add Account` dialog.
+
+    !!! note "Multiple accounts"
+        Rainloop tracks accounts based on the login email. This means
+        that in the example above, if the user logs in `user@example2.com`, the
+        `user@example1.com` id will not show up.
 
 ## Vacation Email
 
