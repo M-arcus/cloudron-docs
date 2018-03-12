@@ -2,15 +2,14 @@
 
 ## Default Setup
 
-Roundcube is pre-configured for use with Cloudron Email. As such, Roundcube
-has to be installed on a domain that has email enabled.
+Roundcube is pre-configured for use with Cloudron Email. 
 
-Users can login with their Cloudron username and password to access their
-mailbox. Aliases can be added as indentities under the settings.
+## Multi-domain Setup
 
-!!! note "Multiple domains"
-    Cloudron does not support using the same roundcube installation for multiple
-    domains.
+Users can login with their email and password to access their mailbox. If the
+Cloudron has two domains, `example1.com` and `example2.com`, the user can login
+using `user@example1.com` and `user@example2.com`. Aliases can be added as identities
+under Roundcube settings.
 
 ## Vacation Email
 
