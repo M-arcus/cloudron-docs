@@ -1,4 +1,4 @@
-# DNS
+# Domains
 
 ## DNS setup
 
