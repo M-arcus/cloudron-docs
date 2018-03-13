@@ -1,30 +1,4 @@
-# Cloudron REST API
-
-## Integrating with Zapier
-
-Cloudron REST API can be used as part of a Zapier or IFTTT workflow.
-
-Note that the Zapier `POST action` automatically coerces all values to strings. This means that values
-like `null` automatically become the string `"null"`.
-
-To workaround this, use the `Custom Request action` instead of the `POST action`.
-
-Here's an example that works on the Cloudron:
-```
-Method
-POST
-URL
-https://my.domain.com/api/v1/apps/install?access_token=c39f3a533798e3450e7b49ec24ff4e40898d4ddf23f409e40ae721491624ccf5
-Data
-{ "location": "blog", "appStoreId": "org.wordpress.cloudronapp", "accessRestriction": null }
-Unflatten
-yes
-Headers
-application/json
-Optional fields without a value
-Data Pass-Through?
-Basic Auth
-```
+# Integrations
 
 ## OAuth 2.0 Login Provider
 
@@ -65,4 +39,29 @@ logoutURL:        https://my.<domain>/api/v1/session/logout?redirect=<callback u
 Read this [blog post](https://cloudron.io/blog/2017-03-21-oauth-provider.html) for
 a demonstration.
 
+## Zapier
+
+Cloudron REST API can be used as part of a Zapier or IFTTT workflow.
+
+Note that the Zapier `POST action` automatically coerces all values to strings. This means that values
+like `null` automatically become the string `"null"`.
+
+To workaround this, use the `Custom Request action` instead of the `POST action`.
+
+Here's an example that works on the Cloudron:
+```
+Method
+POST
+URL
+https://my.domain.com/api/v1/apps/install?access_token=c39f3a533798e3450e7b49ec24ff4e40898d4ddf23f409e40ae721491624ccf5
+Data
+{ "location": "blog", "appStoreId": "org.wordpress.cloudronapp", "accessRestriction": null }
+Unflatten
+yes
+Headers
+application/json
+Optional fields without a value
+Data Pass-Through?
+Basic Auth
+```
 
