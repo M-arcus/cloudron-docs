@@ -47,12 +47,11 @@ as and when required.
 
 !!! note "Common domain registrars"
     You can always purchase a domain from any of the common domain registrars
-    like Namecheap, Name.com, Gandi and <a href="https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars" target="_blank">setup your domain's nameservers</a> to use the
-    above DNS services.
+    like Namecheap, Name.com, Gandi and <a href="https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars" target="_blank">setup your domain's nameservers</a> to use one of the above DNS services.
 
 ## Administrator Setup
 
-Once DNS is setup, Cloudron will redirect to `https://my.domain.com`. 
+Once DNS is setup, Cloudron will redirect to `https://my.domain.com`.
 The browser address bar will show a green lock to indicate that the connection to your
 Cloudron is now secure (It does this by automatically getting a certificate via Let's Encrypt).
 

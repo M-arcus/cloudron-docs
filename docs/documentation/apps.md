@@ -6,7 +6,7 @@ Apps can be installed from the `App Store` menu item. Clicking on an app will di
 information about the app.
 
 <center>
-<img src="/img/app_info.png" class="shadow" width="600px">
+<img src="/img/app_info.png" class="shadow" width="500px">
 </center>
 
 <br/>
@@ -14,24 +14,23 @@ information about the app.
 Clicking the `Install` button will show an install dialog:
 
 <center>
-<img src="/img/app_install.png" class="shadow" width="600px">
+<img src="/img/app_install.png" class="shadow" width="500px">
 </center>
 
 <br/>
 
-The `Location` field is the subdomain into which the app will be installed. For example, if you use the
-`chat` location for Rocket.Chat, then it will be installed at `chat.domain.com`. If the subdomain field
-is empty, the app will be installed at `domain.com`.
+The `Location` field is the subdomain into which the app will be installed. Use the drop down
+selector on the right to choose the domain into which the app will by installed.
+If the subdomain field is empty, the app will be installed in the bare/naked domain (i.e
+at `smartserver.io` in the picture above).
 
 ## Re-configuring an app
 
-Click on the pencil button will bring up the configure dialog:
+Clicking on the pencil button will bring up the app's configure dialog:
 
 <center>
-<img src="/img/app_configure_button.png" class="shadow">
+<img src="/img/app_configure_button.png" class="shadow" width="250px">
 </center>
-
-<br/>
 
 The configure dialog can be used for:
 
@@ -42,32 +41,21 @@ The configure dialog can be used for:
 * Change the maximum amount of memory that the app can use
 * Specify a `robots.txt` to control indexing by search engines (Google, Bing, DDG)
 
-## Moving an app to another subdomain
+!!! note "No data loss"
+    Re-configuring an app is a non-destructive action. Existing app data will be retained.
+
+## Moving an app to another domain
 
 Changing the location field in the app's configure dialog will move the app to
-another subdomain:
+another domain or subdomain:
 
 <center>
-<img src="/img/app_configure.png" class="shadow">
+<img src="/img/app-configure.png" class="shadow" width="500px">
 </center>
 
-## Specifying an external domain for an app
-
-Cloudron installs apps as subdomains of the domain provided during setup time.
-It is also possible to specify an entirely different domain for an app. An external
-domain is set in the app's configure dialog by choosing `External Domain` in the 
-location dropdown.
-
-<center>
-<img src="/img/app-external-domain-ip.png" class="shadow" width="600px">
-</center>
-
-This dialog will suggest adding a CNAME record (for subdomains) or an A record (for
-naked domains). Once you setup a record with your DNS provider, the app will be accessible
-from that external domain.
-
-**NOTE:** An external domain can be set only _after_ installing the app.
-For the curious, this is done so that we can 'reserve' a DNS subdomain record to CNAME to.
+!!! note "No data loss"
+    Moving an app to a new location is a non-destructive action. Existing app data will
+    be migrated to the new domain.
 
 ## Increasing the memory limit of an app
 
@@ -83,29 +71,29 @@ The memory limit can be set by adjusting the slider in the Configure dialog's
 `Advanced Setting` section.
 
 <center>
-<img src="/img/app-memory-slider.png" class="shadow">
+<img src="/img/app-memory-slider.png" class="shadow" width="500px">
 </center>
 
 !!! note "Memory limit includes swap"
-    The memory limit set here is a combination of RAM and swap space to be allocated
+    The memory limit specified above is a combination of RAM and swap space to be allocated
     for the app. Cloudron allocates 50% of this value as RAM and 50% as swap.
 
 ## Restricting app access to specific users
 
-Most apps in Cloudron are integrated with Cloudron's Single Sign-On. For such
-apps, one or more groups can be assigned to an app and the Cloudron will restrict
-login to only the users that are part of those groups.
+Many apps in Cloudron are integrated with Cloudron's user management. For such
+apps, one or more groups or users can be assigned to an app to restrict
+login.
 
 Note that Cloudron only handles authentication. Assigning roles to users is
-done within the application itself (for example, to change a user to become a
-`commenter` or `author` or some other app specific role).
+done within the application itself. For example, changing a user to become a
+`commenter` or `author` inside Wordpress has to be done within Wordpress.
 
 <center>
-<img src="/img/app-configure-group-acl.png" class="shadow">
+<img src="/img/app-configure-group-acl.png" class="shadow" width="500px">
 </center>
 
-* `Every Cloudron user` - Any user in the Cloudron can access the app. 
-* `Restrict to groups` - Only users in the groups can access the app.
+* `Allow all users from this Cloudron` - Any user in the Cloudron can access the app.
+* `Only allow the following users and groups` - Only the users and groups can access the app.
 
 ## Indexing by search engines (robots.txt)
 
@@ -118,7 +106,7 @@ The robots.txt contents of an app can be set in the `Advanced settings` of the a
 By default, Cloudron does not setup a robots.txt for apps. When unset, the app is free to provide it's own robots.txt.
 
 <center>
-<img src="/img/app-robots-txt.png" class="shadow">
+<img src="/img/app-robots-txt.png" class="shadow" width="500px">
 </center>
 
 In addition, the Cloudron admin page has a hardcoded robots.txt that disables indexing:
@@ -140,7 +128,7 @@ can be used to:
 * Install plugins
 * Repair an app if a plugin installation failed or database needs some modification
 
-Note that Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data), 
+Note that Cloudron runs apps as containers with a read-only file system. Only `/run` (dynamic data),
 `/app/data` (backup data) and `/tmp` (temporary files) are writable at runtime.
 
 The web terminal can be accessed by clicking the 'Terminal' icon.
@@ -152,7 +140,7 @@ The web terminal can be accessed by clicking the 'Terminal' icon.
 Clicking the icon will pop up a new window. The terminal is essentially a shell into the app's file system.
 
 <center>
-<img src="/img/terminal-exec2.png" class="shadow" width="600px">
+<img src="/img/terminal-exec2.png" class="shadow" width="500px">
 </center>
 
 ## Embedding Apps
@@ -169,7 +157,7 @@ For example, to embed the live chat application hosted on `chat.domain.com` into
 in Chrome. You can safely ignore the `Invalid 'X-Frame-Options' header encountered` message in the browser console.
 
 <center>
-<img src="/img/app-embed-url.png" class="shadow">
+<img src="/img/app-embed-url.png" class="shadow" width="500px">
 </center>
 
 ## Uninstall an app
@@ -182,8 +170,9 @@ An app can be uninstalled clicking the `Uninstall` button.
 
 Uninstalling an app immediately removes all data associated with the app from the Cloudron.
 
-Note that app backups are not removed when it is uninstalled and are only cleaned up
-based on the backup policy.
+!!! note "Backups are not removed"
+    App backups are not removed when it is uninstalled and are only cleaned up based on the backup
+    policy. Apps can always be re-instated from their backups using the CLI tool.
 
 ## Redirecting www domain
 
@@ -222,7 +211,7 @@ the Free memory < 50MB frequently, you should consider upgrading to a Cloudron w
 
 Cloudron's approach to self-hosting means that it takes complete ownership of the server and only
 tracks changes that are made via the web interface. For this reason, Cloudron does not support
-installing apps via Docker or apt-get or snap. Any external changes made to the server (i.e other
+installing apps via Docker or `apt` or `snap`. Any external changes made to the server (i.e other
 than via the Cloudron web interface or API) may be lost across updates and at worst, might confuse
 the Cloudron update mechanism putting your server at risk.
 

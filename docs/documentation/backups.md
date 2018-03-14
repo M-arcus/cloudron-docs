@@ -1,4 +1,4 @@
-# Backup, Restore and Migrate
+# Backups
 
 ## How Cloudron backups work
 

@@ -29,9 +29,10 @@ using fallback certificates for the app.
 
 ## Setting fallback wildcard certificate
 
-Cloudron generates a self-signed certificate that is used as the fallback should it fail
-to install or renew Let's Encrypt certificate. The auto-generated fallback certificate
-can be replaced with a custom wildcard certificate in the `Domains & Certs` page.
+Cloudron generates a self-signed certificate for every domain it manages. This certificate is
+used as the fallback if it fails to install or renew Let's Encrypt certificate. The auto-generated
+fallback certificate can be replaced with a custom wildcard certificate by editing the domain
+in the `Domains` page.
 
 <br/>
 
@@ -69,10 +70,6 @@ When using Let's Encrypt, please be aware of the following:
 
 Custom certificates can be set for each installed application using the [REST API](/documentation/developer/api/#configure-app).
 This can be used to set an Extended Validation (EV) certificate for an app.
-
-To set a custom wildcard certificate to be used across all the apps, pass the
-`--tls-provider fallback` option at installation time to the `cloudron-setup` script
-and set it as a [fallback certificate](/documentation/certificates/#setting-fallback-wildcard-certificate).
 
 ## Common reasons for Let's Encrypt Certificate failure
 

@@ -88,7 +88,9 @@ The goal of rate limits is to prevent password brute force attacks.
 The `Activity` view shows the activity on your Cloudron. It includes information about who is using
 the apps on your Cloudron and also tracks configuration changes.
 
-<img src="/img/activity.png" class="shadow">
+<center>
+<img src="/img/activity.png" class="shadow" width="600px">
+</center>
 
 ## Securing SSH access
 

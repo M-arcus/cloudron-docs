@@ -2,15 +2,19 @@
 
 ## How Cloudron Email works
 
-Cloudron has a built-in mail server. By default, it relay mails on behalf of apps
-(for example, password reset and notification emails).
+Cloudron has a built-in mail server that can send and receive email on behalf of users
+and applications. By default, most of it's functionality is disabled and it only sends out
+mails on behalf of apps (for example, password reset and notification emails).
 
-When `Cloudron Email` is enabled, it becomes a full-fleged mail server solution.
+When `Cloudron Email` is [enabled](#enabling-email), it becomes a full-fleged mail server solution.
 Each user gets a mailbox `username@domain` and can send mails using SMTP and receive mails
-using IMAP. Users can also setup mail filtering rules using ManageSieve. Features of this
-mail solution include:
+using IMAP. Users can also setup server side mail filtering rules using ManageSieve.
 
-* Mail aliases
+Features of this mail solution include:
+
+* Multi-domain support
+* Enable mailboxes for users and groups on a domain level
+* Per-user mail aliases
 * Group email addresses that forward email to it's members
 * Email account sub-addressing by adding `+` tag qualifier
 * Setup mail filters and vacation email using ManageSieve
@@ -41,11 +45,24 @@ By default, Cloudron's mail server only sends email on behalf of apps. To enable
 send and receive email, turn on the option under `Settings`.
 
 <center>
-<img src="/img/mail-enable.png" class="shadow">
+<img src="/img/mail-enable.png" class="shadow" width="500px">
 </center>
 
-When using one of the programmatic DNS backends like Route53, DigitalOcean or Route53, the
-Cloudron will automatically update the `MX`, `SPF`, `DKIM`, `DMARC` DNS records.
+When using one of the programmatic [DNS backends](/documentation/domains/) like Route53,
+DigitalOcean or Route53, the Cloudron will automatically update the `MX`, `SPF`, `DKIM`, `DMARC` DNS records.
+
+!!! warning "User & group mailboxes are not automatically enabled"
+    Enabling email does not automatically allow users to send and receive email.
+    User & Group mailboxes must be [enabled](#enable-mailboxes) in the `Users` view.
+
+## Enable Mailboxes
+
+Mailboxes can be enabled for Users and Groups on a per-domain level. To do so, simply enable
+them in the Users view.
+
+<center>
+<img src="/img/mail-mailboxes.png" class="shadow" width="500px">
+</center>
 
 ## Required ports for Cloudron Email
 
@@ -61,6 +78,11 @@ The following TCP ports must be opened in the firewall for Cloudron to receive e
 * Inbound Port 4190 (ManageSieve for email filters)
 
 ## Mail server setup check list
+
+* Make sure that all the mail checks are green in the Email UI.
+  <center>
+  <img src="/img/mail-checks.png" class="shadow" width="500px">
+  </center>
 
 * If you are unable to send mail, first thing to check is if your VPS provider lets you
   send mail on port 25. The Cloudron UI will show a warning if it detects that it is unable
@@ -99,7 +121,13 @@ Use the following settings to receive email via IMAP:
   * Server Name - Use the `my` subdomain of your Cloudron
   * Port - 993
   * Connection Security - TLS
-  * Username/password - Same as your Cloudron credentials
+  * Username/password - Use the email id as the username and the Cloudron account password
+
+!!! note "Multi-domain setup credentials"
+    Use the email id as the username to access different mailboxes. For example, if email is
+    enabled on two domains `example1.com` and `example2.com`, then use `user@example1.com`
+    to access the `example1.com` mailbox and use `user@example2.com` to access the `example2.com`
+    mailbox. In both cases, use the Cloudron account password.
 
 ## SMTP settings for Cloudron Email
 
@@ -108,7 +136,13 @@ Use the following settings to send email via SMTP:
   * Server Name - Use the `my` subdomain of your Cloudron
   * Port - 587
   * Connection Security - STARTTLS
-  * Username/password - Same as your Cloudron credentials
+  * Username/password - Use the full email as the username and the Cloudron account password
+
+!!! note "Multi-domain setup credentials"
+    Use the email id as the username to send email. For example, if email is
+    enabled on two domains `example1.com` and `example2.com`, then use `user@example1.com`
+    to send email as `example1.com` and use `user@example2.com` to send email as `example2.com`.
+    In both cases, use the Cloudron account password.
 
 ## Sieve settings for Cloudron Email
 
@@ -117,7 +151,13 @@ Use the following settings to setup email filtering users via Manage Sieve.
   * Server Name - Use the `my` subdomain of your Cloudron
   * Port - 4190
   * Connection Security - TLS
-  * Username/password - Same as your Cloudron credentials
+  * Username/password - Use the full email as the username and the Cloudron account password
+
+!!! note "Multi-domain setup credentials"
+    Use the email id as the username to access different mailboxes. For example, if email is
+    enabled on two domains `example1.com` and `example2.com`, then use `user@example1.com`
+    to access the `example1.com` mailbox and use `user@example2.com` to access the `example2.com`
+    mailbox. In both cases, use the Cloudron account password.
 
 ## Creating a mail alias
 
@@ -130,8 +170,9 @@ group names.
 <img src="/img/email_alias.png" class="shadow" width="600px">
 </center>
 
-Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead,
-add the alias as an identity in your mail client but login using the Cloudron credentials.
+!!! note "Authenticating with alias is not supported"
+    Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead,
+    add the alias as an identity in your mail client but login using the Cloudron credentials.
 
 ## Setting a catch-all mail address
 
@@ -223,7 +264,7 @@ To remove sandbox, log a request to increase the sending limit to say 500 emails
 
 ### Google
 
-When using Google to relay mail, if you encounter an error message of the form `Invalid login` or 
+When using Google to relay mail, if you encounter an error message of the form `Invalid login` or
 `Please log in via your web browser and then try again`, you must configure your Google account
 to either use App passwords or enable less secure apps. See [Google Support](https://support.google.com/mail/answer/7126229?visit_id=1-636433350211034673-1786624518&rd=1#cantsignin) for more information.
 
@@ -268,7 +309,7 @@ Most mail clients have a Junk or Spam button which does this automatically.
 If you marked a mail as Spam incorrectly, just move it out to the Inbox and
 the server will unlearn accordingly.
 
-The mail server is configured to act upon training only after seeing atleast 
+The mail server is configured to act upon training only after seeing atleast
 50 spam and 50 ham messages.
 
 ## Setting rDNS, PTR record
@@ -402,7 +443,7 @@ _dmarc.girish.in descriptive text "v=DMARC1; p=reject; pct=100"
 * Make sure that the 'Outbound SMTP' check is green in the Email view. This step makes sure that your
   VPS provider has not blocked outbound port 25 which is required for mail delivery.
 
-    * If it shows an error, check the status of mail container using `docker ps mail` and 
+    * If it shows an error, check the status of mail container using `docker ps mail` and
       `docker exec mail supervisorctl status`.
 
     * If the mail container is not running, try restarting it using `docker restart mail`.
