@@ -47,7 +47,7 @@ When [email](/documentation/email/) is enabled, Cloudron makes the following cha
 For Cloudrons using a non-programmable DNS backend, the DNS records will be displayed in the UI so
 that they can be setup manually.
 
-## Cloudflare DNS
+### Cloudflare DNS
 
 Use the [Global API Key](https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-CloudFlare-API-key-)
 available in the profile section of your account.
@@ -60,7 +60,7 @@ available in the profile section of your account.
     Cloudron does not support installing apps that are proxied via Cloudflare. Cloudflare backend
     only sets up the DNS via Cloudflare API and expects website traffic to be unproxied.
 
-## Digital Ocean DNS
+### Digital Ocean DNS
 
 Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
 with read+write access.
@@ -69,7 +69,7 @@ with read+write access.
 <img src="/img/domains-digitalocean.png" class="shadow" width="500px">
 </center>
 
-## Google Cloud DNS
+### Google Cloud DNS
 
 Create a [service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) in JSON
 format.
@@ -78,7 +78,7 @@ format.
 <img src="/img/domains-gcdns.png" class="shadow" width="500px">
 </center>
 
-## Route 53 DNS
+### Route 53 DNS
 
 When using root credentials on AWS, follow the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
 to create access keys.
@@ -115,7 +115,7 @@ The `<hosted zone id>` below must be replaced with the zone's id which is availa
 }
 ```
 
-## Wildcard DNS
+### Wildcard DNS
 
 For wildcard setup, add entries for `*.domain.com` and `domain.com` to point to your server's IP.
 Note that adding add wildcard entry does _not_ affect any existing DNS entries in `domain.com`
@@ -135,7 +135,7 @@ and cannot be changed. However, the domain under which it is available can be ch
     * Change `adminFqdn` to the domain added above
     * Change `adminFqdn` to `my.example.com`
 
-    !!! note "Do not change adminLocation"
+    !!! warning "Do not change adminLocation"
         The `adminLocation` seems to be customizable but changing this to any value other than `my`
         will break the installation
 

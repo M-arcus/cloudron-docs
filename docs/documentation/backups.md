@@ -297,11 +297,13 @@ Apps can be restored to a previous backup by clicking on the `Restore` button.
 Select the backup you want to restore to:
 
 <center>
-<img src="/img/app-select-backup.png" class="shadow">
+<img src="/img/app-select-backup.png" class="shadow" width="500px">
 </center>
 
-Restoring will also revert the code to the version that was running when the backup was created. This is because the
-current version of the app may not be able to handle old data.
+
+!!! note "Both data and code are reverted"
+    Restoring will also revert the code to the version that was running when the backup was created.
+    This is because the current version of the app may not be able to handle old data.
 
 ## Restoring Cloudron from a backup
 
