@@ -7,6 +7,7 @@ pages:
   - 'Installation': 'documentation/installation.md'
   - 'Knowledge base':
     - documentation/apps.md
+    - 'App Store': documentation/appstore.md
     - 'Backups': documentation/backups.md
     - documentation/certificates.md
     - documentation/domains.md
@@ -74,7 +75,6 @@ pages:
     - 'Wordpress': documentation/apps/wordpress.md
   - 'Managed Hosting': 'documentation/managed-hosting.md'
   - 'Billing': 'documentation/billing.md'
-  - 'Support': 'documentation/support.md'
 extra_css:
   - 'stylesheets/extra.css'
 theme:

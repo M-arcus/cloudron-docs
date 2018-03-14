@@ -36,12 +36,12 @@ We will attempt a small hold on your card. This hold will get removed after 7 da
 
 ## Payment failures
 
-Payment failures can be resolved by adding a [new credit card](/console.html#/userprofile?view=credit_card)
+Payment failures can be resolved by adding a <a href="/console.html#/userprofile?view=credit_card" target="_blank">new credit card</a>
 to your account. As we only allow one credit card per account, you will need to overwrite the old credit card information in your
 account page. Our billing system will also send you payment reminders before any actions such
 as service suspension are taken on your account.
 
 ## Invoices
 
-Monthly invoices can be download from [here](/console.html#/userprofile?view=invoice_list).
+Monthly invoices can be download from <a href="/console.html#/userprofile?view=invoice_list" target="_blank">here</a>.
 
