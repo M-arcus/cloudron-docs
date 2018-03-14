@@ -266,16 +266,17 @@ Note that the above command will restart all the apps and addon services.
 In some rare cases, `/home/yellowtent/configs/cloudron.conf` can be missing.
 
 If this is the case, recreate it using the following contents. Be sure to edit
-the `version`, `fqdn`, `zoneName` and `provider` arguments below:
+the `version`, `adminDomain`, `adminFqdn` and `provider` arguments below:
+
 ```
 {
-    "version": "1.10.2",
+    "version": "2.0.0",
     "apiServerOrigin": "https://api.cloudron.io",
     "webServerOrigin": "https://cloudron.io",
-    "adminDomain": "girish.in",
-    "adminFqdn": "my.girish.in",
+    "adminDomain": "smartserver.space",
+    "adminFqdn": "my.smartserver.space",
     "adminLocation": "my",
-    "provider": "caas",
+    "provider": "digitalocean",
     "isDemo": false
 }
 ```
