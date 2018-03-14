@@ -124,6 +124,29 @@ because the wildcard only applies to subdomains that are not explicitly defined.
 For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
 be displayed in the UI after installation.
 
+## Changing the Dashboard domain
+
+The Cloudron dashboard/admin UI is located at the `my` subdomain. The `my` subdomain is hardcoded
+and cannot be changed. However, the domain under which it is available can be changed as follows:
+
+* Add the new domain in the `Domains` view.
+
+* Edit `/home/yellowtent/configs/cloudron.conf`
+    * Change `adminFqdn` to the domain added above
+    * Change `adminFqdn` to `my.example.com`
+
+    !!! note "Do not change adminLocation"
+        The `adminLocation` seems to be customizable but changing this to any value other than `my`
+        will break the installation
+
+* If you used the `wildcard` or `manual` DNS backend, add a DNS `A` record manually
+  for `*.example.com` and `example.com` to the server's IP. For, `route53`, `cloudflare`, `gcdns`
+  `digitalocean` and other automated DNS backends, you can skip this step.
+
+* Run the command `systemctl restart box`
+
+In a few minutes, you should be able to reach `https://my.example.com`.
+
 ## DNS Errors
 
 ### DNS Record already exists
