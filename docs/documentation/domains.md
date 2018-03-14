@@ -143,6 +143,10 @@ and cannot be changed. However, the domain under which it is available can be ch
   for `*.example.com` and `example.com` to the server's IP. For, `route53`, `cloudflare`, `gcdns`
   `digitalocean` and other automated DNS backends, you can skip this step.
 
+* Run the following command to update the OAuth endpoint:
+    ```
+        mysql -uroot -ppassword -e "UPDATE clients SET redirectURI='https://my.maroti.uk' WHERE type='built-in'"
+    ```
 * Run the command `systemctl restart box`
 
 In a few minutes, you should be able to reach `https://my.example.com`.
