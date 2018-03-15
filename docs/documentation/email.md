@@ -36,7 +36,7 @@ Features of this mail solution include:
 Email settings are located under the `Email` menu item.
 
 <center>
-<img src="/img/mail-settings.png" class="shadow" width="350px">
+<img src="/img/mail-settings.png" class="shadow" width="200px">
 </center>
 
 ## Enabling Email
