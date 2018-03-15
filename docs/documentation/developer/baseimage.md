@@ -83,7 +83,7 @@ CLOUDRON is always set to '1'. This is useful to write Cloudron specific code.
 
 ### WEBADMIN_ORIGIN
 
-WEBADMIN_ORIGIN is set to the HTTP(S) origin of the Cloudron's web admin. For example, `https://my.cloudron.io`.
+WEBADMIN_ORIGIN is set to the HTTP(S) origin of the Cloudron's dashboard. For example, `https://my.cloudron.io`.
 
 ## Node.js
 

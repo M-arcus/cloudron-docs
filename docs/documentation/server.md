@@ -293,7 +293,7 @@ The box code can now be started using:
 systemctl restart box
 ```
 
-The above command can be run to get new certificates for the web admin.
+The above command can be run to get new certificates for the dashboard.
 
 ## Docker errors
 
