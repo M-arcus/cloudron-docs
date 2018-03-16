@@ -143,6 +143,20 @@ Clicking the icon will pop up a new window. The terminal is essentially a shell 
 <img src="/img/terminal-exec2.png" class="shadow" width="500px">
 </center>
 
+## Log viewer
+
+To view the logs of an app, click the logs button on the app grid:
+
+<center>
+<img src="/img/app-grid-icons-logs.png" class="shadow" width="300px">
+</center>
+
+This will open up a popup dialog that display the logs:
+
+<center>
+<img src="/img/app-logs.png" class="shadow" width="500px">
+</center>
+
 ## Embedding Apps
 
 Cloudron apps can be embedded into other websites by setting `X-Frame-Options`. By default, this HTTP header is set to
