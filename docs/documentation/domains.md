@@ -145,7 +145,7 @@ and cannot be changed. However, the domain under which it is available can be ch
 
 * Run the following command to update the OAuth endpoint:
     ```
-        mysql -uroot -ppassword -e "UPDATE clients SET redirectURI='https://my.maroti.uk' WHERE type='built-in'"
+        mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.domain.com' WHERE type='built-in'"
     ```
 * Run the command `systemctl restart box`
 
