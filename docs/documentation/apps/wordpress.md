@@ -52,3 +52,9 @@ using other methods:
 
 * Use a plugin like [ARI Adminer](https://wordpress.org/plugins/ari-adminer/) for a GUI.
 
+## WP CLI
+
+[WP CLI](http://wp-cli.org/) is a command line interface to Wordpress. To run commands
+using the CLI tool, open a [Web terminal](/documentation/apps/#web-terminal) and
+execute commands WP CLI using `/app/code/wp --allow-root`.
+
