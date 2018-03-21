@@ -360,6 +360,18 @@ The `tags` are used by the Cloudron App Store for filtering searches by keyword.
   "tags": [ "git", "version control", "scm" ]
 ```
 
+Available tags:
+  * blog
+  * chat
+  * git
+  * email
+  * sync
+  * gallery
+  * notes
+  * project
+  * hosting
+  * wiki
+
 ### targetBoxVersion
 
 Type: semver string
