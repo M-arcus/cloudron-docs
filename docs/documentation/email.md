@@ -354,12 +354,12 @@ above.
 ## Changing the FROM address of an app
 
 By default, Cloudron allocates the `location.app@domain` mailbox for each installed app. When
-an app sends an email, the FROM address is set to `location.app@domain`. The mailbox name
-can be changed by modifying the database. For example, to change the `chat.app@domain` address
+an app sends an email, the FROM address is set to `location.app@domain.com`. The mailbox name
+can be changed by modifying the database. For example, to change the `chat.app@domain.com` address
 of an app to be just `chat`, use the following command:
 
 ```
-mysql -uroot -ppassword box -e "UPDATE mailboxes SET name='chat' WHERE name='chat.app'";
+mysql -uroot -ppassword -e "UPDATE box.mailboxes SET name='chat' WHERE name='chat.app' AND domain='domain.com'";
 ```
 
 After the command above is executed, [re-configure](/documentation/apps/#re-configuring-an-app)
