@@ -1,0 +1,15 @@
+
+.shadow {
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.176);
+}
+
+.shortcuts {
+   width: 100%;
+   text-align: center;
+}
+
+.shortcuts a {
+    display: inline-block;
+    min-width: 20%;
+    text-align: center;
+}

@@ -1,0 +1,48 @@
+site_name: Cloudron Developer Docs
+site_description: 'Cloudron is a platform to host apps on your server and keep them up-to-date and secure.'
+site_url: 'https://cloudron.io'
+copyright: 'Copyright &copy; 2015 - 2018 Cloudron UG'
+pages:
+  - 'Overview': 'index.md'
+  - 'API': api.md
+  - addons.md
+  - architecture.md
+  - 'Base Image': baseimage.md
+  - button.md
+  - 'CLI': cli.md
+  - manifest.md
+#    - node.md
+  - packaging.md
+extra_css:
+  - 'stylesheets/extra.css'
+theme:
+  name: 'material'
+  language: 'en'
+  feature:
+    tabs: false
+  palette:
+    primary: 'white'
+    accent: 'green'
+  logo: 'img/logo_small.svg'
+  font:
+    text: 'Noto Sans'
+    code: 'Ubuntu Mono'
+extra:
+  search:
+    tokenizer: '[\s\-]+'
+  social:
+    - type: 'slack'
+      link: 'https://chat.cloudron.io'
+    - type: 'gitlab'
+      link: 'https://git.cloudron.io'
+    - type: 'twitter'
+      link: 'https://twitter.com/cloudron_io'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/company/cloudron'
+use_directory_urls: true
+markdown_extensions:
+  - admonition
+  - codehilite(guess_lang=false)
+  - toc(permalink=true)
+  - footnotes
+  - meta

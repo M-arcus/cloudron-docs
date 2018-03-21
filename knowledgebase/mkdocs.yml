@@ -3,78 +3,68 @@ site_description: 'Cloudron is a platform to host apps on your server and keep t
 site_url: 'https://cloudron.io'
 copyright: 'Copyright &copy; 2015 - 2018 Cloudron UG'
 pages:
-  - 'Introduction': 'documentation.md'
-  - 'Installation': 'documentation/installation.md'
+  - 'Introduction': 'index.md'
+  - 'Installation': 'installation.md'
   - 'Knowledge base':
-    - documentation/apps.md
-    - 'App Store': documentation/appstore.md
-    - 'Backups': documentation/backups.md
-    - documentation/certificates.md
-    - documentation/domains.md
-    - documentation/email.md
-    - documentation/integrations.md
-    - documentation/security.md
-    - documentation/server.md
-    - documentation/updates.md
-    - 'User & Groups': documentation/user-management.md
-  - 'Developer':
-    - 'API': documentation/developer/api.md
-    - documentation/developer/addons.md
-    - documentation/developer/architecture.md
-    - 'Base Image': documentation/developer/baseimage.md
-    - documentation/developer/button.md
-    - 'CLI': documentation/cli.md
-    - documentation/developer/manifest.md
-#    - documentation/developer/node.md
-    - documentation/developer/packaging.md
+    - apps.md
+    - 'App Store': appstore.md
+    - 'Backups': backups.md
+    - certificates.md
+    - domains.md
+    - email.md
+    - integrations.md
+    - security.md
+    - server.md
+    - updates.md
+    - 'User & Groups': user-management.md
   - 'Apps':
-    - 'Confluence': documentation/apps/confluence.md
-    - 'Dokuwiki': documentation/apps/dokuwiki.md
-    - 'Etherpad': documentation/apps/etherpad.md
-    - 'Ghost': documentation/apps/ghost.md
-    - 'Gitea': documentation/apps/gitea.md
-    - 'GitHub Pages': documentation/apps/githubpages.md
-    - 'GitLab': documentation/apps/gitlab.md
-    - 'Gogs': documentation/apps/gogs.md
-    - 'Hastebin': documentation/apps/hastebin.md
-    - 'Invoice Ninja': documentation/apps/invoiceninja.md
-    - 'Jingo': documentation/apps/jingo.md
-    - 'Kanboard': documentation/apps/kanboard.md
-    - 'LAMP': documentation/apps/lamp.md
-    - 'Lets Chat': documentation/apps/letschat.md
-    - 'Lychee': documentation/apps/lychee.md
-    - 'Mailtrain': documentation/apps/mailtrain.md
-    - 'Mattermost': documentation/apps/mattermost.md
-    - 'Mediawiki': documentation/apps/mediawiki.md
-    - 'Meemo': documentation/apps/meemo.md
-    - 'Minio': documentation/apps/minio.md
-    - 'Nextcloud': documentation/apps/nextcloud.md
-    - 'NodeBB': documentation/apps/nodebb.md
-    - 'OpenProject': documentation/apps/openproject.md
-    - 'OpenVPN': documentation/apps/openvpn.md
-    - 'ownCloud': documentation/apps/owncloud.md
-    - 'Paperwork': documentation/apps/paperwork.md
-    - 'Phabricator': documentation/apps/phabricator.md
-    - 'Piwik': documentation/apps/piwik.md
-    - 'Radicale': documentation/apps/radicale.md
-    - 'RainLoop': documentation/apps/rainloop.md
-    - 'Redash': documentation/apps/redash.md
-    - 'Redmine': documentation/apps/redmine.md
-    - 'Rocket.Chat': documentation/apps/rocket.chat.md
-    - 'Roundcube': documentation/apps/roundcube.md
-    - 'Shaarli': documentation/apps/shaarli.md
-    - 'SOGo': documentation/apps/sogo.md
-    - 'Surfer': documentation/apps/surfer.md
-    - 'Syncthing': documentation/apps/syncthing.md
-    - 'Taiga': documentation/apps/taiga.md
-    - 'The Lounge': documentation/apps/thelounge.md
-    - 'TinyTinyRSS': documentation/apps/tinytinyrss.md
-    - 'Verdaccio': documentation/apps/verdaccio.md
-    - 'Wallabag': documentation/apps/wallabag.md
-    - 'Wekan': documentation/apps/wekan.md
-    - 'Wordpress': documentation/apps/wordpress.md
-  - 'Managed Hosting': 'documentation/managed-hosting.md'
-  - 'Billing': 'documentation/billing.md'
+    - 'Confluence': apps/confluence.md
+    - 'Dokuwiki': apps/dokuwiki.md
+    - 'Etherpad': apps/etherpad.md
+    - 'Ghost': apps/ghost.md
+    - 'Gitea': apps/gitea.md
+    - 'GitHub Pages': apps/githubpages.md
+    - 'GitLab': apps/gitlab.md
+    - 'Gogs': apps/gogs.md
+    - 'Hastebin': apps/hastebin.md
+    - 'Invoice Ninja': apps/invoiceninja.md
+    - 'Jingo': apps/jingo.md
+    - 'Kanboard': apps/kanboard.md
+    - 'LAMP': apps/lamp.md
+    - 'Lets Chat': apps/letschat.md
+    - 'Lychee': apps/lychee.md
+    - 'Mailtrain': apps/mailtrain.md
+    - 'Mattermost': apps/mattermost.md
+    - 'Mediawiki': apps/mediawiki.md
+    - 'Meemo': apps/meemo.md
+    - 'Minio': apps/minio.md
+    - 'Nextcloud': apps/nextcloud.md
+    - 'NodeBB': apps/nodebb.md
+    - 'OpenProject': apps/openproject.md
+    - 'OpenVPN': apps/openvpn.md
+    - 'ownCloud': apps/owncloud.md
+    - 'Paperwork': apps/paperwork.md
+    - 'Phabricator': apps/phabricator.md
+    - 'Piwik': apps/piwik.md
+    - 'Radicale': apps/radicale.md
+    - 'RainLoop': apps/rainloop.md
+    - 'Redash': apps/redash.md
+    - 'Redmine': apps/redmine.md
+    - 'Rocket.Chat': apps/rocket.chat.md
+    - 'Roundcube': apps/roundcube.md
+    - 'Shaarli': apps/shaarli.md
+    - 'SOGo': apps/sogo.md
+    - 'Surfer': apps/surfer.md
+    - 'Syncthing': apps/syncthing.md
+    - 'Taiga': apps/taiga.md
+    - 'The Lounge': apps/thelounge.md
+    - 'TinyTinyRSS': apps/tinytinyrss.md
+    - 'Verdaccio': apps/verdaccio.md
+    - 'Wallabag': apps/wallabag.md
+    - 'Wekan': apps/wekan.md
+    - 'Wordpress': apps/wordpress.md
+  - 'Managed Hosting': 'managed-hosting.md'
+  - 'Billing': 'billing.md'
 extra_css:
   - 'stylesheets/extra.css'
 theme:
