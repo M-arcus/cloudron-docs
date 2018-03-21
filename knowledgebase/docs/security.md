@@ -89,7 +89,7 @@ The `Activity` view shows the activity on your Cloudron. It includes information
 the apps on your Cloudron and also tracks configuration changes.
 
 <center>
-<img src="/img/activity.png" class="shadow" width="600px">
+<img src="../img/activity.png" class="shadow" width="600px">
 </center>
 
 ## Securing SSH access

@@ -6,7 +6,7 @@ Cloudron is an OAuth 2.0 provider. To integrate Cloudron login into an external 
 an OAuth application under `API Access`.
 
 <center>
-<img src="/img/add-oauth-client.png" class="shadow" width="600px">
+<img src="../img/add-oauth-client.png" class="shadow" width="600px">
 </center>
 
 The dialog requires 3 parameters:
@@ -23,7 +23,7 @@ The dialog requires 3 parameters:
 
 <br/>
 <center>
-<img src="/img/oauth-tokens.png" class="shadow" height="300px">
+<img src="../img/oauth-tokens.png" class="shadow" height="300px">
 </center>
 <br/>
 

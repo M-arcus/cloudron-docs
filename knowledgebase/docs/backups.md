@@ -86,7 +86,7 @@ This format has the following caveats:
 To take a backup of Cloudron and all the apps, click the `Backup now` button in the `Settings` page:
 
 <center>
-<img src="/img/backup.png" class="shadow">
+<img src="../img/backup.png" class="shadow">
 </center>
 
 !!! warning
@@ -100,7 +100,7 @@ NextCloud, ownCloud) the backup storage may quickly add up. An app can be exclud
 backups from the 'Advanced settings' in the Configure UI:
 
 <center>
-<img src="/img/app-disable-automatic-backup.png" class="shadow">
+<img src="../img/app-disable-automatic-backup.png" class="shadow">
 </center>
 
 Note that the Cloudron will still create backups before an app or Cloudron update. This is required so

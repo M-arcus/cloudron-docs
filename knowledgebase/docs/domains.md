@@ -7,7 +7,7 @@ apps can be installed as subdomains of the added domain. The
 [Cloudron Email Server](/documentation/email/) can also be enabled on a per-domain basis.
 
 <center>
-<img src="/img/domains.png" class="shadow" width="600px">
+<img src="../img/domains.png" class="shadow" width="600px">
 </center>
 
 To add a domain, one must select from one of the following DNS services in which
@@ -53,7 +53,7 @@ Use the [Global API Key](https://support.cloudflare.com/hc/en-us/articles/200167
 available in the profile section of your account.
 
 <center>
-<img src="/img/domains-cloudflare.png" class="shadow" width="500px">
+<img src="../img/domains-cloudflare.png" class="shadow" width="500px">
 </center>
 
 !!! warning "Cloudflare HTTP(S) proxy"
@@ -66,7 +66,7 @@ Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-
 with read+write access.
 
 <center>
-<img src="/img/domains-digitalocean.png" class="shadow" width="500px">
+<img src="../img/domains-digitalocean.png" class="shadow" width="500px">
 </center>
 
 ### Google Cloud DNS
@@ -75,7 +75,7 @@ Create a [service account key](https://cloud.google.com/iam/docs/creating-managi
 format.
 
 <center>
-<img src="/img/domains-gcdns.png" class="shadow" width="500px">
+<img src="../img/domains-gcdns.png" class="shadow" width="500px">
 </center>
 
 ### Route 53 DNS
@@ -84,7 +84,7 @@ When using root credentials on AWS, follow the instructions [here](http://docs.a
 to create access keys.
 
 <center>
-<img src="/img/domains-route53.png" class="shadow" width="500px">
+<img src="../img/domains-route53.png" class="shadow" width="500px">
 </center>
 
 When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) to create a user and use the following policy to give the user access to the domain.

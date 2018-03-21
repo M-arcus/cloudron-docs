@@ -14,7 +14,7 @@ some features that may be relied upon. In such a case, the update has to be manu
 a matter of clicking the `Update` button after reading the changelog.
 
 <center>
-<img src="/img/app_update.png" class="shadow" width="600px">
+<img src="../img/app_update.png" class="shadow" width="600px">
 </center>
 
 ## Changing the app update interval
@@ -22,7 +22,7 @@ a matter of clicking the `Update` button after reading the changelog.
 The app update schedule can be set in the `Ap Updates` section in the `Settings` menu:
 
 <center>
-<img src="/img/app-update-interval.png" class="shadow">
+<img src="../img/app-update-interval.png" class="shadow">
 </center>
 
 To disable app updates entirely, select `Update manually`. When automatic updates are disabled, the Cloudron

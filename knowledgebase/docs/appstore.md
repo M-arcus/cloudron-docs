@@ -8,7 +8,7 @@ view this information in the `Settings` page.
 <br/>
 
 <center>
-<img src="/img/cloudron-account.png" class="shadow" width="600px">
+<img src="../img/cloudron-account.png" class="shadow" width="600px">
 </center>
 
 ## App Store Password reset
