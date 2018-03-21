@@ -15,7 +15,7 @@ the API, you need an access token. The Cloudron can create an access token from
 the `API Access` page.
 
 <center>
-<img src="/img/access-token2.png" class="shadow" width="600px">
+<img src="../img/access-token2.png" class="shadow" width="600px">
 </center>
 
 The access token can be provided via the request query `?access_token=<token>`.
