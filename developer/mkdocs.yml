@@ -24,6 +24,7 @@ theme:
     primary: 'white'
     accent: 'green'
   logo: 'img/logo_small.svg'
+  favicon: 'img/favicon.ico'
   font:
     text: 'Noto Sans'
     code: 'Ubuntu Mono'
