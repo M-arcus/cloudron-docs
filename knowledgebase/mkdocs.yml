@@ -91,6 +91,8 @@ extra:
       link: 'https://twitter.com/cloudron_io'
     - type: 'linkedin'
       link: 'https://linkedin.com/company/cloudron'
+    - type: 'comments'
+      link: 'https://forum.cloudron.io'
 use_directory_urls: true
 markdown_extensions:
   - admonition
