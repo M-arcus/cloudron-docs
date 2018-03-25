@@ -379,7 +379,7 @@ To restore a Cloudron from a specific backup:
 * Create a new Cloudron by running the following commands on the new server:
 
 ```
-        # wget https://cloudron.io/cloudron-setup
+        # wget https://git.cloudron.io/cloudron/box/raw/v1.8.4/scripts/cloudron-setup
         # chmod +x cloudron-setup
         # ./cloudron-setup --provider digitalocean --restore-url file:///var/backups/2017-09-25-210210-192/box_2017-09-25-210211-692_v1.6.5.tar.gz --version 1.6.5
 ```
@@ -442,7 +442,7 @@ To restore a Cloudron from a specific backup:
 * Create a new Cloudron by running the following commands on the new server:
 
 ```
-        # wget https://cloudron.io/cloudron-setup
+        # wget https://git.cloudron.io/cloudron/box/raw/v1.8.4/scripts/cloudron-setup
         # chmod +x cloudron-setup
         # ./cloudron-setup --provider digitalocean --restore-url file://<path-to-backup-dir>
 ```
