@@ -1275,6 +1275,12 @@ Request:
 }
 ```
 
+Example:
+```
+curl -X POST -d '{ "enabled": false" }'  -H 'Authorization: Bearer 215841b5943f5432a26ef3a1526f548a40268a92ed9baca5db980be0545da596'  https://my.domain.com/api/v1/mail/domain.com/mail_from_validation
+```
+
+
 ### Status
 
 GET `/api/v1/mail/:domain/status`   <scope>admin</scope>
