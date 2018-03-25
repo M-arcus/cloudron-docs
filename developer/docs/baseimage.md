@@ -91,4 +91,4 @@ The base image comes pre-installed with various node.js versions.
 
 They can be used by adding `ENV PATH /usr/local/node-<version>/bin:$PATH`.
 
-See [Packages](/documentation/developer/baseimage/#packages) for available versions.
+See [Packages](/baseimage/#packages) for available versions.

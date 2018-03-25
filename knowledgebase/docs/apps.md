@@ -229,6 +229,6 @@ installing apps via Docker or `apt` or `snap`. Any external changes made to the 
 than via the Cloudron web interface or API) may be lost across updates and at worst, might confuse
 the Cloudron update mechanism putting your server at risk.
 
-The best way to workaround this is to [package](/developer/packaging/) the apps as
+The best way to workaround this is to [package](../developer/packaging/) the apps as
 Cloudron apps. Apps that have a Dockerfile can be trivially packaged for the Cloudron.
 

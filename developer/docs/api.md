@@ -127,7 +127,7 @@ apps that are not published on the Cloudron App Store, skip this field and provi
 with an `appStoreId` will automatically be kept up-to-date as newer version of the app are published on the
 store.
 
-`manifest` is the [manifest](/documentation/developer/manifest/) of the app to be installed. This
+`manifest` is the [manifest](/manifest/) of the app to be installed. This
 is only required if `appStoreId` is not provided. Apps with a manifest won't receive automatic updates.
 
 `location` is the subdomain on which the app is installed. This can be empty if the app was installed on the naked domain.
@@ -226,7 +226,7 @@ Response (200):
 
 `appStoreId` is the Cloudron App Store id of this application. Cloudron will use this id to look for updates to this application. This can be null if none was provided at installation time.
 
-`manifest` is the [Cloudron Manifest](/documentation/developer/manifest/) of the app.
+`manifest` is the [Cloudron Manifest](/manifest/) of the app.
 
 `installationState` is one of the values below:
 
@@ -265,7 +265,7 @@ If null, any user of this Cloudron can access this app. Note that the `accessRes
 is integrated with Cloudron Authentication.
 
 
-`manifest` is the [application manifest](/documentation/developer/manifest/).
+`manifest` is the [application manifest](/manifest/).
 
 For apps that support optional single sign-on, the `sso` field can be used to disable Cloudron authentication. By default, single sign-on is enabled.
 

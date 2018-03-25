@@ -28,7 +28,7 @@ Features of this mail solution include:
 * Completely automated DNS setup. MX, SPF, DKIM, DMARC are setup automatically
 * Let's Encrypt integration for mail endpoints
 * Domains and IP addresses blacklisting
-* [REST API](/developer/api/) to add users and groups
+* [REST API](../developer/api/) to add users and groups
 * [Secure](/documentation/security/#email-security) out of the box
 
 ## Email Settings
@@ -370,7 +370,7 @@ the app and clicking `Save` without making any changes.
 By default, the Cloudron does not allow masquerading - one user cannot send email pretending
 to be another user.
 
-This can be disabled using the [API](/developer/api/#set-mail-from-validation).
+This can be disabled using the [API](../developer/api/#set-mail-from-validation).
 
 ## Setting vacation mail
 

@@ -12,7 +12,7 @@ platform sets up addons in such a way that apps are isolated from each other.
 
 ## Using Addons
 
-Addons are opt-in and must be specified in the [Cloudron Manifest](/documentation/developer/manifest).
+Addons are opt-in and must be specified in the [Cloudron Manifest](/manifest).
 When the app runs, environment variables contain the necessary information to access the addon.
 For example, the mysql addon sets the `MYSQL_URL` environment variable which is the
 connection string that can be used to connect to the database.
@@ -26,7 +26,7 @@ applications must never cache the value of environment variables across restarts
 * Addons must be setup or updated on each application start up. Most applications use DB migration frameworks
 for this purpose to setup and update the DB schema.
 
-* Addons are configured in the [addons section](/documentation/developer/manifest/#addons) of the manifest as below:
+* Addons are configured in the [addons section](/manifest/#addons) of the manifest as below:
 
 ```
     {
@@ -83,7 +83,7 @@ LDAP_BIND_PASSWORD=                         # Password to perform LDAP requests
 The suggested LDAP filter is `(&(objectclass=user)(|(username=%uid)(mail=%uid)))`. This allows the user to login
 via username or email.
 
-For debugging, [cloudron exec](/documentation/cli/) can be used to run the `ldapsearch` client within the context of the app:
+For debugging, [cloudron exec](/cli/) can be used to run the `ldapsearch` client within the context of the app:
 
 ```
 cloudron exec
@@ -147,7 +147,7 @@ MONGODB_PORT=         # server port
 MONGODB_DATABASE=     # database name
 ```
 
-For debugging, [cloudron exec](/documentation/cli/) can be used to run the `mongo` shell within the context of the app:
+For debugging, [cloudron exec](/cli/) can be used to run the `mongo` shell within the context of the app:
 
 ```
 cloudron exec
@@ -171,7 +171,7 @@ MYSQL_PORT=           # server port
 MYSQL_DATABASE=       # database name (only set when using a single database, see below)
 ```
 
-For debugging, [cloudron exec](/documentation/cli/) can be used to run the `mysql` client within the context of the app:
+For debugging, [cloudron exec](/cli/) can be used to run the `mysql` client within the context of the app:
 
 ```
 cloudron exec
@@ -228,7 +228,7 @@ TokenURL = ${API_ORIGIN}/api/v1/oauth/token
 LogoutURL = ${API_ORIGIN}/api/v1/session/logout?redirect=<callback url>
 ```
 
-The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/documentation/developer/api/#profile). This restriction
+The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/api/#profile). This restriction
 is so that apps cannot make undesired changes to the user's Cloudron.
 
 The access token can be provided either via the request query `?access_token=<token>` or in the `Authorization` header using `Bearer <token>`.
@@ -252,7 +252,7 @@ POSTGRESQL_DATABASE=  # database name
 
 The postgresql addon whitelists the hstore and pg\_trgm extensions to be installable by the database owner.
 
-For debugging, [cloudron exec](/documentation/cli/) can be used to run the `psql` client within the context of the app:
+For debugging, [cloudron exec](/cli/) can be used to run the `psql` client within the context of the app:
 
 ```
 cloudron exec
@@ -302,7 +302,7 @@ REDIS_PORT=           # server port
 REDIS_PASSWORD=       # password
 ```
 
-For debugging, [cloudron exec](/documentation/cli/) can be used to run the `redis-cli` client within the context of the app:
+For debugging, [cloudron exec](/cli/) can be used to run the `redis-cli` client within the context of the app:
 
 ```
 cloudron exec
@@ -368,7 +368,7 @@ MAIL_DOMAIN=          # the domain name to use for email sending (i.e username@d
 
 The SMTP server does not require STARTTLS. If STARTTLS is used, the app must be prepared to accept self-signed certs.
 
-For debugging, [cloudron exec](/documentation/cli/) can be used to run the `swaks` tool within the context of the app:
+For debugging, [cloudron exec](/cli/) can be used to run the `swaks` tool within the context of the app:
 
 ```
 cloudron exec

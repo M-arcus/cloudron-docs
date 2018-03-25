@@ -2,7 +2,7 @@
 
 ## What is Cloudron CLI
 
-The Cloudron CLI is a command line tool that uses the [REST API](/documentation/developer/api/)
+The Cloudron CLI is a command line tool that uses the [REST API](/developer/api/)
 to remote control apps on the Cloudron. The CLI tool is installed on Linux/Mac and can be used
 for the following use cases:
 
