@@ -68,7 +68,7 @@ When using Let's Encrypt, please be aware of the following:
 
 ## Setting custom certificates
 
-Custom certificates can be set for each installed application using the [REST API](/documentation/developer/api/#configure-app).
+Custom certificates can be set for each installed application using the [REST API](/developer/api/#configure-app).
 This can be used to set an Extended Validation (EV) certificate for an app.
 
 ## Common reasons for Let's Encrypt Certificate failure
@@ -80,7 +80,7 @@ Let's Encrypt.
   for issuing certificates. Please check the email id in the Account page.
 
 * Let's Encrypt requires incoming port 80 to be [accepted from all IPs](https://community.letsencrypt.org/t/ip-addresses-le-is-validating-from-to-build-firewall-rule/5410/5). Note that Cloudron enforces
-  port 443/HTTPS [for all communication](https://cloudron.io/documentation/security/#ssl-security) and
+  port 443/HTTPS [for all communication](/documentation/security/#ssl-security) and
   any request on port 80 is redirected to HTTPS. For this reason, it is safe to keep port 80 completely open.
   Port 433/HTTPS can be restricted to specific IPs safely.
 

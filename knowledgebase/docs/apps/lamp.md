@@ -248,3 +248,9 @@ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 }
 ```
 
+## Custom HTTP headers
+
+Custom HTTP headers can be set using `.htaccess`. apache `mod_headers`
+is already enabled. See this [article](https://www.digitalocean.com/community/tutorials/how-to-configure-apache-content-caching-on-ubuntu-14-04#setting-expires-and-caching-headers-on-content) for more information.
+
+
