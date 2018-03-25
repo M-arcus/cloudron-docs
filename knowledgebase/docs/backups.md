@@ -116,7 +116,7 @@ that it can be reverted to a sane state should the update fail.
 Provide S3 backup credentials in the `Backups` section of the `Settings` page.
 
 <center>
-<img src="/img/backups-s3.png" class="shadow">
+<img src="../img/backups-s3.png" class="shadow">
 </center>
 
 When creating the bucket in S3, the bucket can be setup to periodically delete old backups by
@@ -174,7 +174,7 @@ Region:    us-east-1
 The credentials can now be used to setup Minio backups:
 
 <center>
-<img src="/img/backups-minio.png" class="shadow" width="500px">
+<img src="../img/backups-minio.png" class="shadow" width="500px">
 </center>
 
 The `Bucket` must exist and can be created using Minio CLI or the web interface. For HTTPS installations using a
@@ -188,7 +188,7 @@ required to decrypt the backups when restoring the Cloudron.
 Provide [GCS](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
 
 <center>
-<img src="/img/backups-gcs.png" class="shadow">
+<img src="../img/backups-gcs.png" class="shadow">
 </center>
 
 ## Backup interval
@@ -291,13 +291,13 @@ perform the following steps:
 Apps can be restored to a previous backup by clicking on the `Restore` button.
 
 <center>
-<img src="/img/app_restore_button.png" class="shadow">
+<img src="../img/app_restore_button.png" class="shadow">
 </center>
 
 Select the backup you want to restore to:
 
 <center>
-<img src="/img/app-select-backup.png" class="shadow" width="500px">
+<img src="../img/app-select-backup.png" class="shadow" width="500px">
 </center>
 
 
@@ -322,19 +322,19 @@ Cloudron 1.9 introduced a UI to restore Cloudron. To restore from a backup:
 * Click on `Looking to restore` located at the bottom:
 
     <center>
-    <img src="/img/looking-to-restore.png" class="shadow" width="500px">
+    <img src="../img/looking-to-restore.png" class="shadow" width="500px">
     </center>
 
 * Provide the backup information to restore from:
 
     <center>
-    <img src="/img/cloudron-restore.png" class="shadow" width="500px">
+    <img src="../img/cloudron-restore.png" class="shadow" width="500px">
     </center>
 
 * Cloudron will download the backup and start restoring:
 
     <center>
-    <img src="/img/cloudron-restore2.png" class="shadow" width="500px">
+    <img src="../img/cloudron-restore2.png" class="shadow" width="500px">
     </center>
 
 The new Cloudron server is an exact clone of the old one - all your users, groups, email, apps,
@@ -470,7 +470,7 @@ To migrate to a different server or move Cloudron to a different server provider
   Cloudron. Click the `Backup now` button in the `Settings` page and make a note of the backup id.
 
 <center>
-<img src="/img/backup-done.png" class="shadow">
+<img src="../img/backup-done.png" class="shadow">
 </center>
 
 * Follow the steps to [restore from the latest backup](/documentation/backups/#restoring-cloudron-from-a-backup)
