@@ -1,4 +1,4 @@
-# <img src="/img/jingo-logo.png" width="25px"> Jingo App
+# <img src="../img/jingo-logo.png" width="25px"> Jingo App
 
 ## Custom configuration
 

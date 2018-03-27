@@ -1,4 +1,4 @@
-# <img src="/img/wordpress-logo.png" width="25px"> Wordpress App
+# <img src="../img/wordpress-logo.png" width="25px"> Wordpress App
 
 ## Wordpress memory limit
 

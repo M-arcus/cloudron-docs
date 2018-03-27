@@ -1,4 +1,4 @@
-# <img src="/img/hastebin-logo.png" width="25px"> Hastebin App
+# <img src="../img/hastebin-logo.png" width="25px"> Hastebin App
 
 ## Deleting pastes
 

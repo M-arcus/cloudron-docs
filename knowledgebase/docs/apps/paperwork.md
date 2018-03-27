@@ -1,4 +1,4 @@
-# <img src="/img/paperwork-logo.png" width="25px"> Paperwork App
+# <img src="../img/paperwork-logo.png" width="25px"> Paperwork App
 
 ## REST API
 

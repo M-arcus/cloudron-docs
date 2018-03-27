@@ -1,4 +1,4 @@
-# <img src="/img/rainloop-logo.png" width="25px"> Rainloop App
+# <img src="../img/rainloop-logo.png" width="25px"> Rainloop App
 
 ## Default Setup
 

@@ -1,4 +1,4 @@
-# <img src="/img/owncloud-logo.png" width="25px"> ownCloud App
+# <img src="../img/owncloud-logo.png" width="25px"> ownCloud App
 
 ## Installing ownCloud client on Ubuntu
 

@@ -1,4 +1,4 @@
-# <img src="/img/lamp-logo.png" width="25px"> Lamp App
+# <img src="../img/lamp-logo.png" width="25px"> Lamp App
 
 ## LAMP App on Cloudron
 

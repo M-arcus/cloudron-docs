@@ -1,4 +1,4 @@
-# <img src="/img/gogs-logo.png" width="25px"> Gogs App
+# <img src="../img/gogs-logo.png" width="25px"> Gogs App
 
 ## Customizing Gogs
 

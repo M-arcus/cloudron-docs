@@ -1,4 +1,4 @@
-# <img src="/img/openvpn-logo.png" width="25px"> OpenVPN App
+# <img src="../img/openvpn-logo.png" width="25px"> OpenVPN App
 
 ## Desktop and Mobile Clients
 

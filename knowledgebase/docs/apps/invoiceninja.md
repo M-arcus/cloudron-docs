@@ -1,4 +1,4 @@
-# <img src="/img/invoiceninja-logo.png" width="25px"> Invoice Ninja App
+# <img src="../img/invoiceninja-logo.png" width="25px"> Invoice Ninja App
 
 ## Invoices
 

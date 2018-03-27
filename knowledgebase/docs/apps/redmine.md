@@ -1,4 +1,4 @@
-# <img src="/img/redmine-logo.png" width="25px"> Redmine App
+# <img src="../img/redmine-logo.png" width="25px"> Redmine App
 
 ## Installing plugins
 

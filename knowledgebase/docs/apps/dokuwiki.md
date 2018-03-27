@@ -1,4 +1,4 @@
-# <img src="/img/dokuwiki-logo.png" width="25px"> Dokuwiki App
+# <img src="../img/dokuwiki-logo.png" width="25px"> Dokuwiki App
 
 ## User management
 

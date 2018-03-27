@@ -1,4 +1,4 @@
-# <img src="/img/letschat-logo.png" width="25px"> Let's Chat App
+# <img src="../img/letschat-logo.png" width="25px"> Let's Chat App
 
 ## External user registration
 

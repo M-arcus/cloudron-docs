@@ -1,4 +1,4 @@
-# <img src="/img/verdaccio-logo.png" width="25px"> Verdaccio App
+# <img src="../img/verdaccio-logo.png" width="25px"> Verdaccio App
 
 ## Custom configuration
 

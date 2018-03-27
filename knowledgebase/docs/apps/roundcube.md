@@ -1,4 +1,4 @@
-# <img src="/img/roundcube-logo.png" width="25px"> Roundcube App
+# <img src="../img/roundcube-logo.png" width="25px"> Roundcube App
 
 ## Default Setup
 

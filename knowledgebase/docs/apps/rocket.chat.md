@@ -1,4 +1,4 @@
-# <img src="/img/apps/rocketchat-square.png" width="25px"> Rocket.Chat App
+# <img src="../img/apps/rocketchat-square.png" width="25px"> Rocket.Chat App
 
 ## Mobile Clients
 

@@ -1,4 +1,4 @@
-# <img src="/img/kanboard-logo.png" width="25px"> Kanboard App
+# <img src="../img/kanboard-logo.png" width="25px"> Kanboard App
 
 ## Installing plugins
 

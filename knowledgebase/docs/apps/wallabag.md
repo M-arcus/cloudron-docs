@@ -1,4 +1,4 @@
-# <img src="/img/wallabag-logo.png" width="25px"> Wallabag App
+# <img src="../img/wallabag-logo.png" width="25px"> Wallabag App
 
 ## Using the Browser Extensions
 

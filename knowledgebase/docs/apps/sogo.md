@@ -1,4 +1,4 @@
-# <img src="/img/sogo-logo.png" width="25px"> SOGo App
+# <img src="../img/sogo-logo.png" width="25px"> SOGo App
 
 ## Setting the timezone
 

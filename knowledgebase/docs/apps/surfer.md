@@ -1,4 +1,4 @@
-# <img src="/img/surfer-logo.png" width="25px"> Surfer App
+# <img src="../img/surfer-logo.png" width="25px"> Surfer App
 
 ## File management
 

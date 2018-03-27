@@ -1,4 +1,4 @@
-# <img src="/img/nodebb-logo.png" width="25px"> NodeBB App
+# <img src="../img/nodebb-logo.png" width="25px"> NodeBB App
 
 ## Installing plugins
 

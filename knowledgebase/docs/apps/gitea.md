@@ -1,4 +1,4 @@
-# <img src="/img/gitea-logo.png" width="25px"> Gitea App
+# <img src="../img/gitea-logo.png" width="25px"> Gitea App
 
 ## Customizing Gitea
 

@@ -1,4 +1,4 @@
-# <img src="/img/phabricator-logo.png" width="25px"> Phabricator App
+# <img src="../img/phabricator-logo.png" width="25px"> Phabricator App
 
 ## Completing the installation
 
