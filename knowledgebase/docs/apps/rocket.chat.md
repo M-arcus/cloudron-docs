@@ -1,4 +1,4 @@
-# <img src="../img/apps/rocketchat-square.png" width="25px"> Rocket.Chat App
+# <img src="/documentation/img/rocketchat-logo.png" width="25px"> Rocket.Chat App
 
 ## Mobile Clients
 
@@ -155,7 +155,7 @@ Rocket.Chat has a live chat feature that allows you to embed a chat widget into 
 * Allow the Rocket.Chat live chat widget to be embedded in your website. For this, configure Rocket.Chat through the Cloudron app [configure dialog](/documentation/apps/#re-configuring-an-app) to [allow embedding](https://cloudron.io/documentation/apps/#embedding-apps) into your website. This will protect the live chat widget from being used in unwanted websites.
 
 <br/>
-<center><img src="/img/app-embed-url.png" class="shadow"></center>
+<center><img src="/documentation/img/app-embed-url.png" class="shadow"></center>
 <br/>
 
 *As an example, we have configured it for a website at https://smartserver.io*

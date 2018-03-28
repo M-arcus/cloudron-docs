@@ -1,4 +1,4 @@
-# <img src="../img/openvpn-logo.png" width="25px"> OpenVPN App
+# <img src="/documentation/img/openvpn-logo.png" width="25px"> OpenVPN App
 
 ## Desktop and Mobile Clients
 
@@ -18,7 +18,7 @@ sudo apt-get install network-manager-openvpn-gnome
 * Download the .ovpn embedded certs config file from the OpenVPN app
 
 <center>
-<img src="/img/openvpn-config.png" class="shadow">
+<img src="/documentation/img/openvpn-config.png" class="shadow">
 </center>
 
 * Open Network Manager, `VPN Settings` -> `Import from file...`

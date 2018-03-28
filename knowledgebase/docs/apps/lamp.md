@@ -1,4 +1,4 @@
-# <img src="../img/lamp-logo.png" width="25px"> Lamp App
+# <img src="/documentation/img/lamp-logo.png" width="25px"> Lamp App
 
 ## LAMP App on Cloudron
 
@@ -23,7 +23,7 @@ The LAMP app can be installed from the [Cloudron App Store](https://cloudron.io/
 When installing the app, the SFTP port can be specified. SFTP can be disabled by unchecking the checkbox.
 
 <center>
-<img src="/img/lamp-install.png" class="shadow">
+<img src="/documentation/img/lamp-install.png" class="shadow">
 </center>
 
 ## Uploading LAMP app
@@ -54,7 +54,7 @@ The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-
 *   Upload it to the `public/` folder.
 
 <center>
-<img src="/img/lamp-filezilla.png" class="shadow">
+<img src="/documentation/img/lamp-filezilla.png" class="shadow">
 </center>
 
 ## Configuring MySQL
@@ -93,7 +93,7 @@ the following command:
 ```
 
 <center>
-<img src="/img/lamp-webterminal-mysql.png" class="shadow">
+<img src="/documentation/img/lamp-webterminal-mysql.png" class="shadow">
 </center>
 
 **IMPORTANT:** Once the installation is completed, be sure to switch the config file of the app to use
@@ -108,7 +108,7 @@ authentication.
 
 <br/>
 <center>
-<img src="/img/lamp-phpmyadmin.png" class="shadow" height="300px">
+<img src="/documentation/img/lamp-phpmyadmin.png" class="shadow" height="300px">
 </center>
 <br/>
 
@@ -118,7 +118,7 @@ dialog.
 
 <br/>
 <center>
-<img src="/img/lamp-disable-sftp.png" class="shadow" height="300px">
+<img src="/documentation/img/lamp-disable-sftp.png" class="shadow" height="300px">
 </center>
 <br/>
 
@@ -189,7 +189,7 @@ Upload the extracted directory to the SFTP root directory (`/app/data`) of the C
 (i.e one level above `public/`).
 
 <center>
-<img src="/img/lamp-upload-ioncube.png" class="shadow">
+<img src="/documentation/img/lamp-upload-ioncube.png" class="shadow">
 </center>
 
 ### Step 3: Enable extension

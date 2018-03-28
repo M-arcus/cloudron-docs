@@ -1,4 +1,4 @@
-# <img src="../img/rainloop-logo.png" width="25px"> Rainloop App
+# <img src="/documentation/img/rainloop-logo.png" width="25px"> Rainloop App
 
 ## Default Setup
 
@@ -34,7 +34,7 @@ A vacation message can be set in `Settings` -> `Filters` -> `Add a filter`. Choo
 `Vacation message` action.
 
 <center>
-<img src="/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
+<img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Forwarding all emails
@@ -43,7 +43,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 `Settings` -> `Filters` -> `Add a filter` -> `Forward to`
 
 <center>
-<img src="/img/forward-all-emails-rainloop.png" class="shadow" width="600px">
+<img src="/documentation/img/forward-all-emails-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Admin panel
