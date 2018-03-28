@@ -23,3 +23,13 @@ sudo apt-get install network-manager-openvpn-gnome
 
 * Open Network Manager, `VPN Settings` -> `Import from file...`
 
+## Privacy
+
+The OpenVPN app provides a tunnel to channel all the traffic from your
+devices via the Cloudron. Websites and services that you visit will
+not see the IP address of your devices but they *will* see the IP
+address and possibly the RDNS hostname of your Cloudron.
+
+You can check what sort of information can be gathered from your
+Cloudron's IP address using [https://ipleak.net/](ipleak.net).
+
