@@ -14,7 +14,7 @@ To enable SSH access to your server for the Cloudron support team, use the `Enab
 button in the `Support` view.
 
 <center>
-<img src="/documentation/img/remote-support.png" class="shadow">
+<img src="/documentation/img/remote-support.png" class="shadow" width="500px">
 </center>
 
 You can also add the following SSH keys manually. Depending on your setup, the keys below can be added
