@@ -1,4 +1,4 @@
-# <img src="../img/redash-logo.png" width="25px"> Redash App
+# <img src="/documentation/img/redash-logo.png" width="25px"> Redash App
 
 ## SSH tunnel
 

@@ -1,4 +1,4 @@
-# <img src="../img/openproject-logo.png" width="25px"> OpenProject App
+# <img src="/documentation/img/openproject-logo.png" width="25px"> OpenProject App
 
 ## User management
 

@@ -1,4 +1,4 @@
-# <img src="../img/githubpages-logo.png" width="25px"> GitHub Pages App
+# <img src="/documentation/img/githubpages-logo.png" width="25px"> GitHub Pages App
 
 ## Publishing pages
 

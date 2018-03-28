@@ -1,4 +1,4 @@
-# <img src="../img/syncthing-logo.png" width="25px"> Syncthing App
+# <img src="/documentation/img/syncthing-logo.png" width="25px"> Syncthing App
 
 ## GUI credentials
 

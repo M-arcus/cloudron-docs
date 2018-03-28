@@ -1,4 +1,4 @@
-# <img src="../img/radicale-logo.png" width="25px"> Radicale App
+# <img src="/documentation/img/radicale-logo.png" width="25px"> Radicale App
 
 ## Migration to version 2.0
 

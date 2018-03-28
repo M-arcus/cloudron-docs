@@ -1,4 +1,4 @@
-# <img src="../img/shaarli-logo.png" width="25px"> Shaarli App
+# <img src="/documentation/img/shaarli-logo.png" width="25px"> Shaarli App
 
 ## Browser Extensions
 

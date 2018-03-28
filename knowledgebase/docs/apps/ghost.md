@@ -1,4 +1,4 @@
-# <img src="../img/ghost-logo.png" width="25px"> Ghost App
+# <img src="/documentation/img/ghost-logo.png" width="25px"> Ghost App
 
 ## Structured data
 

@@ -1,4 +1,4 @@
-# <img src="../img/piwik-logo.png" width="25px"> Piwik App
+# <img src="/documentation/img/piwik-logo.png" width="25px"> Piwik App
 
 ## Installing plugins
 

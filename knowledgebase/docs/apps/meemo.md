@@ -1,4 +1,4 @@
-# <img src="../img/meemo-logo.png" width="25px"> Meemo App
+# <img src="/documentation/img/meemo-logo.png" width="25px"> Meemo App
 
 ## Chrome extension
 

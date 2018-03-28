@@ -1,4 +1,4 @@
-# <img src="../img/thelounge-logo.png" width="25px"> The Lounge App
+# <img src="/documentation/img/thelounge-logo.png" width="25px"> The Lounge App
 
 ## User management
 

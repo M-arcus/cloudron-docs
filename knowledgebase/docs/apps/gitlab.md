@@ -1,4 +1,4 @@
-# <img src="../img/gitlab-logo.png" width="25px"> GitLab App
+# <img src="/documentation/img/gitlab-logo.png" width="25px"> GitLab App
 
 ## Custom gitlab.yml
 

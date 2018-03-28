@@ -1,4 +1,4 @@
-# <img src="../img/minio-logo.png" width="25px"> Minio App
+# <img src="/documentation/img/minio-logo.png" width="25px"> Minio App
 
 ## Cloudron Backup
 

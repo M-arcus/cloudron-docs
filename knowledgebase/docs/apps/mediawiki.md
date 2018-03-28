@@ -1,4 +1,4 @@
-# <img src="../img/mediawiki-logo.png" width="25px"> MediaWiki App
+# <img src="/documentation/img/mediawiki-logo.png" width="25px"> MediaWiki App
 
 ## Access Control
 

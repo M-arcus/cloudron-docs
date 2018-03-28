@@ -1,4 +1,4 @@
-# <img src="../img/mailtrain-logo.png" width="25px"> Mailtrain App
+# <img src="/documentation/img/mailtrain-logo.png" width="25px"> Mailtrain App
 
 ## VERP handling
 

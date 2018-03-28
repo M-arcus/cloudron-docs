@@ -1,4 +1,4 @@
-# <img src="../img/lychee-logo.png" width="25px"> Lychee App
+# <img src="/documentation/img/lychee-logo.png" width="25px"> Lychee App
 
 ## User management
 

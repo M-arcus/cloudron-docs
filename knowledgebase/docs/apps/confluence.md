@@ -1,4 +1,4 @@
-# <img src="../img/confluence-logo.png" width="25px"> Confluence App
+# <img src="/documentation/img/confluence-logo.png" width="25px"> Confluence App
 
 ## Completing the installation
 

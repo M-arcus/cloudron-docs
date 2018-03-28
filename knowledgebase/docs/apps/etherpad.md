@@ -1,4 +1,4 @@
-# <img src="../img/etherpad-logo.png" width="25px"> Etherpad App
+# <img src="/documentation/img/etherpad-logo.png" width="25px"> Etherpad App
 
 ## Installing plugins
 

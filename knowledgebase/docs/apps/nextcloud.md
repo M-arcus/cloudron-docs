@@ -1,4 +1,4 @@
-# <img src="../img/nextcloud-logo.png" width="25px"> Nextcloud App
+# <img src="/documentation/img/nextcloud-logo.png" width="25px"> Nextcloud App
 
 ## Installing Nextcloud client on Ubuntu
 

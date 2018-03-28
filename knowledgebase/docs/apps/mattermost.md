@@ -1,4 +1,4 @@
-# <img src="../img/mattermost-logo.png" width="25px"> Mattermost App
+# <img src="/documentation/img/mattermost-logo.png" width="25px"> Mattermost App
 
 ## Command Line Tool
 

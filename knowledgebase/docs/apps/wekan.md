@@ -1,4 +1,4 @@
-# <img src="../img/wekan-logo.png" width="25px"> Wekan App
+# <img src="/documentation/img/wekan-logo.png" width="25px"> Wekan App
 
 ## API
 

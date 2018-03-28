@@ -1,4 +1,4 @@
-# <img src="../img/tinytinyrss-logo.png" width="25px"> Tiny Tiny RSS
+# <img src="/documentation/img/tinytinyrss-logo.png" width="25px"> Tiny Tiny RSS
 
 ## Installing Plugins
 
