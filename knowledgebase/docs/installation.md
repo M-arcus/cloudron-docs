@@ -24,7 +24,7 @@ chmod +x cloudron-setup
 Once installation is complete, navigate to `https://<IP>` and accept the self-signed certificate.
 
 <center>
-<img src="../img/setupdns.png" class="shadow" width="500px">
+<img src="/documentation/img/setupdns.png" class="shadow" width="500px">
 </center>
 
 Provide a domain like `smartserver.io`. Cloudron's admin interface will then be available at the `my.smartserver.io`
@@ -56,7 +56,7 @@ The browser address bar will show a green lock to indicate that the connection t
 Cloudron is now secure (It does this by automatically getting a certificate via Let's Encrypt).
 
 <center>
-<img src="../img/setup-admin2.png" class="shadow" width="500px">
+<img src="/documentation/img/setup-admin2.png" class="shadow" width="500px">
 </center>
 
 Enter the adminstrator username, email and password for the Cloudron.
@@ -76,7 +76,7 @@ you will be prompted to create a [cloudron.io](https://cloudron.io) account. Thi
 used to manage your subscription & billing.
 
 <center>
-<img src="../img/appstore-signup.png" class="shadow" width="500px">
+<img src="/documentation/img/appstore-signup.png" class="shadow" width="500px">
 </center>
 
 ## Next steps

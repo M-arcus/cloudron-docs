@@ -37,7 +37,7 @@ in the `Domains` page.
 <br/>
 
 <center>
-<img src="../img/cert-fallback.png" class="shadow" width="600px">
+<img src="/documentation/img/cert-fallback.png" class="shadow" width="600px">
 </center>
 
 

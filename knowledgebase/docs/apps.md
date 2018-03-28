@@ -6,7 +6,7 @@ Apps can be installed from the `App Store` menu item. Clicking on an app will di
 information about the app.
 
 <center>
-<img src="../img/app_info.png" class="shadow" width="500px">
+<img src="/documentation/img/app_info.png" class="shadow" width="500px">
 </center>
 
 <br/>
@@ -14,7 +14,7 @@ information about the app.
 Clicking the `Install` button will show an install dialog:
 
 <center>
-<img src="../img/app_install.png" class="shadow" width="500px">
+<img src="/documentation/img/app_install.png" class="shadow" width="500px">
 </center>
 
 <br/>
@@ -29,7 +29,7 @@ at `smartserver.io` in the picture above).
 Clicking on the pencil button will bring up the app's configure dialog:
 
 <center>
-<img src="../img/app_configure_button.png" class="shadow" width="250px">
+<img src="/documentation/img/app_configure_button.png" class="shadow" width="250px">
 </center>
 
 The configure dialog can be used for:
@@ -50,7 +50,7 @@ Changing the location field in the app's configure dialog will move the app to
 another domain or subdomain:
 
 <center>
-<img src="../img/app-configure.png" class="shadow" width="500px">
+<img src="/documentation/img/app-configure.png" class="shadow" width="500px">
 </center>
 
 !!! note "No data loss"
@@ -71,7 +71,7 @@ The memory limit can be set by adjusting the slider in the Configure dialog's
 `Advanced Setting` section.
 
 <center>
-<img src="../img/app-memory-slider.png" class="shadow" width="500px">
+<img src="/documentation/img/app-memory-slider.png" class="shadow" width="500px">
 </center>
 
 !!! note "Memory limit includes swap"
@@ -89,7 +89,7 @@ done within the application itself. For example, changing a user to become a
 `commenter` or `author` inside Wordpress has to be done within Wordpress.
 
 <center>
-<img src="../img/app-configure-group-acl.png" class="shadow" width="500px">
+<img src="/documentation/img/app-configure-group-acl.png" class="shadow" width="500px">
 </center>
 
 * `Allow all users from this Cloudron` - Any user in the Cloudron can access the app.
@@ -106,7 +106,7 @@ The robots.txt contents of an app can be set in the `Advanced settings` of the a
 By default, Cloudron does not setup a robots.txt for apps. When unset, the app is free to provide it's own robots.txt.
 
 <center>
-<img src="../img/app-robots-txt.png" class="shadow" width="500px">
+<img src="/documentation/img/app-robots-txt.png" class="shadow" width="500px">
 </center>
 
 In addition, the Cloudron admin page has a hardcoded robots.txt that disables indexing:
@@ -134,13 +134,13 @@ Note that Cloudron runs apps as containers with a read-only file system. Only `/
 The web terminal can be accessed by clicking the 'Terminal' icon.
 
 <center>
-<img src="../img/app-grid-icons.png" class="shadow" width="300px">
+<img src="/documentation/img/app-grid-icons.png" class="shadow" width="300px">
 </center>
 
 Clicking the icon will pop up a new window. The terminal is essentially a shell into the app's file system.
 
 <center>
-<img src="../img/terminal-exec2.png" class="shadow" width="500px">
+<img src="/documentation/img/terminal-exec2.png" class="shadow" width="500px">
 </center>
 
 ## Log viewer
@@ -148,13 +148,13 @@ Clicking the icon will pop up a new window. The terminal is essentially a shell 
 To view the logs of an app, click the logs button on the app grid:
 
 <center>
-<img src="../img/app-grid-icons-logs.png" class="shadow" width="300px">
+<img src="/documentation/img/app-grid-icons-logs.png" class="shadow" width="300px">
 </center>
 
 This will open up a popup dialog that display the logs:
 
 <center>
-<img src="../img/app-logs.png" class="shadow" width="500px">
+<img src="/documentation/img/app-logs.png" class="shadow" width="500px">
 </center>
 
 ## Embedding Apps
@@ -171,7 +171,7 @@ For example, to embed the live chat application hosted on `chat.domain.com` into
 in Chrome. You can safely ignore the `Invalid 'X-Frame-Options' header encountered` message in the browser console.
 
 <center>
-<img src="../img/app-embed-url.png" class="shadow" width="500px">
+<img src="/documentation/img/app-embed-url.png" class="shadow" width="500px">
 </center>
 
 ## Uninstall an app
@@ -179,7 +179,7 @@ in Chrome. You can safely ignore the `Invalid 'X-Frame-Options' header encounter
 An app can be uninstalled clicking the `Uninstall` button.
 
 <center>
-<img src="../img/app_uninstall_button.png" class="shadow">
+<img src="/documentation/img/app_uninstall_button.png" class="shadow">
 </center>
 
 Uninstalling an app immediately removes all data associated with the app from the Cloudron.
@@ -210,7 +210,7 @@ This also preserves any URI components like subpaths in the original request.
 
 The Graphs view shows an overview of the disk and memory usage on your Cloudron.
 
-<img src="../img/graphs.png" class="shadow">
+<img src="/documentation/img/graphs.png" class="shadow">
 
 The `Disk Usage` graph shows you how much disk space you have left. Note that the Cloudron will
 send the Cloudron admins an email notification when the disk is ~90% full.

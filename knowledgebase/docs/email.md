@@ -36,7 +36,7 @@ Features of this mail solution include:
 Email settings are located under the `Email` menu item.
 
 <center>
-<img src="../img/mail-settings.png" class="shadow" width="200px">
+<img src="/documentation/img/mail-settings.png" class="shadow" width="200px">
 </center>
 
 ## Enabling Email
@@ -45,7 +45,7 @@ By default, Cloudron's mail server only sends email on behalf of apps. To enable
 send and receive email, turn on the option under `Settings`.
 
 <center>
-<img src="../img/mail-enable.png" class="shadow" width="500px">
+<img src="/documentation/img/mail-enable.png" class="shadow" width="500px">
 </center>
 
 When using one of the programmatic [DNS backends](/documentation/domains/) like Route53,
@@ -61,7 +61,7 @@ Mailboxes can be enabled for Users and Groups on a per-domain level. To do so, s
 them in the Users view.
 
 <center>
-<img src="../img/mail-mailboxes.png" class="shadow" width="500px">
+<img src="/documentation/img/mail-mailboxes.png" class="shadow" width="500px">
 </center>
 
 ## Required ports for Cloudron Email
@@ -81,7 +81,7 @@ The following TCP ports must be opened in the firewall for Cloudron to receive e
 
 * Make sure that all the mail checks are green in the Email UI.
   <center>
-  <img src="../img/mail-checks.png" class="shadow" width="500px">
+  <img src="/documentation/img/mail-checks.png" class="shadow" width="500px">
   </center>
 
 * If you are unable to send mail, first thing to check is if your VPS provider lets you
@@ -167,7 +167,7 @@ button in the user listing. Note that aliases cannot conflict with existing user
 group names.
 
 <center>
-<img src="../img/email_alias.png" class="shadow" width="600px">
+<img src="/documentation/img/email_alias.png" class="shadow" width="600px">
 </center>
 
 !!! note "Authenticating with alias is not supported"
@@ -182,7 +182,7 @@ in the Email section. Note that if you do not select any mailbox (the default), 
 will send a bounce.
 
 <center>
-<img src="../img/catch-all-mailbox.png" width="500" class="shadow">
+<img src="/documentation/img/catch-all-mailbox.png" width="500" class="shadow">
 </center>
 
 ## Subaddresses and tags
@@ -198,7 +198,7 @@ This trick works for email aliases as well.
 Use the 'Send Test EMail' button in the SMTP status section to test relay of email from the Cloudron.
 
 <center>
-<img src="../img/test-email-button.png" class="shadow">
+<img src="/documentation/img/test-email-button.png" class="shadow">
 </center>
 
 
@@ -224,7 +224,7 @@ To setup a relay, enter the relay credentials in the Email section. Cloudron onl
 via the STARTTLS mechanism (usually port 587).
 
 <center>
-<img src="../img/email-relay.png" width=500 class="shadow">
+<img src="/documentation/img/email-relay.png" width=500 class="shadow">
 </center>
 
 ### Amazon SES
@@ -247,7 +247,7 @@ To setup Cloudron to relay via Amazon SES:
 * Setup the relay on the Cloudron under the Email section:
 
 <center>
-<img src="../img/email-relay-ses.png" width=500 class="shadow">
+<img src="/documentation/img/email-relay-ses.png" width=500 class="shadow">
 </center>
 
 * Use the [Send Test Email](#send-test-email) button to verify emails are sent.
@@ -257,7 +257,7 @@ To setup Cloudron to relay via Amazon SES:
    `Sending Statistics` page and looking for a note that looks like below:
 
 <center>
-<img src="../img/ses-sandbox.png" width=500 class="shadow">
+<img src="/documentation/img/ses-sandbox.png" width=500 class="shadow">
 </center>
 
 To remove sandbox, log a request to increase the sending limit to say 500 emails a day.
@@ -297,7 +297,7 @@ filters can be created using [Rainloop](/documentation/apps/rainloop/),
 Manage Sieve.
 
 <center>
-<img src="../img/forward-all-emails-rainloop.png" class="shadow" width="600px">
+<img src="/documentation/img/forward-all-emails-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Marking emails as spam
@@ -378,7 +378,7 @@ An out of office / vacation mail message can be setup using Sieve filters. When 
 Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filter` -> `Vacation message` action.
 
 <center>
-<img src="../img/email-vacation-message-rainloop.png" class="shadow" width="600px">
+<img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
 ## Custom Domain Authentication
