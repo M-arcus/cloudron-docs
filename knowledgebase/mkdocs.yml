@@ -65,6 +65,7 @@ pages:
     - 'Wordpress': apps/wordpress.md
   - 'Managed Hosting': 'managed-hosting.md'
   - 'Billing': 'billing.md'
+  - 'Support': 'support.md'
 extra_css:
   - 'stylesheets/extra.css'
 theme:
