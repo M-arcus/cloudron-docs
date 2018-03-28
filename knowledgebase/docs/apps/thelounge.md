@@ -8,7 +8,7 @@ admin page.
 When installed without Cloudron SSO enabled, new users must be added using
 the Lounge CLI tools.
 
-* Open a [Web terminal](/documentation/apps/#web-terminal) for the app.
+* Open a [Web terminal](apps/#web-terminal) for the app.
 * Use the [lounge CLI](https://thelounge.github.io/docs/server/users.html) command
   to add a user:
 
@@ -39,7 +39,7 @@ root@3543a0255d97:/home/cloudron# lounge remove girish
 installed using the lounge CLI tool.
 
 * First, look for a theme at [npm](https://www.npmjs.com/search?q=keywords%3Athelounge-theme)
-* Open a [Web terminal](/documentation/apps/#web-terminal) for the app.
+* Open a [Web terminal](apps/#web-terminal) for the app.
     * Run command `lounge install thelounge-theme-custom`
 * Restart the app
 * Select theme in options

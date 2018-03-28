@@ -5,7 +5,7 @@
 To install plugins, simply extract them to `/app/data/plugins` and restart
 the app.
 
-The [web terminal](/documentation/apps/#web-terminal) can be used to upload
+The [web terminal](apps/#web-terminal) can be used to upload
 and extract plugins.
 
 You can see list of plugins [here](https://git.tt-rss.org/git/tt-rss/wiki/Plugins)
@@ -15,7 +15,7 @@ You can see list of plugins [here](https://git.tt-rss.org/git/tt-rss/wiki/Plugin
 To install themes, simply extract them to `/app/data/plugins` and restart
 the app.
 
-The [web terminal](/documentation/apps/#web-terminal) can be used to upload
+The [web terminal](apps/#web-terminal) can be used to upload
 and extract themes.
 
 Some suggested [themes](https://git.tt-rss.org/git/tt-rss/wiki/Themes):

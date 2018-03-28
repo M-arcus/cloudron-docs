@@ -29,18 +29,18 @@ Once installation is complete, navigate to `https://<IP>` and accept the self-si
 
 Provide a domain like `smartserver.io`. Cloudron's admin interface will then be available at the `my.smartserver.io`
 and apps can be installed into subdomains like `blog.smartserver.io`, `git.smartserver.io` and so on. More domains
-can be added after installation is complete in the [Domains](/documentation/domains/) view.
+can be added after installation is complete in the [Domains](domains/) view.
 
 It is safe to use a domain name that is already in use, just make sure that the `my` subdomain is available.
 Cloudron will never overwrite existing DNS records.
 
 Next, select the DNS service in which the domain in hosted:
 
-*   [AWS Route53](/documentation/domains/#route-53-dns)
-*   [Cloudflare](/documentation/domains/#cloudflare-dns)
-*   [Digital Ocean](/documentation/domains/#cloudflare-dns)
-*   [Google Cloud DNS](/documentation/domain/#google-cloud-dns)
-*   [Wildcard](/documentation/domains/#wildcard-dns)
+*   [AWS Route53](domains/#route-53-dns)
+*   [Cloudflare](domains/#cloudflare-dns)
+*   [Digital Ocean](domains/#cloudflare-dns)
+*   [Google Cloud DNS](domain/#google-cloud-dns)
+*   [Wildcard](domains/#wildcard-dns)
 
 When using one of the programmable backends, Cloudron will automatically make changes to DNS
 as and when required.
@@ -82,11 +82,11 @@ used to manage your subscription & billing.
 ## Next steps
 
 Security is a core feature of the Cloudron and the default installation is already setup
-to follow [best practices](/documentation/security/).
+to follow [best practices](security/).
 
 To further harden security, we recommend the following:
 
-* [Secure SSH access](/documentation/security/#securing-ssh-access) to the server
+* [Secure SSH access](security/#securing-ssh-access) to the server
 
 ## Support
 

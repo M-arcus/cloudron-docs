@@ -466,12 +466,12 @@ after a server resize.
 
 To migrate to a different server or move Cloudron to a different server provider:
 
-* Take a [complete backup](/documentation/backups/#making-a-complete-backup) of the existing
+* Take a [complete backup](backups/#making-a-complete-backup) of the existing
   Cloudron. Click the `Backup now` button in the `Settings` page and make a note of the backup id.
 
 <center>
 <img src="/documentation/img/backup-done.png" class="shadow">
 </center>
 
-* Follow the steps to [restore from the latest backup](/documentation/backups/#restoring-cloudron-from-a-backup)
+* Follow the steps to [restore from the latest backup](backups/#restoring-cloudron-from-a-backup)
   on the new server.

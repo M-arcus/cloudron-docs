@@ -152,7 +152,7 @@ After the integration is setup, the Webhook URL and Secret Token is generated an
 
 Rocket.Chat has a live chat feature that allows you to embed a chat widget into your website.
 
-* Allow the Rocket.Chat live chat widget to be embedded in your website. For this, configure Rocket.Chat through the Cloudron app [configure dialog](/documentation/apps/#re-configuring-an-app) to [allow embedding](https://cloudron.io/documentation/apps/#embedding-apps) into your website. This will protect the live chat widget from being used in unwanted websites.
+* Allow the Rocket.Chat live chat widget to be embedded in your website. For this, configure Rocket.Chat through the Cloudron app [configure dialog](apps/#re-configuring-an-app) to [allow embedding](https://cloudron.io/documentation/apps/#embedding-apps) into your website. This will protect the live chat widget from being used in unwanted websites.
 
 <br/>
 <center><img src="/documentation/img/app-embed-url.png" class="shadow"></center>

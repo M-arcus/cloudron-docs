@@ -29,7 +29,7 @@ Features of this mail solution include:
 * Let's Encrypt integration for mail endpoints
 * Domains and IP addresses blacklisting
 * [REST API](../developer/api/) to add users and groups
-* [Secure](/documentation/security/#email-security) out of the box
+* [Secure](security/#email-security) out of the box
 
 ## Email Settings
 
@@ -48,7 +48,7 @@ send and receive email, turn on the option under `Settings`.
 <img src="/documentation/img/mail-enable.png" class="shadow" width="500px">
 </center>
 
-When using one of the programmatic [DNS backends](/documentation/domains/) like Route53,
+When using one of the programmatic [DNS backends](domains/) like Route53,
 DigitalOcean or Route53, the Cloudron will automatically update the `MX`, `SPF`, `DKIM`, `DMARC` DNS records.
 
 !!! warning "User & group mailboxes are not automatically enabled"
@@ -98,7 +98,7 @@ The following TCP ports must be opened in the firewall for Cloudron to receive e
 
 * If you are unable to receive mail, check if the security group allows inbound port 25.
 
-* Setting up [PTR record](/documentation/email/#setting-rdns-ptr-record) is crucial for mail
+* Setting up [PTR record](email/#setting-rdns-ptr-record) is crucial for mail
   to be delivered reliably to other mail servers.
 
 * Check if your IP is listed in any DNSBL list [here](http://multirbl.valli.org/) and [here](http://www.blk.mx).
@@ -292,8 +292,8 @@ to `group@<domain>` and the mail will be sent to each user who is part of the gr
 ## Forward all emails to an external address
 
 To forward some or all emails to an external address, create a Sieve filter. Sieve
-filters can be created using [Rainloop](/documentation/apps/rainloop/),
-[Roundcube](/documentation/apps/roundcube/) or any other client that supports
+filters can be created using [Rainloop](apps/rainloop/),
+[Roundcube](apps/roundcube/) or any other client that supports
 Manage Sieve.
 
 <center>
@@ -362,7 +362,7 @@ of an app to be just `chat`, use the following command:
 mysql -uroot -ppassword -e "UPDATE box.mailboxes SET name='chat' WHERE name='chat.app' AND domain='domain.com'";
 ```
 
-After the command above is executed, [re-configure](/documentation/apps/#re-configuring-an-app)
+After the command above is executed, [re-configure](apps/#re-configuring-an-app)
 the app and clicking `Save` without making any changes.
 
 ## Disabling FROM address validation

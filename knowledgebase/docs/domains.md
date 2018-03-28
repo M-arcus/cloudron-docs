@@ -4,7 +4,7 @@
 
 The `Domains` view can be used to add a domain for use by the Cloudron. Once added,
 apps can be installed as subdomains of the added domain. The
-[Cloudron Email Server](/documentation/email/) can also be enabled on a per-domain basis.
+[Cloudron Email Server](email/) can also be enabled on a per-domain basis.
 
 <center>
 <img src="../img/domains.png" class="shadow" width="600px">
@@ -13,11 +13,11 @@ apps can be installed as subdomains of the added domain. The
 To add a domain, one must select from one of the following DNS services in which
 the domain is hosted:
 
-*   [AWS Route53](/documentation/domains/#route-53-dns)
-*   [Cloudflare](/documentation/domains/#cloudflare-dns)
-*   [Digital Ocean](/documentation/domains/#cloudflare-dns)
-*   [Google Cloud DNS](/documentation/domain/#google-cloud-dns)
-*   [Wildcard](/documentation/domains/#wildcard-dns)
+*   [AWS Route53](domains/#route-53-dns)
+*   [Cloudflare](domains/#cloudflare-dns)
+*   [Digital Ocean](domains/#cloudflare-dns)
+*   [Google Cloud DNS](domain/#google-cloud-dns)
+*   [Wildcard](domains/#wildcard-dns)
 
 The idea is that (when using one of the programmable backends) Cloudron will automatically make
 changes to DNS as and when required.
@@ -39,7 +39,7 @@ During installation, Cloudron makes the following changes to DNS:
 
 *   Modifies the SPF record to permit `my` subdomain (required for sending emails)
 
-When [email](/documentation/email/) is enabled, Cloudron makes the following changes to DNS:
+When [email](email/) is enabled, Cloudron makes the following changes to DNS:
 
 *   Sets the `MX` record to the `my` subdomain
 *   Sets the `DMARC` policy to reject all emails not originating from the Cloudron for this domain.
@@ -170,7 +170,7 @@ then they can be easily recreated or resetup by the Cloudron if one of the autom
 
 ### Recreating App DNS Record
 
-For apps, simply [reconfigure](/documentation/apps/#re-configuring-an-app) the app without changing any of the settings. This will ensure the DNS records
+For apps, simply [reconfigure](apps/#re-configuring-an-app) the app without changing any of the settings. This will ensure the DNS records
 are setup correctly and thus will recreate them. In case they exist but are wrong, they have to be manually deleted first.
 
 ### Recreating Email DNS Records

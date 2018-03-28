@@ -2,7 +2,7 @@
 
 ## Installing plugins
 
-To install plugins, use the [Web terminal](/documentation/apps/#web-terminal).
+To install plugins, use the [Web terminal](apps/#web-terminal).
 
 ```
     cd /app/data

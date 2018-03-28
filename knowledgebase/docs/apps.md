@@ -197,7 +197,7 @@ For example, to redirect `www` to the bare domain:
 
 * Install [LAMP](https://cloudron.io/store/lamp.cloudronapp.html) on the `www` subdomain.
 
-* Use the [Web terminal](/documentation/apps/#web-terminal) to get access to the app's file system.
+* Use the [Web terminal](apps/#web-terminal) to get access to the app's file system.
   Create a `/app/data/public/.htaccess` file:
 
 ```

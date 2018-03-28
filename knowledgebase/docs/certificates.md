@@ -15,7 +15,7 @@ means that you can install atmost 20 apps in a week across all your Cloudron ins
 
 We recommend purchasing a wildcard certificate if you hit those limits. [GarrisonHost](http://www.garrisonhost.com/)
 provides them for 45 USD. Once purchased, it can be set as the fallback certificate in the
-[Certificate UI](/documentation/certificates/#setting-fallback-wildcard-certificate). Let's Encrypt
+[Certificate UI](certificates/#setting-fallback-wildcard-certificate). Let's Encrypt
 recently [announced](https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html)
 that they will start issuing wildcard certificates from Jan 2018, so this is expected to be a temporary
 workaround.
@@ -44,7 +44,7 @@ in the `Domains` page.
 ## Manually renewing Let's Encrypt certificate
 
 To manually trigger re-installation or renewal of Let's encrypt certificate, open the
-app's [configure dialog](/documentation/apps/#re-configuring-an-app) and `Save` without
+app's [configure dialog](apps/#re-configuring-an-app) and `Save` without
 making any changes.
 
 ## Revokation of Let's Encrypt Certificate
@@ -80,7 +80,7 @@ Let's Encrypt.
   for issuing certificates. Please check the email id in the Account page.
 
 * Let's Encrypt requires incoming port 80 to be [accepted from all IPs](https://community.letsencrypt.org/t/ip-addresses-le-is-validating-from-to-build-firewall-rule/5410/5). Note that Cloudron enforces
-  port 443/HTTPS [for all communication](/documentation/security/#ssl-security) and
+  port 443/HTTPS [for all communication](security/#ssl-security) and
   any request on port 80 is redirected to HTTPS. For this reason, it is safe to keep port 80 completely open.
   Port 433/HTTPS can be restricted to specific IPs safely.
 

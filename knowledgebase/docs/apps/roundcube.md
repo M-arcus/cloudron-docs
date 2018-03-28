@@ -34,7 +34,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 
 [Plugins](https://plugins.roundcube.net/explore/) can be installed as follows:
 
-* Extract the plugin using the [Web terminal](/documentation/apps/#web-terminal) into
+* Extract the plugin using the [Web terminal](apps/#web-terminal) into
   `/app/data/plugins`.
 
 * Change the ownership of the extracted plugin to `www-data`.

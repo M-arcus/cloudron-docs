@@ -11,7 +11,7 @@ Managed Cloudrons run on [DigitalOcean](https://digitalocean.com) and use
 ## Custom domain
 
 Managed Cloudrons are created on a subdomain of `cloudron.me`. One or more custom
-domains can be setup using the [domains](/documentation/domains/) view.
+domains can be setup using the [domains](domains/) view.
 
 ## Backups
 

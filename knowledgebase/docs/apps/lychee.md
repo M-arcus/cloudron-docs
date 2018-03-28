@@ -5,7 +5,7 @@
 Lychee is a single user app.
 
 While lychee has a UI to change the password, there is no UI to reset the password.
-If you forget the password, reset the password of the single user, use the [Web terminal](/documentation/apps/#web-terminal)
+If you forget the password, reset the password of the single user, use the [Web terminal](apps/#web-terminal)
 to delete the `lychee_settings` table. Lychee will regenerate it and ask you to enter a
 new username and password.
 

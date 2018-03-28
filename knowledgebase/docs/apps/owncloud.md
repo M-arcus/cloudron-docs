@@ -27,7 +27,7 @@ sudo apt-get install owncloud-client
 
 The `occ` tool can be used for ownCloud [administrative tasks](https://doc.owncloud.org/server/9.0/admin_manual/configuration_server/occ_command.html#using-the-occ-command).
 
-The occ command can be run using the [Web terminal](/documentation/apps/#web-terminal). For example, to list the users:
+The occ command can be run using the [Web terminal](apps/#web-terminal). For example, to list the users:
 
 ```
     sudo -u www-data php -f /app/code/occ user:list
@@ -41,7 +41,7 @@ new files.
 
 To configure, how items are permanently deleted, configure the [trashbin_retention_obligation](https://doc.owncloud.com/server/9.1/admin_manual/configuration_server/config_sample_php_parameters.html?highlight=trashbin_retention_obligation#deleted-items-trash-bin) parameter.
 
-The parameter can be edited using the [Web terminal](/documentation/apps/#web-terminal) and editing the file
+The parameter can be edited using the [Web terminal](apps/#web-terminal) and editing the file
 `/app/data/config/config.php`.
 
 ## Max upload size
@@ -61,7 +61,7 @@ space in the default data partition), there are two options:
 * Configure ownCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc.
 
 * Configure Cloudron to store all of ownCloud's data in the external block storage. To achieve this, follow the
-  [guide](/documentation/server/#moving-a-single-apps-data-directory-to-another-location) for
+  [guide](server/#moving-a-single-apps-data-directory-to-another-location) for
   moving a single app's data directory to another location.
 
 Moving ownCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses

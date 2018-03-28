@@ -5,7 +5,7 @@
 To install plugins in redmine, simply extract them to `/app/data/plugins`
 and run the db migration.
 
-* Open a [web terminal](/documentation/apps/#web-terminal)
+* Open a [web terminal](apps/#web-terminal)
 for the app.
 * Upload the plugin .zip (if any) to `/tmp` using the upload button
 and extract the plugin to `/app/data/plugins`

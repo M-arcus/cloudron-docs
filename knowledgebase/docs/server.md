@@ -22,7 +22,7 @@ The other important locations on the server are:
 
 ## Using overlay2 backend for Docker
 
-Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
+Please make sure you have a [complete backup](backups/#making-a-complete-backup) before
 following the procedure below.
 
 Starting [Cloudron 1.5](https://cloudron.io/blog/2017-08-16-cloudron-1.5.0.html), Cloudron uses the overlay2
@@ -119,7 +119,7 @@ systemctl start docker
 
 ## Moving a single app's data directory to another location
 
-Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
+Please make sure you have a [complete backup](backups/#making-a-complete-backup) before
 following the procedure below.
 
 Apps store their data under `/home/yellowtent/appsdata`. Each subdirectory is the app id. To move
@@ -155,7 +155,7 @@ cf9ae0ad5808
 
 ## Move the data directory to another location
 
-Please make sure you have a [complete backup](/documentation/backups/#making-a-complete-backup) before
+Please make sure you have a [complete backup](backups/#making-a-complete-backup) before
 following the procedure below.
 
 Apps store their data under `/home/yellowtent/appsdata`. Cloudron itself stores it's data (users, groups, certs, mails etc) 

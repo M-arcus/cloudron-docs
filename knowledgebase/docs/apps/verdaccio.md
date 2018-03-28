@@ -3,7 +3,7 @@
 ## Custom configuration
 
 You can add custom verdaccio configuration using the
-[Web terminal](/documentation/apps/#web-terminal):
+[Web terminal](apps/#web-terminal):
 
 * Add any custom configuration in `/app/data/config.yaml`.
 * Restart the app

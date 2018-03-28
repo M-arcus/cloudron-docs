@@ -39,7 +39,7 @@ an invite to sign up. Once signed up, they can access the apps they have been gi
 
 To remove a user, simply remove them from the list. Note that the removed user cannot access any app anymore.
 
-When Cloudron email is enabled, each user also get's a [mailbox](/documentation/email/#how-cloudron-email-works)
+When Cloudron email is enabled, each user also get's a [mailbox](email/#how-cloudron-email-works)
 with their username.
 
 ## Groups
@@ -47,7 +47,7 @@ with their username.
 Groups provide a convenient way to group users. It's purpose is two-fold:
 
 * You can assign one or more groups to apps to restrict who can access for an app.
-* When Cloudron Email is enabled, each group is a [mailing list](/documentation/email/#creating-a-forwarding-mailbox)
+* When Cloudron Email is enabled, each group is a [mailing list](email/#creating-a-forwarding-mailbox)
   constituting of it's members.
 
 You can create a group by using the `Groups` menu item.
@@ -80,7 +80,7 @@ the user and check the `Make this user a Cloudron admin` checkbox.
 
 The password reset mechanism relies on email delivery working reliably. Users can reset their own passwords.
 
-In the event that [email delivery is not working](/documentation/email/#debugging-mail-delivery), an administrator
+In the event that [email delivery is not working](email/#debugging-mail-delivery), an administrator
 can generate a new password reset link for another user by clicking on the 'Send invitation email' button.
 
 <center>
@@ -99,7 +99,7 @@ reason, the link can be sent to the user by some other means.
 The password reset mechanism relies on email delivery working reliably. Admins can reset their own passwords
 by navigating to `https://my.domain.com/api/v1/session/password/resetRequest.html`.
 
-In the event that [email delivery is not working](/documentation/email/#debugging-mail-delivery), the reset token
+In the event that [email delivery is not working](email/#debugging-mail-delivery), the reset token
 can be determined by SSHing into the server:
 
 ```

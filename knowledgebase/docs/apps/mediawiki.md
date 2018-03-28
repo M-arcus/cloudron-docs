@@ -13,7 +13,7 @@ registered wiki account.
 
 ### Changing permissions
 
-Use the [Web terminal](/documentation/apps/#web-terminal) to edit the values in
+Use the [Web terminal](apps/#web-terminal) to edit the values in
 `/app/data/AccessControl.php`.
 
 Here are some commonly requested settings:
@@ -49,7 +49,7 @@ Sysops can perform a number of maintanence operations by vising `/wiki/Special:S
 
 ### Setting a custom icon
 
-To set a custom icon, use the [Web terminal](/documentation/apps/#web-terminal):
+To set a custom icon, use the [Web terminal](apps/#web-terminal):
 
 * Upload a file to '/tmp'
 * In the web terminal, move the uploaded file to `/app/data/images/wiki.png`.
