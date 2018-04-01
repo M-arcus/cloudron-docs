@@ -1305,6 +1305,10 @@ DEL `/api/v1/mail/:domain/mailboxes/:userId`
 
 GET `/api/v1/mail/:domain/mailboxes`
 
+### List aliases
+
+GET `/api/v1/mail/:domain/aliases`
+
 ### Get aliases
 
 GET `/api/v1/mail/:domain/aliases/:userId`
