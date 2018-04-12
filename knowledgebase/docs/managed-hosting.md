@@ -62,5 +62,6 @@ Upon cancellation, all data and backups of a managed Cloudron are deleted in 30 
 ## Downloading backups
 
 You can download all data and configuration whenever you want. Just drop us a note at
-support@cloudron.io and we will provide you a link to download your backups.
+<a href="mailto:support@cloudron.io">support@cloudron.io</a> and we will provide you
+a link to download your backups.
 
