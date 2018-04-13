@@ -331,6 +331,17 @@ Cloudron 1.9 introduced a UI to restore Cloudron. To restore from a backup:
     <img src="/documentation/img/cloudron-restore.png" class="shadow" width="500px">
     </center>
 
+    !!! warning
+        When using the filesystem backend, ensure the backups are owned by the `yellowtent` user.
+        Also, ensure that the backups are in the same file system location as the old Cloudron.
+
+```
+        root@intranet:~# ls -l /var/backups/
+        total 8
+        drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210206-153
+        drwxr-xr-x 2 yellowtent yellowtent 4096 Sep 25 21:02 2017-09-25-210210-192
+```
+
 * Cloudron will download the backup and start restoring:
 
     <center>
