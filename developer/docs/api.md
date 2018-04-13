@@ -1223,7 +1223,7 @@ Configuring a catch-all address can help avoid losing emails due to misspelling.
 Request:
 ```
 {
-    "address": [ <string> ] // array of mailbox names
+    "addresses": [ <string> ] // array of mailbox names
 }
 ```
 
