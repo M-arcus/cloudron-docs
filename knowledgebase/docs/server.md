@@ -295,6 +295,22 @@ systemctl restart box
 
 The above command can be run to get new certificates for the dashboard.
 
+## Impersonate a user
+
+One can create a file named `/tmp/cloudron_ghost.json` which contains an username
+and a fake password like:
+
+```
+{"girish":"secret123"}
+```
+
+With such a file in place, you can login to the Webadmin UI using the above credentials
+(the user has to already exist). This helps you debug and also look into how the UI might
+look from that user's point of view.
+
+This file is intentionally located in `/tmp` for the off chance
+that the system admin forgets about it (so it will get cleaned up on next reboot atleast).
+
 ## Docker errors
 
 ### Devicemapper issues
