@@ -168,15 +168,23 @@ Additional files created by `init` are:
 
 We now have all the necessary files in place to build and deploy the app to the Cloudron.
 
-### Building
+Cloudron packages can be built using one of the two ways:
+
+* [Build Service](#build-service)
+* [Private Build](#private-build)
+
+### Build Service
 
 Building, pushing and pulling docker images can be very bandwidth and CPU intensive. To alleviate this
 problem, apps are built using the `build service` which uses `cloudron.io` account credentials.
 
-**Warning**: As of this writing, the build service uses the public Docker registry and the images that are built
-can be downloaded by anyone. This means that your source code will be viewable by others.
+!!! warning "Public Docker Registry"
+    As of this writing, the build service uses the public Docker registry and the images that are built
+    can be downloaded by anyone. This means that your source code will be viewable by others. If you are
+    building closed source software, we recommend using [private builds](#private-build) instead.
 
 Initiate a build using ```cloudron build```:
+
 ```
 $ cloudron build
 Building io.cloudron.tutorial@0.0.1
@@ -213,8 +221,6 @@ Build succeeded
 Success
 ```
 
-### Installing
-
 Now that we have built the image, we can install our latest build on the Cloudron
 using the following command:
 
@@ -223,6 +229,60 @@ $ cloudron install
 Using cloudron craft.selfhost.io
 Using build 76cebfdd-7822-4f3d-af17-b3eb393ae604 from 1 hour ago
 Location: tutorial                         # This is the location into which the application installs
+App is being installed with id: 4dedd3bb-4bae-41ef-9f32-7f938995f85e
+
+ => Waiting to start installation
+ => Registering subdomain .
+ => Verifying manifest .
+ => Downloading image ..............
+ => Creating volume .
+ => Creating container
+ => Setting up collectd profile ................
+ => Waiting for DNS propagation ...
+
+App is installed.
+```
+
+Open the app in your default browser:
+```
+cloudron open
+```
+
+You should see `Hello World`.
+
+### Private Build
+
+Cloudron apps can be built without using the [build service](#build-service)
+using a local installation of Docker.
+
+```
+$ docker build -t girish/hello-world:0.1
+```
+
+The image can then be pushed to any Docker container registry:
+
+```
+$ docker push girish/hello-world:0.1
+```
+
+When using the public Docker Hub, Cloudron already has access to the pushed image and
+no special action is required. However, when using a private Docker registry like [Quay](https://quay.io), Amazon ECR,
+the Cloudron needs to be given access to the image. For this, we must login
+using the private docker registry credentials by SSHing into the Cloudron server:
+
+```
+root@my:~# su -c 'docker login quay.io' yellowtent
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: girish
+Password:
+Login Succeeded
+```
+
+The app can then be installed on the Cloudron using the following command:
+
+```
+$ cloudron install --image girish/hello-world:0.1
+Location (subdomain): hello
 App is being installed with id: 4dedd3bb-4bae-41ef-9f32-7f938995f85e
 
  => Waiting to start installation
