@@ -7,6 +7,6 @@ managing users.
 
 ## Webbooks
 
-When a webhook is activated, Wkean sends the related information within the POST request body.
-See [Webook-data](https://github.com/wekan/wekan/wiki/Webhook-data) for details.
+When a webhook is activated, Wekan sends the related information within the POST request body.
+See [Webhook-data](https://github.com/wekan/wekan/wiki/Webhook-data) for details.
 

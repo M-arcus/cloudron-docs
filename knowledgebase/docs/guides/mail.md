@@ -1,3 +1,5 @@
+https://imapsync.lamiral.info/dist/
+
 https://github.com/imapsync/imapsync/blob/master/FAQ.d/FAQ.Gmail.txt
 
 [INBOX]
