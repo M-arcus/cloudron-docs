@@ -20,6 +20,7 @@ pages:
   - 'Apps':
     - 'Confluence': apps/confluence.md
     - 'Dokuwiki': apps/dokuwiki.md
+    - 'EspoCRM': apps/espocrm.md
     - 'Etherpad': apps/etherpad.md
     - 'Ghost': apps/ghost.md
     - 'Gitea': apps/gitea.md
