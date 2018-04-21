@@ -17,6 +17,8 @@ button in the `Support` view.
 <img src="/documentation/img/remote-support.png" class="shadow" width="500px">
 </center>
 
+## SSH Keys
+
 You can also add the following SSH keys manually. Depending on your setup, the keys below can be added
 to one of the following files: `/root/.ssh/authorized_keys` OR `/home/ubuntu/.ssh/authorized_keys`.
 
