@@ -1,5 +1,20 @@
 # User management
 
+## User profile
+
+A user in the Cloudron has the following fields as part of their profile:
+
+* `username` - The username cannot be changed. To change the username, delete the old
+  username and create a new one instead.
+
+* `Display name` - This contains the first name and last name of the user.
+
+* `Primary email` - This is the email that is provided to apps. Apps may send notifications
+  to the user to this email address. This can be set to an email address hosted on the Cloudron.
+
+* `Password recover email` - This is the email to which Cloudron password resets are sent. This
+  should be set to an email address that is not hosted on the Cloudron.
+
 ## Single Sign-On
 
 Single Sign-on (SSO) is a feature of Cloudron where users can use the same credentials
