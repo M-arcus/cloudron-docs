@@ -229,12 +229,18 @@ follow the steps below to repair the Cloudron:
 
 ### Unbound
 
-Check the status of unbound using:
+Cloudron uses an internal DNS server called `unbound`. This server [stops working](https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=547)
+if it is unable to save the [trust anchor](https://www.dnssec-tools.org/wiki/index.php?title=Trust_Anchor) file. To get it
+running again, one has to re-download the root key and restart the unbound service.
+
+First, check the status of unbound using:
+
 ```
 systemctl status unbound
 ```
 
-It must say `active (running)`. If not, run the following command:
+It must say `active (running)`. If not, run the following commands:
+
 ```
 sudo unbound-anchor -a /var/lib/unbound/root.key
 systemctl restart unbound
