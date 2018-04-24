@@ -39,5 +39,40 @@ To forward all emails to an external mail, setup a Sieve filter in
 
 * Change the ownership of the extracted plugin to `www-data`.
 
-* Add the plugin to `$config['plugins']` in `/app/data/customconfig.php`.
+* Add the plugin to `$config['plugins']` in `/app/data/customconfig.php`:
+```
+    array_push($config['plugins'], 'myplugin');
+```
+
+### Enabling PGP support
+
+The Enigma plugin can be used to enable PGP support. The Enigma plugin is part of the
+roundcube code and no installation is required. To enable the plugin:
+
+* Open a [Web terminal](apps/#web-terminal)
+
+* Add the following lines to `/app/data/customconfig.php`:
+```
+    array_push($config['plugins'], 'enigma');
+    $config['enigma_pgp_homedir'] = '/app/data/enigma';
+```
+
+* Create the directory where enigma will save the PGP keys on the server:
+```
+    mkdir /app/data/enigma
+    chown www-data:www-data /app/data/enigma
+```
+* New PGP keys can be created or existing ones can be imported in `Settings` -> `PGP Keys`
+
+<center>
+<img src="/documentation/img/roundcube-pgp-settings.png" class="shadow" width="600px">
+</center>
+
+
+* When composing new mail, you will see an Encryption icon in the tool bar.
+
+<center>
+<img src="/documentation/img/roundcube-encryption-icon.png" class="shadow" width="600px">
+</center>
+
 
