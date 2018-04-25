@@ -67,3 +67,21 @@ space in the default data partition), there are two options:
 Moving ownCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
 this new disk.
 
+## Fixing a broken install
+
+The [ownCloud Marketplace](https://marketplace.owncloud.com/) has a wide variety of apps that can be installed on
+top of ownCloud. ownCloud has no native sandboxing mechanism for plugins - if a plugin fails, it will bring
+down the whole installation. Plugins might also break an installation after a ownCloud upgrade. For this reason,
+we encourage carefully reviewing apps before using them.
+
+To fix a broken installation, open a [Web terminal](apps/#web-terminal) and repair the app. Then run the following
+commands:
+
+```
+sudo -u www-data php -f /app/code/occ app:list            # this lists the apps
+sudo -u www-data php -f /app/code/occ app:disable <app>   # use this to disable the faulty app
+sudo -u www-data php /app/code/occ maintenance:mode --off
+```
+
+After running the commands, end the repair for the app to come up.
+

@@ -88,3 +88,21 @@ To rescan external storage, use the `--path` parameter.
 sudo -u www-data php -f /app/code/occ files:scan <username> --path=/<username>/files/externaltest
 ```
 
+## Fixing a broken install
+
+The [NextCloud App Store](https://apps.nextcloud.com/) has a wide variety of apps that can be installed on
+top of NextCloud. NextCloud has no native sandboxing mechanism for plugins - if a plugin fails, it will bring
+down the whole installation. Plugins might also break an installation after a NextCloud upgrade. For this reason,
+we encourage carefully reviewing apps before using them.
+
+To fix a broken installation, open a [Web terminal](apps/#web-terminal) and repair the app. Then run the following
+commands:
+
+```
+sudo -u www-data php -f /app/code/occ app:list            # this lists the apps
+sudo -u www-data php -f /app/code/occ app:disable <app>   # use this to disable the faulty app
+sudo -u www-data php /app/code/occ maintenance:mode --off
+```
+
+After running the commands, end the repair for the app to come up.
+
