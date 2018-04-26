@@ -1646,13 +1646,14 @@ Request:
     email: <email>,         // required
     invite: <boolean>,      // required
     username: <string>,     // optional
-    displayName: <string>   // optional
+    displayName: <string>,  // optional
+    password: <password>    // optional
 }
 ```
 
 `invite` indicates if the user should be sent an invitation email. The invitation email allows the user
 to setup a username and password. Set this to `false` to send out a custom invitation email of your own
-to the user. The invitation link can be constructed based on the `resetToken` in the response.
+to the user. The invitation link can be constructed based on the `resetToken` in the response (see below).
 
 `username` has to be at least two characters long and must be alphanumeric. If unspecified, the new user
 can pick any available name on first sign up. For security, `username` cannot be changed once set.
@@ -1660,6 +1661,8 @@ Some apps (incorrectly) use the `username` as their unique identifier. As a resu
 the user and create a new one again.
 
 `displayName` may consist of one or more words to specify the first name and surname.
+
+`password` can be used to set the new user's password. If a password is not provided, it is auto-generated.
 
 Response (201):
 ```
