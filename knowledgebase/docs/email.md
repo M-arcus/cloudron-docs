@@ -381,6 +381,15 @@ Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filte
 <img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
+## Email address restrictions
+
+Mailboxes, lists and aliases have the following naming restrictions:
+* Only alphanumerals and dot are allowed
+* Maximum length of 200 characters
+* Names ending with `.app` are reserved by the platform for applications
+* Names with `+` and `-` are not allowed since this conflicts with the [Subaddresses and tags](##subaddresses-and-tags)
+  feature. For addresses like `no-reply`, simply add a mailbox or an alias named `no`.
+
 ## Custom Domain Authentication
 
 When using the Cloudron email server, Cloudron automatically sets up SPF, DKIM and DMARC
