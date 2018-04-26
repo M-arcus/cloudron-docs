@@ -257,12 +257,13 @@ using a local installation of Docker.
 
 ```
 $ docker build -t girish/hello-world:0.1
+$ docker tag girish/hello-world:0.1 quay.io/girish/hello-world:0.1
 ```
 
 The image can then be pushed to any Docker container registry:
 
 ```
-$ docker push girish/hello-world:0.1
+$ docker push quay.io/girish/hello-world:0.1
 ```
 
 When using the public Docker Hub, Cloudron already has access to the pushed image and
@@ -281,7 +282,7 @@ Login Succeeded
 The app can then be installed on the Cloudron using the following command:
 
 ```
-$ cloudron install --image girish/hello-world:0.1
+$ cloudron install --image quay.io/girish/hello-world:0.1
 Location (subdomain): hello
 App is being installed with id: 4dedd3bb-4bae-41ef-9f32-7f938995f85e
 
