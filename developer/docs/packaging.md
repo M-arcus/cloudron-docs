@@ -490,6 +490,7 @@ should something go wrong with the update.
 ### Logging
 
 Cloudron applications stream their logs to stdout and stderr. Logging to stdout has many advantages:
+
 * App does not need to rotate logs and the Cloudron takes care of managing logs.
 * App does not need special mechanism to release log file handles (on a log rotate).
 * Integrates better with tooling like cloudron cli.
