@@ -271,7 +271,7 @@ For apps that support optional single sign-on, the `sso` field can be used to di
 
 ### List apps
 
-GET `/api/v1/apps/:appId` <scope>admin</scope>
+GET `/api/v1/apps` <scope>admin</scope>
 
 Gets the list of installed apps.
 
@@ -1335,9 +1335,45 @@ DEL `/api/v1/mail/:domain/lists/:groupId`
 
 ## Profile
 
+### Get apps
+
+GET `/api/v1/user/apps` <scope>profile</scope>
+
+Gets the list of apps that the user has access to.
+
+Response (200):
+
+```
+{
+    apps: [
+        {
+            id: <string>,                    // a unique id for the app
+            appStoreId: <string>,            // Cloudron App Store Id for updates
+            manifest: <manifest>,            // current manifest of the app
+            installationState: <enum>,       // See below
+            installationProgress: <string>,  // friendly string indicating installation progress
+            runState: <enum>,                // see below
+            health: <enum>,                  // health of the application
+            location: <string>,              // subdomain on which app is installed
+            fqdn: <string>,                  // the FQDN of this app
+            accessRestriction: null || {     // list of users and groups who can access this application
+                users: [ ],
+                groups: [ ]
+            },
+            manifest: <manifest>,            // the application manifest
+            portBindings: {                  // mapping for application ports to public ports
+            },
+            iconUrl: <url>,                  // a relative url providing the icon
+            memoryLimit: <number>            // memory constraint in bytes
+        },
+        ...
+    ]
+}
+```
+
 ### Get profile
 
-GET `/api/v1/profile` <scope>profile</scope>
+GET `/api/v1/user/profile` <scope>profile</scope>
 
 Gets the profile information of the token owner. This is useful to verify access tokens.
 
@@ -1354,7 +1390,7 @@ Response (200):
 
 ### Update profile
 
-POST `/api/v1/profile` <scope>profile</scope>
+POST `/api/v1/user/profile` <scope>profile</scope>
 
 Updates the email or displayName of the token owner.
 
@@ -1373,7 +1409,7 @@ Response (204):
 
 ### Update password
 
-POST `/api/v1/profile/password` <scope>profile</scope>
+POST `/api/v1/user/profile/password` <scope>profile</scope>
 
 Updates the password of the token owner.
 
@@ -1388,6 +1424,62 @@ Request:
 Response (204):
 ```
 {}
+```
+
+### Enable 2FA
+
+POST `/api/v1/user/profile/twofactorauthentication/enable` <scope>profile</scope>
+
+Enables 2FA for the token owner.
+
+Request:
+```
+{
+    totpToken: <string>  // the totp token
+}
+```
+
+Response (202):
+```
+{
+}
+```
+
+### Set 2FA Secret
+
+POST `/api/v1/user/profile/twofactorauthentication` <scope>profile</scope>
+
+Sets the TOTP secret
+
+Request:
+```
+{
+}
+```
+
+Response (201):
+```
+{
+    secret: <secret>,
+    qrcode: <qrcode>
+```
+
+### Disable 2FA
+
+POST `/api/v1/user/profile/twofactorauthentication/disable` <scope>profile</scope>
+
+Disables 2FA for the token owner.
+
+Request:
+```
+{
+}
+```
+
+Response (202):
+```
+{
+}
 ```
 
 ## Settings
