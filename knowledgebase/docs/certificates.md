@@ -47,6 +47,8 @@ To manually trigger re-installation or renewal of Let's encrypt certificate, ope
 app's [configure dialog](apps/#re-configuring-an-app) and `Save` without
 making any changes.
 
+To renew the Let's encrypt certificate of the dashboard, simply run `systemctl restart box`.
+
 ## Revokation of Let's Encrypt Certificate
 
 Cloudron does not revoke certificates when an app is uninstalled. Instead, it retains the
