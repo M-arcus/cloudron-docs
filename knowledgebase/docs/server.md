@@ -301,6 +301,15 @@ systemctl restart box
 
 The above command can be run to get new certificates for the dashboard.
 
+### MySQL
+
+Check if MySQL is running using:
+```
+systemctl status mysql
+```
+
+If it is not, check the contents of the file `/var/log/mysql/error.log`.
+
 ## Impersonate a user
 
 One can create a file named `/tmp/cloudron_ghost.json` which contains an username
