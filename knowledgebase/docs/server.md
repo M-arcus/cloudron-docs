@@ -267,6 +267,25 @@ systemctl restart docker
 
 Note that the above command will restart all the apps and addon services.
 
+### MySQL
+
+Check if MySQL is running using:
+```
+systemctl status mysql
+```
+
+If it is not, check the contents of the file `/var/log/mysql/error.log`.
+
+Sometimes, the only way is to recreate the database from a dump. For this, re-create
+a database dump like so:
+
+```
+mysqldump -uroot -ppassword --single-transaction --routines --triggers box > box.mysql
+mysql -uroot -ppassword -e "DROP DATABASE box"
+mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS box"
+mysql -uroot -ppassword box < box.mysql 
+```
+
 ### Box
 
 In some rare cases, `/home/yellowtent/configs/cloudron.conf` can be missing.
@@ -300,15 +319,6 @@ systemctl restart box
 ```
 
 The above command can be run to get new certificates for the dashboard.
-
-### MySQL
-
-Check if MySQL is running using:
-```
-systemctl status mysql
-```
-
-If it is not, check the contents of the file `/var/log/mysql/error.log`.
 
 ## Impersonate a user
 
