@@ -1,5 +1,45 @@
 # <img src="/documentation/img/sogo-logo.png" width="25px"> SOGo App
 
+## CalDAV
+
+SOGo supports syncing using CalDAV:
+
+Clicking on the 'ribbon' next to the calendar shows a popup menu.
+
+<center>
+<img src="/documentation/img/sogo-links-to-calendar.png" class="shadow" width="50%">
+</center>
+
+Clicking on `Links to this Calendar` will show the calendar settings for various clients.
+
+<center>
+<img src="/documentation/img/sogo-calendar-links.png" class="shadow" width="50%">
+</center>
+
+!!! note "Calendar URLs"
+    CalDAV URL - https://sogo.domain.com/SOGo/dav/<username>/Calendar/personal/
+    <br>
+    Wedav ICS URL - https://sogo.domain.com/SOGo/dav/<username>/Calendar/personal.ics
+    <br>
+    WebDAV XML URL - https://sogo.domain.com/SOGo/dav/<username>/Calendar/personal.xml
+
+## CardDAV
+
+Clicking on the 'ribbon' next to the address book shows a popup menu.
+
+<center>
+<img src="/documentation/img/sogo-links-to-address-book.png" class="shadow" width="50%">
+</center>
+
+Clicking on `Links to this Address book` will show the address book settings for various clients.
+
+<center>
+<img src="/documentation/img/sogo-address-book-links.png" class="shadow" width="50%">
+</center>
+
+!!! note "Address book URLs"
+    CardDAV URL - https://sogo.domain.com/SOGo/dav/<username>/Contacts/personal/
+
 ## Setting the timezone
 
 Open a [Web terminal](apps/#web-terminal) for SOGo:
