@@ -35,6 +35,7 @@ pages:
     - 'Lets Chat': apps/letschat.md
     - 'Lychee': apps/lychee.md
     - 'Mailtrain': apps/mailtrain.md
+    - 'Matomo': apps/matomo.md
     - 'Mattermost': apps/mattermost.md
     - 'Mediawiki': apps/mediawiki.md
     - 'Meemo': apps/meemo.md
@@ -46,7 +47,6 @@ pages:
     - 'ownCloud': apps/owncloud.md
     - 'Paperwork': apps/paperwork.md
     - 'Phabricator': apps/phabricator.md
-    - 'Piwik': apps/piwik.md
     - 'Radicale': apps/radicale.md
     - 'RainLoop': apps/rainloop.md
     - 'Redash': apps/redash.md
