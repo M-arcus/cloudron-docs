@@ -124,3 +124,14 @@ mysql -uroot -ppassword -e "select username, resetToken from box.users";
 Use the reset token displayed above to navigate to
 `https://my.domain.com/api/v1/session/password/reset.html?reset_token=<token>`
 
+## Valid usernames
+
+The following characters are allowed in usernames:
+
+* Alphanumeric characters
+* '.' (dot)
+* '-' (hyphen)
+
+Usernames must be chosen with care to accomodate the wide variety of apps that run on Cloudron.
+For example, very generic words like `error`, `pull`, `404` might be reserved by apps.
+
