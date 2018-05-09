@@ -19,7 +19,7 @@ A user in the Cloudron has the following fields as part of their profile:
 * `Password recover email` - This is the email to which Cloudron password resets are sent. This
   should be set to an email address that is not hosted on the Cloudron.
 
-## 2FA
+## Enabling 2FA
 
 2FA can be enabled using the `Enable 2FA button` from the `profile` view in the dashboard.
 
@@ -34,4 +34,9 @@ FreeOTP authenticator ([Android](https://play.google.com/store/apps/details?id=o
 <center>
 <img src="/blog/img/profile-qrcode.png" width="500px" class="shadow">
 </center>
+
+## Disabling 2FA
+
+Users can disable 2FA by clicking on the `Disable 2FA button`. In the event, the user
+loses their 2FA device, a Cloudron administrator can [reset it](/documentation/user-management/#disabling-2fa).
 

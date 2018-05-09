@@ -109,6 +109,20 @@ mysql -uroot -ppassword -e "select username, resetToken from box.users";
 Use the reset token displayed above to navigate to
 `https://my.domain.com/api/v1/session/password/reset.html?reset_token=<token>`
 
+## Disabling 2FA
+
+If a user loses their 2FA device, the Cloudron administrator can disable the user's
+2FA setup by SSHing into the server and running the following command:
+
+```
+# replace fred below with the actual username
+root@my:~# mysql -uroot -ppassword -e "UPDATE box.users SET twoFactorAuthenticationEnabled=false WHERE username='fred'"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+```
+
+Once disabled, user can login with just their password. After login, they can
+re-setup 2FA.
+
 ## Valid usernames
 
 The following characters are allowed in usernames:
