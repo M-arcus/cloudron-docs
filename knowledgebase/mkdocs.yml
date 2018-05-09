@@ -13,6 +13,7 @@ pages:
     - domains.md
     - email.md
     - integrations.md
+    - profile.md
     - security.md
     - server.md
     - updates.md
