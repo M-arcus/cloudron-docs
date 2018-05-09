@@ -1,4 +1,4 @@
-# Cloudron Developer Resources
+# Cloudron Developer Docs
 
 ## What is Cloudron?
 
