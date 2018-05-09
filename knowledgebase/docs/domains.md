@@ -16,6 +16,8 @@ the domain is hosted:
 *   [AWS Route53](domains/#route-53-dns)
 *   [Cloudflare](domains/#cloudflare-dns)
 *   [Digital Ocean](domains/#cloudflare-dns)
+*   [Gandi LiveDNS](domain/#gandi)
+*   [GoDaddy](domain/#godaddy)
 *   [Google Cloud DNS](domain/#google-cloud-dns)
 *   [Wildcard](domains/#wildcard-dns)
 
@@ -68,6 +70,53 @@ with read+write access.
 <center>
 <img src="../img/domains-digitalocean.png" class="shadow" width="500px">
 </center>
+
+### Gandi LiveDNS
+
+[LiveDNS](http://doc.livedns.gandi.net/) is Gandi.net's DNS platform, a completely new service that offers
+its own API and its own nameservers.
+
+If your domain is registered with Gandi, you can use Cloudron's new Gandi DNS backend to manage the DNS.
+When apps are installed and removed, Cloudron will automatically add and remove DNS records. When using
+Cloudron Email, it will also automatically setup the MX, DMARC, DKIM records!
+
+To get started:
+
+* Ensure that your domain is using LiveDNS. Go the `DNS Records` page in Gandi to verify that you are
+  using LiveDNS. Old domains might see a `Switch to LiveDNS` banner. If you see this, click on
+  `Gandi's DNS Records` button and wait for 2-3 hours for Gandi to migrate the domain.
+
+* Next, create an LiveDNS API key from the [security section](https://account.gandi.net/en/)
+
+* In the Cloudron dashboard, choose Gandi LiveDNS from the drop down and provide the API key.
+
+    <center>
+    <img src="../img/domains-gandi.png" width="500px" class="shadow">
+    </center>
+
+### GoDaddy
+
+[GoDaddy](https://www.godaddy.com) is the world's largest registrar.
+
+If your domain is registered with GoDaddy, you can use Cloudron's new GoDaddy DNS backend to manage the DNS.
+When apps are installed and removed, Cloudron will automatically add and remove DNS records. When using
+Cloudron Email, it will also automatically setup the MX, DMARC, DKIM records!
+
+To get started:
+
+* Create a GoDaddy API Key at their [developer portal](https://developer.godaddy.com/). When creating a new
+  key **select production environment**.
+
+    <center>
+    <img src="../img/domains-godaddy-portal.png" width="500px" class="shadow">
+    </center>
+
+
+* In the Cloudron dashboard, choose GoDaddy from the drop down and provide the key and secret.
+
+    <center>
+    <img src="../img/domains-godaddy.png" width="500px" class="shadow">
+    </center>
 
 ### Google Cloud DNS
 
