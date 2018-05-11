@@ -54,3 +54,54 @@ To set a custom icon, use the [Web terminal](apps/#web-terminal):
 * Upload a file to '/tmp'
 * In the web terminal, move the uploaded file to `/app/data/images/wiki.png`.
 
+## Extensions
+
+### Installing
+
+MediaWiki [https://www.mediawiki.org/wiki/Manual:Extensions](extensions) can be installed
+as follows:
+
+* Use the [Web terminal](apps/#web-terminal) to upload the tarball to `/tmp`
+* Extract the package under `/app/data/extensions`.
+* Load the skin in `/app/data/LocalSettings.php` by adding this line:
+```
+        wfLoadExtension( '<extension-name>' );
+```
+* Additional extension settings may be set in `/app/data/LocalSettings.php`
+
+### Suppressing skins
+
+To [suppress](https://www.mediawiki.org/wiki/Manual:Skin_configuration) one or more skins add the following line
+to `/app/data/LocalSettings.php`:
+
+```
+    $wgSkipSkins = array( "cologneblue", "monobook" );
+```
+
+## Skins
+
+### Installing
+
+MediaWiki [https://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles](skins) can be installed
+as follows:
+
+* Use the [Web terminal](apps/#web-terminal) to upload the tarball to `/tmp`
+* Extract the package under `/app/data/skins`.
+* Load the skin in `/app/data/LocalSettings.php` by adding this line:
+```
+        wfLoadSkin( '<skin-name>' );
+```
+* The default skin for new users can be changed by adding this line to `/app/data/LocalSettings.php`:
+```
+        $wgDefaultSkin = '<skin-name>';
+```
+
+### Suppressing skins
+
+To [suppress](https://www.mediawiki.org/wiki/Manual:Skin_configuration) one or more skins add the following line
+to `/app/data/LocalSettings.php`:
+
+```
+    $wgSkipSkins = array( "cologneblue", "monobook" );
+```
+
