@@ -62,7 +62,7 @@ MediaWiki [https://www.mediawiki.org/wiki/Manual:Extensions](extensions) can be 
 as follows:
 
 * Use the [Web terminal](apps/#web-terminal) to upload the tarball to `/tmp`
-* Extract the package under `/app/data/extensions`.
+* Extract the package under `/app/data/extensions` and run `chown -R www-data:www-data /app/data/extensions`
 * Load the skin in `/app/data/LocalSettings.php` by adding this line:
 ```
         wfLoadExtension( '<extension-name>' );
@@ -86,7 +86,7 @@ MediaWiki [https://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles](skins) 
 as follows:
 
 * Use the [Web terminal](apps/#web-terminal) to upload the tarball to `/tmp`
-* Extract the package under `/app/data/skins`.
+* Extract the package under `/app/data/skins` and run `chown -R www-data:www-data /app/data/skins`
 * Load the skin in `/app/data/LocalSettings.php` by adding this line:
 ```
         wfLoadSkin( '<skin-name>' );
