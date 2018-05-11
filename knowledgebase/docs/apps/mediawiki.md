@@ -14,7 +14,7 @@ registered wiki account.
 ### Changing permissions
 
 Use the [Web terminal](apps/#web-terminal) to edit the values in
-`/app/data/AccessControl.php`.
+`/app/data/LocalSettings.php`.
 
 Here are some commonly requested settings:
 
