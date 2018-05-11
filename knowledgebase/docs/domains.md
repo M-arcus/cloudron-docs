@@ -154,6 +154,7 @@ The `<hosted zone id>` below must be replaced with the zone's id which is availa
             "Effect": "Allow",
             "Action": [
                 "route53:ListHostedZones",
+                "route53:listHostedZonesByName",
                 "route53:GetChange"
             ],
             "Resource": [
