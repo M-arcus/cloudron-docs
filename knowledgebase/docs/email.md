@@ -146,11 +146,11 @@ Use the following settings to send email via SMTP:
 
 ## Sieve settings for Cloudron Email
 
-Use the following settings to setup email filtering users via Manage Sieve.
+Use the following settings to setup email filtering users via ManageSieve.
 
   * Server Name - Use the `my` subdomain of your Cloudron
   * Port - 4190
-  * Connection Security - TLS
+  * Connection Security - STARTTLS
   * Username/password - Use the full email as the username and the Cloudron account password
 
 !!! note "Multi-domain setup credentials"
