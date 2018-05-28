@@ -480,7 +480,8 @@ Request:
     debugMode: null || {            // debug mode parameters
         cmd: [ ],                   // array of strings with the launch command
         readonlyRootfs: <boolean>   // set to true if the app's file system is read-only
-    }
+    },
+    mailboxName: <string>           // name of the mailbox assigned to this application
 ```
 
 All values are optional. See [Install app](#install-app) API for field descriptions.
