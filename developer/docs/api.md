@@ -703,6 +703,11 @@ Request:
 }
 ```
 
+Example:
+```
+curl -k -X POST -H "Content-Type: application/json" -d '{"domain":"smartserver.space","adminFqdn":"my.smartserver.space","provider":"noop","config":{}, "tlsConfig":{"provider":"fallback"}}' https://159.65.67.243/api/v1/cloudron/dns_setup
+```
+
 ### Activate the Cloudron
 
 POST `/api/v1/cloudron/activate`
