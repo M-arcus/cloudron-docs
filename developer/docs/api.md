@@ -681,6 +681,27 @@ Response (200):
 
 ## Cloudron
 
+### DNS Setup
+
+POST `/api/v1/cloudron/dns_setup`
+
+Sets up the initial domain for the Cloudron. Unlike other API calls,
+this request is posted to the IP address of the Cloudron.
+
+Request:
+```
+{
+    domain: <string>,      // required: a domain under which apps will be installed
+    adminFqdn: <fqdn>,     // must always be 'my.' + domain,
+    zoneName: <string>,    // optional: the DNS zone name. defaults to the domain name itself
+    provider: <string>     // required: 'route53', 'gcdns', 'digitalocean', 'cloudflare', 'noop' or 'manual'
+    config: <object>,      // optional: provider specific DNS settings
+    tlsConfig: {
+        provider: <string> // 'letsencrypt-prod', 'letsencrypt-staging' or 'fallback'
+    }
+}
+```
+
 ### Activate the Cloudron
 
 POST `/api/v1/cloudron/activate`
