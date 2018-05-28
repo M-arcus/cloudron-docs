@@ -1539,7 +1539,17 @@ Request:
 ```
 
 You can get the `userId` and `token` by sending a `/api/v1/login` POST request to `api.cloudron.io`
-with the `email` and `password` fields set in the request.
+with the `email` and `password` fields set in the request like so:
+```
+curl -X POST -H 'Content-Type: application/json' -d '{"email":"girish@cloudron.io", "password":"supersecretpassword"}' https://api.cloudron.io/api/v1/login
+```
+
+The above request will contain a `userId` and a `token` that can now be used to setup the Appstore account on the Cloudron.
+
+Example:
+```
+curl -k -X POST -H "Content-Type: application/json" -d '{"userId":"2e2259a5fa81", "token":"tokenfromaboverequest"}' 'https://my.smartserver.space/api/v1/settings/appstore_config?access_token=cloudronaccesstoken'
+```
 
 ### Get auto update pattern
 
