@@ -23,6 +23,7 @@ pages:
     - 'Dokuwiki': apps/dokuwiki.md
     - 'EspoCRM': apps/espocrm.md
     - 'Etherpad': apps/etherpad.md
+    - 'FreshRSS': apps/freshrss.md
     - 'Ghost': apps/ghost.md
     - 'Gitea': apps/gitea.md
     - 'GitHub Pages': apps/githubpages.md
