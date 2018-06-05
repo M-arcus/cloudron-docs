@@ -355,22 +355,20 @@ above.
 
 By default, Cloudron allocates the `location.app@domain` mailbox for each installed app. When
 an app sends an email, the FROM address is set to `location.app@domain.com`. The mailbox name
-can be changed by modifying the database. For example, to change the `chat.app@domain.com` address
-of an app to be just `chat`, use the following command:
+can be changed in the [configure dialog](apps/#re-configuring-an-app) of the app.
 
-```
-mysql -uroot -ppassword -e "UPDATE box.mailboxes SET name='chat' WHERE name='chat.app' AND domain='domain.com'";
-```
-
-After the command above is executed, [re-configure](apps/#re-configuring-an-app)
-the app and clicking `Save` without making any changes.
+<center>
+<img src="/documentation/img/apps-mailbox-name.png" class="shadow" width="600px">
+</center>
 
 ## Disabling FROM address validation
 
 By default, the Cloudron does not allow masquerading - one user cannot send email pretending
-to be another user.
+to be another user. To disable this, enable masquerading in the Email settings.
 
-This can be disabled using the [API](../developer/api/#set-mail-from-validation).
+<center>
+<img src="/documentation/img/email-masquerading.png" class="shadow" width="600px">
+</center>
 
 ## Setting vacation mail
 
