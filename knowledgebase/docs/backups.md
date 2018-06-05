@@ -284,10 +284,10 @@ perform the following steps:
 
 ## Restoring an app from existing backup
 
-Apps can be restored to a previous backup by clicking on the `Restore` button.
+Apps can be restored to a previous backup by clicking on the `Backups` button.
 
 <center>
-<img src="/documentation/img/app_restore_button.png" class="shadow">
+<img src="/documentation/img/app-backup-icon.png" class="shadow">
 </center>
 
 Select the backup you want to restore to:
