@@ -81,6 +81,20 @@ This format has the following caveats:
 
 * Encryption is currently not supposed with the rsync format.
 
+## Making an app backup
+
+To take a backup of a single, click the `Backups` button in the app grid:
+
+<center>
+<img src="/documentation/img/app-backup-icon.png" class="shadow">
+</center>
+
+Then click `Create Backup`:
+
+<center>
+<img src="/documentation/img/app-create-backup.png" class="shadow">
+</center>
+
 ## Making a complete backup
 
 To take a backup of Cloudron and all the apps, click the `Backup now` button in the `Settings` page:
@@ -247,30 +261,12 @@ The backupId usually also includes a path prefix and looks like: `2017-07-17-121
 
 ## Cloning a Cloudron app in same Cloudron
 
-To clone an existing app to a new location within the same Cloudron, use the CLI tool's `clone` command.
+To clone an app i.e an exact replica of the app onto another domain, first create an [app backup](#making-an-app-backup) and
+then use the Clone UI to create a clone:
 
-To clone the app at location `staging` with it's latest backup into a new location `production`
-use the following commands:
-
-```
-$ cloudron clone --app staging # create a backup
-
-$ cloudron clone --app staging --backup latest # clone from the backup just created
-Location: production
-App cloned as id a426fdec-94e7-42c5-a1f4-ab1a5ac22427
-
- => Waiting to start installation
- => Registering subdomain
- => Downloading image
- => Download backup and restore addons .......
- => Creating container .
- => Setting up collectd profile
- => Waiting for DNS propagation ....
- => Wait for health check........
-
-App is cloned
-
-```
+<center>
+<img src="/documentation/img/app-clone.png" class="shadow">
+</center>
 
 ## Cloning a Cloudron app into another Cloudron
 
