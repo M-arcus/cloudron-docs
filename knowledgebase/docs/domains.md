@@ -19,6 +19,7 @@ the domain is hosted:
 *   [Gandi LiveDNS](domain/#gandi)
 *   [GoDaddy](domain/#godaddy)
 *   [Google Cloud DNS](domain/#google-cloud-dns)
+*   [Name.com DNS](domain/#namecom-dns)
 *   [Wildcard](domains/#wildcard-dns)
 
 The idea is that (when using one of the programmable backends) Cloudron will automatically make
@@ -164,6 +165,15 @@ The `<hosted zone id>` below must be replaced with the zone's id which is availa
     ]
 }
 ```
+
+### Name.com DNS
+
+Create a [name.com API key](https://www.name.com/account/settings/api) and select 'Name.com'
+from the dropdown.
+
+<center>
+<img src="../img/domains-namedotcom.png" width="500px" class="shadow">
+</center>
 
 ### Wildcard DNS
 
