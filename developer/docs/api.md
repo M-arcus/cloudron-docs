@@ -1626,13 +1626,14 @@ Gets the credentials used to upload backups.
 Response(200):
 ```
 {
-  "provider": <string>,    // 'caas' or 's3' or 'filesystem'
-  "key": <string>,         // encryption key
-  "region": <string>,      // s3 region
-  "bucket": <string>,      // s3 bucket name
-  "prefix": <string>,      // s3 bucket prefix
-  "token": <string>,       // 'caas' specific token
-  "backupFolder": <string> // 'filesystem' specific backup directory
+  "provider": <string>,         // 'caas' or 's3' or 'filesystem'
+  "key": <string>,              // encryption key
+  "retentionSecs": <number>,    // required: how long to retain backups
+  "region": <string>,           // s3 region
+  "bucket": <string>,           // s3 bucket name
+  "prefix": <string>,           // s3 bucket prefix
+  "token": <string>,            // 'caas' specific token
+  "backupFolder": <string>,     // 'filesystem' specific backup directory
   "format": "tgz" | "flat-file" // backup storage format
 }
 ```
@@ -1647,7 +1648,9 @@ Request:
 ```
 {
     "provider": "s3|filesystem",
-    "key": <string>,             // backup encryption key
+    "key": <string>,               // backup encryption key
+    "retentionSecs": <number>      // required: how long to retain backups
+    "format": "tgz" | "flat-file", // backup storage format
 
     "bucket": <string>,          // S3: bucket
     "prefix": <string>,          // S3: prefix in bucket
