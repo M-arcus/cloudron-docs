@@ -95,6 +95,21 @@ done within the application itself. For example, changing a user to become a
 * `Allow all users from this Cloudron` - Any user in the Cloudron can access the app.
 * `Only allow the following users and groups` - Only the users and groups can access the app.
 
+## Visibility of app icon in dashboard
+
+The Dashboard of a Cloudron user displays the apps that the user can access. For apps that
+use Cloudron Single Sign-on, the dashboard only displays an app if the user has access to it.
+
+For apps configured to not use the Cloudron Single Sign-on (for example, some public app like a
+Forum or Chat), the apps are displayed (by default) on the dashboard of all users. Admins
+can control if an app appears in a user's dashboard using the `Dashboard Visibility` option
+in the app's configure UI.
+
+<center>
+<img src="/documentation/img/apps-dashboard-visibility.png" class="shadow" width="500px">
+</center>
+
+
 ## Indexing by search engines (robots.txt)
 
 The `Robots.txt` file is a file served from the root of a website to indicate which parts must be indexed by a search
