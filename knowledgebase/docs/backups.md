@@ -125,6 +125,23 @@ that it can be reverted to a sane state should the update fail.
     regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's
     `cloudron backup create` command.
 
+## Backing up to Filesystem
+
+Provide a Filesystem path in the `Backups` section.
+
+<center>
+<img src="/documentation/img/backups-filesystem.png" class="shadow">
+</center>
+
+The `Use hardlinks` option can be checked to make the Cloudron use [hardlinks](https://en.wikipedia.org/wiki/Hard_link)
+'same' files across backups to conserve space. If you happen to use a file system that does not
+support hardlinks (like NFS), just turn off hardlinks.
+
+!!! warning
+    Having backups reside in the same physical machine as the Cloudron server instance is
+    dangerous. For this reason, Cloudron will show a warning until the `Backup directory is an 
+    external EXT4 Disk` option is checked.
+
 ## Backing up to Amazon S3
 
 Provide S3 backup credentials in the `Backups` section of the `Settings` page.
