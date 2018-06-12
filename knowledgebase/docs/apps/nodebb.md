@@ -5,7 +5,7 @@
 To install plugins, use the [Web terminal](apps/#web-terminal).
 
 ```
-    cd /app/data
+    cd /app/code
     /usr/local/bin/gosu cloudron:cloudron npm install nodebb-plugin-beep
 ```
 
