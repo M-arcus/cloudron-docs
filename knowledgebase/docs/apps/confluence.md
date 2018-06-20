@@ -7,24 +7,25 @@ To finish the installation, do the following:
 * Select Production Installation
 * Add your license key.
 * Select `PostgreSQL` as External Database.
-* Choose 'Direct JDBC`.
-* Use the [cloudron logs](https://git.cloudron.io/cloudron/cloudron-cli) to get database settings.
+* Choose `By connection string`.
+* Use the [log viewer](https://cloudron.io/documentation/apps/#log-viewer) to get database settings.
+  Look for a section called 'Datatabase Settings` in the logs.
 
 ## Adminstration check list
 
-* Disable `Backup Confluence` Schedule Jobs. The Cloudron does this already.
+* Disable `Backup Confluence` Schedule Jobs. The Cloudron backups up confluence already.
 
-* To enable LDAP:
+* To enable LDAP, go to `Confluence Administration`:
 
-    * `User Administration` -> `User directories`
+    * `Users & Security` -> `User directories`
     * `Add Directory` -> `Internal with LDAP authentication`
-    * Use the [cloudron logs](https://git.cloudron.io/cloudron/cloudron-cli) to get LDAP settings
-    * You can make users admin once they log in and appear in user listing via LDAP
+    * Use the [log viewer](https://cloudron.io/documentation/apps/#log-viewer) to get LDAP settings.
+    * You can make Cloudron users admin once they log in to Confluence and appear in user listing via LDAP
 
 * To configure mail:
 
     * `Mail Servers` -> `Add SMTP mail`
-    * Use the [cloudron logs](https://git.cloudron.io/cloudron/cloudron-cli) to get SMTP settings
+    * Use the [log viewer](https://cloudron.io/documentation/apps/#log-viewer) to get SMTP settings.
 
 ## Oracle Java
 
