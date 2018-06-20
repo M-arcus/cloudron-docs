@@ -111,6 +111,7 @@ The following attributes can be used from the LDAP response:
 * `displayName` - Full name of the user
 * `mailAlternateAddress` - Alternate/Fallback email address of the user (for password reset)
 * `givenName` - First name of the user
+* `sn` - Last name of the user
 * `username` - Username set during account creation
 * `samaccountname` - Same as username
 * `isadmin` - Integer value set to 1 for admin users
