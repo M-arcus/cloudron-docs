@@ -29,6 +29,7 @@ pages:
     - 'GitHub Pages': apps/githubpages.md
     - 'GitLab': apps/gitlab.md
     - 'Gogs': apps/gogs.md
+    - 'Hackmd': apps/hackmd.md
     - 'Hastebin': apps/hastebin.md
     - 'Invoice Ninja': apps/invoiceninja.md
     - 'Jingo': apps/jingo.md
