@@ -1,5 +1,13 @@
 # <img src="/documentation/img/tinytinyrss-logo.png" width="25px"> Tiny Tiny RSS
 
+## Customizing configuration
+
+Use the [Web terminal](https://cloudron.io/documentation/apps/#web-terminal)
+to place custom configuration under `/app/data/config.json`.
+
+Please be careful when changing configuration since the Cloudron packaging
+might depend on it.
+
 ## Installing Plugins
 
 To install plugins, simply extract them to `/app/data/plugins` and restart
