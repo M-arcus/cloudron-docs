@@ -19,6 +19,7 @@ pages:
     - updates.md
     - 'User & Groups': user-management.md
   - 'Apps':
+    - 'CodiMD': apps/codimd.md
     - 'Confluence': apps/confluence.md
     - 'Dokuwiki': apps/dokuwiki.md
     - 'EspoCRM': apps/espocrm.md
@@ -29,7 +30,6 @@ pages:
     - 'GitHub Pages': apps/githubpages.md
     - 'GitLab': apps/gitlab.md
     - 'Gogs': apps/gogs.md
-    - 'Hackmd': apps/hackmd.md
     - 'Hastebin': apps/hastebin.md
     - 'Invoice Ninja': apps/invoiceninja.md
     - 'Jingo': apps/jingo.md
