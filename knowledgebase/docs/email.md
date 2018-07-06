@@ -445,6 +445,10 @@ $ host -t TXT _dmarc.girish.in
 _dmarc.girish.in descriptive text "v=DMARC1; p=reject; pct=100"
 ```
 
+## Storage
+
+Emails are stored in the `maildir` format under `/home/yellowtent/boxdata/mail/vmail`.
+
 ## Debugging mail delivery
 
 * Make sure that the 'Outbound SMTP' check is green in the Email view. This step makes sure that your
