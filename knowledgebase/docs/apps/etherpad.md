@@ -33,7 +33,19 @@ to edit `/app/data/settings.json` and add or edit the following section:
 ## Custom settings
 
 Use a [Web terminal](apps/#web-terminal) and add any custom
-settings to `/app/data/settings.json`
+settings to `/app/data/settings.json`.
+
+!!! warning ""
+    The app has to be restarted after editing `/app/data/settings.json`
+
+### Make Documents Public
+
+By default the app will always require login with a valid user.
+To allow any visitor to create and edit documents, add the following to `/app/data/settings.json`:
+
+```
+  "requireAuthentication" : false,
+```
 
 ## Customizing CSS
 
