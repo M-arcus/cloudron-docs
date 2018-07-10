@@ -342,7 +342,7 @@ Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.a
 ## Blacklisting domains and IPs for email
 
 Domains and IPs can be blacklisted on the mail server by editing files under
-`/home/yellowtent/platformdata/mail/haraka-config`. Note that these settings are part of
+`/home/yellowtent/boxdata/mail/haraka-config`. Note that these settings are part of
 the backup and thus persisted across migrations and restores.
 
 * `connect.rdns_access.blacklist` - Add IP addresses here (one per line) to block IPs
