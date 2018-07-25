@@ -139,7 +139,7 @@ support hardlinks (like NFS), just turn off hardlinks.
 
 !!! warning
     Having backups reside in the same physical machine as the Cloudron server instance is
-    dangerous. For this reason, Cloudron will show a warning until the `Backup directory is an 
+    dangerous. For this reason, Cloudron will show a warning until the `Backup directory is an
     external EXT4 Disk` option is checked.
 
 ## Backing up to Amazon S3
@@ -272,7 +272,7 @@ cloudron list
 
 ```
 cloudron login my.<new Cloudron domain>
-cloudron install --appstore-id=<apps appstore id>@<specific version if required> --backup <backupId>
+cloudron install --appstore-id <apps appstore id>@<specific version if required> --backup <backupId>
 ```
 The backupId usually also includes a path prefix and looks like: `2017-07-17-121412-248/app_2d7f2a6a-4c17-43a6-80bc-0bd47a99727f_2017-07-17-121412-269_v4.1.1.tar.gz`
 
