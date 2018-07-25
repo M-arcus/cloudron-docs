@@ -1730,6 +1730,54 @@ Request:
 }
 ```
 
+### Get Platform Config
+
+GET `/api/v1/settings/platform_config` <scope>admin</scope>
+
+Response (200):
+```
+{
+    mysql: { },
+    mongodb: { },
+    postgresql: { },
+    mysql: { },
+    mail: { }
+}
+```
+
+### Set Platform Config
+
+POST  `/api/v1/settings/platform_config` <scope>admin</scope>
+
+Request:
+```
+{
+    mysql: {
+        memory: <number>
+        memorySwap: <number>
+    },
+    postgresql: {
+        memory: <number>
+        memorySwap: <number>
+    },
+    mongodb: {
+        memory: <number>
+        memorySwap: <number>
+    },
+    mail: {
+        memory: <number>
+        memorySwap: <number>
+    }
+}
+```
+
+This can be used to persist custom memory limits on the built-in addon containers. For example, to bump the mysql memory limit
+to 500MB:
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"mysql": { "memory": 524288000, "memorySwap": 524288000 } }' https://my.domain.com/api/v1/settings/platform_config?access_token=77379e1f72cff51218f226fb
+```
+
 ### Get timezone
 
 GET `/api/v1/settings/time_zone` <scope>admin</scope>
