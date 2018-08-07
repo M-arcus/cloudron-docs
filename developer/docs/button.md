@@ -36,14 +36,14 @@ _Note_: Replace `<appid>` with your application's id.
 
 The button may be used in different heights - 32, 48 and 64 pixels.
 
-[![Install](../img/button32.png)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
+[![Install](https://cloudron.io/img/button32.png)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
 
-[![Install](../img/button48.png)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
+[![Install](https://cloudron.io/img/button48.png)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
 
-[![Install](../img/button64.png)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
+[![Install](https://cloudron.io/img/button64.png)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
 
 or as SVG
 
-[![Install](../img/button.svg)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
+[![Install](https://cloudron.io/img/button.svg)](https://cloudron.io/button.html?app=io.gogs.cloudronapp)
 
 _Note_: Clicking the buttons above will install [Gogs](http://gogs.io/).
