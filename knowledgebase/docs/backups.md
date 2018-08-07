@@ -241,6 +241,12 @@ cat backupfile.tar.gz.enc | openssl aes-256-cbc -d -nosalt -pass "pass:secretkey
 
 ## Migrate Apps from one Cloudron to another
 
+!!! warning "User Identifiers"
+    When moving an app from one Cloudron to another, the user ids on one Cloudron will be different from
+    the user ids on the other Cloudron. Cloudron does not support automatic user id mapping at this point.
+    For this reason, you might have to manually fix up the database of the new app in the new Cloudron.
+    A workaround is to install apps without using Cloudron Single Sign-On (for apps that support it).
+
 Migrating apps or moving apps from one Cloudron to another works by first creating a new backup of the app on the old Cloudron,
 copying the backup tarball onto the new Cloudron's backup storage and then installing a new app, based on the backup on
 the new Cloudron.
