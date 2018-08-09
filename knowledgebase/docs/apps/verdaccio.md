@@ -8,6 +8,6 @@ You can add custom verdaccio configuration using the
 * Add any custom configuration in `/app/data/config.yaml`.
 * Restart the app
 
-See [https://github.com/verdaccio/verdaccio/blob/master/conf/full.yaml](config.yaml) for
+See [config.yaml](https://github.com/verdaccio/verdaccio/blob/master/conf/full.yaml) for
 reference.
 
