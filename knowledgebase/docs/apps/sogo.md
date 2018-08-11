@@ -1,11 +1,5 @@
 # <img src="/documentation/img/sogo-logo.png" width="25px"> SOGo App
 
-!!! warning "New app package"
-    Due to a refactoring of the SOGo package, all installations before May 2018 will not be updated.
-    Unfortunately there is no way to map users of the legacy app package to users in the new one.
-    Consider exporting all contacts and calendar data and reimport them in a freshly installed SOGo instance.
-    The following email section applies only to the new app package!
-
 Like other email clients like rainloop or roundcube, SOGo only works with mailbox accounts on the Cloudron.
 Login using the full email address including the domain as the username.
 
@@ -22,7 +16,8 @@ Adjusting this to the real name, can be done by editing the IMAP account under `
 
 ### Sieve Scripts
 
-As of now the SOGo package does not work correctly with the Cloudron Sieve server and thus all Sieve scripts are disabled.
+SOGo UI only supports setting up a limited set of filtering rules. You can setup more advanced rules
+using the Rainloop or Roundcube app.
 
 ## CalDAV
 
