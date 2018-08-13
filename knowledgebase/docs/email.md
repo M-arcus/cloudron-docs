@@ -53,7 +53,7 @@ DigitalOcean or Route53, the Cloudron will automatically update the `MX`, `SPF`,
 
 !!! warning "User & group mailboxes are not automatically enabled"
     Enabling email does not automatically allow users to send and receive email.
-    User & Group mailboxes must be [enabled](#enable-mailboxes) in the `Users` view.
+    User & Group mailboxes must be [created](#enable-mailboxes) in the `Email` view.
 
 ## Enable Mailboxes
 

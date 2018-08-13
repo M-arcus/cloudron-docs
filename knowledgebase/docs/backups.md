@@ -229,6 +229,16 @@ Cloudron automatically creates a backup every night (in the timezone of your Clo
 To instantly make a complete backup, click the `Backup now` button in the `Backups` section of the `Settings` page.
 Alternately, use the CLI command `cloudron machine backup create`.
 
+## Debugging backups
+
+The backup logs can be viewed and downloaded using the `Show Logs` button in the `Backups` view.
+
+
+<center>
+<img src="/documentation/img/backups-logs.png" class="shadow" width="500px">
+</center>
+
+
 ## Decrypting backups
 
 When encryption is used, backups can be downloaded and decrypted locally with the following command:
