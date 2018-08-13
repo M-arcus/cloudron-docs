@@ -59,6 +59,10 @@ The following TCP ports must be opened in the firewall for Cloudron to send emai
 
 * Outbound Port 25
 
+If outbound port 25 is blocked by your server provider, [setup an email relay](#relaying-outbound-mails).
+You can check if outbound port 25 is blocked by sending yourself a [test email](#send-test-email)
+from the Cloudron.
+
 The following TCP ports must be opened in the firewall for Cloudron to receive email:
 
 * Inbound and Outbound Port 25
@@ -66,50 +70,17 @@ The following TCP ports must be opened in the firewall for Cloudron to receive e
 * Inbound Port 993 (IMAPS)
 * Inbound Port 4190 (ManageSieve for email filters)
 
-### Mail server setup check list
+### Mail server status
 
-* Make sure that all the mail checks are green in the Email UI.
-  <center>
-  <img src="/documentation/img/mail-checks.png" class="shadow" width="500px">
-  </center>
-
-* If you are unable to send mail, first thing to check is if your VPS provider lets you
-  send mail on port 25. The Cloudron UI will show a warning if it detects that it is unable
-  to contact other mail servers on port 25.
-
-    * Digital Ocean - New accounts frequently have outbound port 25 blocked. Write to their support to
-      unblock your server.
-
-    * EC2, Lightsail & Scaleway - Edit your security group to allow outbound port 25.
-
-    * Vultr - [New accounts](https://www.vultr.com/faq/#outboundsmtp) have outbound port 25 blocked. Write
-      to their support to unblock your server.
-
-* If you are unable to receive mail, check if the security group allows inbound port 25.
-
-* Setting up [PTR record](email/#setting-rdns-ptr-record) is crucial for mail
-  to be delivered reliably to other mail servers.
-
-* Check if your IP is listed in any DNSBL list [here](http://multirbl.valli.org/) and [here](http://www.blk.mx).
-  In most cases, you can apply for removal of your IP by filling out a form at the DNSBL manager site.
-
-* When using wildcard or manual DNS backends, you have to setup the DMARC, DKIM, MX records manually.
-
-* Finally, check your spam score at [mail-tester.com](https://www.mail-tester.com/). The Cloudron
-
-The server's IP plays a big role in how emails from our Cloudron get handled. Spammers
-frequently abuse public IP addresses and as a result your server might possibly start
-out with a bad reputation. The good news is that most IP based blacklisting services cool
-down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
-reputation should be easy to get back.
-
-### Send test email
-
-Use the 'Send Test EMail' button in the SMTP status section to test relay of email from the Cloudron.
+Make sure that all the mail checks are green in the Email UI. Please note that the UI below
+displays the check list depending on whether incoming email is enabled and whether a mail
+relay is setup.
 
 <center>
-<img src="/documentation/img/test-email-button.png" class="shadow">
+<img src="/documentation/img/mail-checks.png" class="shadow" width="500px">
 </center>
+
+If one or more checkboxes are not green, see the [debugging section](#debugging-mail).
 
 ## Creating Mailboxes
 
@@ -124,6 +95,14 @@ The `Mailbox Owner` dropdown can be used to select an existing user. The user ca
 email using the new email and the Cloudron password. i.e The user `johannes` can now use his password
 to access the `johannes@smartserver.space` mailbox using [SMTP](#smtp-settings-for-cloudron-email) and
 [IMAP](##imap-settings-for-cloudron-email).
+
+Mailboxes have the following naming restrictions:
+
+* Only alphanumerals, dot and '-' are allowed
+* Maximum length of 200 characters
+* Names ending with `.app` are reserved by the platform for applications
+* Names with `+` are not allowed since this conflicts with the [Subaddresses and tags](##subaddresses-and-tags)
+  feature. 
 
 ## Creating Mail aliases
 
@@ -226,11 +205,12 @@ and have the relay deliver it to recipients. Such a setup is useful when the Clo
 server does not have a good IP reputation for mail delivery or if server service provider
 does not allow sending email via port 25 (which is the case with Google Cloud and Amazon EC2).
 
-Cloudron can be configured to send all outbound email via:
+Cloudron can be configured to send outbound email via:
 
 * [Amazon SES](#amazon-ses)
 * Google
 * Mailgun
+* Mailjet
 * Postmark
 * Sendgrid
 * [Office 365](#office-365)
@@ -315,33 +295,6 @@ the server will unlearn accordingly.
 The mail server is configured to act upon training only after seeing atleast
 50 spam and 50 ham messages.
 
-## Setting rDNS, PTR record
-
-rDNS (reverse DNS) or PTR records are DNS entries that can be used to resolve an IP address to a
-fully-qualified domain name. For example, the PTR record of the IP 1.2.3.4 can be looked up as
-`host -t PTR 4.3.2.1.in-addr.arpa`.
-
-In the context of email, many mail servers require that the EHLO hostname used in the SMTP
-connection match the PTR record. On the Cloudron, the EHLO hostname used is `my.<domain>`.
-For this reason, you must set the PTR record value to be `my.<domain>`.
-
-**The PTR record is set by your VPS provider and not by your DNS provider.**. For example,
-if your server was created in Digital Ocean, you must go to Digital Ocean to set the PTR
-record.
-
-We have collected a few links to help you set the PTR record for different VPS:
-
-* AWS EC2 & Lightsail - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
-
-* Digital Ocean - Digital Ocean sets up a PTR record based on the droplet's name. So, simply rename
-your droplet to `my.<domain>`.
-
-* Linode - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
-
-* Scaleway - You can also set a PTR record on the interface in their control panel.
-
-Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
-
 ## Blacklisting domains and IPs for email
 
 Domains and IPs can be blacklisted on the mail server by editing files under
@@ -382,20 +335,11 @@ Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filte
 <img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
-## Email address restrictions
+## Storage
 
-Mailboxes, lists and aliases have the following naming restrictions:
-* Only alphanumerals and dot are allowed
-* Maximum length of 200 characters
-* Names ending with `.app` are reserved by the platform for applications
-* Names with `+` and `-` are not allowed since this conflicts with the [Subaddresses and tags](##subaddresses-and-tags)
-  feature. For addresses like `no-reply`, simply add a mailbox or an alias named `no`.
+Emails are stored in the `maildir` format under `/home/yellowtent/boxdata/mail/vmail`.
 
-## Custom Domain Authentication
-
-When using the Cloudron email server, Cloudron automatically sets up SPF, DKIM and DMARC
-DNS records. To allow external services to send emails with Cloudron's domain name, these
-records have to modified.
+## Debugging mail
 
 ### SPF
 
@@ -448,41 +392,88 @@ $ host -t TXT _dmarc.girish.in
 _dmarc.girish.in descriptive text "v=DMARC1; p=reject; pct=100"
 ```
 
-## Storage
+### rDNS, PTR record
 
-Emails are stored in the `maildir` format under `/home/yellowtent/boxdata/mail/vmail`.
+rDNS (reverse DNS) or PTR records are DNS entries that can be used to resolve an IP address to a
+fully-qualified domain name. For example, the PTR record of the IP 1.2.3.4 can be looked up as
+`host -t PTR 4.3.2.1.in-addr.arpa`.
 
-## Debugging mail delivery
+In the context of email, many mail servers require that the EHLO hostname used in the SMTP
+connection match the PTR record. On the Cloudron, the EHLO hostname used is `my.<domain>`.
+For this reason, you must set the PTR record value to be `my.<domain>`.
 
-* Make sure that the 'Outbound SMTP' check is green in the Email view. This step makes sure that your
-  VPS provider has not blocked outbound port 25 which is required for mail delivery.
+**The PTR record is set by your VPS provider and not by your DNS provider.**. For example,
+if your server was created in Digital Ocean, you must go to Digital Ocean to set the PTR
+record.
 
-    * If it shows an error, check the status of mail container using `docker ps mail` and
-      `docker exec mail supervisorctl status`.
+We have collected a few links to help you set the PTR record for different VPS:
 
-    * If the mail container is not running, try restarting it using `docker restart mail`.
+* AWS EC2 & Lightsail - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
 
-    * If the mail container appears fine, try to see if `telnet smtp.google.com 25` connects to a
-      server. If it doesn't, it means that your VPS provider has blocked outgoing mail. This can
-      be resolved by contacting their support.
+* Digital Ocean - Digital Ocean sets up a PTR record based on the droplet's name. So, simply rename
+your droplet to `my.<domain>`.
 
-* Send a test email via the 'Send Test Email' button. Be sure to test out atleast two different email
-  address for the off chance that the VPS IP address or the domain is blacklisted one of the servers.
+* Linode - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
 
-    * If no email is received, check the output of `docker logs -f mail` and send another test email
+* Scaleway - You can also set a PTR record on the interface in their control panel.
 
-* When an app is not sending email, try the following:
+Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
 
-    * Use `docker ps --format "table {{.ID}}\t{{.Labels}}"` and check the fqdn label to identify the
-      container id.
+### Blacklists
 
-    * `docker exec -ti <container id> /bin/bash`. In the shell, try sending a mail as if an app would
-      send it. The command depends on whether the app is written using Go or not.
+The server's IP plays a big role in how emails from our Cloudron get handled. Spammers
+frequently abuse public IP addresses and as a result your server might possibly start
+out with a bad reputation. The good news is that most IP based blacklisting services cool
+down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
+reputation should be easy to get back.
 
-        * Non-Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
+### Inbound Mail delivery
 
-        * Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc`
+* If you are unable to receive mail, check if the security group allows inbound port 25.
+* Ensure that your domain's `MX` record points to the Cloudron.
 
-    * If the command above works, double check how the app or the plugin is configured to send email.
+### Outbound Mail delivery
+
+Use the 'Send Test Email' button in the SMTP status section to send an email from the Cloudron.
+
+<center>
+<img src="/documentation/img/test-email-button.png" class="shadow">
+</center>
+
+If you did not receive email from Cloudron, first thing to check is if your VPS provider lets you
+send mail on port 25. The Cloudron UI will show a warning if it detects that it is unable
+to contact other mail servers on port 25.
+
+  * Digital Ocean - New accounts frequently have outbound port 25 blocked. Write to their support to
+    unblock your server.
+
+  * EC2, Lightsail & Scaleway - Edit your security group to allow outbound port 25.
+
+  * Vultr - [New accounts](https://www.vultr.com/faq/#outboundsmtp) have outbound port 25 blocked. Write
+    to their support to unblock your server.
+
+* Setting up [PTR record](email/#setting-rdns-ptr-record) is crucial for mail
+  to be delivered reliably to other mail servers.
+
+* Check if your IP is listed in any DNSBL list [here](http://multirbl.valli.org/) and [here](http://www.blk.mx).
+  In most cases, you can apply for removal of your IP by filling out a form at the DNSBL manager site.
+
+* When using wildcard or manual DNS backends, you have to setup the DMARC, DKIM, MX records manually.
+
+* Finally, check your spam score at [mail-tester.com](https://www.mail-tester.com/).
+
+When an app is not sending email, try the following:
+
+* Use `docker ps --format "table {{.ID}}\t{{.Labels}}"` and check the fqdn label to identify the
+    container id.
+
+* `docker exec -ti <container id> /bin/bash`. In the shell, try sending a mail as if an app would
+    send it. The command depends on whether the app is written using Go or not.
+
+* Non-Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
+
+* Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc`
+
+* If the command above works, double check how the app or the plugin is configured to send email.
       `docker exec -ti <container id> env | grep SMTP_` gives the SMTP credentials for sending email.
 
