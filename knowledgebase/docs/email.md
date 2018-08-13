@@ -31,7 +31,7 @@ Features of this mail solution include:
 * [REST API](../developer/api/) to add users and groups
 * [Secure](security/#email-security) out of the box
 
-## Email Settings
+<br/>
 
 Email settings are located under the `Email` menu item.
 
@@ -39,10 +39,12 @@ Email settings are located under the `Email` menu item.
 <img src="/documentation/img/mail-settings.png" class="shadow" width="200px">
 </center>
 
-## Enabling Email
+## Setting up Email
+
+### Enabling Email
 
 By default, Cloudron's mail server only sends email on behalf of apps. To enable users to
-send and receive email, turn on the option under `Settings`.
+**receive** email, turn on the option under `Settings`.
 
 <center>
 <img src="/documentation/img/mail-enable.png" class="shadow" width="500px">
@@ -51,20 +53,7 @@ send and receive email, turn on the option under `Settings`.
 When using one of the programmatic [DNS backends](domains/) like Route53,
 DigitalOcean or Route53, the Cloudron will automatically update the `MX`, `SPF`, `DKIM`, `DMARC` DNS records.
 
-!!! warning "User & group mailboxes are not automatically enabled"
-    Enabling email does not automatically allow users to send and receive email.
-    User & Group mailboxes must be [created](#enable-mailboxes) in the `Email` view.
-
-## Enable Mailboxes
-
-Mailboxes can be enabled for Users and Groups on a per-domain level. To do so, simply enable
-them in the Users view.
-
-<center>
-<img src="/documentation/img/mail-mailboxes.png" class="shadow" width="500px">
-</center>
-
-## Required ports for Cloudron Email
+### Required ports for Cloudron Email
 
 The following TCP ports must be opened in the firewall for Cloudron to send email:
 
@@ -77,7 +66,7 @@ The following TCP ports must be opened in the firewall for Cloudron to receive e
 * Inbound Port 993 (IMAPS)
 * Inbound Port 4190 (ManageSieve for email filters)
 
-## Mail server setup check list
+### Mail server setup check list
 
 * Make sure that all the mail checks are green in the Email UI.
   <center>
@@ -114,7 +103,69 @@ out with a bad reputation. The good news is that most IP based blacklisting serv
 down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
 reputation should be easy to get back.
 
-## IMAP settings for Cloudron Email
+### Send test email
+
+Use the 'Send Test EMail' button in the SMTP status section to test relay of email from the Cloudron.
+
+<center>
+<img src="/documentation/img/test-email-button.png" class="shadow">
+</center>
+
+## Creating Mailboxes
+
+Mailboxes can be created for Users and Groups on a per-domain level. To do so, simply create
+them in the `Email` view.
+
+<center>
+<img src="/documentation/img/mail-add-mailbox.png" class="shadow" width="500px">
+</center>
+
+The `Mailbox Owner` dropdown can be used to select an existing user. The user can then access their
+email using the new email and the Cloudron password. i.e The user `johannes` can now use his password
+to access the `johannes@smartserver.space` mailbox using [SMTP](#smtp-settings-for-cloudron-email) and
+[IMAP](##imap-settings-for-cloudron-email).
+
+## Creating Mail aliases
+
+One or more aliases can be configured for each mailbox. You can do this by editing the mailbox
+configuration:
+
+<center>
+<img src="/documentation/img/mail-alias.png" class="shadow" width="500px">
+</center>
+
+!!! note "Authenticating with alias is not supported"
+    Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead,
+    add the alias as an identity in your mail client but login using the Cloudron credentials.
+
+## Creating Mailing Group
+
+A Mailing group forwards emails to one or more existing mailboxes. A list can be created in the `Email` view.
+
+<center>
+<img src="/documentation/img/mail-add-maillist.png" class="shadow" width="500px">
+</center>
+
+!!! note "No subscribe/unsubscribe feature"
+    Cloudron does not support creating a mailing list (i.e) a list that allows members to
+    subscribe/unsubscribe.
+
+## Setting a catch-all mail address
+
+A Catch-all or wildcard mailbox is one that will "catch all" of the emails addressed
+to non-existent addresses. You can forward such emails to one or more user mailboxes
+in the Email section. Note that if you do not select any mailbox (the default), Cloudron
+will send a bounce.
+
+<center>
+<img src="/documentation/img/catch-all-mailbox.png" width="500" class="shadow">
+</center>
+
+
+
+## Accessing Cloudron Email
+
+### IMAP
 
 Use the following settings to receive email via IMAP:
 
@@ -129,7 +180,7 @@ Use the following settings to receive email via IMAP:
     to access the `example1.com` mailbox and use `user@example2.com` to access the `example2.com`
     mailbox. In both cases, use the Cloudron account password.
 
-## SMTP settings for Cloudron Email
+### SMTP
 
 Use the following settings to send email via SMTP:
 
@@ -144,7 +195,7 @@ Use the following settings to send email via SMTP:
     to send email as `example1.com` and use `user@example2.com` to send email as `example2.com`.
     In both cases, use the Cloudron account password.
 
-## Sieve settings for Cloudron Email
+### Sieve
 
 Use the following settings to setup email filtering users via ManageSieve.
 
@@ -159,32 +210,6 @@ Use the following settings to setup email filtering users via ManageSieve.
     to access the `example1.com` mailbox and use `user@example2.com` to access the `example2.com`
     mailbox. In both cases, use the Cloudron account password.
 
-## Creating a mail alias
-
-One or more aliases can be configured alongside the primary email address of each
-user. You can set aliases by editing the user's settings, available behind the edit
-button in the user listing. Note that aliases cannot conflict with existing user or
-group names.
-
-<center>
-<img src="/documentation/img/email_alias.png" class="shadow" width="600px">
-</center>
-
-!!! note "Authenticating with alias is not supported"
-    Currently, it is not possible to login using the alias for SMTP/IMAP/Sieve services. Instead,
-    add the alias as an identity in your mail client but login using the Cloudron credentials.
-
-## Setting a catch-all mail address
-
-A Catch-all or wildcard mailbox is one that will "catch all" of the emails addressed
-to non-existent addresses. You can forward such emails to one or more user mailboxes
-in the Email section. Note that if you do not select any mailbox (the default), Cloudron
-will send a bounce.
-
-<center>
-<img src="/documentation/img/catch-all-mailbox.png" width="500" class="shadow">
-</center>
-
 ## Subaddresses and tags
 
 Emails addressed to `<username>+tag@<domain>` i.e mail addresses with a plus symbol in the
@@ -192,15 +217,6 @@ username will be delivered to the `username` mailbox. You can use this feature t
 `username+kayak@<domain>`, `username+aws@<domain>` and so on and have them all delivered to your mailbox.
 
 This trick works for email aliases as well.
-
-## Send test email
-
-Use the 'Send Test EMail' button in the SMTP status section to test relay of email from the Cloudron.
-
-<center>
-<img src="/documentation/img/test-email-button.png" class="shadow">
-</center>
-
 
 ## Relaying outbound mails
 
@@ -272,22 +288,9 @@ to either use App passwords or enable less secure apps. See [Google Support](htt
 
 To setup Office 365 as relay, add a connector under mail flow following the instructions under [Option 3](https://support.office.com/en-us/article/How-to-set-up-a-multifunction-device-or-application-to-send-email-using-Office-365-69f58e99-c550-4274-ad18-c805d654b4c4). Note that relaying via Office 365 requires port 25 to be open and requires a static IP.
 
-## Creating a mailing list
-
-Cloudron does not support creating a mailing list (i.e) a list that allows members to
-subscribe/unsubscribe.
-
-Cloudron does support creating forwarding addresses. Simply create a group and add users to it.
-Any mail addressed to the `group@domain` will be sent to each user who is part of the group.
-
 ## Setting quota for a mailbox
 
 Cloudron does not support mailbox quotas.
-
-## Creating a forwarding mailbox
-
-Each group on the Cloudron is also a forwarding address. Mails can be addressed
-to `group@<domain>` and the mail will be sent to each user who is part of the group.
 
 ## Forward all emails to an external address
 
