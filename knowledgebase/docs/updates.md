@@ -7,7 +7,7 @@ for updates periodically and updates them based on the update settings.
 
 Cloudron always takes a backup of an app before performing an update. Should the backup creation fail,
 the update will not be applied. If an update fails or the updated app misbehaves, the
-Cloudron administrator can [rollback from a backup](backups/#restoring-an-app-from-existing-backup).
+Cloudron administrator can [rollback from a backup](/documentation/backups/#restoring-an-app-from-existing-backup).
 
 Some app updates are not applied automatically. This can happen if a new version of the app has removed
 some features that may be relied upon. In such a case, the update has to be manually approved. This is simply
@@ -31,7 +31,7 @@ applied by clicking the update button.
 
 ## Rolling back an app update
 
-To rollback an app update, simply [restore from a backup](backups/#restoring-an-app-from-existing-backup).
+To rollback an app update, simply [restore from a backup](/documentation/backups/#restoring-an-app-from-existing-backup).
 
 ## Cloudron Updates
 

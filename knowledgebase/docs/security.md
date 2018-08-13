@@ -42,9 +42,20 @@ configuration.
 *   Cloudron blocks all incoming ports except 22 (ssh), 80 (http), 443 (https)
 *   When email is enabled, Cloudron allows 25 (SMTP), 587 (MSA), 993 (IMAPS) and 4190 (WebSieve)
 
-## OS Updates
+## Updates
 
-*   Ubuntu [automatic security updates](https://help.ubuntu.com/community/AutomaticSecurityUpdates) are enabled
+### Signed releases
+
+Cloudron platform updates are signed and verified using GPG. Cloudron releases are signed using a GPG
+key by a Cloudron team member. Cloudron installations download the release packages and verify the
+signature before applying the updates.
+
+The GPG keys used for signing release packages are maintained offline. This security mechanism means that
+Cloudron installations will not be compromised even if the Cloudron's cloud infrastructure is compromised.
+
+### OS Updates
+
+Ubuntu [automatic security updates](https://help.ubuntu.com/community/AutomaticSecurityUpdates) are enabled
 
 ## Rate limits
 
