@@ -40,6 +40,7 @@ The configure dialog can be used for:
 * Set `X-Frame-Options` to make the app embeddable in another website
 * Change the maximum amount of memory that the app can use
 * Specify a `robots.txt` to control indexing by search engines (Google, Bing, DDG)
+* Setting up redirections
 
 !!! note "No data loss"
     Re-configuring an app is a non-destructive action. Existing app data will be retained.
@@ -56,6 +57,19 @@ another domain or subdomain:
 !!! note "No data loss"
     Moving an app to a new location is a non-destructive action. Existing app data will
     be migrated to the new domain.
+
+## Redirecting www domain
+
+Redirections can be setup from the `Advanced` section in the app's configure dialog:
+
+<center>
+<img src="/documentation/img/app-redirect.png" class="shadow" width="500px">
+</center>
+
+In the above example, anyone visiting `www` subdomain will be automatically redirected
+to the bare domain (using HTTP 302).
+
+The redirection feature preserves any URI components like subpaths in the original request.
 
 ## Increasing the memory limit of an app
 
@@ -82,7 +96,8 @@ The memory limit can be set by adjusting the slider in the Configure dialog's
 
 Many apps in Cloudron are integrated with Cloudron's user management. For such
 apps, one or more groups or users can be assigned to an app to restrict
-login.
+login. For apps not integrated with Cloudron user management, see the section
+on controlling the [visibility of app icon in dashboard](#visibility-of-app-icon-in-dashboard).
 
 Note that Cloudron only handles authentication. Assigning roles to users is
 done within the application itself. For example, changing a user to become a
@@ -98,7 +113,8 @@ done within the application itself. For example, changing a user to become a
 ## Visibility of app icon in dashboard
 
 The Dashboard of a Cloudron user displays the apps that the user can access. For apps that
-use Cloudron Single Sign-on, the dashboard only displays an app if the user has access to it.
+use Cloudron Single Sign-on, the dashboard only displays an app if the user
+[has access to it](#restricting-app-access-to-specific-users).
 
 For apps configured to not use the Cloudron Single Sign-on (for example, some public app like a
 Forum or Chat), the apps are displayed (by default) on the dashboard of all users. Admins
@@ -202,24 +218,6 @@ Uninstalling an app immediately removes all data associated with the app from th
 !!! note "Backups are not removed"
     App backups are not removed when it is uninstalled and are only cleaned up based on the backup
     policy. Apps can always be re-instated from their backups using the CLI tool.
-
-## Redirecting www domain
-
-To redirect the bare domain to `www` (or `www` to the bare domain), we recommend installing
-the `LAMP` app and setting up a `.htaccess` file based redirect.
-
-For example, to redirect `www` to the bare domain:
-
-* Install [LAMP](https://cloudron.io/store/lamp.cloudronapp.html) on the `www` subdomain.
-
-* Use the [Web terminal](apps/#web-terminal) to get access to the app's file system.
-  Create a `/app/data/public/.htaccess` file:
-
-```
-$ echo "redirect 301 / https://domain.com/" > /app/data/public/.htaccess
-```
-
-This also preserves any URI components like subpaths in the original request.
 
 ## Graphs
 
