@@ -15,7 +15,7 @@ own and users have to be managed inside the app itself.
 When SSO is available for an app, the user management options will look like below:
 
 <center>
-<img src="/documentation/img/sso-available.png" class="shadow" width="600px">
+<img src="/documentation/img/sso-available.png" class="shadow" width="500px">
 </center>
 
 When `Leave user management to the app` is selected, the app's Cloudron SSO integration will be disabled
@@ -25,44 +25,50 @@ to external users (like say a community chat).
 When SSO integration is unavailable for an app, the user management options look like below:
 
 <center>
-<img src="/documentation/img/sso-unavailable.png" class="shadow" width="600px">
+<img src="/documentation/img/sso-unavailable.png" class="shadow" width="500px">
 </center>
 
 ## Users
 
-New users can be invited to the Cloudron with their email address from the `Users` menu. They will receive
-an invite to sign up. Once signed up, they can access the apps they have been given access to.
+New users can be added to the Cloudron with their email address from the `Users` menu.
 
 <center>
-<img src="/documentation/img/user-list.png" class="shadow" width="600px">
+<img src="/documentation/img/user-list.png" class="shadow" width="500px">
 </center>
+
+Click on `New User` to add a new user:
+
+<center>
+<img src="/documentation/img/users-add.png" class="shadow" width="500px">
+</center>
+
+They will receive an invite to sign up. Once signed up, they can access the apps they have been given access to.
 
 To remove a user, simply remove them from the list. Note that the removed user cannot access any app anymore.
 
-When Cloudron email is enabled, each user also get's a [mailbox](email/#how-cloudron-email-works)
-with their username.
-
 ## Groups
 
-Groups provide a convenient way to group users. It's purpose is two-fold:
-
-* You can assign one or more groups to apps to restrict who can access for an app.
-* When Cloudron Email is enabled, each group is a [mailing list](email/#creating-a-forwarding-mailbox)
-  constituting of it's members.
+Groups provide a convenient way to group users. You can assign one or more groups to apps to restrict who can
+access for an app.
 
 You can create a group by using the `Groups` menu item.
 
 <center>
-<img src="/documentation/img/user-groups.png" class="shadow">
+<img src="/documentation/img/users-groups-list.png" class="shadow">
 </center>
+
+Click on `New Group` to add a new group:
+
+<center>
+<img src="/documentation/img/users-groups-add.png" class="shadow">
+</center>
+
 
 To set the access restriction use the app's configure dialog.
 
 <center>
-<img src="/documentation/img/app_access_control.png" class="shadow">
+<img src="/documentation/img/app-configure-group-acl.png" class="shadow" width="500px">
 </center>
-
-When Cloudron Email is enabled, mails can be sent to `groupname@<domain>` to address all the group members.
 
 ## Administrators
 
@@ -71,7 +77,7 @@ apps and users. To make another existing user an administator, click the edit (p
 the user and check the `Make this user a Cloudron admin` checkbox.
 
 <center>
-<img src="/documentation/img/user-admin.png" class="shadow" width="600px">
+<img src="/documentation/img/user-admin.png" class="shadow" width="500px">
 </center>
 
 ## Password reset
@@ -84,14 +90,14 @@ In the event that [email delivery is not working](email/#debugging-mail-delivery
 can generate a new password reset link for another user by clicking on the 'Send invitation email' button.
 
 <center>
-<img src="/documentation/img/reinvite.png" class="shadow" width="600px">
+<img src="/documentation/img/reinvite.png" class="shadow" width="500px">
 </center>
 
 This will open up a dialog showing the password reset link. If email delivery is not working for some
 reason, the link can be sent to the user by some other means.
 
 <center>
-<img src="/documentation/img/invitation-dialog.png" class="shadow" width="600px">
+<img src="/documentation/img/invitation-dialog.png" class="shadow" width="500px">
 </center>
 
 ### Admins
