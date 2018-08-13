@@ -11,7 +11,6 @@ Some features of managed hosting are:
 * Encrypted daily backups
 * Hosted email with a custom domain
 * Easily migrate to a larger instance
-* No user limit and app count restrictions
 
 ## Pricing
 
