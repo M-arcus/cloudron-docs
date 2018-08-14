@@ -125,11 +125,11 @@ that it can be reverted to a sane state should the update fail.
     regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's
     `cloudron backup create` command.
 
-## Storage Backends
+## Storage provider
 
 ### Amazon S3
 
-To store backups on Amazon S3, use the `S3` backend.
+To store backups on Amazon S3, use the `S3` provider.
 
 <center>
 <img src="/documentation/img/backups-s3.png" class="shadow">
@@ -168,7 +168,7 @@ required to decrypt the backups when restoring the Cloudron.
 ### DigitalOcean Spaces
 
 To store backups on [DigitalOcean Spaces](https://blog.digitalocean.com/introducing-spaces-object-storage/),
-use the `DigitalOcean Spaces` backend.
+use the `DigitalOcean Spaces` provider.
 
 <br/>
 
@@ -180,7 +180,7 @@ use the `DigitalOcean Spaces` backend.
 
 A heads up about using DO Spaces. In our tests, we hit a few issues  including missing implementation
 for copying large files (> 5GB), severe rate limits and very poor performance when deleting objects.
-If you plan on using this backend, keep an eye on your backups. In any case, Cloudron will notify the
+If you plan on using this provider, keep an eye on your backups. In any case, Cloudron will notify the
 admins by email when backups fail.
 
 ### Exoscale SOS
@@ -194,7 +194,7 @@ safe S3-compatible object store based on [pithos](http://pithos.io/).
 
 ### Filesystem
 
-To store backups on the filesystem, use the `Filesystem` backend.
+To store backups on the filesystem, use the `Filesystem` provider.
 
 <center>
 <img src="/documentation/img/backups-filesystem.png" class="shadow">
@@ -309,7 +309,7 @@ cloudron backup create --app <subdomain/appid>
 ```
 
 * Copy the new backup from the old Cloudron's backup storage to the new one. This can be done via the s3 webinterface
-  or scp if the filesystem backend is used. The backup can be located by its backup ID, which can be seen with:
+  or scp if the filesystem provider is used. The backup can be located by its backup ID, which can be seen with:
 
 ```
 cloudron backup list --app <subdomain/appid>
@@ -400,7 +400,7 @@ Cloudron 1.9 introduced a UI to restore Cloudron. To restore from a backup:
     </center>
 
     !!! warning
-        When using the filesystem backend, ensure the backups are owned by the `yellowtent` user.
+        When using the filesystem provider, ensure the backups are owned by the `yellowtent` user.
         Also, ensure that the backups are in the same file system location as the old Cloudron.
 
 ```
