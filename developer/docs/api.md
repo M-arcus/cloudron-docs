@@ -481,6 +481,13 @@ Request:
         cmd: [ ],                   // array of strings with the launch command
         readonlyRootfs: <boolean>   // set to true if the app's file system is read-only
     },
+    alternateDomains: [             // setup redirection from these domains to the app
+        {
+            subdomain: <string>,
+            domain: <string>        // must be a valid Cloudron domain
+        },
+        ...
+    ],
     mailboxName: <string>           // name of the mailbox assigned to this application
 ```
 
