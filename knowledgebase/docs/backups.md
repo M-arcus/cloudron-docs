@@ -125,26 +125,11 @@ that it can be reverted to a sane state should the update fail.
     regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's
     `cloudron backup create` command.
 
-## Backing up to Filesystem
+## Storage Backends
 
-Provide a Filesystem path in the `Backups` section.
+### Amazon S3
 
-<center>
-<img src="/documentation/img/backups-filesystem.png" class="shadow">
-</center>
-
-The `Use hardlinks` option can be checked to make the Cloudron use [hardlinks](https://en.wikipedia.org/wiki/Hard_link)
-'same' files across backups to conserve space. If you happen to use a file system that does not
-support hardlinks (like NFS), just turn off hardlinks.
-
-!!! warning
-    Having backups reside in the same physical machine as the Cloudron server instance is
-    dangerous. For this reason, Cloudron will show a warning until the `Backup directory is an
-    external EXT4 Disk` option is checked.
-
-## Backing up to Amazon S3
-
-Provide S3 backup credentials in the `Backups` section of the `Settings` page.
+To store backups on Amazon S3, use the `S3` backend.
 
 <center>
 <img src="/documentation/img/backups-s3.png" class="shadow">
@@ -180,7 +165,59 @@ When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/la
 The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
 required to decrypt the backups when restoring the Cloudron.
 
-## Backing up to Minio
+### DigitalOcean Spaces
+
+To store backups on [DigitalOcean Spaces](https://blog.digitalocean.com/introducing-spaces-object-storage/),
+use the `DigitalOcean Spaces` backend.
+
+<br/>
+
+<center>
+<img src="/documentation/img/backups-do-spaces.png" class="shadow" width="500px">
+</center>
+
+<br/>
+
+A heads up about using DO Spaces. In our tests, we hit a few issues  including missing implementation
+for copying large files (> 5GB), severe rate limits and very poor performance when deleting objects.
+If you plan on using this backend, keep an eye on your backups. In any case, Cloudron will notify the
+admins by email when backups fail.
+
+### Exoscale SOS
+
+[Exoscale SOS](https://www.exoscale.ch/syslog/2014/11/06/introducing-sos/) is a simple, scalable and
+safe S3-compatible object store based on [pithos](http://pithos.io/).
+
+<br/>
+<center><img src="/documentation/img/backups-exoscale-sos.png" class="shadow" width="500px"/></center>
+<br/>
+
+### Filesystem
+
+To store backups on the filesystem, use the `Filesystem` backend.
+
+<center>
+<img src="/documentation/img/backups-filesystem.png" class="shadow">
+</center>
+
+The `Use hardlinks` option can be checked to make the Cloudron use [hardlinks](https://en.wikipedia.org/wiki/Hard_link)
+'same' files across backups to conserve space. If you happen to use a file system that does not
+support hardlinks (like NFS), just turn off hardlinks.
+
+!!! warning
+    Having backups reside in the same physical machine as the Cloudron server instance is
+    dangerous. For this reason, Cloudron will show a warning until the `Backup directory is an
+    external EXT4 Disk` option is checked.
+
+### Google Cloud Storage
+
+Provide [GCS](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
+
+<center>
+<img src="/documentation/img/backups-gcs.png" class="shadow" width="500px">
+</center>
+
+### Minio
 
 [Minio](https://minio.io/) is a distributed object storage server, providing the same API as Amazon S3.
 
@@ -214,13 +251,24 @@ self-signed certificate, select the `Accept Self-Signed certificate` option.
 The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
 required to decrypt the backups when restoring the Cloudron.
 
-## Backing up to Google Cloud Storage
+## Encrypting backups
 
-Provide [GCS](https://cloud.google.com/storage/) backup credentials in the `Backups` section of the `Settings` page.
+Backups can be encrypted by providing an encyption key in the backup settings.
 
-<center>
-<img src="/documentation/img/backups-gcs.png" class="shadow">
-</center>
+Please note that when using encryption with the `rsync` format, the file names are encrypted as well.
+
+!!! warning "Do not lose encryption key"
+    Please keep the encryption key safe. Without the key, there is no way to decrypt the backups.
+
+## Decrypting backups
+
+When encryption is used, backups can be downloaded and decrypted locally with the following command:
+
+```
+cat backupfile.tar.gz.enc | openssl aes-256-cbc -d -nosalt -pass "pass:secretkey" > backupfile.tar.gz
+```
+
+`secretkey` is the encryption key that was used for creating backups
 
 ## Backup interval
 
@@ -237,17 +285,6 @@ The backup logs can be viewed and downloaded using the `Show Logs` button in the
 <center>
 <img src="/documentation/img/backups-logs.png" class="shadow" width="500px">
 </center>
-
-
-## Decrypting backups
-
-When encryption is used, backups can be downloaded and decrypted locally with the following command:
-
-```
-cat backupfile.tar.gz.enc | openssl aes-256-cbc -d -nosalt -pass "pass:secretkey" > backupfile.tar.gz
-```
-
-`secretkey` is the encryption key that was used for creating backups
 
 ## Migrate Apps from one Cloudron to another
 
