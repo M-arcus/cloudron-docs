@@ -31,5 +31,5 @@ not see the IP address of your devices but they *will* see the IP
 address and possibly the RDNS hostname of your Cloudron.
 
 You can check what sort of information can be gathered from your
-Cloudron's IP address using [https://ipleak.net/](ipleak.net).
+Cloudron's IP address using [ipleak.net](https://ipleak.net).
 
