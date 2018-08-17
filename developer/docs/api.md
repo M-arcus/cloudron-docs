@@ -1831,16 +1831,11 @@ Request:
 ```
 {
     email: <email>,         // required
-    invite: <boolean>,      // required
     username: <string>,     // optional
     displayName: <string>,  // optional
     password: <password>    // optional
 }
 ```
-
-`invite` indicates if the user should be sent an invitation email. The invitation email allows the user
-to setup a username and password. Set this to `false` to send out a custom invitation email of your own
-to the user. The invitation link can be constructed based on the `resetToken` in the response (see below).
 
 `username` has to be at least two characters long and must be alphanumeric. If unspecified, the new user
 can pick any available name on first sign up. For security, `username` cannot be changed once set.
@@ -1925,11 +1920,11 @@ Response (204):
 {}
 ```
 
-### Re-invite user
+### Create invitation link
 
-POST `/api/v1/users/:userId/invite` <scope>admin</scope>
+POST `/api/v1/users/:userId/create_invite` <scope>admin</scope>
 
-Resends the invitation link to an existing user.
+Creates an invitation link to an existing user.
 
 A re-invite call invalidates any previous invite links. The invitation link can be constructed based on the resetToken in the response.
 
@@ -1942,6 +1937,23 @@ Response (200):
 ```
 {
     resetToken: <string>   // // User can sign up at https://my.domain.com/api/v1/session/account/setup.html?reset_token=<resetToken>
+}
+```
+
+### Send invitation link
+
+POST `/api/v1/users/:userId/send_invite` <scope>admin</scope>
+
+Sends an invitation link to an existing user. This call will fail if an invitation link was not generated previously.
+
+Request:
+```
+{}
+```
+
+Response (200):
+```
+{
 }
 ```
 
