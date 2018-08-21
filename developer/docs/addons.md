@@ -40,6 +40,19 @@ for this purpose to setup and update the DB schema.
 
 ## All addons
 
+### docker
+
+This addon allows an app to create containers on behalf of the user.
+
+Exported environment variables:
+
+```
+DOCKER_HOST=        # tcp://<IP>:<port>
+```
+
+Containers created by an application are tracked by Cloudron internally and will all get removed when
+the app is uninstalled. In addition, all containers are forced to run in the `cloudron` internal network.
+
 ### email
 
 This addon allows an app to send and recieve emails on behalf of the user. The intended use case is webmail applications.
