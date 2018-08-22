@@ -14,6 +14,11 @@ Adjusting this to the real name, can be done by editing the IMAP account under `
 <img src="/documentation/img/sogo-email-identity-setup.png" class="shadow" width="100%">
 </center>
 
+## External domains
+
+The SOGo app does not support adding domains that are not managed in Cloudron.
+Consider using the [rainloop app](/documentation/apps/rainloop) as an alternative.
+
 ### Sieve Scripts
 
 SOGo UI only supports setting up a limited set of filtering rules. You can setup more advanced rules
