@@ -73,6 +73,12 @@ Open a [Web terminal](apps/#web-terminal) for SOGo:
 
 * Restart SOGo
 
+## ActiveSync
+
+Exchange ActiveSync is a protocol used by Microsoft Exchange to sync mobile devices.
+The Cloudron SOGo app does not support ActiveSync. It only supports clients that
+use IMAP/SMTP/CardDAV/CalDAV.
+
 ## UI Issues
 
 SOGo behaves differently depending on how you access the app.
