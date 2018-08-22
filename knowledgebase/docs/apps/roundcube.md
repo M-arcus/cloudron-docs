@@ -11,6 +11,11 @@ Cloudron has two domains, `example1.com` and `example2.com`, the user can login
 using `user@example1.com` and `user@example2.com`. Aliases can be added as identities
 under Roundcube settings.
 
+## External domains
+
+The roundcube app does not support adding domains that are not managed in Cloudron.
+Consider using the [rainloop app](/documentation/apps/rainloop) as an alternative.
+
 ## Vacation Email
 
 An out of office / vacation mail message can be setup using Sieve filters.
