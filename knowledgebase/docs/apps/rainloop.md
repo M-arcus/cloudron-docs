@@ -26,6 +26,10 @@ domains.
         that in the example above, if the user logs in `user@example2.com`, the
         `user@example1.com` id will not show up.
 
+## External domains
+
+To add one or more external domains, add them in Rainloop's [admin panel](#admin-panel).
+
 ## Vacation Email
 
 An out of office / vacation mail message can be setup using Sieve filters.
@@ -61,4 +65,6 @@ are:
 
 Restart the app for the changes to take effect.
 
-We highly recommend disabling the admin panel after use. 
+!!! warning "Disable admin panel after use"
+    We highly recommend disabling the admin panel after use.
+
