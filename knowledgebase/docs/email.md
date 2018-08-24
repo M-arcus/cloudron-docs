@@ -464,16 +464,9 @@ to contact other mail servers on port 25.
 
 When an app is not sending email, try the following:
 
-* Use `docker ps --format "table {{.ID}}\t{{.Labels}}"` and check the fqdn label to identify the
-    container id.
+* Open a [Web terminal](apps/#web-terminal) of the app.
 
-* `docker exec -ti <container id> /bin/bash`. In the shell, try sending a mail as if an app would
-    send it. The command depends on whether the app is written using Go or not.
+* For apps that do not use Go: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
 
-* Non-Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
-
-* Go apps: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc`
-
-* If the command above works, double check how the app or the plugin is configured to send email.
-      `docker exec -ti <container id> env | grep SMTP_` gives the SMTP credentials for sending email.
+* For apps that use Go: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc`
 
