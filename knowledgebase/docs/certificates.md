@@ -40,7 +40,6 @@ in the `Domains` page.
 <img src="/documentation/img/cert-fallback.png" class="shadow" width="600px">
 </center>
 
-
 ## Manually renewing Let's Encrypt certificate
 
 To manually trigger re-installation or renewal of Let's encrypt certificate, open the
@@ -70,7 +69,14 @@ When using Let's Encrypt, please be aware of the following:
 
 ## Setting custom certificates
 
-Custom certificates can be set for each installed application using the [REST API](/developer/api/#configure-app).
+A custom wildcard certificate can be provided per domain. When setting such a certificate,
+please make sure to add both the bare domain and the wildcard domain as part of the certificate.
+
+Follow [this tutorial](https://www.devside.net/wamp-server/generating-and-installing-wildcard-and-multi-domain-ssl-certificates)
+for instructions on how to generate a custom wildcard certificate that has both the bare domain
+and the wildcard domain.
+
+Custom certificates can also be set for each installed application using the [REST API](/developer/api/#configure-app).
 This can be used to set an Extended Validation (EV) certificate for an app.
 
 ## Common reasons for Let's Encrypt Certificate failure
