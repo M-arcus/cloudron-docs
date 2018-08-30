@@ -7,7 +7,8 @@ changed in `gitlab.yml`. For such situations, use the [Web terminal's](apps/#web
 and create a file named `/app/data/gitlab.yml`. This way custom configurations
 will be preserved across updates and will also be backed up.
 
-For example, to add GitHub login and Piwik analytics, add a `gitlab.yml` like below:
+For example, to add GitHub login and Piwik analytics, add a `/app/data/gitlab.yml` like below
+and _restart_ the application:
 
 ```
 production:
