@@ -20,6 +20,7 @@ pages:
     - 'User & Groups': user-management.md
   - 'Apps':
     - 'CodiMD': apps/codimd.md
+    - 'Collabora': apps/collabora.md
     - 'Confluence': apps/confluence.md
     - 'Dokuwiki': apps/dokuwiki.md
     - 'EspoCRM': apps/espocrm.md

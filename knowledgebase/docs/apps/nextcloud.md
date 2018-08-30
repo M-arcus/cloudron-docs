@@ -106,3 +106,12 @@ sudo -u www-data php /app/code/occ maintenance:mode --off
 
 After running the commands, end the repair for the app to come up.
 
+## Collabora Online Document Editor
+
+Collabora Online is a powerful online office suite that supports all major document, spreadsheet and presentation
+file formats, which you can integrate in your own infrastructure. Key features are collaborative editing and
+excellent office file format support.
+
+See the [Collabora App docs](app/collabora) on how to setup NextCloud with Collabora Office.
+
+<img src="/documentation/img/nextcloud-collabora-editor.png" class="shadow">
