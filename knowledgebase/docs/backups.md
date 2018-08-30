@@ -434,5 +434,5 @@ To migrate to a different server or move Cloudron to a different server provider
 <img src="/documentation/img/backup-done.png" class="shadow">
 </center>
 
-* Follow the steps to [restore from the latest backup](backups/#restoring-cloudron-from-a-backup)
+* Follow the steps to [restore from the latest backup](#restoring-cloudron-from-a-backup)
   on the new server.
