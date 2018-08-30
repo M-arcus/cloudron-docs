@@ -7,6 +7,32 @@ changed in `gitlab.yml`. For such situations, use the [Web terminal's](apps/#web
 and create a file named `/app/data/gitlab.yml`. This way custom configurations
 will be preserved across updates and will also be backed up.
 
+For example, to add GitHub login and Piwik analytics, add a `gitlab.yml` like below:
+
+```
+production:
+  <<: *base
+  extra:
+    ## Piwik analytics.
+    piwik_url: 'analytics.domain.com'
+    piwik_site_id: '7'
+
+  omniauth:
+    # Allow login via Twitter, Google, etc. using OmniAuth providers
+    enabled: true
+    allow_single_sign_on: ["github"]
+    block_auto_created_users: false
+    external_providers: [ ]
+    providers:
+      - { name: 'github',
+          app_id: 'my_app_id',
+          app_secret: 'my_app_secret',
+          url: "https://github.com/",
+          verify_ssl: true,
+          args: { scope: 'user:email' } }
+
+```
+
 ## Disabling registration
 
 By default, GitLab allows external people to sign up. This can be disabled to
