@@ -36,14 +36,14 @@ Cloudron will never overwrite existing DNS records.
 
 Next, select the DNS service in which the domain in hosted:
 
-*   [AWS Route53](domains/#route-53-dns)
-*   [Cloudflare](domains/#cloudflare-dns)
-*   [Digital Ocean](domains/#cloudflare-dns)
-*   [Gandi](domains/#gandi-dns)
-*   [GoDaddy](domains/#godaddy-dns)
-*   [Google Cloud DNS](domain/#google-cloud-dns)
-*   [name.com](domains/#namecom-dns)
-*   [Wildcard](domains/#wildcard-dns)
+*   [AWS Route53](/documentation/domains/#route-53-dns)
+*   [Cloudflare](/documentation/domains/#cloudflare-dns)
+*   [Digital Ocean](/documentation/domains/#cloudflare-dns)
+*   [Gandi](/documentation/domains/#gandi-dns)
+*   [GoDaddy](/documentation/domains/#godaddy-dns)
+*   [Google Cloud DNS](/documentation/domain/#google-cloud-dns)
+*   [name.com](/documentation/domains/#namecom-dns)
+*   [Wildcard](/documentation/domains/#wildcard-dns)
 
 When using one of the programmable backends, Cloudron will automatically make changes to DNS
 as and when required.
