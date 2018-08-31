@@ -1920,6 +1920,24 @@ Response (204):
 {}
 ```
 
+### Update user password
+
+POST `/api/v1/users/:userId/password` <scope>admin</scope>
+
+Modify user's password.
+
+Request:
+```
+{
+    password: <password>
+}
+```
+
+Response (204):
+```
+{}
+```
+
 ### Create invitation link
 
 POST `/api/v1/users/:userId/create_invite` <scope>admin</scope>
