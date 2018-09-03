@@ -387,20 +387,14 @@ Cloudron applications can also receive mail via IMAP using the `recvmail` addon.
 
 ### Authentication
 
-The Cloudron has a centralized panel for managing users and groups. Apps can integrate Single Sign-On
-authentication using LDAP or OAuth.
+The Cloudron has a centralized panel for managing users and groups. If possible, apps should always be
+integrated with the Cloudron usermanagement to provide a better out-of-the box experience.
 
 Apps can integrate with the Cloudron authentication system using LDAP or OAuth 2.0. See the
 [LDAP](/developer/addons/#ldap) and [OAuth](/developer/addons/#oauth)
 pages for more details.
 
-See https://git.cloudron.io/cloudron/tutorial-ldap for a simple example of how to authenticate via LDAP.
-
-For apps that are single user can skip Single Sign-On support by setting the `"singleUser": true`
-in the manifest. By doing so, the Cloudron will installer will show a dialog to choose a user.
-
-For app that have no user management at all, the Cloudron implements an `OAuth proxy` that
-optionally lets the Cloudron admin make the app visible only for logged in users.
+See [tutorial-ldap](https://git.cloudron.io/cloudron/tutorial-ldap) for a simple example of how to authenticate via LDAP.
 
 ## Best practices
 
