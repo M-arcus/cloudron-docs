@@ -11,11 +11,19 @@ you to develop apps on your Cloudron. The CLI tool uses the REST API documented 
 ## Using the Cloudron REST API
 
 The Cloudron API is available at the `my` subdomain of your Cloudron. To access
-the API, you need an access token. The Cloudron can create an access token from
-the `API Access` page.
+the API, you need an access token that you can get from your `Account` page.
+
+To create a token, click the `New Token` button:
 
 <center>
-<img src="../img/access-token2.png" class="shadow" width="600px">
+<img src="../img/apitoken-new.png" class="shadow" width="500px">
+</center>
+
+
+Then, provide a token name:
+
+<center>
+<img src="../img/apitoken-name.png" class="shadow" width="500px">
 </center>
 
 The access token can be provided via the request query `?access_token=<token>`.
