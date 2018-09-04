@@ -272,7 +272,13 @@ cat backupfile.tar.gz.enc | openssl aes-256-cbc -d -nosalt -pass "pass:secretkey
 
 ## Backup interval
 
-Cloudron automatically creates a backup every night (in the timezone of your Cloudron).
+Cloudron automatically creates a backup every night (in the timezone of your Cloudron). This interval
+can be configured in the backup settings.
+
+
+<center>
+<img src="/documentation/img/backups-interval.png" class="shadow" width="500px">
+</center>
 
 To instantly make a complete backup, click the `Backup now` button in the `Backups` section of the `Settings` page.
 Alternately, use the CLI command `cloudron machine backup create`.
