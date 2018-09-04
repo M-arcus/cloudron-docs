@@ -496,7 +496,11 @@ Request:
         },
         ...
     ],
-    mailboxName: <string>           // name of the mailbox assigned to this application
+    mailboxName: <string>,          // name of the mailbox assigned to this application
+    alternateDomains: [{            // array of domains that should redirect to this app
+        domain: <string>,
+        subdomain: <string>
+    }]
 ```
 
 All values are optional. See [Install app](#install-app) API for field descriptions.
