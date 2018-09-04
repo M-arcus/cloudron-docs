@@ -10,7 +10,7 @@ The manifest contains two categories of information:
   the title, author information, description etc
 
 * Information for installing the app on the Cloudron. This includes fields
-  like httpPort, tcpPorts.
+  like httpPort, tcpPorts, udpPorts.
 
 A CloudronManifest.json can **only** contain fields that are listed as part of this
 specification. The Cloudron App Store and the Cloudron *may* reject applications that have
@@ -465,6 +465,47 @@ Example:
 ```
   "title": "Gitlab"
 ```
+
+### udpPorts
+
+Type: object
+
+Required: no
+
+Syntax: Each key is the environment variable. Each value is an object containing `title`, `description` and `defaultValue`.
+An optional `containerPort` may be specified.
+
+The `udpPorts` field provides information on the non-http TCP ports/services that your application is listening on. During
+installation, the user can decide how these ports are exposed from their Cloudron.
+
+For example, if the application runs an SSH server at port 29418, this information is listed here. At installation time,
+the user can decide any of the following:
+* Expose the port with the suggested `defaultValue` to the outside world. This will only work if no other app is being exposed at same port.
+* Provide an alternate value on which the port is to be exposed to outside world.
+* Disable the port/service.
+
+To illustrate, the application lists the ports as below:
+```
+  "udpPorts": {
+    "VPN_PORT": {
+      "title": "VPN Port",
+      "description": "Port over which OpenVPN server listens",
+      "defaultValue": 11194,
+      "containerPort": 1194
+    }
+  },
+```
+
+In the above example:
+* `VPN_PORT` is an app specific environment variable. Only strings, numbers and _ (underscore) are allowed. The author has to ensure that they don't clash with platform profided variable names.
+
+* `title` is a short one line information about this port/service.
+
+* `description` is a multi line description about this port/service.
+
+* `defaultValue` is the recommended port value to be shown in the app installation UI.
+
+* `containerPort` is the port that the app is listening on (recall that each app has it's own networking namespace).
 
 ### version
 
