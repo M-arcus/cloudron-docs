@@ -1,5 +1,9 @@
 # <img src="/documentation/img/wordpress-logo.png" width="25px"> Wordpress App
 
+## Admin page
+
+The Wordpress admin page is located `https://<my.domain.com>/wp-login.php`.
+
 ## Wordpress memory limit
 
 The PHP memory limit is configured to match the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). To increase Wordpress memory limit, change the app's memory limit.
