@@ -42,7 +42,8 @@ To forward all emails to an external mail, setup a Sieve filter in
 * Extract the plugin using the [Web terminal](apps/#web-terminal) into
   `/app/data/plugins`.
 
-* Change the ownership of the extracted plugin to `www-data`.
+* Change the ownership of the extracted plugin to `www-data` by running the command
+  `chown -R www-data:www-data /app/data/plugins`.
 
 * Add the plugin to `$config['plugins']` in `/app/data/customconfig.php`:
 ```
@@ -89,3 +90,21 @@ roundcube code and no installation is required. To enable the plugin:
 ```
 $rcmail_config['product_name'] = 'My Hosting Company';
 ```
+
+## Skins
+
+[Skins](https://plugins.roundcube.net/explore/) can be installed as follows:
+
+* Extract the skin using the [Web terminal](apps/#web-terminal) into
+  `/app/data/skins`.
+
+* Change the ownership of the extracted skin to `www-data` by running the command
+  `chown -R www-data:www-data /app/data/skins`.
+
+* Set the new skin as the default skin in `/app/data/customconfig.php`:
+
+```
+    $rcmail_config['skin'] = 'mycustomskin';
+```
+
+
