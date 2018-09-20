@@ -80,4 +80,12 @@ roundcube code and no installation is required. To enable the plugin:
 <img src="/documentation/img/roundcube-encryption-icon.png" class="shadow" width="600px">
 </center>
 
+## Changing the title
 
+* Open a [Web terminal](apps/#web-terminal)
+
+* Add the following lines to `/app/data/customconfig.php`:
+
+```
+$rcmail_config['product_name'] = 'My Hosting Company';
+```
