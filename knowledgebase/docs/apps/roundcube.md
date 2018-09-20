@@ -101,10 +101,28 @@ $rcmail_config['product_name'] = 'My Hosting Company';
 * Change the ownership of the extracted skin to `www-data` by running the command
   `chown -R www-data:www-data /app/data/skins`.
 
-* Set the new skin as the default skin in `/app/data/customconfig.php`:
+* Set the new skin as the default skin by adding this line in `/app/data/customconfig.php`:
 
 ```
-    $rcmail_config['skin'] = 'mycustomskin';
+    $rcmail_config['skin'] = 'newskin_directory_name';
 ```
 
+### Customizing CSS and logo
+
+To customize CSS and logo, it's best to create a copy of an existing skin and make
+changes as needed.
+
+* Open a [Web terminal](apps/#web-terminal):
+```
+# cd /app/data/skins
+# cp -Lr larry customskin
+... make changes in customskin ...
+# chown -R www-data:www-data customskin
+```
+
+* Set the new skin as the default skin by adding this line in `/app/data/customconfig.php`:
+
+```
+$rcmail_config['skin'] = 'customskin';
+```
 
