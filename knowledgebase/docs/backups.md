@@ -436,15 +436,18 @@ To migrate to a different server or move Cloudron to a different server provider
 * Take a [complete backup](#making-a-complete-backup) of the existing
   Cloudron. Click the `Backup now` button in the `Settings` page and make a note of the backup id.
 
+!!! note "Backup location"
+    We recommend backing up to an external service like S3 or Digital Ocean Spaces.
+    This is because the backups become immediately available for the new server to restore from.
+    If you use the filesystem for backups, you have to copy the backup files manually to the new
+    server using rsync or scp.
+
 <center>
 <img src="/documentation/img/backup-done.png" class="shadow">
 </center>
 
-    !!! note
-        It's easier to migrate if backup to an external service like S3 or Digital Ocean Spaces.
-        This is because the backups become immediately available to the new server to restore from.
-        If you use the filesystem for backups, you have to copy the backup files manually to the new
-        server using rsync or scp.
 
 * Follow the steps to [restore from the latest backup](#restoring-cloudron-from-a-backup)
-  on the new server.
+  on the new server. It is recommended to not _delete_ the old server until  migration to new server
+  is complete and you have verified that all data is intact.
+
