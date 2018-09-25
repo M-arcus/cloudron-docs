@@ -133,8 +133,8 @@ echo "This script is called before the app starts"
 
 # create symlinks
 rm -rf /app/data/var/cache
-mkdir -p /tmp/cache
-ln -sf /tmp/cache /app/data/var/cache
+mkdir -p /run/cache
+ln -sf /run/cache /app/data/var/cache
 ```
 
 ## Cron support
