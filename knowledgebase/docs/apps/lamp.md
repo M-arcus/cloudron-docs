@@ -122,6 +122,21 @@ dialog.
 </center>
 <br/>
 
+## Custom Startup Script
+
+A custom startup script can be placed at `/app/data/run.sh`. For example,
+
+```
+#!/bin/bash
+
+echo "This script is called before the app starts"
+
+# create symlinks
+rm -rf /app/data/var/cache
+mkdir -p /tmp/cache
+ln -sf /tmp/cache /app/data/var/cache
+```
+
 ## Cron support
 
 For cron support, add a file named `/app/data/crontab` support.
