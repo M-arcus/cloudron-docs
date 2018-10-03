@@ -19,6 +19,7 @@ configuration.
 
 *   Cloudron enforces HTTPS across all apps. HTTP requests are automatically redirected to
     HTTPS.
+*   Cloudron supports Let's Encrypt wildcard certificates that help in hiding the subdomain of apps.
 *   The Cloudron automatically installs and renews certificates for your apps as needed. Should
     installation of certificate fail for reasons beyond it's control, Cloudron admins will get a notification about it.
 *   Cloudron sets the `Strict-Transport-Security` header (HSTS) to protect apps against downgrade attacks
@@ -84,11 +85,11 @@ The goal of rate limits is to prevent password brute force attacks.
 
 *   Let's Encrypt [submits](https://letsencrypt.org/certificates/)
     all certificates to [Certificate Transparency Logs](https://www.certificate-transparency.org/).
-    This means that the apps that you install and use are going to be guessable. For example,
+    This is an important consideration when using non-wildcard Let's Encrypt certificates
+    because apps that you install and use are going to be listed in the logs. For example,
     [crt.sh](https://crt.sh), [Google transparency report](https://transparencyreport.google.com/https/certificates)
     can display all your subdomains and you can visit those subdomains and
-    guess the app. Generally, this is not a problem because using hidden DNS names is not a security
-    measure. If you want to avoid this, you can always use a wildcard certificate.
+    guess the app. Please note that this is not a problem when using wildcard certs.
 
 *   Cloudron does not collect any user information and this is not our business model. We collect
     information regarding the configured backend types. This helps us focus on improving backends
