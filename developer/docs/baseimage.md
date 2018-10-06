@@ -2,7 +2,7 @@
 
 ## Overview
 
-The application's Dockerfile must specify the FROM base image to be `cloudron/base:0.10.0`.
+The application's Dockerfile must specify the FROM base image to be `cloudron/base:1.0.0`.
 
 The base image already contains most popular software packages including node, nginx, apache,
 ruby, PHP. Using the base image greatly reduces the size of app images.
@@ -43,16 +43,13 @@ The base image can be inspected by installing [Docker](https://docs.docker.com/i
 
 Once installed, pull down the base image locally using the following command:
 ```
-    docker pull cloudron/base:0.10.0
+    docker pull cloudron/base:1.0.0
 ```
 
 To inspect the base image:
 ```
-    docker run -ti cloudron/base:0.10.0 /bin/bash
+    docker run -ti cloudron/base:1.0.0 /bin/bash
 ```
-
-*Note:* Please use `docker 1.9.0` or above to pull the base image. Doing otherwise results in a base
-image with an incorrect image id. The image id of `cloudron/base:0.10.0` is `5ec8ca8525be`.
 
 ## The `cloudron` user
 

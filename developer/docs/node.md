@@ -77,7 +77,7 @@ A Dockerfile contains commands to assemble an image.
 Create a file named `tutorial/Dockerfile` with the following content:
 
 ```dockerfile
-FROM cloudron/base:0.10.0
+FROM cloudron/base:1.0.0
 
 ADD server.js /app/code/server.js
 
@@ -173,7 +173,7 @@ Login successful.
 Build scheduled with id 76cebfdd-7822-4f3d-af17-b3eb393ae604
 Downloading source
 Building
-Step 0 : FROM cloudron/base:0.10.0
+Step 0 : FROM cloudron/base:1.0.0
  ---> 97583855cc0c
 Step 1 : ADD server.js /app/code
  ---> b09b97ecdfbc
@@ -335,7 +335,7 @@ and modify our Dockerfile to look like this:
 File `tutorial/Dockerfile`
 
 ```dockerfile
-FROM cloudron/base:0.10.0
+FROM cloudron/base:1.0.0
 
 ENV PATH /usr/local/node-6.9.5/bin:$PATH
 
