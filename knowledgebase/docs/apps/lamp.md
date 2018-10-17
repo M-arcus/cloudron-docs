@@ -240,7 +240,7 @@ running [as root](https://getcomposer.org/doc/faqs/how-to-install-untrusted-pack
 composer as the `www-data` user to avoid the warning.
 
 ```
-    sudo -u www-data php /usr/local/bin/composer install symfony/symfony-demo
+    sudo -u www-data php /usr/local/bin/composer install        # assumes there is a composer.json
 ```
 
 ## Reverse proxy setup
