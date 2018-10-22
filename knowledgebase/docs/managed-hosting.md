@@ -1,20 +1,10 @@
 # Managed Hosting
 
-## What is Managed Cloudron
+!!! warning "End of Life"
+    Our managed hosting offering is not accepting any new customers at this point in time.
+    Instead we focus fully on Cloudron for your own infrastructure. Current customers of
+    managed hosting are of course not affected by this.
 
-Managed Cloudron is a service that offers Cloudron as a managed service.
-It includes the hardware, software, and ongoing upkeep of Cloudron.
-
-Some features of managed hosting are:
-
-* We monitor the health of your apps and server
-* Encrypted daily backups
-* Hosted email with a custom domain
-* Easily migrate to a larger instance
-
-## Pricing
-
-Pricing information for Managed Cloudron is located [here](https://cloudron.io/managed.html).
 
 ## Infrastructure
 
