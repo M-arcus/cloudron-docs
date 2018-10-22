@@ -85,11 +85,11 @@ used to manage your subscription & billing.
 ## Next steps
 
 Security is a core feature of the Cloudron and the default installation is already setup
-to follow [best practices](security/).
+to follow [best practices](/documentation/security/).
 
 To further harden security, we recommend the following:
 
-* [Secure SSH access](security/#securing-ssh-access) to the server
+* [Secure SSH access](/documentation/security/#securing-ssh-access) to the server
 
 ## Support
 
