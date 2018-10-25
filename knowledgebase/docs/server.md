@@ -376,7 +376,7 @@ Cloudron has an internal timezone setting that controls various cron jobs like b
 date display in emails etc. This timezone is detected based on the browser IP that was used to
 activate the Cloudron. The auto-detected timezone can be displayed by running:
 
-* `mysql -uroot -ppassword -e "SELECT box.settings WHERE name='time_zone'"`
+* `mysql -uroot -ppassword -e "SELECT * FROM box.settings WHERE name='time_zone'"`
 
 ```
 mysql: [Warning] Using a password on the command line interface can be insecure.
