@@ -59,9 +59,9 @@ available in the profile section of your account.
 <img src="../img/domains-cloudflare.png" class="shadow" width="500px">
 </center>
 
-!!! warning "Cloudflare HTTP(S) proxy"
-    Cloudron does not support installing apps that are proxied via Cloudflare. Cloudflare backend
-    only sets up the DNS via Cloudflare API and expects website traffic to be unproxied.
+!!! note "DNS and HTTP Proxy"
+    Cloudron configures Cloudflare to proxy only the DNS. If you change this setting in Cloudflare to proxy HTTP traffic as well,
+    be sure to use the [Full SSL (Strict)](https://support.cloudflare.com/hc/en-us/articles/200170416-What-do-the-SSL-options-mean-) mode.
 
 ### Digital Ocean DNS
 
