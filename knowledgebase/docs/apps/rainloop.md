@@ -54,7 +54,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 
 The admin panel is located at `/?admin` and is disabled by default.
 
-To enable it, open a [Web terminal](apps/#web-terminal)
+To enable it, open a [Web terminal](/documentation/apps#web-terminal)
 and edit the file `/app/data/_data_/_default_/configs/application.ini`.
 Set the value of `allow_admin_panel` to `On`. The default admin credentials
 are:

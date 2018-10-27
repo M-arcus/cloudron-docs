@@ -12,7 +12,7 @@ a TCP tunnel.
 The app is pre-setup with a admin account. To give admin access to other
 users, login as admin and add users to the `admin` group.
 
-Alternately, use the [Web terminal](apps/#web-terminal) and
+Alternately, use the [Web terminal](/documentation/apps#web-terminal) and
 run the following command:
 
 ```
@@ -23,7 +23,7 @@ run the following command:
 
 By default, the app allows user's to login via `Cloudron LDAP` and via
 email. Once you have made one or more Cloudron user's as Redash admins,
-the email login can be disabled. For this, use the [Web terminal](apps/#web-terminal)
+the email login can be disabled. For this, use the [Web terminal](/documentation/apps#web-terminal)
 and add/edit a file `/app/data/env` and add the following line:
 
     export REDASH_PASSWORD_LOGIN_ENABLED=false

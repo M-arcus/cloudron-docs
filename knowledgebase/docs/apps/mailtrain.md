@@ -32,5 +32,5 @@ This will inject the Cloudrons SMTP credentials automatically.
 ## Customizations
  
 Additional settings can be added to `/app/data/production.toml` using
-the [Web terminal](apps/#web-terminal).
+the [Web terminal](/documentation/apps#web-terminal).
 

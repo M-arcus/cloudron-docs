@@ -13,7 +13,7 @@ registered wiki account.
 
 ### Changing permissions
 
-Use the [Web terminal](apps/#web-terminal) to edit the values in
+Use the [Web terminal](/documentation/apps#web-terminal) to edit the values in
 `/app/data/LocalSettings.php`.
 
 Here are some commonly requested settings:
@@ -49,7 +49,7 @@ Sysops can perform a number of maintanence operations by vising `/wiki/Special:S
 
 ### Setting a custom icon
 
-To set a custom icon, use the [Web terminal](apps/#web-terminal):
+To set a custom icon, use the [Web terminal](/documentation/apps#web-terminal):
 
 * Upload a file to '/tmp'
 * In the web terminal, move the uploaded file to `/app/data/images/wiki.png`.
@@ -61,7 +61,7 @@ To set a custom icon, use the [Web terminal](apps/#web-terminal):
 MediaWiki [https://www.mediawiki.org/wiki/Manual:Extensions](extensions) can be installed
 as follows:
 
-* Use the [Web terminal](apps/#web-terminal) to upload the tarball to `/tmp`
+* Use the [Web terminal](/documentation/apps#web-terminal) to upload the tarball to `/tmp`
 * Extract the package under `/app/data/extensions` and run `chown -R www-data:www-data /app/data/extensions`
 * Load the skin in `/app/data/LocalSettings.php` by adding this line:
 ```
@@ -85,7 +85,7 @@ to `/app/data/LocalSettings.php`:
 MediaWiki [https://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles](skins) can be installed
 as follows:
 
-* Use the [Web terminal](apps/#web-terminal) to upload the tarball to `/tmp`
+* Use the [Web terminal](/documentation/apps#web-terminal) to upload the tarball to `/tmp`
 * Extract the package under `/app/data/skins` and run `chown -R www-data:www-data /app/data/skins`
 * Load the skin in `/app/data/LocalSettings.php` by adding this line:
 ```

@@ -17,7 +17,7 @@ When not using Cloudron authentication, first register a new user.
 
 #### Making user an admin
 
-To make the new user an admin, use the [Web terminal](https://cloudron.io/documentation/apps/#web-terminal)
+To make the new user an admin, use the [Web terminal](/documentation//documentation/apps#web-terminal)
 to edit `/app/data/conf/users.auth.php` and add the `admins` group to the new
 user's groups. For example:
 

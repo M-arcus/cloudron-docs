@@ -4,7 +4,7 @@
 
 NodeBB admin dashboard offers a UI to install plugins and themes in their dashboard.
 However, some plugins/themes may need to be installed by hand. To do so, use the
-[Web terminal](apps/#web-terminal):
+[Web terminal](/documentation/apps#web-terminal):
 
 ```
     cd /app/code

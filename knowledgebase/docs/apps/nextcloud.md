@@ -29,7 +29,7 @@ sudo apt-get install owncloud-client
 
 The `occ` tool can be used for NextCloud [administrative tasks](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/occ_command.html).
 
-The occ command can be run using the [Web terminal](apps/#web-terminal). For example, to list the users:
+The occ command can be run using the [Web terminal](/documentation/apps#web-terminal). For example, to list the users:
 
 ```
     sudo -u www-data php -f /app/code/occ user:list
@@ -37,7 +37,7 @@ The occ command can be run using the [Web terminal](apps/#web-terminal). For exa
 
 ## Resetting admin password
 
-To reset the admin password, run the following occ command using the [Web terminal](apps/#web-terminal):
+To reset the admin password, run the following occ command using the [Web terminal](/documentation/apps#web-terminal):
 
 ```
     sudo -u www-data php -f /app/code/occ user:resetpassword admin
@@ -51,7 +51,7 @@ new files.
 
 To configure, how items are permanently deleted, configure the [trashbin_retention_obligation](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/config_sample_php_parameters.html#deleted-items-trash-bin) parameter.
 
-The parameter can be edited using the [Web terminal](apps/#web-terminal) and editing the file
+The parameter can be edited using the [Web terminal](/documentation/apps#web-terminal) and editing the file
 `/app/data/config/config.php`.
 
 ## Attaching external storage
@@ -76,7 +76,7 @@ this new disk.
 ## Recan files
 
 NextCloud will not pick up files if they are added directly in the data directory of the user on the server.
-To make it rescan, open a [Web terminal](apps/#web-terminal) and run the following command:
+To make it rescan, open a [Web terminal](/documentation/apps#web-terminal) and run the following command:
 
 ```
 sudo -u www-data php -f /app/code/occ files:scan <username>
@@ -95,7 +95,7 @@ top of NextCloud. NextCloud has no native sandboxing mechanism for plugins - if 
 down the whole installation. Plugins might also break an installation after a NextCloud upgrade. For this reason,
 we encourage carefully reviewing apps before using them.
 
-To fix a broken installation, open a [Web terminal](apps/#web-terminal) and repair the app. Then run the following
+To fix a broken installation, open a [Web terminal](/documentation/apps#web-terminal) and repair the app. Then run the following
 commands:
 
 ```

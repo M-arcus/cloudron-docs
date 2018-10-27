@@ -22,18 +22,18 @@ To summarize the steps:
 
 * Export old blog's content as json from the `settings` > `labs page` in Ghost-Admin
 * Download the images and custom themes. On the Cloudron, the content location is
-  at `/app/data/content`. Use the [Web terminal's](apps/#web-terminal)
+  at `/app/data/content`. Use the [Web terminal's](/documentation/apps#web-terminal)
   download button to download the contents as a `.tar.gz`.
 * Install the new Cloudron Ghost app in a new subdomain
 * Setup Ghost with a **different email address** than the one used in the old app, otherwise the user import will conflict.
 * Import blog's json content from the `Labs` page
-* Use the [Web terminal's](apps/#web-terminal) upload
+* Use the [Web terminal's](/documentation/apps#web-terminal) upload
   button to upload the images and themes to `/tmp`. Then, extract the tarball to `/app/data/content`
 ```
 rm -rf /app/data/content/*
 tar zxvf /tmp/content.tar.gz -C /app/data/content/
 ```
-* Use [Web terminal's](apps/#web-terminal) restart button
+* Use [Web terminal's](/documentation/apps#web-terminal) restart button
   to restart the app
 
 * Once everything looks fine, [uninstall](apps/#uninstall-an-app) the old app

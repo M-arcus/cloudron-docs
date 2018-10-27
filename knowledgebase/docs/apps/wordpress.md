@@ -16,7 +16,7 @@ the `WP_MEMORY_LIMIT` option to match the PHP memory limit.
 The app is configured to run Wordpress cron tasks every 5 minutes.
 
 To run the cron tasks manually run the following command using the
-[Web terminal](apps/#web-terminal):
+[Web terminal](/documentation/apps#web-terminal):
 
 ```
 /app/code/wp --allow-root cron event run --due-now
@@ -51,7 +51,7 @@ how to setup AWS Cloudfront with WP Fastest Cache.
 Cloudron does not support FTP access or PHPMyAdmin. It is, however, possible to access the database
 using other methods:
 
-* Open a [Web terminal](apps/#web-terminal) and press the 'MySQL' button to get console
+* Open a [Web terminal](/documentation/apps#web-terminal) and press the 'MySQL' button to get console
   access. You can execute SQL commands directly.
 
 * Use a plugin like [ARI Adminer](https://wordpress.org/plugins/ari-adminer/) for a GUI.
@@ -59,6 +59,6 @@ using other methods:
 ## WP CLI
 
 [WP CLI](http://wp-cli.org/) is a command line interface to Wordpress. To run commands
-using the CLI tool, open a [Web terminal](apps/#web-terminal) and
+using the CLI tool, open a [Web terminal](/documentation/apps#web-terminal) and
 execute commands WP CLI using `/app/code/wp --allow-root`.
 

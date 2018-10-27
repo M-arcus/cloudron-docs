@@ -7,7 +7,7 @@ for a complete list.
 
 Plugins are installed into `/app/data/plugins`.
 
-* Open a [web terminal](apps/#web-terminal) for the app.
+* Open a [web terminal](/documentation/apps#web-terminal) for the app.
 
 * Upload the app .zip or .tar.gz to `/tmp` using the upload button
 
@@ -20,5 +20,5 @@ Plugins are installed into `/app/data/plugins`.
 ## Custom configuration
 
 Custom plugin configuration can be stored in `/app/data/customconfig.php`. To edit
-the file, use the [web terminal](apps/#web-terminal) for the app.
+the file, use the [web terminal](/documentation/apps#web-terminal) for the app.
 

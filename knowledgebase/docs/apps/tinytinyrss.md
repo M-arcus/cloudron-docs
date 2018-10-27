@@ -2,7 +2,7 @@
 
 ## Customizing configuration
 
-Use the [Web terminal](https://cloudron.io/documentation/apps/#web-terminal)
+Use the [Web terminal](/documentation//documentation/apps#web-terminal)
 to place custom configuration under `/app/data/config.json`.
 
 Please be careful when changing configuration since the Cloudron packaging
@@ -13,7 +13,7 @@ might depend on it.
 To install plugins, simply extract them to `/app/data/plugins` and restart
 the app.
 
-The [web terminal](apps/#web-terminal) can be used to upload
+The [web terminal](/documentation/apps#web-terminal) can be used to upload
 and extract plugins.
 
 You can see list of plugins [here](https://git.tt-rss.org/git/tt-rss/wiki/Plugins)
@@ -23,7 +23,7 @@ You can see list of plugins [here](https://git.tt-rss.org/git/tt-rss/wiki/Plugin
 To install themes, simply extract them to `/app/data/plugins` and restart
 the app.
 
-The [web terminal](apps/#web-terminal) can be used to upload
+The [web terminal](/documentation/apps#web-terminal) can be used to upload
 and extract themes.
 
 Some suggested [themes](https://git.tt-rss.org/git/tt-rss/wiki/Themes):

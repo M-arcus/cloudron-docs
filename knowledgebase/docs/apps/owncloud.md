@@ -27,7 +27,7 @@ sudo apt-get install owncloud-client
 
 The `occ` tool can be used for ownCloud [administrative tasks](https://doc.owncloud.org/server/9.0/admin_manual/configuration_server/occ_command.html#using-the-occ-command).
 
-The occ command can be run using the [Web terminal](apps/#web-terminal). For example, to list the users:
+The occ command can be run using the [Web terminal](/documentation/apps#web-terminal). For example, to list the users:
 
 ```
     sudo -u www-data php -f /app/code/occ user:list
@@ -41,7 +41,7 @@ new files.
 
 To configure, how items are permanently deleted, configure the [trashbin_retention_obligation](https://doc.owncloud.com/server/9.1/admin_manual/configuration_server/config_sample_php_parameters.html?highlight=trashbin_retention_obligation#deleted-items-trash-bin) parameter.
 
-The parameter can be edited using the [Web terminal](apps/#web-terminal) and editing the file
+The parameter can be edited using the [Web terminal](/documentation/apps#web-terminal) and editing the file
 `/app/data/config/config.php`.
 
 ## Max upload size
@@ -74,7 +74,7 @@ top of ownCloud. ownCloud has no native sandboxing mechanism for plugins - if a 
 down the whole installation. Plugins might also break an installation after a ownCloud upgrade. For this reason,
 we encourage carefully reviewing apps before using them.
 
-To fix a broken installation, open a [Web terminal](apps/#web-terminal) and repair the app. Then run the following
+To fix a broken installation, open a [Web terminal](/documentation/apps#web-terminal) and repair the app. Then run the following
 commands:
 
 ```

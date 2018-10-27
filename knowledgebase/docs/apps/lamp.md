@@ -4,7 +4,7 @@
 
 Running LAMP apps on the Cloudron is no different than what is available on
 many hosting providers. You can upload your PHP code using SFTP or the
-[Web terminal](apps/#web-terminal) and then modify
+[Web terminal](/documentation/apps#web-terminal) and then modify
 the .htaccess and php.ini files as required. Most commonly used
 [PHP extensions](#php-extensions) are pre-installed and you don't have to worry
 about keeping them up-to-date.
@@ -32,7 +32,7 @@ The LAMP app can be upload using the Web terminal or SFTP.
 
 ### Web terminal
 
-* Open a [web terminal](apps/#web-terminal) for the app.
+* Open a [web terminal](/documentation/apps#web-terminal) for the app.
 
 * Upload the app .zip or .tar.gz to `/tmp` using the upload button
 
@@ -85,7 +85,7 @@ If the PHP app has a `config.php` that requires the MySQL credentials to be set,
 ```
 
 Some apps show a setup screen and will require the raw MySQL credentials. For such apps, the MySQL
-credentials can be obtained from the [Web terminal](apps/#web-terminal) by executing
+credentials can be obtained from the [Web terminal](/documentation/apps#web-terminal) by executing
 the following command:
 
 ```
@@ -141,7 +141,7 @@ ln -sf /run/cache /app/data/var/cache
 
 For cron support, add a file named `/app/data/crontab` support.
 
-The file can be edited using the [Web terminal](apps/#web-terminal)
+The file can be edited using the [Web terminal](/documentation/apps#web-terminal)
 or `FileZilla`.
 
 <br/>
@@ -222,7 +222,7 @@ The LAMP app has thread safety disabled, so we choose the extension without the 
 ### Step 4: Restart app
 
 Lastly, restart the app for the extension to be enabled. You can do this using the `Restart` button
-in the [web terminal](apps/#web-terminal).
+in the [web terminal](/documentation/apps#web-terminal).
 
 ### Step 5: Verifying installation
 

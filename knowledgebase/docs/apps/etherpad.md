@@ -14,7 +14,7 @@ When using Cloudron SSO, admins on the Cloudron automatically become admins
 on etherpad.
 
 When Cloudron SSO is disabled, an admin user can be created by adding users
-to `settings.json`. Use the [Web terminal](apps/#web-terminal)
+to `settings.json`. Use the [Web terminal](/documentation/apps#web-terminal)
 to edit `/app/data/settings.json` and add or edit the following section:
 
 ```
@@ -32,7 +32,7 @@ to edit `/app/data/settings.json` and add or edit the following section:
 
 ## Custom settings
 
-Use a [Web terminal](apps/#web-terminal) and add any custom
+Use a [Web terminal](/documentation/apps#web-terminal) and add any custom
 settings to `/app/data/settings.json`.
 
 !!! warning ""
@@ -56,7 +56,7 @@ more information.
 ## API Access
 
 The [Etherpad API](http://etherpad.org/doc/v1.3.0/#index_http_api) can be accessed by
-obtaining the APIKEY. For this, open a [Web terminal](apps/#web-terminal)
+obtaining the APIKEY. For this, open a [Web terminal](/documentation/apps#web-terminal)
 and view the contents of the file `/app/data/APIKEY.txt`.
 
 Example usage:

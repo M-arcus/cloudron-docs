@@ -4,7 +4,7 @@
 
 Piwik plugins are available from the [Piwik Plugins Marketplace](https://plugins.piwik.org/)
 
-* Open a [web terminal](apps/#web-terminal) for the app.
+* Open a [web terminal](/documentation/apps#web-terminal) for the app.
 
 * Upload the app .zip or .tar.gz to `/tmp` using the upload button
 

@@ -5,5 +5,5 @@
 To install extensions, simply extract them to `/app/data/extensions` and restart
 the app.
 
-The [web terminal](apps/#web-terminal) can be used to upload and extract extensions.
+The [web terminal](/documentation/apps#web-terminal) can be used to upload and extract extensions.
 

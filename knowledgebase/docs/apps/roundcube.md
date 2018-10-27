@@ -39,7 +39,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 
 [Plugins](https://plugins.roundcube.net/explore/) can be installed as follows:
 
-* Extract the plugin using the [Web terminal](apps/#web-terminal) into
+* Extract the plugin using the [Web terminal](/documentation/apps#web-terminal) into
   `/app/data/plugins`.
 
 * Change the ownership of the extracted plugin to `www-data` by running the command
@@ -55,7 +55,7 @@ To forward all emails to an external mail, setup a Sieve filter in
 The Enigma plugin can be used to enable PGP support. The Enigma plugin is part of the
 roundcube code and no installation is required. To enable the plugin:
 
-* Open a [Web terminal](apps/#web-terminal)
+* Open a [Web terminal](/documentation/apps#web-terminal)
 
 * Add the following lines to `/app/data/customconfig.php`:
 ```
@@ -83,7 +83,7 @@ roundcube code and no installation is required. To enable the plugin:
 
 ## Changing the title
 
-* Open a [Web terminal](apps/#web-terminal)
+* Open a [Web terminal](/documentation/apps#web-terminal)
 
 * Add the following lines to `/app/data/customconfig.php`:
 
@@ -95,7 +95,7 @@ $rcmail_config['product_name'] = 'My Hosting Company';
 
 [Skins](https://plugins.roundcube.net/explore/) can be installed as follows:
 
-* Extract the skin using the [Web terminal](apps/#web-terminal) into
+* Extract the skin using the [Web terminal](/documentation/apps#web-terminal) into
   `/app/data/skins`.
 
 * Change the ownership of the extracted skin to `www-data` by running the command
@@ -112,7 +112,7 @@ $rcmail_config['product_name'] = 'My Hosting Company';
 To customize CSS and logo, it's best to create a copy of an existing skin and make
 changes as needed.
 
-* Open a [Web terminal](apps/#web-terminal):
+* Open a [Web terminal](/documentation/apps#web-terminal):
 ```
 # cd /app/data/skins
 # cp -Lr larry customskin
