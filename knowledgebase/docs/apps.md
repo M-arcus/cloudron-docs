@@ -126,6 +126,17 @@ in the app's configure UI.
 </center>
 
 
+## Custom mailbox name
+
+For apps that can send and/or receive email, Cloudron automatically creates a mailbox with
+the name `<location>.app`. To change this mailbox name, click on `Configure` in the app grid
+and edit the mailbox name in the `Advanced` tab.
+
+<center>
+<img src="/documentation/img/apps-mailbox-name.png" class="shadow" width="500px">
+</center>
+
+
 ## Indexing by search engines (robots.txt)
 
 The `Robots.txt` file is a file served from the root of a website to indicate which parts must be indexed by a search
