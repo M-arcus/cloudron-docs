@@ -5,7 +5,7 @@
 The Collabora App can be used to provide rich document editing functionality for
 files hosting inside [NextCloud](/documentation/apps/nextcloud).
 
-* Install [NextCloud](https://cloudron.io/store/com.nextcloud.cloudronapp.html) from
+* Install [NextCloud](/store/com.nextcloud.cloudronapp.html) from
   the App Store. For this example, we assume NextCloud was installed at `nextcloud.smartserver.space`.
 
 * Install [Collabora](/store/com.collaboraoffice.coudronapp.html) from the App Store
