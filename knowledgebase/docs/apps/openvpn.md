@@ -33,3 +33,9 @@ address and possibly the RDNS hostname of your Cloudron.
 You can check what sort of information can be gathered from your
 Cloudron's IP address using [ipleak.net](https://ipleak.net).
 
+## Troubleshooting
+
+If you are unable to connect to the OpenVPN server, make sure that your VPS firewall
+allows the OpenVPN port (by default, this is 7494/TCP). For example, you might have
+to add this incoming port as part of EC2 security group.
+
