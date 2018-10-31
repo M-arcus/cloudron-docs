@@ -331,7 +331,7 @@ cloudron list
 
 ```
 cloudron login my.<new Cloudron domain>
-cloudron install --appstore-id <apps appstore id>@<specific version if required> --backup <backupId>
+cloudron install --appstore-id <apps appstore id>@<specific version if required> --backup <backupId> --backup-format <rsync|tgz>
 ```
 
 !!! note
@@ -357,7 +357,7 @@ perform the following steps:
 2. Install the app using the following command:
 
 ```
-    cloudron install --backup <id> --appstore-id org.wordpress.cloudronapp@0.9.1
+    cloudron install --backup <id> --backup-format <rsync|tgz> --appstore-id org.wordpress.cloudronapp@0.9.1
 ```
 
 ## Restoring an app from existing backup
