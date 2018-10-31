@@ -375,6 +375,13 @@ Select the backup you want to restore to:
 </center>
 
 
+If the app has been uninstalled, then you can use the CLI tool to restore it:
+
+```
+cloudron login my.<new Cloudron domain>
+cloudron install --appstore-id <apps appstore id>@<specific version if required> --backup <backupId> --backup-format <rsync|tgz>
+```
+
 !!! note "Both data and code are reverted"
     Restoring will also revert the code to the version that was running when the backup was created.
     This is because the current version of the app may not be able to handle old data.
