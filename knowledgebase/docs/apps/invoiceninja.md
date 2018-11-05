@@ -26,4 +26,12 @@ sudo -u www-data /usr/local/bin/php /app/code/artisan ninja:send-reminders
 
 Cron logs are stored in `/app/data/storage/logs/cron.log`.
 
+## API Key
+
+To get the API key, open a [Web terminal](/documentation/apps#web-terminal), and view
+the contents of the file `/app/data/.env`.
+
+```
+cat /app/data/.env | grep API_SECRET
+```
 
