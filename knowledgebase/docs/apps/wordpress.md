@@ -62,3 +62,9 @@ using other methods:
 using the CLI tool, open a [Web terminal](/documentation/apps#web-terminal) and
 execute commands WP CLI using `/app/code/wp --allow-root`.
 
+## Migrating existing site
+
+See our [blog](/blog/2018-11-05-wordpress-migration.html) on how to migrate an existing
+Wordpress site to Cloudron.
+
+
