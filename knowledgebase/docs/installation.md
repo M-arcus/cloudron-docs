@@ -2,7 +2,7 @@
 
 ## Install
 
-Run the following commands on a fresh Ubuntu Xenial 16.04 (x64) server:
+Run the following commands on a fresh Ubuntu Bionic 18.04 (x64) server:
 
 ```
 wget https://cloudron.io/cloudron-setup
