@@ -2,7 +2,7 @@
 
 ## Installing plugins
 
-Plugins are used to extend Kanboard. See the [plugin docs](http://kanboard.net/plugins)
+Plugins are used to extend Kanboard. See the [plugin docs](https://kanboard.org/#plugins)
 for a complete list.
 
 Plugins are installed into `/app/data/plugins`.
