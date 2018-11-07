@@ -194,6 +194,10 @@ If the disk graph does not display properly, do a `systemctl restart collectd`.
 For VPS providers that support it, the server (cpu/disk/memory) can be resized and
 Cloudron will automatically adapt to the available resources after a server restart.
 
+!!! note "IP changes"
+    Some VPS providers change the IP address of the virtual machine after a resize.
+    You will have to change the IP address in your DNS, if this is the case.
+
 ### AWS EBS
 
 On AWS, the partition and the filesystem must be resized after resizing the EBS
