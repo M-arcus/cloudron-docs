@@ -34,6 +34,7 @@ pages:
     - 'Hastebin': apps/hastebin.md
     - 'Invoice Ninja': apps/invoiceninja.md
     - 'Jingo': apps/jingo.md
+    - 'JupyterHub': apps/jupyterhub.md
     - 'Kanboard': apps/kanboard.md
     - 'LAMP': apps/lamp.md
     - 'Lets Chat': apps/letschat.md
