@@ -115,7 +115,7 @@ settings, on Digital Ocean the Firewall settings etc.
 
 | Port | Notes |
 |------|------ |
-| 22 (SSH/TCP)  | Required for SSH access to the server. We recommend disabling password based access and moving this to a different port. See [this guide](#securing-ssh-access). |
+| 22 or 202 (SSH/TCP)  | Required for SSH access to the server. We recommend disabling password based access and moving this to a different port. See [this guide](#securing-ssh-access). |
 | 80 (HTTP/TCP)  | When using manual and wildcard DNS, Let's Encrypt certificates require this port to be open. This port can be blocked when using programmatic DNS. |
 | 443 (HTTPS/TCP) | Required for accessing the web page of all apps. |
 | 25 (SMTP/TCP) | Required for receiving email. If you do not use Cloudron Email, this can be blocked. |
@@ -152,6 +152,11 @@ To change the SSH port, change the following line in `/etc/ssh/sshd_config`:
 ```
 Port 202   # Do not use any other port. Only this port is not blocked by the Cloudron firewall
 ```
+
+!!! note "Port 202"
+    Note that we carefully chose port 202 because this port is specifically unblocked in `iptables`
+    during the Cloudron installation. If you choose some other port, you have to configure `iptables`
+    manually and be sure to persist those changes across reboots.
 
 The SSH service can be restarted using `systemctl restart sshd`. Use `ssh -p 202 root@ip` to
 connect to the server.

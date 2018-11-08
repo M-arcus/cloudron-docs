@@ -82,15 +82,14 @@ used to manage your subscription & billing.
 <img src="/documentation/img/appstore-signup.png" class="shadow" width="500px">
 </center>
 
-## Next steps
+## Firewall Setup
 
 Security is a core feature of the Cloudron and the default installation is already setup
-to follow [best practices](/documentation/security/).
+to follow [best practices](/documentation/security/). We do not recommend adding and modifying
+rules in `iptables` since Cloudron already does this (all ports are blocked).
 
-To further harden security, we recommend the following:
-
-* [Secure SSH access](/documentation/security/#securing-ssh-access) to the server
-* [Setup Cloud Firewall](/documentation/security/#configuring-cloud-firewall)
+To further harden security, we recommend configuring the VPS Firewall (in your VPS provider
+control panel) by following [the firewall docs](/documentation/security/#configuring-cloud-firewall).
 
 ## Support
 
