@@ -104,6 +104,32 @@ the apps on your Cloudron and also tracks configuration changes.
 <img src="/documentation/img/activity.png" class="shadow" width="600px">
 </center>
 
+## Configuring Cloud Firewall
+
+Cloudron automatically configures the server's OS firewall (iptables) as required. We highly recommend
+**not** modifying iptables with `iptables`, `ufw` and other tools. Instead, please use the firewall
+provided by the VPS provider for further hardening. For example, on AWS this would be security group
+settings, on Digital Ocean the Firewall settings etc.
+
+### Inbound ports
+
+| Port | Notes |
+|------|------ |
+| 22 (SSH/TCP)  | Required for SSH access to the server. We recommend disabling password based access and moving this to a different port. See [this guide](#securing-ssh-access). |
+| 80 (HTTP/TCP)  | When using manual and wildcard DNS, Let's Encrypt certificates require this port to be open. This port can be blocked when using programmatic DNS. |
+| 443 (HTTPS/TCP) | Required for accessing the web page of all apps. |
+| 25 (SMTP/TCP) | Required for receiving email. If you do not use Cloudron Email, this can be blocked. |
+| 587 (SMTP/TCP) | Required for sending email from mobile phone or desktop apps. If you use only webmail or do not use Cloudron Email, this port can be blocked. |
+| 443 (IMAP/TCP) | Required for accessing email from mobile phone or desktop apps. If you use only webmail or do not use Cloudron Email, this port can be blocked. |
+| 4190 (Sieve/TCP) | Required for accessing email filters from mobile phone or desktop apps. If you use only webmail or do not use Cloudron Email, this port can be blocked. |
+| Other ports | Other ports have to be opened up depending on the apps you run. For example, you might have to open up the git+ssh port if you use GitLab, or the IRC port if you run an IRC server. |
+
+### Outbound ports
+
+We recommend leaving all outbound ports open. Some providers like AWS EC2, Google Cloud, Digital Ocean forcefully
+block outbound port 25 for reducing email spam. The only way around this is to either request your server provider
+to unblock this port or better to setup an [Email relay](/documentation/email#relaying-outbound-mails).
+
 ## Securing SSH access
 
 It is highly recommended to disable password based access to your server since many online
@@ -129,6 +155,7 @@ Port 202   # Do not use any other port. Only this port is not blocked by the Clo
 
 The SSH service can be restarted using `systemctl restart sshd`. Use `ssh -p 202 root@ip` to
 connect to the server.
+
 
 ## Block IPs
 

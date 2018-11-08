@@ -90,6 +90,7 @@ to follow [best practices](/documentation/security/).
 To further harden security, we recommend the following:
 
 * [Secure SSH access](/documentation/security/#securing-ssh-access) to the server
+* [Setup Cloud Firewall](/documentation/security/#configuring-cloud-firewall)
 
 ## Support
 
