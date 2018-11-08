@@ -86,7 +86,7 @@ used to manage your subscription & billing.
 
 Security is a core feature of the Cloudron and the default installation is already setup
 to follow [best practices](/documentation/security/). We do not recommend adding and modifying
-rules in `iptables` since Cloudron already does this (all ports are blocked).
+rules in `iptables` since Cloudron already does this (all unneeded ports are blocked).
 
 To further harden security, we recommend configuring the VPS Firewall (in your VPS provider
 control panel) by following [the firewall docs](/documentation/security/#configuring-cloud-firewall).
