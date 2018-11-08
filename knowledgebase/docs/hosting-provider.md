@@ -1,7 +1,14 @@
 # Hosting Provider Edition
 
+## About
+
 Cloudron Hosting Provider Edition is targeted at Cloud service providers and Web hosting
-providers who would like to offer Cloudron for their customers.
+providers who would like to offer Cloudron for their customers. With the
+Cloudron Hosting Provider Edition, customer can effortlessly install and run app like
+Wordpress, Nextcloud, GitLab and OpenVPN. Cloudron takes care of keeping these apps
+up-to-date while the service provider takes care of the server management.
+
+## Features
 
 The Hosting Provider Edition functions similar to the standard Cloudron but includes the
 following features:
@@ -13,11 +20,13 @@ following features:
 * Each Cloudron is pre-setup with a domain name like `customer.hostingprovider.com`. When
   customers install apps, they get installed into `<app>-customer.hostingprovider.com`.
 
-* Pre-setup with backup configuration so customers don't have to configure it themselves.
+* Automatic backups can be pre-configured to a location outside the Cloudron (Ceph, S3 etc).
+  This provides an user experience close to managed hosting.
 
-* Customer can add any number of domains of their own.
+* Customer can add any number of custom domains of their own.
 
 * Access to the server itself is locked down. Customers can only access the Cloudron web interface.
+  Cloudron is designed so that customers never require SSH access.
 
 * Access to all apps in the [Cloudron Appstore](/appstore.html).
 
@@ -26,9 +35,9 @@ following features:
 * Start with a fresh Ubuntu 18.04 64-bit server and run the following commands:
 
 ```
-wget https://cloudron.io/cloudron-setup
-chmod +x cloudron-setup
-./cloudron-setup --provider generic --edition hostingprovider
+    wget https://cloudron.io/cloudron-setup
+    chmod +x cloudron-setup
+    ./cloudron-setup --provider generic --edition hostingprovider
 ```
 
 * Snapshot the server. This server snapshot can then be instantiated on demand and provisioned
@@ -36,19 +45,24 @@ chmod +x cloudron-setup
 
 ## Activation
 
-To prepare the Cloudron for the customer, create a server with the above snapshot and then
+To prepare Cloudron for the customer, create a server with the above snapshot and then
 activate it using the [provision script](https://git.cloudron.io/cloudron/box/blob/master/scripts/cloudron-provision):
 
 ```
-cloudron-provision --ip <serverip> --zone <zone> --subdomain <customer> --dns-config <dnsconfig> --license <license>
+cloudron-provision --ip <serverip> --zone <zone> --subdomain <customer> \
+    --dns-config <dnsconfig> \
+    --backup-config <backupconfig> \
+    --license <license>
 ```
 
 The parameters are:
+
 * `serverip` - The IP Address of the newly created server
 * `zone` - A domain name for the Cloudron install like `hostingprovider.com`.
 * `customer` - The subdomain/id that is unique across all customers. The Cloudron will use `customer.hostingprovider.com` as the subdomain for hosting the customer apps.
 * `dnsconfig` - Information on how to configure the `hostingprovider.com` DNS.
     * For Cloudflare, this will be `{ "provider": "cloudflare", "email": "cfemail", "token": "cftoken" }`
+* `backupconfig` - Information on how to backup the Cloudron installation.
 * `license` - Licensing information (contact support@cloudron.io to get this information)
 
 Once the script completes, the customer can reach Cloudron at `https://my-customer.hostingprovider.com`.
@@ -57,7 +71,9 @@ Once the script completes, the customer can reach Cloudron at `https://my-custom
 
 * The domain configuration (`dnsconfig`) of the domain is not visible to the customer.
 
-* Customers cannot and do not require SSH access to their servers for installing and managing apps.
+* The backup configuration (`backupconfig`) is not visible to the customer.
+
+* Customers do not require SSH access to their servers for installing and managing apps.
 
 * Each Customers' data is completely isolated to the VM.
 
