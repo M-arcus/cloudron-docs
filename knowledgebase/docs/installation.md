@@ -62,7 +62,7 @@ Cloudron is now secure (It does this by automatically getting a certificate via 
 <img src="/documentation/img/setup-admin2.png" class="shadow" width="500px">
 </center>
 
-Enter the adminstrator username, email and password for the Cloudron.
+Enter the adminstrator username, email and password for Cloudron.
 
 The email address is used for password resets and for apps to send notifications. It is local to
 your Cloudron and not sent anywhere (including cloudron.io).
@@ -84,7 +84,7 @@ used to manage your subscription & billing.
 
 ## Firewall Setup
 
-Security is a core feature of the Cloudron and the default installation is already setup
+Security is a core feature of Cloudron and the default installation is already setup
 to follow [best practices](/documentation/security/). We do not recommend adding and modifying
 rules in `iptables` since Cloudron already does this (all unneeded ports are blocked).
 

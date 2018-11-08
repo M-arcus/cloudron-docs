@@ -2,7 +2,7 @@
 
 ## Turnkey security
 
-Security is a core feature of the Cloudron and we continue to push out updates
+Security is a core feature of Cloudron and we continue to push out updates
 to tighten the Cloudron firewall's security policy. Our goal is that Cloudron users should
 be able to rely on Cloudron being secure out of the box without having to do manual
 configuration.
@@ -118,11 +118,11 @@ settings, on Digital Ocean the Firewall settings etc.
 | 22 or 202 (SSH/TCP)  | Required for SSH access to the server. We recommend disabling password based access and moving this to a different port. See [this guide](#securing-ssh-access). |
 | 80 (HTTP/TCP)  | When using manual and wildcard DNS, Let's Encrypt certificates require this port to be open. This port can be blocked when using programmatic DNS. |
 | 443 (HTTPS/TCP) | Required for accessing the web page of all apps. |
-| 25 (SMTP/TCP) | Required for receiving email. If you do not use Cloudron Email, this can be blocked. |
-| 587 (SMTP/TCP) | Required for sending email from mobile phone or desktop apps. If you use only webmail or do not use Cloudron Email, this port can be blocked. |
-| 443 (IMAP/TCP) | Required for accessing email from mobile phone or desktop apps. If you use only webmail or do not use Cloudron Email, this port can be blocked. |
-| 4190 (Sieve/TCP) | Required for accessing email filters from mobile phone or desktop apps. If you use only webmail or do not use Cloudron Email, this port can be blocked. |
-| Other ports | Other ports have to be opened up depending on the apps you run. For example, you might have to open up the git+ssh port if you use GitLab, or the IRC port if you run an IRC server. |
+| 25 (SMTP/TCP) | Required for receiving email. When not using Cloudron Email, this can be blocked. |
+| 587 (SMTP/TCP) | Required for sending email from mobile phone or desktop apps. When using only webmail or not using Cloudron Email, this port can be blocked. |
+| 443 (IMAP/TCP) | Required for accessing email from mobile phone or desktop apps. When using only webmail or not using Cloudron Email, this port can be blocked. |
+| 4190 (Sieve/TCP) | Required for accessing email filters from mobile phone or desktop apps. When using only webmail or not using Cloudron Email, this port can be blocked. |
+| Other ports | Other ports have to be opened up depending on the apps installed. For example, the git+ssh port has to be opened when using GitLab |
 
 ### Outbound ports
 
