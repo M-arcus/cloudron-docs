@@ -116,7 +116,7 @@ settings, on Digital Ocean the Firewall settings etc.
 | Port | Notes |
 |------|------ |
 | 22 or 202 (SSH/TCP)  | Required for SSH access to the server. We recommend disabling password based access and moving this to a different port. See [this guide](#securing-ssh-access). |
-| 80 (HTTP/TCP)  | When using manual and wildcard DNS, Let's Encrypt certificates require this port to be open. This port can be blocked when using programmatic DNS. |
+| 80 (HTTP/TCP)  | When using manual and wildcard DNS, Let's Encrypt certificates require this port to be open. This port can be blocked when using [programmable DNS](/documentation/domains/#dns-setup). |
 | 443 (HTTPS/TCP) | Required for accessing the web page of all apps. |
 | 25 (SMTP/TCP) | Required for receiving email. When not using Cloudron Email, this can be blocked. |
 | 587 (SMTP/TCP) | Required for sending email from mobile phone or desktop apps. When using only webmail or not using Cloudron Email, this port can be blocked. |
