@@ -49,20 +49,21 @@ To prepare Cloudron for the customer, create a server with the above snapshot an
 activate it using the [provision script](https://git.cloudron.io/cloudron/box/blob/master/scripts/cloudron-provision):
 
 ```
-cloudron-provision --ip <serverip> --zone <zone> --subdomain <customer> \
+cloudron-provision --ip <serverip> \
     --dns-config <dnsconfig> \
     --backup-config <backupconfig> \
+    --tls-cert <tlscertfile> \
+    --tls-key <tlskeyfile> \
     --license <license>
 ```
 
 The parameters are:
 
 * `serverip` - The IP Address of the newly created server
-* `zone` - A domain name for the Cloudron install like `hostingprovider.com`.
-* `customer` - The subdomain/id that is unique across all customers. The Cloudron will use `customer.hostingprovider.com` as the subdomain for hosting the customer apps.
-* `dnsconfig` - Information on how to configure the `hostingprovider.com` DNS.
-    * For Cloudflare, this will be `{ "provider": "cloudflare", "email": "cfemail", "token": "cftoken" }`
+* `dnsconfig` - Information on how to configure the DNS. The domain/id here (`customer.hostingprovider.com`) must be unique across all customers.
+    * For Cloudflare, this will be `{ "domain": "customer.hostingprovider.com", "provider": "cloudflare", "config": { "email": "cfemail", "token": "cftoken", "hyphenatedSubdomains": true } }`
 * `backupconfig` - Information on how to backup the Cloudron installation.
+* `tlscertfile`, `tlskeyfile` - File containing a wildcard cert and key for `*.hostingprovider.com`.
 * `license` - Licensing information (contact support@cloudron.io to get this information)
 
 Once the script completes, the customer can reach Cloudron at `https://my-customer.hostingprovider.com`.
@@ -72,6 +73,8 @@ Once the script completes, the customer can reach Cloudron at `https://my-custom
 * The domain configuration (`dnsconfig`) of the domain is not visible to the customer.
 
 * The backup configuration (`backupconfig`) is not visible to the customer.
+
+* The wildcard TLS certs are not visible to the customer and are not part of the backups.
 
 * Customers do not require SSH access to their servers for installing and managing apps.
 
