@@ -85,5 +85,5 @@ Once the script completes, the customer can reach Cloudron at `https://my-custom
 
 There is a [live demo](https://my-demo.cloudron.me) at `https://my-demo.cloudron.me` (username: cloudron password: cloudron).
 
-In the demo installation, the base domain is `cloudron.me`. `demo` is the customer specific domain.
+In the demo installation, the base domain is `cloudron.me`. The customer specific subdomain is `demo`.
 
