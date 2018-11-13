@@ -29,6 +29,17 @@ c.Spawner.mem_limit = '1G'
 
 To apply the configuration, restart the app using the Restart button.
 
+## Notebook persistence
+
+All notebooks are part of the application backup and persisted across updates.
+
+Libraries installed using `conda` are not part of the backup and are part of the notebook container.
+Idle notebooks are shutdown over time but they are not destroyed. This means that if any libraries
+installed in notebook container will generally persist.
+
+If the notebook image is changed, the old notebook containers are destroyed. This means that
+any libraries that were previously installed have to be re-installed.
+
 ## Other custom configuration
 
 Use the [Web terminal](/documentation//documentation/apps#web-terminal)
