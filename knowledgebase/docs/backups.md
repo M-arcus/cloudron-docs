@@ -262,13 +262,8 @@ Please note that when using encryption with the `rsync` format, the file names a
 
 ## Decrypting backups
 
-When encryption is used, backups can be downloaded and decrypted locally with the following command:
-
-```
-cat backupfile.tar.gz.enc | openssl aes-256-cbc -d -nosalt -pass "pass:secretkey" > backupfile.tar.gz
-```
-
-`secretkey` is the encryption key that was used for creating backups
+When encryption is used, backups can be downloaded and decrypted locally using the tools at
+[backup-tools](https://git.cloudron.io/cloudron/backup-tools/) repo.
 
 ## Backup interval
 
