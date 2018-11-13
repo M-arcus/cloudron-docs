@@ -29,6 +29,10 @@ c.Spawner.mem_limit = '1G'
 
 To apply the configuration, restart the app using the Restart button.
 
+!!! note "Remove existing notebook containers"
+    For the memory limit to take effect, you have to remove any existing docker notebook containers manually
+    using `docker rm -f <containerid>`. Notebook data will be intact despite deleting the container.
+
 ## Notebook persistence
 
 All notebooks are part of the application backup and persisted across updates.
