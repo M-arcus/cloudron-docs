@@ -100,6 +100,22 @@ the following command:
 the environment variables using `getenv()` instead of the raw credentials. Otherwise, future updates
 might break the app.
 
+### Customizing MySQL
+
+On Cloudron, the MySQL server is shared across all apps. Each app gets non-root credentials to
+the database that helps isolate them from one another. This means one cannot configure mysql for
+one app specifically.
+
+However, many [MySQL variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+like `sql_mode` can be set per session by modifying your code as follows:
+
+```
+// connect to mysql and call the first query
+mysql_query("SET SESSION SQL_MODE = 'TRADITIONAL'");
+mysql_query("SET SESSION UNIQUE_CHECKS = false");
+mysql_query("SET SESSION FOREIGN_KEY_CHECKS=0");
+```
+
 ## phpMyAdmin
 
 [phpMyAdmin](https://www.phpmyadmin.net/) can be accessed at the
@@ -267,20 +283,4 @@ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 
 Custom HTTP headers can be set using `.htaccess`. apache `mod_headers`
 is already enabled. See this [article](https://www.digitalocean.com/community/tutorials/how-to-configure-apache-content-caching-on-ubuntu-14-04#setting-expires-and-caching-headers-on-content) for more information.
-
-## Configuring MySQL
-
-On Cloudron, the MySQL server is shared across all apps. Each app gets non-root credentials to
-the database that helps isolate them from one another. This means one cannot configure mysql for
-one app specifically.
-
-However, many [MySQL variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
-like `sql_mode` can be set per session by modifying your code as follows:
-
-```
-// connect to mysql and call the first query
-mysql_query("SET SESSION SQL_MODE = 'TRADITIONAL'");
-mysql_query("SET SESSION UNIQUE_CHECKS = false");
-mysql_query("SET SESSION FOREIGN_KEY_CHECKS=0");
-```
 
