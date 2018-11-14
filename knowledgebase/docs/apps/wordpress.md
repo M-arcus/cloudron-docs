@@ -62,6 +62,21 @@ using other methods:
 using the CLI tool, open a [Web terminal](/documentation/apps#web-terminal) and
 execute commands WP CLI using `/app/code/wp --allow-root`.
 
+## PHP settings
+
+You can add custom PHP settings in `/app/data/htaccess` using the [Web terminal](/documentation/apps#web-terminal).
+
+For example:
+```
+#example
+php_value post_max_size 600M
+php_value upload_max_filesize 600M
+php_value memory_limit 128M
+php_value max_execution_time 300
+php_value max_input_time 300
+php_value session.gc_maxlifetime 1200
+```
+
 ## Migrating existing site
 
 See our [blog](/blog/2018-11-05-wordpress-migration.html) on how to migrate an existing
