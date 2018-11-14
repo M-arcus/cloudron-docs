@@ -284,3 +284,17 @@ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 Custom HTTP headers can be set using `.htaccess`. apache `mod_headers`
 is already enabled. See this [article](https://www.digitalocean.com/community/tutorials/how-to-configure-apache-content-caching-on-ubuntu-14-04#setting-expires-and-caching-headers-on-content) for more information.
 
+## Health check
+
+The LAMP app expects a 2xx response from the '/' path. If your app is completely protected,
+then the healthcheck logic will mark your app as `not responding` instead of `running`.
+
+You can work around this by adding the following check in the beginning of your php file:
+
+```
+if ($_SERVER["REMOTE_ADDR"] == '172.18.0.1') {
+    echo "Cloudron healthcheck reponse";
+    exit;
+}
+```
+
