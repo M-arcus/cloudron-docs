@@ -279,6 +279,8 @@ like `sql_mode` can be set per session by modifying your code as follows:
 
 ```
 // connect to mysql and call the first query
-mysql_query("SET SESSION sql_mode = 'TRADITIONAL'");
+mysql_query("SET SESSION SQL_MODE = 'TRADITIONAL'");
+mysql_query("SET SESSION UNIQUE_CHECKS = false");
+mysql_query("SET SESSION FOREIGN_KEY_CHECKS=0");
 ```
 
