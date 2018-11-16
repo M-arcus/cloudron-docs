@@ -29,3 +29,14 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQVilclYAIu+ioDp/sgzzFz6YU0hPcRYY7ze/LiF/l
 !!! note "Keep the key to a single line"
     SSH key must be added as a single line. Make sure it doesn't break across multiple lines.
 
+## Diagnostics
+
+Please run the following script when contacting the Cloudron team. This script collects some
+diagnostic information on the server and enables SSH support.
+
+```
+wget https://git.cloudron.io/cloudron/box/raw/master/scripts/cloudron-support
+chmod +x cloudron-support
+sudo ./cloudron-support
+```
+
