@@ -383,7 +383,7 @@ cloudron install --appstore-id <apps appstore id>@<specific version if required>
 
 ## Restoring Cloudron from a backup
 
-Cloudron 1.9 introduced a UI to restore Cloudron. To restore from a backup:
+To restore from a backup:
 
 * Install Cloudron on a new server with Ubuntu 18.04:
 
