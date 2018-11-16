@@ -390,8 +390,13 @@ To restore from a backup:
 ```
   wget https://cloudron.io/cloudron-setup
   chmod +x cloudron-setup
-  ./cloudron-setup --provider digitalocean # change this to your new server provider
+  ./cloudron-setup --provider digitalocean --version x.y.z # version must match your backup version
 ```
+
+!!! note "Backup & Cloudron version"
+    The Cloudron version and backup version must match for the restore to work. If you installed a
+    wrong version by mistake, it's easiest to just start over with a fresh Ubuntu installation and
+    re-install Cloudron.
 
 * Complete the DNS setup
 
@@ -445,11 +450,16 @@ To migrate to a different server or move Cloudron to a different server provider
     server using rsync or scp.
 
 <center>
-<img src="/documentation/img/backup-done.png" class="shadow">
+<img src="/documentation/img/backup-done.png" class="shadow" width="500px">
 </center>
 
 
 * Follow the steps to [restore from the latest backup](#restoring-cloudron-from-a-backup)
   on the new server. It is recommended to not _delete_ the old server until  migration to new server
   is complete and you have verified that all data is intact.
+
+!!! note "Backup & Cloudron version"
+    The Cloudron version and backup version must match for the restore to work. To install a
+    specific version of Cloudron, pass the `version` option to `cloudron-setup`. For example,
+    `cloudron-setup --version 3.3.1`.
 
