@@ -7,6 +7,35 @@ to tighten the Cloudron firewall's security policy. Our goal is that Cloudron us
 be able to rely on Cloudron being secure out of the box without having to do manual
 configuration.
 
+## Privacy & Control
+
+Cloudron is designed to provide complete data ownership and control. Cloudron's design is
+analogous to how smartphones (like Android, iOS) work. The Cloudron platform is installed
+on your server similar to how iOS is installed on an iPhone. Apps are installed on the server
+by contacting the Cloudron App Store (at cloudron.io) similar to how phones install apps by contacting
+their App Stores. The platform periodically checks for updates by polling cloudron.io (meaning,
+updates are pulled by your server and not pushed from our servers).
+
+What all this means is:
+
+* Cloudron UG has no mechanism to access your server. There's no hooks for us to administer your
+  server remotely unless you explicitly give us permission to access your server.
+
+* Your server and apps continue running if Cloudron App Store goes down. At worst, you won't be able to
+  install new apps since the Cloudron App Store is down.
+
+* The Cloudron backend code and frontend code are entirely hosted on your server. No CDNs, analytics and
+  other cloud services are used.
+
+* All notifications you get about your apps are sent from your server and not from cloudron.io.
+
+* Cloudron UG periodically polls the https://my.<domain> to check if the server is still around. We do
+  this as a precautionary measure to remind users about their subscription.
+
+* Cloudron does not collect any user or app information and this is not our business model. We collect
+  information regarding the configured backend types. This helps us focus on improving backends
+  based on their use. You can review the specific code [here](https://git.cloudron.io/cloudron/box/blob/master/src/appstore.js#L147).
+
 ## HTTP Security
 
 *   All apps on the Cloudron can only be reached by `https`. `http` automatically redirects
@@ -14,6 +43,7 @@ configuration.
 *   Cloudron admin has a CSP policy that prevents XSS attacks.
 *   Cloudron set various security related HTTP headers like `X-XSS-Protection`, `X-Download-Options`,
     `X-Content-Type-Options`, `X-Permitted-Cross-Domain-Policies`, `X-Frame-Options` across all apps.
+*   Cloudron apps have a default `Referrer-Policy` of `no-referrer-when-downgrade`.
 
 ## SSL Security
 
@@ -25,6 +55,13 @@ configuration.
 *   Cloudron sets the `Strict-Transport-Security` header (HSTS) to protect apps against downgrade attacks
     and cookie hijacking.
 *   Cloudron has A+ rating for SSL from [SSL Labs](https://cloudron.io/blog/2017-02-22-release-0.102.0.html).
+*   Let's Encrypt [submits](https://letsencrypt.org/certificates/)
+    all certificates to [Certificate Transparency Logs](https://www.certificate-transparency.org/).
+    This is an important consideration when using non-wildcard Let's Encrypt certificates
+    because apps that you install and use are going to be listed in the logs. For example,
+    [crt.sh](https://crt.sh), [Google transparency report](https://transparencyreport.google.com/https/certificates)
+    can display all your subdomains and you can visit those subdomains and
+    guess the app. Please note that this is not a problem when using wildcard certs.
 
 ## App isolation and sandboxing
 
@@ -77,23 +114,9 @@ The goal of rate limits is to prevent password brute force attacks.
 *   Minimum length for user passwords is 8
 *   Passwords are individually salted and hashed using PKBDF2 (Section 5.1 of https://www.ietf.org/rfc/rfc2898.txt)
 
-## Privacy
-
-*   Cloudron apps have a default `Referrer-Policy` of `no-referrer-when-downgrade`.
+## Backups
 
 *   Backups are optionally encrypted with AES-256-CBC.
-
-*   Let's Encrypt [submits](https://letsencrypt.org/certificates/)
-    all certificates to [Certificate Transparency Logs](https://www.certificate-transparency.org/).
-    This is an important consideration when using non-wildcard Let's Encrypt certificates
-    because apps that you install and use are going to be listed in the logs. For example,
-    [crt.sh](https://crt.sh), [Google transparency report](https://transparencyreport.google.com/https/certificates)
-    can display all your subdomains and you can visit those subdomains and
-    guess the app. Please note that this is not a problem when using wildcard certs.
-
-*   Cloudron does not collect any user information and this is not our business model. We collect
-    information regarding the configured backend types. This helps us focus on improving backends
-    based on their use. You can review the specific code [here](https://git.cloudron.io/cloudron/box/blob/master/src/appstore.js#L147).
 
 ## Activity log
 
