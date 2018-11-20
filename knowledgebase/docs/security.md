@@ -29,7 +29,7 @@ What all this means is:
 
 * All notifications you get about your apps are sent from your server and not from cloudron.io.
 
-* Cloudron UG periodically polls the https://my.<domain> to check if the server is still around. We do
+* Cloudron UG periodically polls the `https://my.<domain>` to check if the server is still around. We do
   this as a precautionary measure to remind users about their subscription.
 
 * Cloudron does not collect any user or app information and this is not our business model. We collect
