@@ -13,6 +13,14 @@ These customizations will persist across updates and restarts.
 
 To edit these files use the [Web terminal](/documentation/apps#web-terminal).
 
+## Disabling external registration
+
+When using Cloudron auth, external registration is already disabled. When now
+using Cloudron auth, edit the following files using [Web terminal](/documentation/apps#web-terminal).
+
+* `PUBLIC_REGISTER_ENABLED = False` in `/app/data/customlocal.py`
+* `"publicRegisterEnabled": false` in `/app/data/conf.json`
+
 ## Importing a project
 
 An existing project's json can be imported into Taiga as follows:
