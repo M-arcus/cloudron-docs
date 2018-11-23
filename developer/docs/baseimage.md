@@ -82,6 +82,11 @@ CLOUDRON is always set to '1'. This is useful to write Cloudron specific code.
 
 WEBADMIN_ORIGIN is set to the HTTP(S) origin of the Cloudron's dashboard. For example, `https://my.cloudron.io`.
 
+### CLOUDRON_PROXY_IP
+
+The IP address of the Cloudron reverse proxy. Apps can trust the HTTP headers (like `X-Forwarded-For`)
+for requests originating from this IP address.
+
 ## Node.js
 
 The base image comes pre-installed with various node.js versions.
