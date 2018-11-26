@@ -2,9 +2,9 @@
 
 ## Custom configuration
 
-Use the [Web terminal](/documentation//documentation/apps#web-terminal)
+Use the [Web terminal](/documentation/apps#web-terminal)
 to place custom configuration under `/app/data/config.json`.
 
-See [HackMD docs](https://github.com/codimdio/codimd/wiki/Configuration-Files-and-Application-Settings)
+See [HackMD docs](https://github.com/hackmdio/codimd/wiki/Configuration-Files-and-Application-Settings)
 for configuration options reference.
 
