@@ -64,7 +64,8 @@ Mounting an existing server directory as 'external storage' on NextCloud is curr
 If the intent is to simply increase the amount of storage available to NextCloud (since you have run out of disk
 space in the default data partition), there are two options:
 
-* Configure NextCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc.
+* Configure NextCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc
+  * [DigitalOcean Spaces Guide](https://www.digitalocean.com/community/questions/is-it-possible-to-mount-do-spaces-as-external-storage-in-nextcloud-as-i-mount-aws-s3-storage)
 
 * Configure Cloudron to store all of NextCloud's data in the external block storage. To achieve this, follow the
   [guide](server/#moving-a-single-apps-data-directory-to-another-location) for
