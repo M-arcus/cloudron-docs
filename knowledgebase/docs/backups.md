@@ -135,12 +135,6 @@ To store backups on Amazon S3, use the `S3` provider.
 <img src="/documentation/img/backups-s3.png" class="shadow">
 </center>
 
-When creating the bucket in S3, the bucket can be setup to periodically delete old backups by
-adding a lifecycle rule using the AWS console. S3 supports both permanent deletion
-or moving objects to the cheaper Glacier storage class based on an age attribute.
-With the current daily backup schedule a setting of two days should be sufficient
-for most use-cases.
-
 When using root credentials on AWS, follow the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
 to create access keys.
 
@@ -162,8 +156,11 @@ When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/la
 }
 ```
 
-The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
-required to decrypt the backups when restoring the Cloudron.
+!!! warning "Do not use Lifecycle rules"
+    S3 buckets can have lifecycle rules to automatically remove objects after a certain age. When using
+    the `rsync` format, these lifecycle rules may remove files from the `snapshot` directory and will cause
+    the backups to be corrupt. For this reason, we recommend not setting any lifecycle rules. Cloudron will
+    periodically clean up old backups based on the retention period.
 
 ### DigitalOcean Spaces
 
@@ -248,14 +245,13 @@ The credentials can now be used to setup Minio backups:
 The `Bucket` must exist and can be created using Minio CLI or the web interface. For HTTPS installations using a
 self-signed certificate, select the `Accept Self-Signed certificate` option.
 
-The `Encryption key` is an arbitrary passphrase used to encrypt the backups. Keep the passphrase safe; it is
-required to decrypt the backups when restoring the Cloudron.
-
 ## Encrypting backups
 
-Backups can be encrypted by providing an encyption key in the backup settings.
+Backups can be encrypted by providing an encyption key in the backup settings. The `Encryption key` is an arbitrary
+passphrase used to encrypt the backups. Keep the passphrase safe; it is required to decrypt the backups when restoring
+the Cloudron.
 
-Please note that when using encryption with the `rsync` format, the file names are encrypted as well.
+When using encryption with the `rsync` format, the file names are encrypted as well.
 
 !!! warning "Do not lose encryption key"
     Please keep the encryption key safe. Without the key, there is no way to decrypt the backups.
