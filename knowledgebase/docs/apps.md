@@ -58,7 +58,7 @@ another domain or subdomain:
     Moving an app to a new location is a non-destructive action. Existing app data will
     be migrated to the new domain.
 
-## Redirecting www domain
+## Setting up redirections
 
 Redirections can be setup from the `Advanced` section in the app's configure dialog:
 
@@ -66,7 +66,7 @@ Redirections can be setup from the `Advanced` section in the app's configure dia
 <img src="/documentation/img/app-redirect.png" class="shadow" width="500px">
 </center>
 
-In the above example, anyone visiting `www` subdomain will be automatically redirected
+In the above example, anyone visiting `www.smartserver.space` will be automatically redirected
 to the bare domain (using HTTP 302).
 
 The redirection feature preserves any URI components like subpaths in the original request.
