@@ -230,6 +230,18 @@ Uninstalling an app immediately removes all data associated with the app from th
     App backups are not removed when it is uninstalled and are only cleaned up based on the backup
     policy. Apps can always be re-instated from their backups using the CLI tool.
 
+## Staging environment
+
+When doing website development, it is useful to have production and staging environments. Cloudron's
+backup and clone features can be used to create a workflow as follows:
+
+* Install the app in `staging.domain.com`. Do edits and development as desired.
+* Once ready, make a 'snapshot' of the app by making an [app backup](/documentation/backups/#making-an-app-backup)
+* Use the [clone UI](/documentation/backups/#cloning-a-cloudron-app-in-same-cloudron) to install the app
+  into `prod.domain.com`.
+
+The same mechanism above can be used bring latest production data to staging.
+
 ## Graphs
 
 The Graphs view shows an overview of the disk and memory usage on your Cloudron.
