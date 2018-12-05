@@ -208,7 +208,10 @@ of the app that prints out `phpInfo()`.
 The LAMP app supports installing custom PHP extensions. As an example, we will install [ionCube Loader](http://www.ioncube.com/),
 which is often required to install commercial PHP apps.
 
-### Step 1: Download ionCube
+!!! note "ionCube is already installed"
+    The LAMP app has built-in support for ionCube. The installation steps for ionCube here are just an example.
+
+### Step 1: Download extension
 
 Download and extract the `tar.gz` or `zip` Linux 64-bit ionCube packages to your PC/Mac from the
 [ionCube website](https://www.ioncube.com/loaders.php) or use the
