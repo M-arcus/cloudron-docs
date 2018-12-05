@@ -230,7 +230,7 @@ In the top level directory of the Cloudron app (in `/app/data`), you will find a
 Add the following line to enable the extension (just add it before the many `;extension` lines):
 
 ```
-zend_extension=/app/data/ioncube/ioncube_loader_lin_7.0.so
+zend_extension=/app/data/ioncube/ioncube_loader_lin_7.2.so
 ```
 
 The LAMP app has thread safety disabled, so we choose the extension without the `ts` extension.
