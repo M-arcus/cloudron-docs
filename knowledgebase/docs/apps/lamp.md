@@ -253,14 +253,7 @@ Visit the LAMP app's default page to verify that the extension is enabled.
 
 ## Running composer
 
-`composer` is installed in `/usr/local/bin/composer` but is missing the the executable permissions.
-This can be worked around by running it via the php cli. In addition, composer might complain about
-running [as root](https://getcomposer.org/doc/faqs/how-to-install-untrusted-packages-safely.md). Run
-composer as the `www-data` user to avoid the warning.
-
-```
-    sudo -u www-data php /usr/local/bin/composer install        # assumes there is a composer.json
-```
+`composer` is installed in `/usr/bin/composer`.
 
 ## Reverse proxy setup
 
