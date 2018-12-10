@@ -201,7 +201,7 @@ and cannot be changed. However, the domain under which it is available can be ch
 
 * If you used the `wildcard` or `manual` DNS backend, add a DNS `A` record manually
   for `*.example.com` and `example.com` to the server's IP. For, `route53`, `cloudflare`, `gcdns`
-  `digitalocean` and other automated DNS backends, you can skip this step.
+  `gandi`, `godaddy`, `digitalocean` and other automated DNS backends, you can skip this step.
 
 * Run the following command to update the OAuth endpoint:
     ```
