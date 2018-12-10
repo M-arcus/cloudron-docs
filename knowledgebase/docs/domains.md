@@ -191,7 +191,7 @@ and cannot be changed. However, the domain under which it is available can be ch
 
 * Add the new domain in the `Domains` view.
 
-* Edit `/home/yellowtent/configs/cloudron.conf`
+* Edit `/etc/cloudron/cloudron.conf` (`/home/yellowtent/configs/cloudron.conf` in older versions):
     * Change `adminDomain` to the domain added above, for example `example.com`
     * Change `adminFqdn` to `my.example.com` if `example.com` is the newly added domain
 

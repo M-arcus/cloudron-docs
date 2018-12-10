@@ -46,7 +46,7 @@ following features:
 ## Activation
 
 To prepare Cloudron for the customer, create a server with the above snapshot and then
-activate it using the [provision script](https://git.cloudron.io/cloudron/box/blob/master/scripts/cloudron-provision):
+activate it using the [provision script](https://git.cloudron.io/cloudron/box/raw/master/scripts/cloudron-provision):
 
 ```
 cloudron-provision --ip <serverip> \
