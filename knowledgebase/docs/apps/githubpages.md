@@ -35,3 +35,13 @@ The app uses the [pages gem](https://github.com/github/pages-gem) to statically
 build the website. In the event that the gem update does not build the repo (because
 of version mismatch), the app will continue to serve the last successful build.
 
+## Using mkdocs
+
+[mkdocs](https://www.mkdocs.org/) has a command called `gh-deploy` that can
+automatically build docs and publish the site to a specific remote and branch.
+
+```
+    git remote add page https://site.cloudron.xyz/_git/page # add the github-pages app remote
+    mkdocs gh-deploy --remote-name page --remote-branch master --force
+```
+
