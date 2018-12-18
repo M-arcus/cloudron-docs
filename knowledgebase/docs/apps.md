@@ -126,16 +126,21 @@ in the app's configure UI.
 </center>
 
 
-## Custom mailbox name
+## Mail FROM address
 
-For apps that can send and/or receive email, Cloudron automatically creates a mailbox with
-the name `<location>.app`. To change this mailbox name, click on `Configure` in the app grid
-and edit the mailbox name in the `Advanced` tab.
+For apps that can send and/or receive email, Cloudron automatically assigns an address of the
+form `<location>.app`. To change this name, click on `Configure` in the app grid and edit the
+mailbox name in the `Advanced` tab.
 
 <center>
 <img src="/documentation/img/apps-mailbox-name.png" class="shadow" width="500px">
 </center>
 
+!!! note "Mailbox is not automatically created"
+    The app is simply configured to send mails with the above name. If you want to receive
+    email with the address, be sure to [create a mailbox](/documentation/email/#creating-mailboxes)
+    or assign it as an [alias](/documentation/email/#creating-mail-aliases) for an existing mailbox.
+    If a mailbox with the name does not exist, any replies to the email will bounce.
 
 ## Indexing by search engines (robots.txt)
 
