@@ -29,6 +29,22 @@ To disable app updates entirely, select `Update manually`. When automatic update
 administrators will get an email notification as and when updates are available. Updates can then be
 applied by clicking the update button.
 
+## Disabling automatic updates
+
+The Cloudron teams tracks upstream app releases and pushes out tested updates for apps.
+Apps updates are applied automatically based on the [update schedule](#changing-the-app-update-interval).
+In addition, some app updates are [not applied automatically](#how-app-updates-work) when an app introduces
+big new features and breaking changes.
+
+Some apps like the [LAMP app](/store/lamp.cloudronapp.html) expect the user to upload application
+code. This means that the Cloudron team cannot do comprehensive testing for an app update (for example,
+maybe a change in the PHP version breaks the app). For such situations, automatic updates can be disabled
+at a per-app level:
+
+<center>
+<img src="/documentation/img/app-disable-automatic-updates.png" class="shadow" width="500px">
+</center>
+
 ## Rolling back an app update
 
 To rollback an app update, simply [restore from a backup](/documentation/backups/#restoring-an-app-from-existing-backup).
