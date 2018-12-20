@@ -2,7 +2,21 @@
 
 This section will provide some general overview where to find log output and how to check relevant service states.
 
-## Backup error
+## Dashboard
+
+If the Cloudron dashboard is down/not reachable, try the following steps:
+
+* Check the output of `host my.<domain>` on your PC and verify that the IP address is pointing to your server.
+* Try `systemctl status box` on the server. If it's not running, try `systemctl restart cloudron.target`
+
+## Unresponsive apps
+
+If the apps are unresponsive, try the following steps:
+
+* Check the status of docker in the `Systems` view
+* Try restarting docker from the `Systems` view
+
+## Backup
 
 If you see a message like `task crashed with code null and signal SIGKILL`, this probably means the backup task
 is running out of memory.
