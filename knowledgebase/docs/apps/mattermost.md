@@ -2,10 +2,12 @@
 
 ## Command Line Tool
 
-For many administrative tasks like user and team management, Mattermost relies on its [command line tooling](https://docs.mattermost.com/administration/command-line-tools.html).
-The main tool is the `platform` script, which is already present in the Mattermost Cloudron app package. However in order to correctly use it inside a Cloudron app instance, it must be run as the user `cloudron` and have the location of the configuration file specified. The executable is `/app/code/bin/mattermost`.
+The [Mattermost CLI tool](https://docs.mattermost.com/administration/command-line-tools.html) can be used
+to administer user and team management tasks.
 
-To see all available admin commands, open the [Web Terminal](/documentation/apps#web-terminal) and run the following command:
+To use the CLI, open the [Web Terminal](/documentation/apps#web-terminal) and run the following command:
+
 ```
-sudo -u cloudron /app/code/bin/platform --config=/app/data/config.json help
+sudo -u cloudron /app/code/bin/mattermost --config=/app/data/config.json help
 ```
+
