@@ -41,6 +41,10 @@ A vacation message can be set in `Settings` -> `Filters` -> `Add a filter`. Choo
 <img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
+!!! note "At most once a day"
+    Vacation messages are sent at most once a day to the same sender. This setting cannot
+    be changed.
+
 ## Forwarding all emails
 
 To forward all emails to an external mail, setup a Sieve filter in
