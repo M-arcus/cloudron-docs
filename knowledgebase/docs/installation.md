@@ -7,7 +7,7 @@ Run the following commands on a fresh Ubuntu Bionic 18.04 (x64) server:
 ```
 wget https://cloudron.io/cloudron-setup
 chmod +x cloudron-setup
-./cloudron-setup --provider <azure|cloudscale|digitalocean|ec2|exoscale|hetzner|linode|ovh|rosehosting|scaleway|vultr|generic>
+./cloudron-setup --provider <azure|cloudscale|digitalocean|ec2|exoscale|hetzner|linode|netcup|ovh|rosehosting|scaleway|vultr|generic>
 ```
 
 !!! note "Minimum Requirements"
@@ -15,6 +15,7 @@ chmod +x cloudron-setup
     and 443 (https). Cloudron does not support running on ARM, LXC or OpenVZ.
 
 !!! tip "Referral codes"
+    [netcup](https://www.netcup.de/),
     [DigitalOcean](https://m.do.co/c/933831d60a1e),
     [hosttech](https://www.hosttech.ch/?promocode=53619290), [Linode](https://www.linode.com/?r=f68d816692c49141e91dd4cef3305da457ac0f75),
     [Rosehosting](https://secure.rosehosting.com/clientarea/?affid=661), [Vultr](http://www.vultr.com/?ref=7110116-3B).
