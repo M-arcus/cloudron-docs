@@ -19,7 +19,7 @@ Features of this mail solution include:
 * Email account sub-addressing by adding `+` tag qualifier
 * Setup mail filters and vacation email using ManageSieve
 * Catch all mailbox to receive mail sent to a non-existent mailbox
-* Relay all outbound mails via SendGrid, Postmark, Mailgun, AWS SES
+* Relay all outbound mails via SendGrid, Postmark, Mailgun, AWS SES or a Smart host
 * Anti-spam. Users can train the spam filter by marking mails as spam. Built-in rDNS and
   zen spamhaus lookup
 * Webmail. The [Rainloop](https://cloudron.io/appstore.html?app=net.rainloop.cloudronapp) and
@@ -201,7 +201,7 @@ This trick works for email aliases as well.
 
 By default, Cloudron's built-in mail server sends out email directly to recipients.
 You can instead configure the Cloudron to hand all outgoing emails to a 'mail relay'
-and have the relay deliver it to recipients. Such a setup is useful when the Cloudron
+or a 'smart host' and have the relay deliver it to recipients. Such a setup is useful when the Cloudron
 server does not have a good IP reputation for mail delivery or if server service provider
 does not allow sending email via port 25 (which is the case with Google Cloud and Amazon EC2).
 
