@@ -283,6 +283,10 @@ Manage Sieve.
 <img src="/documentation/img/forward-all-emails-rainloop.png" class="shadow" width="600px">
 </center>
 
+!!! warning "Limited support"
+    Cloudron Email server currently does not implement [SRS](http://www.openspf.org/SRS). For this
+    reason, this feature may not work depending on your forwarded address.
+
 ## Marking emails as spam
 
 The spam detection agent on the Cloudron requires training to identify spam.
