@@ -27,7 +27,7 @@ sudo apt-get install owncloud-client
 
 ## Running occ tool
 
-The `occ` tool can be used for NextCloud [administrative tasks](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/occ_command.html).
+The `occ` tool can be used for Nextcloud [administrative tasks](https://docs.nextcloud.com/server/12/admin_manual/configuration_server/occ_command.html).
 
 The occ command can be run using the [Web terminal](/documentation/apps#web-terminal). For example, to list the users:
 
@@ -56,27 +56,27 @@ The parameter can be edited using the [Web terminal](/documentation/apps#web-ter
 
 ## Attaching external storage
 
-Many VPS providers like Digital Ocean, Linode allow attaching external block storage to the server. NextCloud has a feature
+Many VPS providers like Digital Ocean, Linode allow attaching external block storage to the server. Nextcloud has a feature
 that allows mounting additional directories on the server as [external storage](https://docs.nextcloud.com/server/9/admin_manual/configuration_files/external_storage_configuration_gui.html).
 
-Mounting an existing server directory as 'external storage' on NextCloud is currently not supported.
+Mounting an existing server directory as 'external storage' on Nextcloud is currently not supported.
 
-If the intent is to simply increase the amount of storage available to NextCloud (since you have run out of disk
+If the intent is to simply increase the amount of storage available to Nextcloud (since you have run out of disk
 space in the default data partition), there are two options:
 
-* Configure NextCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc
+* Configure Nextcloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc
   * [DigitalOcean Spaces Guide](https://www.digitalocean.com/community/questions/is-it-possible-to-mount-do-spaces-as-external-storage-in-nextcloud-as-i-mount-aws-s3-storage)
 
-* Configure Cloudron to store all of NextCloud's data in the external block storage. To achieve this, follow the
+* Configure Cloudron to store all of Nextcloud's data in the external block storage. To achieve this, follow the
   [guide](/documentation/server#moving-a-single-apps-data-directory-to-another-location) for
   moving a single app's data directory to another location.
 
-Moving NextCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
+Moving Nextcloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
 this new disk.
 
 ## Recan files
 
-NextCloud will not pick up files if they are added directly in the data directory of the user on the server.
+Nextcloud will not pick up files if they are added directly in the data directory of the user on the server.
 To make it rescan, open a [Web terminal](/documentation/apps#web-terminal) and run the following command:
 
 ```
@@ -91,9 +91,9 @@ sudo -u www-data php -f /app/code/occ files:scan <username> --path=/<username>/f
 
 ## Fixing a broken install
 
-The [NextCloud App Store](https://apps.nextcloud.com/) has a wide variety of apps that can be installed on
-top of NextCloud. NextCloud has no native sandboxing mechanism for plugins - if a plugin fails, it will bring
-down the whole installation. Plugins might also break an installation after a NextCloud upgrade. For this reason,
+The [Nextcloud App Store](https://apps.nextcloud.com/) has a wide variety of apps that can be installed on
+top of Nextcloud. Nextcloud has no native sandboxing mechanism for plugins - if a plugin fails, it will bring
+down the whole installation. Plugins might also break an installation after a Nextcloud upgrade. For this reason,
 we encourage carefully reviewing apps before using them.
 
 To fix a broken installation, open a [Web terminal](/documentation/apps#web-terminal) and repair the app. Then run the following
@@ -113,6 +113,6 @@ Collabora Online is a powerful online office suite that supports all major docum
 file formats, which you can integrate in your own infrastructure. Key features are collaborative editing and
 excellent office file format support.
 
-See the [Collabora App docs](app/collabora) on how to setup NextCloud with Collabora Office.
+See the [Collabora App docs](app/collabora) on how to setup Nextcloud with Collabora Office.
 
 <img src="/documentation/img/nextcloud-collabora-editor.png" class="shadow">
