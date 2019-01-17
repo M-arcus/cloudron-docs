@@ -98,14 +98,16 @@ Cloudron's GitLab package can be used with GitLab Runner as follows.
 
 ## Reset Admin Password  
 
- To reset the admin password, run the following commands using the [Web terminal](/documentation/apps#web-terminal):
-  
+To reset the admin password, run the following commands using the [Web terminal](/documentation/apps#web-terminal):
+
+```
 su - git  
 cd gitlab  
-bundle exec rails c production *(takes about 10 sec to bring up rails terminal)*  
+bundle exec rails c production # (takes about 10 sec to bring up rails terminal)
 user = User.where(id: 1).first  
 user.password = 'NEW_PASS'  
 user.password_confirmation = 'NEW_PASS'  
 user.save  
 exit  
+```
 
