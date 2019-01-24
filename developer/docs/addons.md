@@ -148,7 +148,7 @@ chown -R cloudron:cloudron /app/data
 
 ### mongodb
 
-By default, this addon provide mongodb 2.6.10.
+By default, this addon provide MongoDB 3.6.3.
 
 Exported environment variables:
 
@@ -171,7 +171,7 @@ cloudron exec
 ```
 ### mysql
 
-By default, this addon provides a single database on MySQL 5.7.17. The database is already created and the application
+By default, this addon provides a single database on MySQL 5.7.23. The database is already created and the application
 only needs to create the tables.
 
 Exported environment variables:
@@ -251,7 +251,7 @@ We currently provide OAuth2 integration for Ruby [omniauth](https://git.cloudron
 
 ### postgresql
 
-By default, this addon provides PostgreSQL 9.5.5
+By default, this addon provides PostgreSQL 10.5
 
 Exported environment variables:
 
@@ -304,7 +304,7 @@ The IMAP command `? LOGIN username password` can then be used to test the authen
 
 ### redis
 
-By default, this addon provides redis 3.0.6. The redis is configured to be persistent and data is preserved across updates
+By default, this addon provides redis 4.0.9. The redis is configured to be persistent and data is preserved across updates
 and restarts.
 
 Exported environment variables:
