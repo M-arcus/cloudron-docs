@@ -181,7 +181,9 @@ Remove all entries, not actively used outside of Cloudron, in the advanced dns v
 <img src="../img/domains-namecheap-advanceddns.png" width="100%" class="shadow">
 </center>
 
-If Cloudron should also be the primary email server for this domain, select `Custom MX` in the MAIL SETTINGS:
+#### Email
+
+If Cloudron should also be the primary email server for this domain, select `Custom MX` in the MAIL SETTINGS and provide the an MX record with the Cloudrons dashboard domain. When email is enabled later for this domain, Cloudron will update the record accordingly.
 
 <center>
 <img src="../img/domains-namecheap-email.png" width="500px" class="shadow">
