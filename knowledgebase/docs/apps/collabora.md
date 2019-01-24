@@ -24,3 +24,14 @@ files hosting inside [NextCloud](/documentation/apps/nextcloud).
 * You should now be able to view and edit rich text documents right inside NextCloud.
 
     <img src="/documentation/img/nextcloud-collabora-editor.png" class="shadow">
+
+## Spell check
+
+The empty document templates that are provided by default in Nextcloud are German documents. For
+this reason, it might appear that the spell-checker is flagging a lot of spelling errors.
+
+The language of a document can be changed by clicking the menu bar icon on the far right (three
+horizontal lines). Then `Tools` -> `Language` -> `For all text`.
+
+    <img src="/documentation/img/collabora-change-language.png" class="shadow">
+
