@@ -168,7 +168,7 @@ The `<hosted zone id>` below must be replaced with the zone's id which is availa
 
 ### Name.com DNS
 
-Create a [name.com API key](https://www.name.com/account/settings/api) and select 'Name.com'
+Create a [name.com API token](https://www.name.com/account/settings/api) and select 'Name.com'
 from the dropdown.
 
 <center>
