@@ -19,6 +19,7 @@ the domain is hosted:
 *   [Gandi LiveDNS](domain/#gandi)
 *   [GoDaddy](domain/#godaddy)
 *   [Google Cloud DNS](domain/#google-cloud-dns)
+*   [Namecheap DNS](domain/#namecheap-dns)
 *   [Name.com DNS](domain/#namecom-dns)
 *   [Wildcard](domains/#wildcard-dns)
 
@@ -165,6 +166,26 @@ The `<hosted zone id>` below must be replaced with the zone's id which is availa
     ]
 }
 ```
+
+### Namecheap DNS
+
+By default API access is disabled for a Namecheap accounts. To use the Cloudron Namecheap backend, enable API access, create an API key and whitelist your Cloudron's IP in the [Namecheap dashboard](https://ap.www.namecheap.com/settings/tools/apiaccess/).
+
+!!! warning "Sometimes it takes a few minutes to have the IP whitelisting reflected"
+    If adding the domain in Cloudron gives an access error, wait a bit.
+
+Furthermore, Namecheap sets up some default records, which need to be removed first to ensure Cloudron can update those correctly.
+Remove all entries, not actively used outside of Cloudron, in the advanced dns view of your domain, before you proceed:
+
+<center>
+<img src="../img/domains-namecheap-advanceddns.png" width="100%" class="shadow">
+</center>
+
+If Cloudron should also be the primary email server for this domain, select `Custom MX` in the MAIL SETTINGS:
+
+<center>
+<img src="../img/domains-namecheap-email.png" width="500px" class="shadow">
+</center>
 
 ### Name.com DNS
 
