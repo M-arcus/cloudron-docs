@@ -41,7 +41,7 @@ curl -H "Content-Type: application/json" -H "Authorization: Bearer <token>" http
 When sending POST data be sure to set the `content-type` to `application/json`.
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{ "enabled": false }' 'https://my.domain.com/api/v1/mail/domain.com/mail_from_validation?access_token=token
+curl -X POST -H "Content-Type: application/json" -d '{ "enabled": false }' 'https://my.example.com/api/v1/mail/domain.com/mail_from_validation?access_token=token
 ```
 
 ### Requests
@@ -92,7 +92,7 @@ Response (200):
 
 Curl example:
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"username": "cloudron", "password":"cloudron"}' https://my.domain.com/api/v1/developer/login
+curl -X POST -H "Content-Type: application/json" -d '{"username": "cloudron", "password":"cloudron"}' https://my.example.com/api/v1/developer/login
 ```
 
 ## Apps API
@@ -180,17 +180,17 @@ On success, the installation progress can be tracked by polling [installationPro
 
 Curl example to install Gogs app at subdomain git-demo.cloudron.me:
 ```
-curl -X POST -H "Content-Type: application/json" -d '{ "appStoreId": "io.gogs.cloudronapp", "location": "git", "accessRestriction": null }' -H 'Authorization: Bearer f34eb4d0d942c8f8b3c060f356f1bb6961bc07bfb3fa2b24188a240f3de975f5' https://my.domain.com/api/v1/apps/install
+curl -X POST -H "Content-Type: application/json" -d '{ "appStoreId": "io.gogs.cloudronapp", "location": "git", "accessRestriction": null }' -H 'Authorization: Bearer f34eb4d0d942c8f8b3c060f356f1bb6961bc07bfb3fa2b24188a240f3de975f5' https://my.example.com/api/v1/apps/install
 ```
 
 Curl example to install specific version of Gogs app with SSH Port exposed at 6000:
 ```
-curl -X  POST -H "Content-Type: application/json" -H "Authorization: Bearer 27ab70cfd10e615ec29f6d890947e2b72db47522754bfafcad6f9c0e6c9e84e9" -d '{ "appStoreId": "io.gogs.cloudronapp@0.12.6", "portBindings": { "SSH_PORT": 6000 }, "location": "git2", "accessRestriction": null }' https://my.domain.com/api/v1/apps/install
+curl -X  POST -H "Content-Type: application/json" -H "Authorization: Bearer 27ab70cfd10e615ec29f6d890947e2b72db47522754bfafcad6f9c0e6c9e84e9" -d '{ "appStoreId": "io.gogs.cloudronapp@0.12.6", "portBindings": { "SSH_PORT": 6000 }, "location": "git2", "accessRestriction": null }' https://my.example.com/api/v1/apps/install
 ```
 
 To restrict access to Gogs app to the *developers* group:
 ```
-curl -X  POST -H "Content-Type: application/json" -H "Authorization: Bearer 27ab70cfd10e615ec29f6d890947e2b72db47522754bfafcad6f9c0e6c9e84e9" -d '{ "appStoreId": "io.gogs.cloudronapp@0.12.6", "location": "git3", "accessRestriction": { "groups": [ "developers" ] } }' https://my.domain.com/api/v1/apps/install
+curl -X  POST -H "Content-Type: application/json" -H "Authorization: Bearer 27ab70cfd10e615ec29f6d890947e2b72db47522754bfafcad6f9c0e6c9e84e9" -d '{ "appStoreId": "io.gogs.cloudronapp@0.12.6", "location": "git3", "accessRestriction": { "groups": [ "developers" ] } }' https://my.example.com/api/v1/apps/install
 ```
 
 ### Get app
@@ -558,7 +558,7 @@ The update progress can be tracked by polling the value of [installationProgress
 
 Curl example to update Gogs to a new version 0.13.0:
 ```
-curl -X POST -d '{ "appStoreId": "io.gogs.cloudronapp@0.13.0" }' -H 'Content-Type: application/json' -H 'Authorization: Bearer 256e4c6c6f783dbff95ae233c63a36e297ef70a3528171b891a399f895a8e0e0' https://my.domain.com/api/v1/apps/aaa8ad53-301b-4a77-9551-5df261686166/update
+curl -X POST -d '{ "appStoreId": "io.gogs.cloudronapp@0.13.0" }' -H 'Content-Type: application/json' -H 'Authorization: Bearer 256e4c6c6f783dbff95ae233c63a36e297ef70a3528171b891a399f895a8e0e0' https://my.example.com/api/v1/apps/aaa8ad53-301b-4a77-9551-5df261686166/update
 ```
 
 ### Exec
@@ -593,7 +593,7 @@ for details.
 
 Curl example to execute 'ls' command:
 ```
-curl -H 'Upgrade: tcp' -H 'Connection: Upgrade' -H 'Authorization: Bearer eba011a45eb056c7497820c408d1170e94ac7ed0fb10cef798fcdaacbcbcd2ee' 'https://my.domain.com/api/v1/apps/41dfe1f1-edb3-4011-9ba3-889d0b24a177/exec?cmd=%5B%22ls%22%5D&tty=true'
+curl -H 'Upgrade: tcp' -H 'Connection: Upgrade' -H 'Authorization: Bearer eba011a45eb056c7497820c408d1170e94ac7ed0fb10cef798fcdaacbcbcd2ee' 'https://my.example.com/api/v1/apps/41dfe1f1-edb3-4011-9ba3-889d0b24a177/exec?cmd=%5B%22ls%22%5D&tty=true'
 ```
 
 ### Exec Websocket
@@ -975,7 +975,7 @@ Response (200):
 To list all the app installation events:
 
 ```
-curl -X GET -H 'Authorization: Bearer cb0463455a6606482be7956fc3abd53330ae23244e3492cda3914a2c5154c47e' https://my.domain.com/api/v1/cloudron/eventlog?action=app.install
+curl -X GET -H 'Authorization: Bearer cb0463455a6606482be7956fc3abd53330ae23244e3492cda3914a2c5154c47e' https://my.example.com/api/v1/cloudron/eventlog?action=app.install
 ```
 
 ## Domains
@@ -1323,7 +1323,7 @@ Request:
 
 Example:
 ```
-curl -X POST -d '{ "enabled": false" }'  -H 'Authorization: Bearer 215841b5943f5432a26ef3a1526f548a40268a92ed9baca5db980be0545da596'  https://my.domain.com/api/v1/mail/domain.com/mail_from_validation
+curl -X POST -d '{ "enabled": false" }'  -H 'Authorization: Bearer 215841b5943f5432a26ef3a1526f548a40268a92ed9baca5db980be0545da596'  https://my.example.com/api/v1/mail/domain.com/mail_from_validation
 ```
 
 
@@ -1633,7 +1633,7 @@ The request is sent as `multipart/form-data`. It must contain a field named `ava
 
 Example:
 ```
-curl -X POST -F "avatar=@./avatar.png"  -H 'Authorization: Bearer 215841b5943f5432a26ef3a1526f548a40268a92ed9baca5db980be0545da596'  https://my.domain.com/api/v1/settings/cloudron_avatar
+curl -X POST -F "avatar=@./avatar.png"  -H 'Authorization: Bearer 215841b5943f5432a26ef3a1526f548a40268a92ed9baca5db980be0545da596'  https://my.example.com/api/v1/settings/cloudron_avatar
 ```
 
 ### Get Backup Configuration
@@ -1794,7 +1794,7 @@ This can be used to persist custom memory limits on the built-in addon container
 to 500MB:
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"mysql": { "memory": 524288000, "memorySwap": 524288000 } }' https://my.domain.com/api/v1/settings/platform_config?access_token=77379e1f72cff51218f226fb
+curl -X POST -H "Content-Type: application/json" -d '{"mysql": { "memory": 524288000, "memorySwap": 524288000 } }' https://my.example.com/api/v1/settings/platform_config?access_token=77379e1f72cff51218f226fb
 ```
 
 ### Get timezone
@@ -1866,7 +1866,7 @@ Response (201):
     displayName: <string>,
     email: <email>,
     groupIds: [ <string>, ... ]
-    resetToken: <string>    // User can sign up at https://my.domain.com/api/v1/session/account/setup.html?reset_token=<resetToken>
+    resetToken: <string>    // User can sign up at https://my.example.com/api/v1/session/account/setup.html?reset_token=<resetToken>
 }
 ```
 
@@ -1966,7 +1966,7 @@ Request:
 Response (200):
 ```
 {
-    resetToken: <string>   // // User can sign up at https://my.domain.com/api/v1/session/account/setup.html?reset_token=<resetToken>
+    resetToken: <string>   // // User can sign up at https://my.example.com/api/v1/session/account/setup.html?reset_token=<resetToken>
 }
 ```
 

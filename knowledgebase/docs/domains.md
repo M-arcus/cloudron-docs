@@ -200,7 +200,7 @@ from the dropdown.
 
 ### Wildcard DNS
 
-For wildcard setup, add entries for `*.domain.com` and `domain.com` to point to your server's IP.
+For wildcard setup, add entries for `*.example.com` and `domain.com` to point to your server's IP.
 Note that adding add wildcard entry does _not_ affect any existing DNS entries in `domain.com`
 because the wildcard only applies to subdomains that are not explicitly defined.
 
@@ -228,7 +228,7 @@ and cannot be changed. However, the domain under which it is available can be ch
 
 * Run the following command to update the OAuth endpoint:
     ```
-        mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.domain.com' WHERE type='built-in'"
+        mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.example.com' WHERE type='built-in'"
     ```
 * Run the command `systemctl restart box`
 

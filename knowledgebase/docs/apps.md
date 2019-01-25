@@ -211,8 +211,8 @@ Cloudron apps can be embedded into other websites by setting `X-Frame-Options`. 
 
 To allow embedding, enter the embedder website name in the `Advanced settings` of the app's configure dialog.
 
-For example, to embed the live chat application hosted on `chat.domain.com` into `www.domain.com`, enter the value
-`https://www.domain.com` in the `chat` app's configure dialog.
+For example, to embed the live chat application hosted on `chat.example.com` into `www.example.com`, enter the value
+`https://www.example.com` in the `chat` app's configure dialog.
 
 `ALLOW-FROM` is [not supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)
 in Chrome. You can safely ignore the `Invalid 'X-Frame-Options' header encountered` message in the browser console.
@@ -240,10 +240,10 @@ Uninstalling an app immediately removes all data associated with the app from th
 When doing website development, it is useful to have production and staging environments. Cloudron's
 backup and clone features can be used to create a workflow as follows:
 
-* Install the app in `staging.domain.com`. Do edits and development as desired.
+* Install the app in `staging.example.com`. Do edits and development as desired.
 * Once ready, make a 'snapshot' of the app by making an [app backup](/documentation/backups/#making-an-app-backup)
 * Use the [clone UI](/documentation/backups/#cloning-a-cloudron-app-in-same-cloudron) to install the app
-  into `prod.domain.com`.
+  into `prod.example.com`.
 
 The same mechanism above can be used bring latest production data to staging.
 

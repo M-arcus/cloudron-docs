@@ -15,7 +15,7 @@ production:
   <<: *base
   extra:
     ## Piwik analytics.
-    piwik_url: 'analytics.domain.com'
+    piwik_url: 'analytics.example.com'
     piwik_site_id: '7'
 
   omniauth:
@@ -65,7 +65,7 @@ Cloudron's GitLab package can be used with GitLab Runner as follows.
         sudo apt-get install gitlab-runner
     ```
 
-* Get the token listed in GitLab under `https://<gitlab.domain.com>/admin/runners` (under shared runners section).
+* Get the token listed in GitLab under `https://<gitlab.example.com>/admin/runners` (under shared runners section).
 
 * [Register the runner](https://docs.gitlab.com/runner/register/index.html) with the token from the above step
 
@@ -90,7 +90,7 @@ Cloudron's GitLab package can be used with GitLab Runner as follows.
 
     ```
 
-* The Runner should now be listed under `https://<gitlab.domain.com>/admin/runners`.
+* The Runner should now be listed under `https://<gitlab.example.com>/admin/runners`.
 
 * Now push a [.gitlab-ci.yml](https://docs.gitlab.com/ce/ci/yaml/README.html) to your project to
   start using the runner.

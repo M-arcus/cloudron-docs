@@ -6,7 +6,7 @@ To publish your page, push your GitHub Pages repository via HTTP to this
 app:
 
 ```
-    git remote add page https://<app.domain.com>/_git/page
+    git remote add page https://<app.example.com>/_git/page
     git push page master
 ```
 
@@ -17,10 +17,10 @@ It can be convenient to store the HTTP username and password in the `~/.netrc`
 file:
 
 ```
-    machine app.domain.com login fred password bluebonnet
+    machine app.example.com login fred password bluebonnet
 ```
 
-Adjust `app.domain.com`, `fred` and `bluebonnet` above to your setup.
+Adjust `app.example.com`, `fred` and `bluebonnet` above to your setup.
 
 ## Jekyll plugins
 

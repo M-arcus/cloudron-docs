@@ -2,7 +2,7 @@
 
 ## Admin page
 
-The Wordpress admin page is located `https://<my.domain.com>/wp-login.php`.
+The Wordpress admin page is located `https://<my.example.com>/wp-login.php`.
 
 ## Wordpress memory limit
 

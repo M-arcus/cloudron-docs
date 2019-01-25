@@ -23,7 +23,7 @@ Gmail users
 
 General flow
 -------------
-1. setup Cloudron at my.domain.com
+1. setup Cloudron at my.example.com
 2. enable email. (do not need to setup MX record at this point. just need the mail server enabled. currently, cloudron setup updates it though with programmable dns)
 3. create mailbox
 4. import using above command

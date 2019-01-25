@@ -41,11 +41,11 @@ Clicking on `Links to this Calendar` will show the calendar settings for various
 </center>
 
 !!! note "Calendar URLs"
-    CalDAV URL - https://sogo.domain.com/SOGo/dav/<username>/Calendar/personal/
+    CalDAV URL - https://sogo.example.com/SOGo/dav/<username>/Calendar/personal/
     <br>
-    Wedav ICS URL - https://sogo.domain.com/SOGo/dav/<username>/Calendar/personal.ics
+    Wedav ICS URL - https://sogo.example.com/SOGo/dav/<username>/Calendar/personal.ics
     <br>
-    WebDAV XML URL - https://sogo.domain.com/SOGo/dav/<username>/Calendar/personal.xml
+    WebDAV XML URL - https://sogo.example.com/SOGo/dav/<username>/Calendar/personal.xml
 
 ## CardDAV
 
@@ -62,7 +62,7 @@ Clicking on `Links to this Address book` will show the address book settings for
 </center>
 
 !!! note "Address book URLs"
-    CardDAV URL - https://sogo.domain.com/SOGo/dav/<username>/Contacts/personal/
+    CardDAV URL - https://sogo.example.com/SOGo/dav/<username>/Contacts/personal/
 
 ## Setting the timezone
 

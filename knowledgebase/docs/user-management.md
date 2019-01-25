@@ -103,7 +103,7 @@ reason, the link can be sent to the user by some other means.
 ### Admins
 
 The password reset mechanism relies on email delivery working reliably. Admins can reset their own passwords
-by navigating to `https://my.domain.com/api/v1/session/password/resetRequest.html`.
+by navigating to `https://my.example.com/api/v1/session/password/resetRequest.html`.
 
 In the event that [email delivery is not working](email/#debugging-mail-delivery), the reset token
 can be determined by SSHing into the server:
@@ -113,7 +113,7 @@ mysql -uroot -ppassword -e "select username, resetToken from box.users";
 ```
 
 Use the reset token displayed above to navigate to
-`https://my.domain.com/api/v1/session/password/reset.html?reset_token=<token>`
+`https://my.example.com/api/v1/session/password/reset.html?reset_token=<token>`
 
 ## Disabling 2FA
 

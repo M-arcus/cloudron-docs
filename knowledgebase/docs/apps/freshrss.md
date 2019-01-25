@@ -18,5 +18,5 @@ To enable [mobile access](https://freshrss.github.io/FreshRSS/en/users/06_Mobile
 ### FeedMe
 
 The [FeedMe Android app](https://play.google.com/store/apps/details?id=com.seazon.feedme) has support
-for FreshRSS. When using this app, remember to use the hostname as `https://freshrss.domain.com/api/greader.php`
+for FreshRSS. When using this app, remember to use the hostname as `https://freshrss.example.com/api/greader.php`
 

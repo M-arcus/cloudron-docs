@@ -53,7 +53,7 @@ Here's an example that works on the Cloudron:
 Method
 POST
 URL
-https://my.domain.com/api/v1/apps/install?access_token=c39f3a533798e3450e7b49ec24ff4e40898d4ddf23f409e40ae721491624ccf5
+https://my.example.com/api/v1/apps/install?access_token=c39f3a533798e3450e7b49ec24ff4e40898d4ddf23f409e40ae721491624ccf5
 Data
 { "location": "blog", "appStoreId": "org.wordpress.cloudronapp", "accessRestriction": null }
 Unflatten
