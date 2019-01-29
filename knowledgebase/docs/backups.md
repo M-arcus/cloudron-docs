@@ -340,16 +340,8 @@ then use the Clone UI to create a clone:
 ## Cloning a Cloudron app into another Cloudron
 
 Cloudron app backups are essentially 'snapshots' of the app and are portable across Cloudrons.
-To move an app from one Cloudron to another or to instantiate an app from an arbitrary backup
-perform the following steps:
-
-1. Make the app backup available in the destination Cloudron's backup directory.
-
-2. Install the app using the following command:
-
-```
-    cloudron install --backup <id> --backup-format <rsync|tgz> --appstore-id org.wordpress.cloudronapp@0.9.1
-```
+To move an app from one Cloudron to another or to instantiate an app from an arbitrary backup,
+follow the same instructions as [restoring a Cloudron app from a backup](/documentation/backups/#restoring-an-app-from-existing-backup-using-cli-tool).
 
 ## Restoring an app from existing backup
 
@@ -365,17 +357,63 @@ Select the backup you want to restore to:
 <img src="/documentation/img/app-select-backup.png" class="shadow" width="500px">
 </center>
 
-
-If the app has been uninstalled, then you can use the CLI tool to restore it:
-
-```
-cloudron login my.<new Cloudron domain>
-cloudron install --appstore-id <apps appstore id>@<specific version if required> --backup <backupId> --backup-format <rsync|tgz>
-```
-
 !!! note "Both data and code are reverted"
     Restoring will also revert the code to the version that was running when the backup was created.
     This is because the current version of the app may not be able to handle old data.
+
+## Restoring an app from existing backup using CLI tool
+
+If the app has been uninstalled, then you can use the CLI tool to restore it. The commands
+below must be run on your laptop/PC and not on the server.
+
+First, prepare the CLI tool for use:
+
+```
+npm install -g cloudron
+cloudron login my.<cloudron domain>
+```
+
+Next, determine the backup id to restore from. This can be done as follows:
+
+* Go to the `Event Log` in Cloudron dashboard and locate the uninstall event of the app. Clicking
+  on the event will show app's id.
+
+* Go to your backup storage (Filesystem or S3) and browse to the latest storage. Backup directories
+  are timestamped. Use the timestamp to locate the latest backup. Find the latest backup of the app.
+  Backup will have the name `app_<appid>_<version>`. Depending on the backup format (tgz or rsync)
+  this will be a single file or a directory. Make a note of the file name or the directory name including
+  the timestamp.
+
+* Determine the appstore id of the app. You can find this id by browsing the [appstore](https://cloudron.io/appstore.html)
+  and looking at the URL bar. An appstore ID is like `com.nextcloud.cloudronapp` or `org.wordpress.cloudronapp`.
+
+* We are now ready to restore the app using the CLI tool. Replace the appstore id, backup id and format based on your
+  setup. Note that the backup id does **not** contain the .tar.gz extension and contains the timestamp prefix
+  (see the example below).
+
+    ```
+    cloudron install --appstore-id <apps appstore id>@<specific version if required> --backup <backupId> --backup-format <rsync|tgz>
+    ```
+
+Example:
+
+```
+~$ cloudron install --backup 2019-01-29-024014-522/app_a65bb5da-29a2-41cd-9631-b30e6f3f9afb_2019-01-29-024015-838_v2.0.4 --backup-format tgz --appstore-id org.wordpress.cloudronapp
+Location (subdomain): test2
+App is being installed.
+
+ => Waiting to start installation 
+ => Registering subdomain .
+ => Download backup and restoring addons 
+ => Waiting for DNS propagation ...................
+
+App is installed.
+```
+
+!!! note "Encryption key"
+    If your backup has a secret/encryption key, then the key is picked from your current backup settings automatically.
+    If the current key is different from the backup's key, just change the current backup configuration to have the
+    backup's key temporarily.
 
 ## Restoring Cloudron from a backup
 

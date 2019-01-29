@@ -233,7 +233,8 @@ Uninstalling an app immediately removes all data associated with the app from th
 
 !!! note "Backups are not removed"
     App backups are not removed when it is uninstalled and are only cleaned up based on the backup
-    policy. Apps can always be re-instated from their backups using the CLI tool.
+    policy. Apps can always be [re-instated](/documentation/backups/#restoring-an-app-from-existing-backup)
+    from their backups using the CLI tool.
 
 ## Staging environment
 
