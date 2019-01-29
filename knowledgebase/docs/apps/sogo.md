@@ -64,15 +64,6 @@ Clicking on `Links to this Address book` will show the address book settings for
 !!! note "Address book URLs"
     CardDAV URL - https://sogo.example.com/SOGo/dav/<username>/Contacts/personal/
 
-## Setting the timezone
-
-Open a [Web terminal](/documentation/apps#web-terminal) for SOGo:
-
-* Edit `/app/data/sogo.conf` and set the `SOGoTimeZone` field to a value
-  from https://github.com/inverse-inc/sogo/tree/master/SOPE/NGCards/TimeZones
-
-* Restart SOGo
-
 ## ActiveSync
 
 Exchange ActiveSync is a protocol used by Microsoft Exchange to sync mobile devices.
