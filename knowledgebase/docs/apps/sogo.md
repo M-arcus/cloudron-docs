@@ -86,3 +86,8 @@ This issue manifests itself as:
 To workaround this, always use SOGo by opening a new browser tab and entering the
 SOGo domain name directly.
 
+## CalDAV and CardDAV Migration
+
+Follow [this guide](https://cloudron.io/blog/2018-12-05-carddav-caldav-migration.html)
+to migrate CardDAV and CalDAV resources to and from existing installations.
+
