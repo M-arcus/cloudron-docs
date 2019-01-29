@@ -56,8 +56,6 @@ This format has the following caveats:
 * `tgz` backup uploads are not incremental. This means that if an app generated 10GB of data, Cloudron
   has to upload 10GB every time it makes a new backup.
 
-* Encrpytion is currently only supported with the tgz format.
-
 ### rsync format
 
 The `rsync` format uploads individual files to the backup storage. It keeps track of what
