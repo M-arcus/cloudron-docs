@@ -260,6 +260,21 @@ iptables-save > /etc/iptables/rules.v4    # current snapshot of iptables
 
 The content above was derived from [here](https://superuser.com/questions/997426/is-there-any-other-way-to-get-iptables-to-filter-ip-addresses-based-on-geolocati).
 
+#### Mosh
+
+To setup iptables for services like [mosh](https://mosh.org):
+
+```
+iptables -I INPUT -p udp -m multiport --dports 60000:61000 -m comment --comment "\'dapp_mosh\'" -j ACCEPT
+```
+
+To persist the changes across reboots:
+
+```
+apt install iptables-persistent          # this is a service that restores iptables
+iptables-save >/etc/iptables/rules.v4    # current snapshot of iptables
+```
+
 ## Email security
 
 *   Cloudron checks against the [Zen Spamhaus DNSBL](https://www.spamhaus.org/zen/) before accepting mail.
