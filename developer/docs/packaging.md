@@ -85,7 +85,7 @@ FROM cloudron/base:1.0.0
 
 ADD server.js /app/code/server.js
 
-CMD [ "/usr/local/node-4.7.3/bin/node", "/app/code/server.js" ]
+CMD [ "/usr/local/node-8.12.0/bin/node", "/app/code/server.js" ]
 ```
 
 The `FROM` command specifies that we want to start off with Cloudron's [base image](/developer/baseimage/).
@@ -95,8 +95,7 @@ Docker images tend to be quite large and also helps us to do a security audit on
 The `ADD` command copies the source code of the app into the directory `/app/code`. There is nothing special
 about the `/app/code` directory and it is merely a convention we use to store the application code.
 
-The `CMD` command specifies how to run the server. The base image already contains many different versions of
-node.js. We use Node 4.7.3 here.
+The `CMD` command specifies how to run the server. The base image already contains Node.js version 8.12.0 so we just use that.
 
 This Dockerfile can be built and run locally as:
 ```
@@ -203,7 +202,7 @@ Step 1 : FROM cloudron/base:1.0.0
 Step 2 : ADD server.js /app/code/server.js
  ---> 10513e428d7a
 Removing intermediate container 574573f6ed1c
-Step 3 : CMD /usr/local/node-4.2.1/bin/node /app/code/server.js
+Step 3 : CMD /usr/local/node-8.12.0/bin/node /app/code/server.js
  ---> Running in b541d149b6b9
  ---> 51aa796ea6e5
 Removing intermediate container b541d149b6b9

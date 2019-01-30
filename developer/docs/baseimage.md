@@ -19,14 +19,14 @@ install it yourself.
 
 * Apache 2.4.18
 * Composer 1.2.0
-* Go 1.6.4, 1.7.5 (install under `/usr/local/go-<version>`)
+* Go 1.11.1 (install under `/usr/local/go-<version>`)
 * Gunicorn 19.4.5
 * Java 1.8
 * Maven 3.3.9
 * Mongo 2.6.10
 * MySQL Client 5.7.17
 * nginx 1.10.0
-* Node 0.10.48, 0.12.18, 4.7.3, 6.9.5 (installed under `/usr/local/node-<version>`) [more information](#node-js)
+* Node 8.12.0 (installed under `/usr/local/node-<version>`)
 * Perl 5.22.1
 * PHP 7.0.13
 * Postgresql client 9.5.4
