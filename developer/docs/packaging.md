@@ -59,7 +59,7 @@ You can clone this app from https://git.cloudron.io/cloudron/tutorial-basic.
 
 ### The server
 
-The basic app server is a very simple HTTP server that runs on port 8000.
+The basic app server is a very simple HTTP server that runs on port 3000.
 While the server in this tutorial uses node.js, you can write your server
 in any language you want.
 
@@ -71,9 +71,9 @@ var server = http.createServer(function (request, response) {
   response.end("Hello World\n");
 });
 
-server.listen(8000);
+server.listen(3000);
 
-console.log("Server running at port 8000");
+console.log("Server running at port 3000");
 ```
 
 ### Dockerfile
@@ -100,7 +100,7 @@ The `CMD` command specifies how to run the server. The base image already contai
 This Dockerfile can be built and run locally as:
 ```
 docker build -t tutorial .
-docker run -p 8000:8000 -t tutorial
+docker run -p 3000:3000 -t tutorial
 ```
 
 ### Manifest
@@ -115,14 +115,6 @@ Create the CloudronManifest.json using `cloudron init` as follows:
 
 ```
 $ cloudron init
-id: io.cloudron.tutorial                       # unique id for this app. use reverse domain name convention
-author: John Doe                               # developer or company name of the for user <email>
-title: Tutorial App                            # Cloudron App Store title of this app
-description: App that uses node.js             # A string or local file reference like file://DESCRIPTION.md
-tagline: Changing the world one app at a time  # A tag line for this app for the Cloudron App Store
-website: https://cloudron.io                   # A link to this app's website
-contactEmail: support@cloudron.io              # Contact email of developer or company
-httPort: 8000                                  # The http port on which this application listens to
 ```
 
 The above command creates a CloudronManifest.json:
@@ -137,9 +129,9 @@ File ```tutorial/CloudronManifest.json```
   "description": "file://DESCRIPTION.md",
   "changelog": "file://CHANGELOG",
   "tagline": "Changing the world one app at a time",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "healthCheckPath": "/",
-  "httpPort": 8000,
+  "httpPort": 3000,
   "addons": {
     "localstorage": {}
   },
@@ -317,7 +309,7 @@ For example, you can see the console.log output in our server.js with the comman
 ```
 $ cloudron logs
 Using cloudron craft.selfhost.io
-16:44:11 [main] Server running at port 8000
+16:44:11 [main] Server running at port 3000
 ```
 
 It is also possible to run a *shell* and *execute* arbitrary commands in the context of the application
@@ -656,14 +648,14 @@ Apache requires some configuration changes to work properly with Cloudron. The f
 * Disable all default sites
 * Print errors into the app's log and disable other logs
 * Limit server processes to `5` (good default value)
-* Change the port number to Cloudrons default `8000`
+* Change the port number to Cloudrons default `3000`
 
 ```docker
 RUN rm /etc/apache2/sites-enabled/* \
     && sed -e 's,^ErrorLog.*,ErrorLog "/dev/stderr",' -i /etc/apache2/apache2.conf \
     && sed -e "s,MaxSpareServers[^:].*,MaxSpareServers 5," -i /etc/apache2/mods-available/mpm_prefork.conf \
     && a2disconf other-vhosts-access-log \
-    && echo "Listen 8000" > /etc/apache2/ports.conf
+    && echo "Listen 3000" > /etc/apache2/ports.conf
 ```
 
 Afterwards, add your site config to Apache:
@@ -715,7 +707,7 @@ scgi_temp_path /run/scgi_temp;
 uwsgi_temp_path /run/uwsgi_temp;
 
 server {
-  listen 8000;
+  listen 3000;
 
   root /app/code/dist;
 
