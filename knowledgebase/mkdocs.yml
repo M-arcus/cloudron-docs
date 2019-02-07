@@ -72,7 +72,6 @@ pages:
     - 'Wekan': apps/wekan.md
     - 'Wordpress': apps/wordpress.md
   - 'Hosting Provider Edition': 'hosting-provider.md'
-  - 'Managed Hosting': 'managed-hosting.md'
   - 'Billing': 'billing.md'
   - 'Support': 'support.md'
 extra_css:
