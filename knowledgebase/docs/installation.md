@@ -46,14 +46,14 @@ When installing apps, Cloudron will never overwrite your existing DNS records.
 Next, select the DNS service in which the domain in hosted. If your service is not listed below, use the
 Wildcard or Manual option.
 
-*   [AWS Route53](/documentation/domains/#route-53-dns)
 *   [Cloudflare](/documentation/domains/#cloudflare-dns)
-*   [Digital Ocean](/documentation/domains/#cloudflare-dns)
+*   [Digital Ocean](/documentation/domains/#digitalocean-dns)
 *   [Gandi](/documentation/domains/#gandi-dns)
 *   [GoDaddy](/documentation/domains/#godaddy-dns)
 *   [Google Cloud DNS](/documentation/domain/#google-cloud-dns)
 *   [name.com](/documentation/domains/#namecom-dns)
 *   [Namecheap](/documentation/domains/#namecheap-dns)
+*   [Route53](/documentation/domains/#route-53-dns)
 *   [Wildcard](/documentation/domains/#wildcard-dns)
 *   [Manual](/documentation/domains/#manual-dns)
 

@@ -1,6 +1,6 @@
 # Domains
 
-## Managing domains
+## Overview
 
 The `Domains` view can be used to add a domain for use by the Cloudron. Once added,
 apps can be installed as subdomains of the added domain. The
@@ -13,43 +13,21 @@ apps can be installed as subdomains of the added domain. The
 To add a domain, one must select from one of the following DNS services in which
 the domain is hosted:
 
-*   [AWS Route53](#route-53-dns)
 *   [Cloudflare](#cloudflare-dns)
-*   [Digital Ocean](#cloudflare-dns)
+*   [DigitalOcean](#digitalocean-dns)
 *   [Gandi LiveDNS](#gandi)
 *   [GoDaddy](#godaddy)
 *   [Google Cloud DNS](#google-cloud-dns)
-*   [Namecheap DNS](#namecheap-dns)
 *   [Name.com DNS](#namecom-dns)
+*   [Namecheap DNS](#namecheap-dns)
+*   [Route53](#route-53-dns)
 *   [Wildcard](#wildcard-dns)
-
-The idea is that (when using one of the programmable backends) Cloudron will automatically make
-changes to DNS as and when required.
-
-!!! note "Common domain registrars"
-    You can always purchase a domain from any of the common domain registrars
-    like Namecheap, Name.com, Gandi and <a href="https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars" target="_blank">setup your domain's nameservers</a> to use one of the above DNS services.
+*   [Manual](#manual-dns)
 
 ## DNS setup
 
 Cloudron automates the DNS setup required using the APIs provided by DNS providers like
-Cloudflare, Digital Ocean and Route53.
-
-During installation, Cloudron makes the following changes to DNS:
-
-*   Sets the `my` subdomain to the server's public IP
-
-*   Sets `cloudron._domainkey` TXT record to the public DKIM key (required for sending emails)
-
-*   Modifies the SPF record to permit `my` subdomain (required for sending emails)
-
-When [email](/documentation/email/) is enabled, Cloudron makes the following changes to DNS:
-
-*   Sets the `MX` record to the `my` subdomain
-*   Sets the `DMARC` policy to reject all emails not originating from the Cloudron for this domain.
-
-For Cloudrons using a non-programmable DNS backend, the DNS records will be displayed in the UI so
-that they can be setup manually.
+Cloudflare, DigitalOcean and Route53.
 
 ### Cloudflare DNS
 
@@ -64,7 +42,7 @@ available in the profile section of your account.
     Cloudron configures Cloudflare to proxy only the DNS. If you change this setting in Cloudflare to proxy HTTP traffic as well,
     be sure to use the [Full SSL (Strict)](https://support.cloudflare.com/hc/en-us/articles/200170416-What-do-the-SSL-options-mean-) mode.
 
-### Digital Ocean DNS
+### DigitalOcean DNS
 
 Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
 with read+write access.
@@ -206,6 +184,25 @@ because the wildcard only applies to subdomains that are not explicitly defined.
 
 For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
 be displayed in the UI after installation.
+
+### Manual DNS
+
+During installation, Cloudron makes the following changes to DNS:
+
+*   Sets the `my` subdomain to the server's public IP
+
+*   Sets `cloudron._domainkey` TXT record to the public DKIM key (required for sending emails)
+
+*   Modifies the SPF record to permit `my` subdomain (required for sending emails)
+
+When [email](/documentation/email/) is enabled, Cloudron makes the following changes to DNS:
+
+*   Sets the `MX` record to the `my` subdomain
+*   Sets the `DMARC` policy to reject all emails not originating from the Cloudron for this domain.
+
+For Cloudrons using a non-programmable DNS backend, the DNS records will be displayed in the UI so
+that they can be setup manually.
+
 
 ## Changing the Dashboard domain
 
