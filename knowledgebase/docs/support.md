@@ -6,7 +6,11 @@ The <a href="https://forum.cloudron.io">Forum</a> is the best place to ask suppo
 questions. The Forum makes reported issues SEO friendly and helps others (and you)
 find resolutions to existing problems.
 
-Of course, you can always reach out by <a target="_blank" href="mailto:support@cloudron.io">email</a>.
+## Email
+
+For support related enquiries, please write to <a target="_blank" href="mailto:support@cloudron.io">support@cloudron.io</a>.
+
+For sales related enquiries, please write to <a target="_blank" href="mailto:sales@cloudron.io">sales@cloudron.io</a>.
 
 ## Remote Support
 
