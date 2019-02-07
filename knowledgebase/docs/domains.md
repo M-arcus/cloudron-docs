@@ -10,8 +10,10 @@ apps can be installed as subdomains of the added domain. The
 <img src="../img/domains.png" class="shadow" width="600px">
 </center>
 
-To add a domain, one must select from one of the following DNS services in which
-the domain is hosted:
+Cloudron integrates with various DNS services to automate DNS setup. When using a DNS service,
+Cloudron can get Let's Encrypt Wildcard certificates for the domain. This approach helps in hiding
+an app's domain from the [Certificate Transparency Log](/documentation/security/#ssl-security). If your provider is
+not listed below, we recommend using the `Wildcard` provider.
 
 *   [Cloudflare](#cloudflare-dns)
 *   [DigitalOcean](#digitalocean-dns)
@@ -25,9 +27,6 @@ the domain is hosted:
 *   [Manual](#manual-dns)
 
 ## DNS setup
-
-Cloudron automates the DNS setup required using the APIs provided by DNS providers like
-Cloudflare, DigitalOcean and Route53.
 
 ### Cloudflare DNS
 
