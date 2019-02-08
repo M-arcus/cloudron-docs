@@ -259,30 +259,15 @@ correctly.
 
 ## Changing the Dashboard domain
 
-The Cloudron dashboard/admin UI is located at the `my` subdomain. The `my` subdomain is hardcoded
-and cannot be changed. However, the domain under which it is available can be changed as follows:
+The Cloudron dashboard/admin UI is located at the `my` subdomain of the Cloudron's primary domain. The `my` subdomain
+is hardcoded and cannot be changed. However, the primary domain can be changed from the `Domains` view.
 
-* Add the new domain in the `Domains` view.
+Select the domain to move the dashboard into and click `Change Domain`. In a few minutes, you should be redirected to
+the new location.
 
-* Edit `/etc/cloudron/cloudron.conf` (`/home/yellowtent/configs/cloudron.conf` in older versions):
-    * Change `adminDomain` to the domain added above, for example `example.com`
-    * Change `adminFqdn` to `my.example.com` if `example.com` is the newly added domain
-
-    !!! warning "Do not change adminLocation"
-        The `adminLocation` seems to be customizable but changing this to any value other than `my`
-        will break the installation
-
-* If you used the `wildcard` or `manual` DNS backend, add a DNS `A` record manually
-  for `*.example.com` and `example.com` to the server's IP. For, `route53`, `cloudflare`, `gcdns`
-  `gandi`, `godaddy`, `digitalocean` and other automated DNS backends, you can skip this step.
-
-* Run the following command to update the OAuth endpoint:
-    ```
-        mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.example.com' WHERE type='built-in'"
-    ```
-* Run the command `systemctl restart box`
-
-In a few minutes, you should be able to reach `https://my.example.com`.
+<center>
+<img src="../img/domains-change-dashboard.png" width="500px" class="shadow">
+</center>
 
 ## DNS Errors
 
@@ -295,23 +280,3 @@ easy for Cloudron admins to use the same domain for Cloudron and for external no
 
 To use the subdomain, remove the entry manually in the DNS provider's website and re-install.
 
-## Recreating DNS Records
-
-If DNS records for Cloudron apps or the email solution are lost or accidentally deleted on the nameserver,
-then they can be easily recreated or resetup by the Cloudron if one of the automated DNS backends
-([Route53](#route53-dns), [DigitalOcean](#digital-ocean-dns) or [Cloudflare](#cloudflare-dns)) is used.
-
-### Recreating App DNS Record
-
-For apps, simply [reconfigure](/documentation/apps/#re-configuring-an-app) the app without changing any of the settings. This will ensure the DNS records
-are setup correctly and thus will recreate them. In case they exist but are wrong, they have to be manually deleted first.
-
-### Recreating Email DNS Records
-
-In order to recreate all Email related DNS records, the main Cloudron service has to be restarted.
-While restarting it will ensure all records are correct and in-sync on all nameservers.
-
-Connect via ssh to your server and run the following command:
-```
-systemctl restart box
-```
