@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `Domains` view can be used to add a domain for use by the Cloudron. Once added,
+The `Domains` view can be used to add a domain for use by Cloudron. Once added,
 apps can be installed as subdomains of the added domain. The
 [Cloudron Email Server](/documentation/email) can also be enabled on a per-domain basis.
 
@@ -10,32 +10,29 @@ apps can be installed as subdomains of the added domain. The
 <img src="../img/domains.png" class="shadow" width="600px">
 </center>
 
-Cloudron integrates with various DNS services to automate DNS setup. When using a DNS service,
-Cloudron can get Let's Encrypt Wildcard certificates for the domain. This approach helps in hiding
-an app's domain from the [Certificate Transparency Log](/documentation/security/#ssl-security). If your provider is
-not listed below, we recommend using the `Wildcard` provider.
+Cloudron integrates with various DNS service APIs to automate DNS setup. Using the API,
+Cloudron can also get Wildcard certificates via Let's Encrypt. This approach helps in hiding
+an app's domain from the [Certificate Transparency Log](/documentation/security/#ssl-security).
 
-*   [Cloudflare](#cloudflare-dns)
-*   [DigitalOcean](#digitalocean-dns)
-*   [Gandi LiveDNS](#gandi)
-*   [GoDaddy](#godaddy)
-*   [Google Cloud DNS](#google-cloud-dns)
-*   [Name.com DNS](#namecom-dns)
-*   [Namecheap DNS](#namecheap-dns)
-*   [Route53](#route-53-dns)
-*   [Wildcard](#wildcard-dns)
-*   [Manual](#manual-dns)
+If your DNS provider is not supported yet, we recommend using the [Wildcard](#wildcard-dns) provider.
 
-## DNS setup
+## DNS API providers
 
 ### Cloudflare DNS
 
-Use the [Global API Key](https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-CloudFlare-API-key-)
-available in the profile section of your account.
+To get started:
 
-<center>
-<img src="../img/domains-cloudflare.png" class="shadow" width="500px">
-</center>
+* Ensure that your domain is hosted on Cloudflare. If your domain is not hosted on Cloudflare, you can follow
+  the [Cloudflare 101](https://support.cloudflare.com/hc/en-us/sections/200820158-Cloudflare-101) guide.
+
+* Once your domain is on Cloudflare, get the [Global API Key](https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-CloudFlare-API-key-)
+  available in the profile section of your account.
+
+* In the Cloudron dashboard, choose Cloudflare from the drop down and provide the API key.
+
+    <center>
+    <img src="../img/domains-cloudflare.png" class="shadow" width="500px">
+    </center>
 
 !!! note "DNS and HTTP Proxy"
     Cloudron configures Cloudflare to proxy only the DNS. If you change this setting in Cloudflare to proxy HTTP traffic as well,
@@ -43,21 +40,24 @@ available in the profile section of your account.
 
 ### DigitalOcean DNS
 
-Create an [APIv2 token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
+To get started:
+
+* Ensure that your domain is hosted on DigitalOcean. If your domain is not hosted in DigitalOcean, you can
+  follow this [tutorial](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars) to point your domain's nameservers to DigitalOcean nameservers.
+
+* Once your domain is on DigitalOcean DNS, create an [APIv2 token](https://www.digitalocean.com/docs/api/create-personal-access-token/)
 with read+write access.
 
-<center>
-<img src="../img/domains-digitalocean.png" class="shadow" width="500px">
-</center>
+* In the Cloudron dashboard, choose DigitalOcean from the drop down and provide the API key.
+
+    <center>
+    <img src="../img/domains-digitalocean.png" class="shadow" width="500px">
+    </center>
 
 ### Gandi LiveDNS
 
-[LiveDNS](http://doc.livedns.gandi.net/) is Gandi.net's DNS platform, a completely new service that offers
-its own API and its own nameservers.
-
-If your domain is registered with Gandi, you can use Cloudron's new Gandi DNS backend to manage the DNS.
-When apps are installed and removed, Cloudron will automatically add and remove DNS records. When using
-Cloudron Email, it will also automatically setup the MX, DMARC, DKIM records!
+If you purchased a domain from Gandi, you can use [Gandi LiveDNS](http://doc.livedns.gandi.net/) for DNS
+integration.
 
 To get started:
 
@@ -75,11 +75,7 @@ To get started:
 
 ### GoDaddy
 
-[GoDaddy](https://www.godaddy.com) is the world's largest registrar.
-
-If your domain is registered with GoDaddy, you can use Cloudron's new GoDaddy DNS backend to manage the DNS.
-When apps are installed and removed, Cloudron will automatically add and remove DNS records. When using
-Cloudron Email, it will also automatically setup the MX, DMARC, DKIM records!
+If your domain is registered with [GoDaddy](https://www.godaddy.com), you can use Cloudron's GoDaddy DNS backend to manage the DNS.
 
 To get started:
 
@@ -99,109 +95,167 @@ To get started:
 
 ### Google Cloud DNS
 
-Create a [service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) in JSON
-format.
+To get started:
 
-<center>
-<img src="../img/domains-gcdns.png" class="shadow" width="500px">
-</center>
+* Ensure that your domain is hosted on Google Cloud DNS. You can move your existing domain to use the Cloud DNS
+  by following this [guide](https://cloud.google.com/dns/docs/quickstart).
 
-### Route 53 DNS
+    !!! warning "Google Domains"
+        [Google Domains](https://domains.google/#/) is a different product than Google Cloud DNS. The above guide
+        gives directions on how to make a Google Domains hosted domain use the Google Cloud DNS
 
-When using root credentials on AWS, follow the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
-to create access keys.
+* Create a [service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) in JSON
+  format.
 
-<center>
-<img src="../img/domains-route53.png" class="shadow" width="500px">
-</center>
+* In the Cloudron dashboard, choose Google Cloud DNS from the drop down.
 
-When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console) to create a user and use the following policy to give the user access to the domain.
-The `<hosted zone id>` below must be replaced with the zone's id which is available from the Route53 console.
+    <center>
+    <img src="../img/domains-gcdns.png" class="shadow" width="500px">
+    </center>
+
+### Route53 DNS
+
+To get started:
+
+* Ensure the domain is hosted using AWS Route53. If not, you can follow this [guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/MigratingDNS.html) to migrate an existing domain to use the service.
+
+* AWS has two forms of security credentials - root and IAM. When using root credentials on AWS, follow the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)
+to create access keys. When using IAM, follow the instructions [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console)
+  to create a user and use the following policy to give the user access to the domain. The `<hosted zone id>` below must
+  be replaced with the zone's id which is available from the Route53 console.
 
 ```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "route53:*",
-            "Resource": [
-                "arn:aws:route53:::hostedzone/<hosted zone id>"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "route53:ListHostedZones",
-                "route53:listHostedZonesByName",
-                "route53:GetChange"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": "route53:*",
+                "Resource": [
+                    "arn:aws:route53:::hostedzone/<hosted zone id>"
+                ]
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "route53:ListHostedZones",
+                    "route53:listHostedZonesByName",
+                    "route53:GetChange"
+                ],
+                "Resource": [
+                    "*"
+                ]
+            }
+        ]
+    }
 ```
+
+* In the Cloudron dashboard, choose AWS Route53 from the drop down.
+
+    <center>
+    <img src="../img/domains-route53.png" class="shadow" width="500px">
+    </center>
 
 ### Namecheap DNS
 
-By default API access is disabled for a Namecheap accounts. To use the Cloudron Namecheap backend, enable API access, create an API key and whitelist your Cloudron's IP in the [Namecheap dashboard](https://ap.www.namecheap.com/settings/tools/apiaccess/).
+If your domain is registered with [Namecheap](https://www.namecheap.com), you can use Cloudron's Namecheap DNS backend to manage the DNS.
 
-!!! warning "Sometimes it takes a few minutes to have the IP whitelisting reflected"
-    If adding the domain in Cloudron gives an access error, wait a bit.
+To get started:
 
-Furthermore, Namecheap sets up some default records, which need to be removed first to ensure Cloudron can update those correctly.
-Remove all entries, not actively used outside of Cloudron, in the advanced dns view of your domain, before you proceed:
+* Enable API access for the Namecheap account (this is disabled by default). To do so, create an API key and whitelist your Cloudron's IP in
+  the [Namecheap dashboard](https://ap.www.namecheap.com/settings/tools/apiaccess/).
 
-<center>
-<img src="../img/domains-namecheap-advanceddns.png" width="100%" class="shadow">
-</center>
+!!! warning "Access error"
+    It takes a few minutes for the IP whitelisting to take effect. If adding the domain in Cloudron gives an access error, wait a bit.
 
-#### Email
+* If you intend to enable Cloudron Email for this domain, select `Custom MX` in the `MAIL SETTINGS` and set the MX record to be `my.example.com` (i.e the primary domain). Once set, Cloudron will keep this record updated accordingly.
 
-If Cloudron should also be the primary email server for this domain, select `Custom MX` in the MAIL SETTINGS and provide the an MX record with the Cloudrons dashboard domain. When email is enabled later for this domain, Cloudron will update the record accordingly.
+    <center>
+    <img src="../img/domains-namecheap-email.png" width="500px" class="shadow">
+    </center>
 
-<center>
-<img src="../img/domains-namecheap-email.png" width="500px" class="shadow">
-</center>
+* In the Cloudron dashboard, choose Namecheap from the drop down.
+
+    <center>
+    <img src="../img/domains-namecheap.png" width="500px" class="shadow">
+    </center>
 
 ### Name.com DNS
 
-Create a [name.com API token](https://www.name.com/account/settings/api) and select 'Name.com'
-from the dropdown.
+If your domain is registered with [name.com](https://www.name.com), you can use Cloudron's Name.com DNS backend to manage the DNS.
 
-<center>
-<img src="../img/domains-namedotcom.png" width="500px" class="shadow">
-</center>
+To get started:
+
+* Create a [name.com API token](https://www.name.com/account/settings/api)
+
+* In the Cloudron dashboard, choose Name.com from the dropdown.
+
+    <center>
+    <img src="../img/domains-namedotcom.png" width="500px" class="shadow">
+    </center>
 
 ### Wildcard DNS
 
-For wildcard setup, add entries for `*.example.com` and `domain.com` to point to your server's IP.
-Note that adding add wildcard entry does _not_ affect any existing DNS entries in `domain.com`
-because the wildcard only applies to subdomains that are not explicitly defined.
+If your domain is not hosted on any of the DNS providers supported by Cloudron, you can use the
+Wildcard DNS backend.
 
-For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
-be displayed in the UI after installation.
+To get started:
+
+* Add a DNS A record with name `*.example.com` to point to your server's IP.
+
+!!! Note "Wildcard entry has lower precedence"
+    In DNS, a wildcard entry has lower precedence to subdomains that are explicitly defined. This means
+    that if you already have a `blog.example.com` pointing to a different IP address, then it will
+    be unaffected by the addition of this wildcard entry.
+
+* (Optional) Add a DNS A record with name `example.com` to point to your server's IP. This is required
+  only if you intend to host an app on the naked/bare domain (`example.com`) on the Cloudron.
+
+* In the Cloudron dashboard, choose Wildcard from the dropdown.
+
+    <center>
+    <img src="../img/domains-wildcard.png" width="500px" class="shadow">
+    </center>
+
+* For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
+  be displayed in the UI after installation and have to be setup manually.
+
+!!! Note "Let's Encrypt integration"
+    Cloudron will use Let's Encrypt HTTP validation to procure certificates for apps. For this reason,
+    you must open port 80 of your server when using the Wildcard provider.
 
 ### Manual DNS
 
-During installation, Cloudron makes the following changes to DNS:
+If your domain is not hosted on any of the DNS providers supported by Cloudron, and you cannot use
+the Wildcard DNS provider, then you can use the Manual DNS provider.
 
-*   Sets the `my` subdomain to the server's public IP
+With the manual DNS provider, you have to setup DNS records prior to installing Cloudron and also
+prior to installing each app. App installation will not succeed until DNS records are setup correctly.
 
-*   Sets `cloudron._domainkey` TXT record to the public DKIM key (required for sending emails)
+If you are attempting to finish Cloudron setup:
 
-*   Modifies the SPF record to permit `my` subdomain (required for sending emails)
+* Set the `my` subdomain to the server's public IP
 
-When [email](/documentation/email/) is enabled, Cloudron makes the following changes to DNS:
+* Choose Manual from the DNS provider drop down
 
-*   Sets the `MX` record to the `my` subdomain
-*   Sets the `DMARC` policy to reject all emails not originating from the Cloudron for this domain.
+* For sending email, Cloudron requires DKIM and SPF records to be setup as well. These records will
+  be displayed in the UI after installation and have to be setup manually.
 
-For Cloudrons using a non-programmable DNS backend, the DNS records will be displayed in the UI so
-that they can be setup manually.
+* Remember to setup A records for subdomains to the server's public IP and then install apps.
 
+!!! Note "Let's Encrypt integration"
+    Cloudron will use Let's Encrypt HTTP validation to procure certificates for apps. For this reason,
+    you must open port 80 of your server when using the Wildcard provider.
+
+### No-op DNS
+
+The No-op DNS backend disables Cloudron's DNS functionality and is intended to be used for testing and
+development.
+
+When using other DNS backends, Cloudron will setup the DNS automatically and also check if the DNS changes
+have propagated. This prevents the user from hitting name resolution (NXDOMAIN) errors. When using the No-op
+backend, the setup and checks are disabled and you are on your own to ensure that names are getting resolved
+correctly.
 
 ## Changing the Dashboard domain
 

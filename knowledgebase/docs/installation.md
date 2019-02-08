@@ -37,14 +37,15 @@ Provide a domain like `example.com`.  The way Cloudron works is that the dashboa
 `chat.example.com` and so on.
 
 It is perfectly safe to use a domain that is already in use as long as the `my` subdomain is available.
-When installing apps, Cloudron will never overwrite your existing DNS records.
+When installing apps, Cloudron will never overwrite your existing DNS records and your existing subdomains
+remain intact. It is also possible to use a subdomain like `cloudron.example.com`.
 
 <center>
 <img src="/documentation/img/setupdns.png" class="shadow" width="500px">
 </center>
 
 Next, select the DNS service in which the domain in hosted. If your service is not listed below, use the
-Wildcard or Manual option.
+`Wildcard` or `Manual` option.
 
 *   [Cloudflare](/documentation/domains/#cloudflare-dns)
 *   [Digital Ocean](/documentation/domains/#digitalocean-dns)
@@ -57,9 +58,10 @@ Wildcard or Manual option.
 *   [Wildcard](/documentation/domains/#wildcard-dns)
 *   [Manual](/documentation/domains/#manual-dns)
 
-!!! note "Managing domains"
-    The primary domain can be changed post installation. More domains can also be added after installation
-    in the [Domains view](/domains).
+!!! note "Primary domain"
+    The first domain added on the Cloudron is called the `Primary Domain`. The dashboard is made available
+    under the `my` subdomain of the primary domain. More domains can be added after installation in the
+    in the [Domains view](/documentation/domains). The Primary Domain can be changed post installation.
 
 ### Admin Account
 
