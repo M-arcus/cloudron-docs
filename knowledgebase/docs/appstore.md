@@ -1,14 +1,23 @@
 # App Store
 
+## Overview
+
+The Cloudron App Store is a repository of apps hosted at cloudron.io. The App Store
+provides app packages that can be installed on a Cloudron. A Cloudron installation
+periodically polls the App Store for updates.
+
 ## App Store Account
 
-Cloudron App Store account is identified by an email. Each Cloudron is identified by a unique Cloudron ID. You can
-view this information in the `Settings` page.
+A Cloudron App Store account is used to manage your subscription & billing. Before installing
+apps, you must set up the Cloudron with your App Store Account information. By doing so, the
+Cloudron will register itself and get an unique Cloudron ID.
+
+You can view this information in the `Settings` page.
 
 <br/>
 
 <center>
-<img src="/documentation/img/cloudron-account.png" class="shadow" width="600px">
+<img src="/documentation/img/cloudron-account.png" class="shadow" width="500px">
 </center>
 
 ## App Store Password reset
