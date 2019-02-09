@@ -12,7 +12,7 @@ pages:
     - certificates.md
     - domains.md
     - email.md
-    - integrations.md
+    # - integrations.md
     - profile.md
     - security.md
     - server.md
