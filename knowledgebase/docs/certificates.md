@@ -1,33 +1,53 @@
 # Certificates
 
-## Let's Encrypt integration
+## Overview
 
-Cloudron integrates with [Let's Encrypt](http://letsencrypt.org/) to install
-and renew TLS certificates for apps automatically.
+Cloudron integrates with [Let's Encrypt](http://letsencrypt.org/) to install certificates
+for apps. Certificates are renewed automatically.
 
-Cloudron utilizes the `http-01` scheme to validate the domain with Lets Encrypt (this
-scheme involves provisioning an HTTP resource under a well-known URI). For this reason,
-the server's incoming port 80 must be kept open.
+## Certificate Providers
 
-LE has a [rate limit](https://letsencrypt.org/docs/rate-limits/) of ~20 new issuances
-per week per top level domain (renewals are not counted as part of this limit). This limit
-means that you can install atmost 20 apps in a week across all your Cloudron instances.
+Cloudron supports the following certificate providers:
 
-We recommend purchasing a wildcard certificate if you hit those limits. [GarrisonHost](http://www.garrisonhost.com/)
-provides them for 45 USD. Once purchased, it can be set as the fallback certificate in the
-[Certificate UI](certificates/#setting-fallback-wildcard-certificate). Let's Encrypt
-recently [announced](https://letsencrypt.org/2017/07/06/wildcard-certificates-coming-jan-2018.html)
-that they will start issuing wildcard certificates from Jan 2018, so this is expected to be a temporary
-workaround.
+* `Let's Encrypt Prod` - Obtain certs individually for each domain
+* `Let's Encrypt Prod - Wildcard` (default) - Obtain wildcard certs for each domain
+* `Let's Encrypt Staging` - Obtain certs individually for each domain from Let's Encrypt [staging endpoint](https://letsencrypt.org/docs/staging-environment/). These certs are for testing and not trusted by the browser.
+* `Let's Encrypt Staging - Wildcard` - Obtain wildcard certs for each domain from Let's Encrypt [staging endpoint](https://letsencrypt.org/docs/staging-environment/). These certs are for testing and not trusted by the browser.
+* `Custom Wildcard Certificate` - Disable Let's Encrypt integration and use a custom wildcard
+  certificate instead.
 
-## Automatic renewal of Let's Encrypt certificates
+Certificate provider can be set per-domain from the `Domains` view under the
+domain's Advanced settings.
 
-Cloudron attempts to start renewing certificates automatically 1 month before expiry of the
-certificate. If renewal fails, a notification email will be sent to the Cloudron administrators.
-If the Cloudron admin does not take any action (after getting reminded 30 times), Cloudron will start
-using fallback certificates for the app.
+<center>
+<img src="/documentation/img/certificates-provider.png" class="shadow" width="500px">
+</center>
 
-## Setting fallback wildcard certificate
+## Certificate transparency
+
+Let's Encrypt participates in Certificate transparency. This means that your apps and
+subdomains are discoverable via the Certificate transparency project ([crt.sh](https://crt.sh/)
+and [Google's website](https://transparencyreport.google.com/https/certificates)). Some 
+[hackers](https://www.golem.de/news/certificate-transparency-hacking-web-applications-before-they-are-installed-1707-129172.html)
+take advantage of this to hack web applications before they are in installed.
+
+For this reason, we recommend that you use Wildcard certificates. When using Wildcard certificates,
+the subdomain information is not 'leaked'. Note that Let's Encrypt only allows obtaining wildcard
+certificates using DNS automation. Cloudron will default to obtaining wildcard certificates when
+using one of the programmatic [DNS API providers](/documentation/domains/#dns-api-providers).
+
+## Port 80 requirement
+
+Cloudron implements the ACMEv2 API endpoint and can obtain certificates from Let's Encrypt either
+via DNS or via HTTP automation.
+
+When using one of the programmatic [DNS API providers](/documentation/domains/#dns-api-providers),
+Cloudron will use DNS automation. This means that server's incoming port 80 can be blocked.
+
+When using the Wildcard, Manual or No-op DNS backend, Cloudron will use HTTP automation. This means
+that the server's incoming port 80 has to be opened up.
+
+## Fallback certificate
 
 Cloudron generates a self-signed certificate for every domain it manages. This certificate is
 used as the fallback if it fails to install or renew Let's Encrypt certificate. The auto-generated
@@ -40,34 +60,31 @@ in the `Domains` page.
 <img src="/documentation/img/cert-fallback.png" class="shadow" width="600px">
 </center>
 
-## Manually renewing Let's Encrypt certificate
+## Automatic renewal
 
-To manually trigger re-installation or renewal of Let's encrypt certificate, open the
-app's [configure dialog](apps/#re-configuring-an-app) and `Save` without
-making any changes.
+Cloudron attempts to start renewing certificates automatically 1 month before expiry of the
+certificate. If renewal fails, a notification email will be sent to the Cloudron administrators.
+If the Cloudron admin does not take any action (after getting reminded 30 times), Cloudron will start
+using [fallback certificates](#fallback-certificate) for the app.
 
-To renew the Let's encrypt certificate of the dashboard, simply run `systemctl restart box`.
+## Manual renewal
 
-## Revokation of Let's Encrypt Certificate
+To instantly trigger renewal of Let's encrypt certificate, click the `Renew All` button on the domains page.
+
+<center>
+<img src="/documentation/img/certificates-renew.png" class="shadow" width="600px">
+</center>
+
+## Revokation
 
 Cloudron does not revoke certificates when an app is uninstalled. Instead, it retains the
 certificate, so that it can be reused if another app is installed in the same
 subdomain. This allows you to install apps for testing in the same location, say `test`,
 and not have to worry about running over the Let's Encrypt rate limit.
 
-## Limitations of Let's Encrypt
+If required, certs can be removed manually from the `/home/yellowtent/boxdata/certs` directory.
 
-When using Let's Encrypt, please be aware of the following:
-
-* There is a [rate limit](https://letsencrypt.org/docs/rate-limits/) of 20 certificates
-  for a domain per week.
-
-* Let's Encrypt participates in Certificate transparency. This means that your apps and
-  subdomains are discoverable via the Certificate transparency project ([crt.sh](https://crt.sh/)
-  and [Google's website](https://transparencyreport.google.com/https/certificates)) Some [hackers](https://www.golem.de/news/certificate-transparency-hacking-web-applications-before-they-are-installed-1707-129172.html) take advantage of this to   hack web applications
-  before they are in installed.
-
-## Setting custom certificates
+## Custom certificates
 
 A custom wildcard certificate can be provided per domain. When setting such a certificate,
 please make sure to add both the bare domain and the wildcard domain as part of the certificate.
@@ -79,26 +96,10 @@ and the wildcard domain.
 Custom certificates can also be set for each installed application using the [REST API](/developer/api/#configure-app).
 This can be used to set an Extended Validation (EV) certificate for an app.
 
-## Common reasons for Let's Encrypt Certificate failure
+## CAA records
 
-Here are some of the common reasons why the Cloudron might fail to get certificates via
-Let's Encrypt.
-
-* The Cloudron administrator email is not valid. Let's Encrypt requires a valid email id
-  for issuing certificates. Please check the email id in the Account page.
-
-* Let's Encrypt requires incoming port 80 to be [accepted from all IPs](https://community.letsencrypt.org/t/ip-addresses-le-is-validating-from-to-build-firewall-rule/5410/5). Note that Cloudron enforces
-  port 443/HTTPS [for all communication](security/#ssl-security) and
-  any request on port 80 is redirected to HTTPS. For this reason, it is safe to keep port 80 completely open.
-  Port 433/HTTPS can be restricted to specific IPs safely.
-
-* Let's Encrypt [rate limit](https://letsencrypt.org/docs/rate-limits/) was reached.
-
-## CAA records for Lets Encrypt
-
-Starting Sep 2017, Lets Encrypt will check for CAA records to validate if the domain owner
+Starting Sep 2017, Let's Encrypt will check for CAA records to validate if the domain owner
 has authorized the CA to issue certificates for the domain. For this reason, make sure that
 either the CAA record for the domain is [empty](https://community.letsencrypt.org/t/how-to-use-without-caa/38539/2)
 OR setup a CAA record allowing `letsencrypt.org`.
-
 

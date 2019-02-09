@@ -22,9 +22,13 @@ Clicking the `Install` button will show an install dialog:
 The `Location` field is the subdomain into which the app will be installed. Use the drop down
 selector on the right to choose the domain into which the app will by installed.
 If the subdomain field is empty, the app will be installed in the bare/naked domain (i.e
-at `smartserver.io` in the picture above).
+at `smartserver.space` in the picture above).
 
-## Re-configuring an app
+!!! note "Location field can be multi-level"
+    The `Location` field can be any level deep. For example, you can specify location as
+    `blog.dev` to make the app available at `blog.dev.smartserver.space`.
+
+## Configuring an app
 
 Clicking on the pencil button will bring up the app's configure dialog:
 

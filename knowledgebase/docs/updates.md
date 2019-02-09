@@ -1,8 +1,18 @@
 # Updates
 
-## How app updates work
+## Platform Updates
 
-Cloudron Apps are installed from the [Cloudron App Store](/appstore.html). Cloudron checks the Cloudron App Store
+Cloudron checks [cloudron.io](https://cloudron.io) periodically and applies any platform updates
+automatically.
+
+Cloudron always takes a complete backup of the platform data and all apps before applying
+an update. Should the backup creation fail, the update will not be performed.
+
+Updates are [GPG signed](/documentation/security/#updates) for security.
+
+## App updates
+
+Cloudron Apps are installed from the [Cloudron.io App Store](/appstore.html). Cloudron checks the App Store
 for updates periodically and updates them based on the update settings.
 
 Cloudron always takes a backup of an app before performing an update. Should the backup creation fail,
@@ -17,7 +27,7 @@ a matter of clicking the `Update` button after reading the changelog.
 <img src="/documentation/img/app_update.png" class="shadow" width="600px">
 </center>
 
-## Changing the app update interval
+## Update schedule
 
 The app update schedule can be set in the `Ap Updates` section in the `Settings` menu:
 
@@ -45,19 +55,11 @@ at a per-app level:
 <img src="/documentation/img/app-disable-automatic-updates.png" class="shadow" width="500px">
 </center>
 
-## Rolling back an app update
+## Rolling back an update
 
 To rollback an app update, simply [restore from a backup](/documentation/backups/#restoring-an-app-from-existing-backup).
 
-## Cloudron Updates
-
-Cloudron checks [cloudron.io](https://cloudron.io) periodically and applies any updates
-automatically.
-
-Cloudron always takes a complete backup of the platform data and all apps before applying
-an update. Should the backup creation fail, the update will not be performed.
-
-In the unlikely case an update fails, it can be [restored from the backup](backups/#restoring-cloudron-from-a-backup).
+To rollback a Cloudron update, it can be [restored from the backup](backups/#restoring-cloudron-from-a-backup).
 
 ## What happens when subscription is stopped
 

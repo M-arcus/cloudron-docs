@@ -13,9 +13,11 @@ pages:
     - domains.md
     - email.md
     # - integrations.md
+    - notifications.md
     - profile.md
     - security.md
-    - server.md
+    - settings.md
+    - storage.md
     - troubleshooting.md
     - updates.md
     - 'User & Groups': user-management.md

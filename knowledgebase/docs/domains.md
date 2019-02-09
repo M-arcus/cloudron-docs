@@ -257,6 +257,17 @@ have propagated. This prevents the user from hitting name resolution (NXDOMAIN) 
 backend, the setup and checks are disabled and you are on your own to ensure that names are getting resolved
 correctly.
 
+## Zone Name
+
+The DNS Zone Name is the domain name that is being managed by the DNS provider. By default, this value is the
+top level domain like `example.com`. If the domain and subdomain are managed by different DNS providers, then provide
+the zone name here.
+
+For example, `example.com` might have been purchased at GoDaddy. You can delegate a subdomain like `internal.example.com`
+to DigitalOcean by adding it in DigitalOcean and setting the NS records of `internal.example.com` to DigitalOcean DNS. In
+such a situation, if you use `cloudron.internal.example.com` as the primary domain for Cloudron, the the zone name must
+be set to `internal.example.com`.
+
 ## Changing the Dashboard domain
 
 The Cloudron dashboard/admin UI is located at the `my` subdomain of the Cloudron's primary domain. The `my` subdomain
