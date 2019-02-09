@@ -27,7 +27,7 @@ Clicking on the button will display a QR Code which can be scanned
 using a TOTP app such as Google Authenticator ([Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2),
 [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)),
 FreeOTP authenticator ([Android](https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp),
-[iOS](https://itunes.apple.com/us/app/freeotp-authenticator/id872559395])
+[iOS](https://itunes.apple.com/us/app/freeotp-authenticator/id872559395]))
 
 <br/>
 
