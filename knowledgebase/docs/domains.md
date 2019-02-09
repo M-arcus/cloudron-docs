@@ -162,7 +162,7 @@ If your domain is registered with [Namecheap](https://www.namecheap.com), you ca
 
 To get started:
 
-* Enable API access for the Namecheap account (this is disabled by default). To do so, create an API key and whitelist your Cloudron's IP in
+* Enable API access for the Namecheap account (this is disabled by default). To do so, create an API key (Profile -> Tools) and whitelist your Cloudron's IP in
   the [Namecheap dashboard](https://ap.www.namecheap.com/settings/tools/apiaccess/).
 
 !!! warning "Access error"
