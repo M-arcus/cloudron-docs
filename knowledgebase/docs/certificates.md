@@ -34,14 +34,14 @@ take advantage of this to hack web applications before they are in installed.
 For this reason, we recommend that you use Wildcard certificates. When using Wildcard certificates,
 the subdomain information is not 'leaked'. Note that Let's Encrypt only allows obtaining wildcard
 certificates using DNS automation. Cloudron will default to obtaining wildcard certificates when
-using one of the programmatic [DNS API providers](/documentation/domains/#dns-api-providers).
+using one of the programmatic [DNS API providers](/documentation/domains/#dns-providers).
 
 ## Port 80 requirement
 
 Cloudron implements the ACMEv2 API endpoint and can obtain certificates from Let's Encrypt either
 via DNS or via HTTP automation.
 
-When using one of the programmatic [DNS API providers](/documentation/domains/#dns-api-providers),
+When using one of the programmatic [DNS API providers](/documentation/domains/#dns-providers),
 Cloudron will use DNS automation. This means that server's incoming port 80 can be blocked.
 
 When using the Wildcard, Manual or No-op DNS backend, Cloudron will use HTTP automation. This means

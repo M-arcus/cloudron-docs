@@ -16,7 +16,7 @@ an app's domain from the [Certificate Transparency Log](/documentation/security/
 
 If your DNS provider is not supported yet, we recommend using the [Wildcard](#wildcard-dns) provider.
 
-## DNS API providers
+## DNS providers
 
 ### Cloudflare DNS
 
