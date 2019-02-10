@@ -126,7 +126,7 @@ Let's Encrypt.
 
 * Let's Encrypt [rate limit](https://letsencrypt.org/docs/rate-limits/) was reached.
 
-## Debugging mail
+## Mail
 
 ### SPF
 
