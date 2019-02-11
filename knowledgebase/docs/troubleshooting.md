@@ -31,7 +31,7 @@ To view all container and the apps they correspond to:
 docker ps --format "table {{.ID}}\t{{.Labels}}"
 ```
 
-## Backup errors
+## Backups
 
 If you see a message like `task crashed with code null and signal SIGKILL`, this probably means the backup task
 is running out of memory.
@@ -41,6 +41,12 @@ To rectify this, SSH into the server:
 * Edit `/etc/systemd/system/box.service` and change the line that says `MemoryLimit=200M` to `MemoryLimit=400M`.
 * `systemctl daemon-reload`
 * `systemctl restart box`
+
+The backup logs can be viewed and downloaded using the `Show Logs` button in the `Backups` view.
+
+<center>
+<img src="/documentation/img/backups-logs.png" class="shadow" width="500px">
+</center>
 
 ## Logs
 

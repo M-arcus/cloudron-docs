@@ -272,15 +272,6 @@ can be configured in the backup settings.
 To instantly make a complete backup, click the `Backup now` button in the `Backups` section of the `Settings` page.
 Alternately, use the CLI command `cloudron machine backup create`.
 
-## Debugging backups
-
-The backup logs can be viewed and downloaded using the `Show Logs` button in the `Backups` view.
-
-
-<center>
-<img src="/documentation/img/backups-logs.png" class="shadow" width="500px">
-</center>
-
 ## Migrate Apps from one Cloudron to another
 
 !!! warning "User Identifiers"
