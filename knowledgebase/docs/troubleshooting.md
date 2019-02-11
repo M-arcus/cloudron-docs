@@ -132,7 +132,7 @@ Let's Encrypt.
 
 * Let's Encrypt [rate limit](https://letsencrypt.org/docs/rate-limits/) was reached.
 
-## Mail
+## Mail DNS
 
 ### SPF
 
@@ -220,10 +220,7 @@ out with a bad reputation. The good news is that most IP based blacklisting serv
 down over time. The Cloudron sets up DNS entries for SPF, DKIM, DMARC automatically and
 reputation should be easy to get back.
 
-### Inbound Mail delivery
-
-* If you are unable to receive mail, check if the security group allows inbound port 25.
-* Ensure that your domain's `MX` record points to the Cloudron.
+## Mail SMTP
 
 ### Outbound Mail delivery
 
@@ -262,4 +259,9 @@ When an app is not sending email, try the following:
 * For apps that do not use Go: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
 
 * For apps that use Go: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc`
+
+### Inbound Mail delivery
+
+* If you are unable to receive mail, check if the security group allows inbound port 25.
+* Ensure that your domain's `MX` record points to the Cloudron.
 
