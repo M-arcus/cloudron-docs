@@ -154,6 +154,11 @@ Region:    us-east-1
 
 For HTTPS installations using a self-signed certificate, select the `Accept Self-Signed certificate` option.
 
+## No-op
+
+This storage backend disables backups. When backups are disabled, updates to apps cannot be rolled back and
+result in data loss. This backend only exists for testing purposes.
+
 ## Backup formats
 
 Cloudron supports two backup formats - `tgz` (default) and `rsync`. The `tgz` format stores
