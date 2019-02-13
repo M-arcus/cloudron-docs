@@ -64,7 +64,8 @@ execute commands WP CLI using `/app/code/wp --allow-root`.
 
 ## PHP settings
 
-You can add custom PHP settings in `/app/data/htaccess` using the [Web terminal](/documentation/apps#web-terminal).
+You can add custom [PHP settings](http://php.net/manual/en/ini.core.php) in `/app/data/htaccess`
+using the [Web terminal](/documentation/apps#web-terminal). Note that settings with a [mode](http://php.net/manual/en/configuration.changes.modes.php) of `PHP_INI_SYSTEM` cannot be set in htaccess files.
 
 For example:
 ```
