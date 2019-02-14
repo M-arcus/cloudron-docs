@@ -23,6 +23,41 @@ domain's Advanced settings.
 <img src="/documentation/img/certificates-provider.png" class="shadow" width="500px">
 </center>
 
+## Custom certificates
+
+### Wildcard certificate
+
+A custom wildcard certificate can be provided per domain in advanced settings of a domain in the
+`Domains` view. When setting such a certificate, make sure to add both the bare domain and the
+wildcard domain as part of the certificate.
+
+Follow [this tutorial](https://www.devside.net/wamp-server/generating-and-installing-wildcard-and-multi-domain-ssl-certificates)
+for instructions on how to generate a custom wildcard certificate that has both the bare domain
+and the wildcard domain.
+
+<center>
+<img src="/documentation/img/certificates-wildcard.png" class="shadow" width="500px">
+</center>
+
+### Domain certificate
+
+Custom certificates can also be set for each installed application using the [REST API](/developer/api/#configure-app).
+This can be used to set an Extended Validation (EV) certificate for an app. For example,
+assuming we have the PEM encoded files `cert.pem` and `key.pem`:
+
+```
+# first encode the newlines to send as JSON
+key=$(perl -pe 's/\n/\\\n/' key.pem)
+cert=$(perl -pe 's/\n/\\n/' cert.pem)
+
+curl -X POST -H "Content-Type: application/json" -d "{ \"cert\": \"${cert}\", \"key\": \"${key}\" }" https://my.cloudron.xyz/api/v1/apps/5555f553-96ad-46c9-ba42-13d08ecb86a0/configure?access_token=3f1e6d8e5ece3f3dbdefd88679fdd270b00223b58ce6781990cf95e444b7c7f3
+```
+
+In the example above, `my.example.com` is the Cloudron domain. `5555f553-96ad-46c9-ba42-13d08ecb86a0` is the app id, this
+can be obtained by clicking on the `i` button of the app in the dashboard. `access_token` can be obtained from the
+user's profile page.
+
+
 ## Certificate transparency
 
 Let's Encrypt participates in Certificate transparency. This means that your apps and
@@ -83,31 +118,6 @@ subdomain. This allows you to install apps for testing in the same location, say
 and not have to worry about running over the Let's Encrypt rate limit.
 
 If required, certs can be removed manually from the `/home/yellowtent/boxdata/certs` directory.
-
-## Custom certificates
-
-A custom wildcard certificate can be provided per domain. When setting such a certificate,
-please make sure to add both the bare domain and the wildcard domain as part of the certificate.
-
-Follow [this tutorial](https://www.devside.net/wamp-server/generating-and-installing-wildcard-and-multi-domain-ssl-certificates)
-for instructions on how to generate a custom wildcard certificate that has both the bare domain
-and the wildcard domain.
-
-Custom certificates can also be set for each installed application using the [REST API](/developer/api/#configure-app).
-This can be used to set an Extended Validation (EV) certificate for an app. For example,
-assuming we have the PEM encoded files `cert.pem` and `key.pem`:
-
-```
-# first encode the newlines to send as JSON
-key=$(perl -pe 's/\n/\\\n/' key.pem)
-cert=$(perl -pe 's/\n/\\n/' cert.pem)
-
-curl -X POST -H "Content-Type: application/json" -d "{ \"cert\": \"${cert}\", \"key\": \"${key}\" }" https://my.cloudron.xyz/api/v1/apps/5555f553-96ad-46c9-ba42-13d08ecb86a0/configure?access_token=3f1e6d8e5ece3f3dbdefd88679fdd270b00223b58ce6781990cf95e444b7c7f3
-```
-
-In the example above, `my.example.com` is the Cloudron domain. `5555f553-96ad-46c9-ba42-13d08ecb86a0` is the app id, this
-can be obtained by clicking on the `i` button of the app in the dashboard. `access_token` can be obtained from the
-user's profile page.
 
 ## CAA records
 
