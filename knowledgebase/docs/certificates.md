@@ -55,7 +55,7 @@ curl -X POST -H "Content-Type: application/json" -d "{ \"cert\": \"${cert}\", \"
 
 In the example above, `my.example.com` is the Cloudron domain. `5555f553-96ad-46c9-ba42-13d08ecb86a0` is the app id, this
 can be obtained by clicking on the `i` button of the app in the dashboard. `access_token` can be obtained from the
-user's profile page.
+user's account page.
 
 
 ## Certificate transparency
