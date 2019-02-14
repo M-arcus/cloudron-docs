@@ -106,6 +106,7 @@ Request:
 ```
 {
     location: <string>,              // required: the subdomain on which to install the app
+    domain: <string>,                // required: the domain on which to install the app
     appStoreId: <string>[@<semver>], // required: Cloudron App Store Id of the app. Alternately, provide a manifest
     manifest: <manifest>,            // manifest of the app to install. required if appStoreId is unset.
     portBindings: null || {          // mapping from application ports to public ports
@@ -119,9 +120,18 @@ Request:
     key: <string>,                   // pem encoded TLS key
     memoryLimit: <number>,           // memory constraint in bytes
     backupId: <string>,              // initialize the app from this backup
+    backupFormat: <string>,          // the backup format (tgz or rsync) of the backupId
     xFrameOptions: <string>,         // set X-Frame-Options header, to control which websites can embed this app
     robotsTxt: <string>,             // robots.txt file content
     sso: <boolean>,                  // integrate with Cloudron user management
+    enableBackup: <boolean>,         // enable automatic backups
+    enableAutomaticUpdate: <boolean> // enable automatic updates
+    alternateDomains: [{             // array of subdomain and domain that should redirect to this app
+        subdomain: <string>
+        domain: <string>
+    }, ... ],
+    cert: <string>,                  // PEM encoded certificate
+    key: <string>,                   // PEM encoded certificate key
     debugMode: null || {             // launch app in debugging mode
         cmd: [ ],                    // array of strings with the command to run
         readonlyRootfs: <boolean>    // set to true if the app's file system must be read-only
@@ -163,7 +173,8 @@ Read more about the options at [MDN](https://developer.mozilla.org/en-US/docs/We
 If `robotsTxt` if set, it will be returned as the response for `/robots.txt`. You can read about the
 [Robots Exclustion Protocol](http://www.robotstxt.org/robotstxt.html) site.
 
-If `backupId` is provided the app will be initialized with the data from the backup.
+If `backupId` is provided the app will be initialized with the data from the backup. The `backupFormat` specifies
+the format of the backup.
 
 The `sso` field can be set to `false` to disable Cloudron authentication. By default, single sign-on is
 enabled. Note that this field works only if the app support Cloudron single sign-on.
@@ -211,6 +222,7 @@ Response (200):
     runState: <enum>,                // see below
     health: <enum>,                  // health of the application
     location: <string>,              // subdomain on which app is installed
+    domain: <string>,                // domain on which app is installed
     fqdn: <string>,                  // the FQDN of this app
     accessRestriction: null || {     // list of users and groups who can access this application
         users: [ ],
@@ -223,6 +235,10 @@ Response (200):
     memoryLimit: <number>,           // memory constraint in bytes
     sso: <boolean>,                  // Enable single sign-on
     robotsTxt: <string>,             // robots.txt file content
+    alternateDomains: [{             // array of subdomain and domain that should redirect to this app
+        subdomain: <string>
+        domain: <string>
+    }, ... ],
     debugMode: null || {             // debug mode parameters
         cmd: [ ],                    // array of strings with the launch command
         readonlyRootfs: <boolean>    // set to true if the app's file system is read-only
@@ -297,6 +313,7 @@ Response (200):
             runState: <enum>,                // see below
             health: <enum>,                  // health of the application
             location: <string>,              // subdomain on which app is installed
+            domain: <string>,                // the domain on which to install the app
             fqdn: <string>,                  // the FQDN of this app
             accessRestriction: null || {     // list of users and groups who can access this application
                 users: [ ],
@@ -306,7 +323,11 @@ Response (200):
             portBindings: {                  // mapping for application ports to public ports
             },
             iconUrl: <url>,                  // a relative url providing the icon
-            memoryLimit: <number>            // memory constraint in bytes
+            memoryLimit: <number>,           // memory constraint in bytes
+            alternateDomains: [{             // array of subdomain and domain that should redirect to this app
+                subdomain: <string>
+                domain: <string>
+            }, ... ],
         },
         ...
     ]
@@ -473,9 +494,10 @@ any of the parameters listed below without loss of data.
 Request:
 ```
     location: <string>,            // the subdomain on which to install the app
+    domain: <string>,              // the domain on which to install the app
     portBindings: null || {        // mapping from application ports to public ports
     },
-    accessRestriction: null || {   // required. list of users and groups who can access this application
+    accessRestriction: null || {   // list of users and groups who can access this application
         users: [ ],
         groups: [ ]
     },
@@ -496,11 +518,9 @@ Request:
         },
         ...
     ],
+    enableBackup: <boolean>,         // enable automatic backups
+    enableAutomaticUpdate: <boolean> // enable automatic updates
     mailboxName: <string>,          // name of the mailbox assigned to this application
-    alternateDomains: [{            // array of domains that should redirect to this app
-        domain: <string>,
-        subdomain: <string>
-    }]
 ```
 
 All values are optional. See [Install app](#install-app) API for field descriptions.
