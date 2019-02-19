@@ -59,36 +59,35 @@ Cloudron's GitLab package can be used with GitLab Runner as follows.
 * First create a **new** server and install GitLab Runner on it following the instructions
   at [GitLab docs](https://docs.gitlab.com/runner/install/linux-repository.html). In short:
 
-    ```
-        # For ubuntu
-        curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
-        sudo apt-get install gitlab-runner
-    ```
+```
+    # For ubuntu
+    curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | sudo bash
+    sudo apt-get install gitlab-runner
+```
 
 * Get the token listed in GitLab under `https://<gitlab.example.com>/admin/runners` (under shared runners section).
 
 * [Register the runner](https://docs.gitlab.com/runner/register/index.html) with the token from the above step
 
-    ```
-        root@localhost:~# sudo gitlab-runner register
-        Running in system-mode.                            
+```
+    root@localhost:~# sudo gitlab-runner register
+    Running in system-mode.                            
                                                            
-        Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-        https://gitlab.cloudron.xyz
-        Please enter the gitlab-ci token for this runner:
-        xzdZgdsXq5uSFCyAK7pP
-        Please enter the gitlab-ci description for this runner:
-        [localhost]: Shell Jobs Runner
-        Please enter the gitlab-ci tags for this runner (comma separated):
+    Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
+    https://gitlab.cloudron.xyz
+    Please enter the gitlab-ci token for this runner:
+    xzdZgdsXq5uSFCyAK7pP
+    Please enter the gitlab-ci description for this runner:
+    [localhost]: Shell Jobs Runner
+    Please enter the gitlab-ci tags for this runner (comma separated):
 
-        Whether to lock the Runner to current project [true/false]:
-        [true]: false
-        Registering runner... succeeded                     runner=xzdZgdsX
-        Please enter the executor: docker, docker-ssh, shell, ssh, virtualbox, docker-ssh+machine, parallels, docker+machine, kubernetes:
-        shell
-        Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
-
-    ```
+    Whether to lock the Runner to current project [true/false]:
+    [true]: false
+    Registering runner... succeeded                     runner=xzdZgdsX
+    Please enter the executor: docker, docker-ssh, shell, ssh, virtualbox, docker-ssh+machine, parallels, docker+machine, kubernetes:
+    shell
+    Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
+```
 
 * The Runner should now be listed under `https://<gitlab.example.com>/admin/runners`.
 
@@ -101,13 +100,13 @@ Cloudron's GitLab package can be used with GitLab Runner as follows.
 To reset the admin password, run the following commands using the [Web terminal](/documentation/apps#web-terminal):
 
 ```
-su - git  
-cd gitlab  
-bundle exec rails c production # (takes about 10 sec to bring up rails terminal)
-user = User.where(id: 1).first  
-user.password = 'NEW_PASS'  
-user.password_confirmation = 'NEW_PASS'  
-user.save  
-exit  
+    su - git  
+    cd gitlab  
+    bundle exec rails c production # (takes about 10 sec to bring up rails terminal)
+    user = User.where(id: 1).first  
+    user.password = 'NEW_PASS'  
+    user.password_confirmation = 'NEW_PASS'  
+    user.save  
+    exit  
 ```
 
