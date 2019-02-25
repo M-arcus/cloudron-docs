@@ -109,11 +109,11 @@ In the event that [email delivery is not working](email/#debugging-mail-delivery
 can be determined by SSHing into the server:
 
 ```
-mysql -uroot -ppassword -e "select username, resetToken from box.users";
+mysql -uroot -ppassword -e "select username, email, resetToken from box.users";
 ```
 
 Use the reset token displayed above to navigate to
-`https://my.example.com/api/v1/session/password/reset.html?reset_token=<token>`
+`https://my.example.com/api/v1/session/password/reset.html?reset_token=<token>&email=<email>`
 
 ## Disabling 2FA
 
