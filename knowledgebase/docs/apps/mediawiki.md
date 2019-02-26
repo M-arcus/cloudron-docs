@@ -6,7 +6,8 @@
 
 When using Cloudron SSO, the wiki is setup to be editable only by Cloudron users.
 Anonymous users can read all pages. Cloudron admins are added into the 'admins'
-mediawiki group. This group is given `bureaucrat` permission.
+mediawiki group. This group is given `bureaucrat` permission. Please note that
+when using this option, external registration [cannot be enabled](https://stackoverflow.com/questions/46403601/mediawiki-its-not-possible-to-create-user-account-using-ldap-authentication-ex).
 
 When not using Cloudron SSO, the wiki is setup to be editable by users with a
 registered wiki account.
