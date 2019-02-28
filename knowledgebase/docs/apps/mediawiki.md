@@ -106,3 +106,37 @@ to `/app/data/LocalSettings.php`:
     $wgSkipSkins = array( "cologneblue", "monobook" );
 ```
 
+## Exporting a Wiki
+
+To export in XML format, use the [dumpBackup](https://www.mediawiki.org/wiki/Manual:DumpBackup.php) script as part of MediaWiki
+installation. Open a [Web terminal](/documentation/apps#web-terminal) and run the following
+commands:
+
+```
+# cd /app/code/maintenance
+# php dumpBackup.php --full > /tmp/dump.xml
+```
+
+You can download the dump using the download button at the top of the terminal and entering `/tmp/dump.xml`.
+
+## Importing a Wiki
+
+To import in XML format, use the [importDump](https://www.mediawiki.org/wiki/Manual:ImportDump.php) script as part of MediaWiki
+installation.
+
+Open a [Web terminal](/documentation/apps#web-terminal):
+
+* Upload the XML using the Upload button
+* Run the following commands
+
+```
+# cd /app/code/maintenance
+# php importDump.php < /tmp/dump.xml
+You might want to run rebuildrecentchanges.php to regenerate RecentChanges,
+and initSiteStats.php to update page and revision counts
+# php rebuildrecentchanges.php
+# php initSiteStats.php
+```
+
+When importing a wiki, the Main Page might still appear without the correct content. You can fix this by going to the Main Page's History and undoing the latest change. Please note that the administrator account needs a valid email for this to work (preferences -> confirm email address).
+
