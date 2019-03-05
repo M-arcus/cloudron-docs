@@ -253,7 +253,14 @@ Visit the LAMP app's default page to verify that the extension is enabled.
 
 ## Running composer
 
-`composer` is installed in `/usr/bin/composer`.
+`composer` is installed in `/usr/bin/composer`. To install composer packages, first switch to the `www-data`
+user (composer should not be run as root).
+
+```
+su - www-data
+cd public           # this is where PHP code resides
+composer require drush/drush
+```
 
 ## Reverse proxy setup
 
