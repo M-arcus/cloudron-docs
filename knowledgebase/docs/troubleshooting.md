@@ -58,6 +58,11 @@ directly using the Cloudron dashboard in the `support`, `mail` or `system` view.
 One or more system services may go down if the disk becomes full. Once some space has been freed up,
 follow the steps below to repair the Cloudron:
 
+## Services
+
+The `services` view displays the current status of the internal services on the Cloudron. Cloudron will
+send notifications if these services are running out of memory or down.
+
 ### Unbound
 
 Cloudron uses an internal DNS server called `unbound`. This server [stops working](https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=547)
