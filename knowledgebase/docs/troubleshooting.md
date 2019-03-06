@@ -63,7 +63,7 @@ follow the steps below to repair the Cloudron:
 The `System` view displays the current status of the internal services on the Cloudron. Cloudron will
 send notifications if these services are running out of memory or down.
 
-To adjust the memory limit for a service, use the memory limit slides:
+To adjust the memory limit for a service, use the memory limit slider:
 
 <center>
 <img src="/documentation/img/system-memorylimit.png" class="shadow" width="500px">
