@@ -262,6 +262,11 @@ cd public           # this is where PHP code resides
 composer require drush/drush
 ```
 
+!!! note "Memory limit"
+    The LAMP app runs with 256MB ram by default which is not enough for Composer. If you see a `Killed` error
+    message after a composer run, increase the [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app) 
+    of the app to 1GB.
+
 ## Reverse proxy setup
 
 If you want to run for example a custom WordPress within this app, please note that the code will run behind a nginx proxy.
