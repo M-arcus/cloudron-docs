@@ -144,6 +144,12 @@ Let's Encrypt.
 
 * Let's Encrypt [rate limit](https://letsencrypt.org/docs/rate-limits/) was reached.
 
+* Make sure that the DNS credentials for the domain are still valid. You can check by this
+  by clicking 'Edit domain' in the `Domains` view and saving it without making any changes.
+
+* If all looks good, click the 'Renew All' button in `Domains` view to renew all the certs.
+  See the logs for more information on why certificate renewal might be failing.
+
 ## Mail DNS
 
 ### SPF
