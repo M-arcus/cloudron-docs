@@ -30,6 +30,19 @@ When installing the app, the SFTP port can be specified. SFTP can be disabled by
 
 The LAMP app can be upload using the Web terminal or SFTP.
 
+### Using SFTP
+
+The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
+
+*   Connect the SFTP client. The hostname is app's domain name. The default SFTP port is 2222.
+    The username/password is the same as Cloudron credentials.
+
+*   Upload it to the `public/` folder.
+
+<center>
+<img src="/documentation/img/lamp-filezilla.png" class="shadow">
+</center>
+
 ### Web terminal
 
 * Open a [web terminal](/documentation/apps#web-terminal) for the app.
@@ -44,17 +57,112 @@ The LAMP app can be upload using the Web terminal or SFTP.
 # tar zxvf /tmp/app.tar.gz -C /app/data/public # for tarballs
 ```
 
-### Using SFTP
+## PHP settings
 
-The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
+You can add custom [PHP settings](http://php.net/manual/en/ini.core.php) in `/app/data/public/.htaccess`
+using the [Web terminal](/documentation/apps#web-terminal). Note that settings with a [mode](http://php.net/manual/en/configuration.changes.modes.php) of `PHP_INI_SYSTEM` cannot be set in htaccess files.
 
-*   Connect the SFTP client. The hostname is app's domain name. The default SFTP port is 2222.
-    The username/password is the same as Cloudron credentials.
+For example:
 
-*   Upload it to the `public/` folder.
+```
+#example
+php_value post_max_size 600M
+php_value upload_max_filesize 600M
+php_value memory_limit 128M
+php_value max_execution_time 300
+php_value max_input_time 300
+php_value session.gc_maxlifetime 1200
+```
+
+## Apache settings
+
+You can add custom [Apache settings](http://httpd.apache.org/docs/current/howto/htaccess.html) in `/app/data/public/.htaccess`
+using the [Web terminal](/documentation/apps#web-terminal).
+
+For example:
+```
+ServerSignature Off
+```
+
+## Custom HTTP headers
+
+Custom HTTP headers can be set in `/app/data/public/.htaccess`. apache `mod_headers`
+is already enabled. See this [article](https://www.digitalocean.com/community/tutorials/how-to-configure-apache-content-caching-on-ubuntu-14-04#setting-expires-and-caching-headers-on-content) for more information.
+
+## PHP extensions
+
+The LAMP app already includes most of the popular PHP extensions including the following:
+
+* php-apcu
+* php-cli
+* php-curl
+* php-fpm
+* php-gd
+* php-gmp
+* php-imap
+* php-intl
+* php-json
+* php-ldap
+* php-mbstring
+* php-mcrypt
+* php-mysql
+* php-mysqlnd
+* php-pgsql
+* php-redis
+* php-sqlite
+* php-xml
+* php-xmlrpc
+* php-zip
+
+You can check the complete list of pre-installed extensions by visiting the default index.php
+of the app that prints out `phpInfo()`.
+
+## Installing custom PHP extensions
+
+The LAMP app supports installing custom PHP extensions. As an example, we will install [ionCube Loader](http://www.ioncube.com/),
+which is often required to install commercial PHP apps.
+
+!!! note "ionCube is already installed"
+    The LAMP app has built-in support for ionCube. The installation steps for ionCube here are just an example.
+
+### Step 1: Download extension
+
+Download and extract the `tar.gz` or `zip` Linux 64-bit ionCube packages to your PC/Mac from the
+[ionCube website](https://www.ioncube.com/loaders.php) or use the
+[direct link](http://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz).
+
+### Step 2: Upload using SFTP
+
+Upload the extracted directory to the SFTP root directory (`/app/data`) of the Cloudron app
+(i.e one level above `public/`).
 
 <center>
-<img src="/documentation/img/lamp-filezilla.png" class="shadow">
+<img src="/documentation/img/lamp-upload-ioncube.png" class="shadow">
+</center>
+
+### Step 3: Enable extension
+
+In the top level directory of the Cloudron app (in `/app/data`), you will find a `php.ini`.
+
+Add the following line to enable the extension (just add it before the many `;extension` lines):
+
+```
+zend_extension=/app/data/ioncube/ioncube_loader_lin_7.2.so
+```
+
+The LAMP app has thread safety disabled, so we choose the extension without the `ts` extension.
+
+### Step 4: Restart app
+
+Lastly, restart the app for the extension to be enabled. You can do this using the `Restart` button
+in the [web terminal](/documentation/apps#web-terminal).
+
+### Step 5: Verifying installation
+
+Visit the LAMP app's default page to verify that the extension is enabled.
+
+<center>
+<img src="/blog/img/lamp-ioncube-installed.png" class="shadow">
 </center>
 
 ## Configuring MySQL
@@ -175,82 +283,6 @@ The crontab contains a line like:
 The app must be restarted after making any changes to the `crontab`
 file. You can do this by pressing the 'Restart' button in the web terminal.
 
-## PHP extensions
-
-The LAMP app already includes most of the popular PHP extensions including the following:
-
-* php-apcu
-* php-cli
-* php-curl
-* php-fpm
-* php-gd
-* php-gmp
-* php-imap
-* php-intl
-* php-json
-* php-ldap
-* php-mbstring
-* php-mcrypt
-* php-mysql
-* php-mysqlnd
-* php-pgsql
-* php-redis
-* php-sqlite
-* php-xml
-* php-xmlrpc
-* php-zip
-
-You can check the complete list of pre-installed extensions by visiting the default index.php
-of the app that prints out `phpInfo()`.
-
-## Installing custom PHP extensions
-
-The LAMP app supports installing custom PHP extensions. As an example, we will install [ionCube Loader](http://www.ioncube.com/),
-which is often required to install commercial PHP apps.
-
-!!! note "ionCube is already installed"
-    The LAMP app has built-in support for ionCube. The installation steps for ionCube here are just an example.
-
-### Step 1: Download extension
-
-Download and extract the `tar.gz` or `zip` Linux 64-bit ionCube packages to your PC/Mac from the
-[ionCube website](https://www.ioncube.com/loaders.php) or use the
-[direct link](http://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz).
-
-### Step 2: Upload using SFTP
-
-Upload the extracted directory to the SFTP root directory (`/app/data`) of the Cloudron app
-(i.e one level above `public/`).
-
-<center>
-<img src="/documentation/img/lamp-upload-ioncube.png" class="shadow">
-</center>
-
-### Step 3: Enable extension
-
-In the top level directory of the Cloudron app (in `/app/data`), you will find a `php.ini`.
-
-Add the following line to enable the extension (just add it before the many `;extension` lines):
-
-```
-zend_extension=/app/data/ioncube/ioncube_loader_lin_7.2.so
-```
-
-The LAMP app has thread safety disabled, so we choose the extension without the `ts` extension.
-
-### Step 4: Restart app
-
-Lastly, restart the app for the extension to be enabled. You can do this using the `Restart` button
-in the [web terminal](/documentation/apps#web-terminal).
-
-### Step 5: Verifying installation
-
-Visit the LAMP app's default page to verify that the extension is enabled.
-
-<center>
-<img src="/blog/img/lamp-ioncube-installed.png" class="shadow">
-</center>
-
 ## Running composer
 
 `composer` is installed in `/usr/bin/composer`. To install composer packages, first switch to the `www-data`
@@ -264,7 +296,7 @@ composer require drush/drush
 
 !!! note "Memory limit"
     The LAMP app runs with 256MB ram by default which is not enough for Composer. If you see a `Killed` error
-    message after a composer run, increase the [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app) 
+    message after a composer run, increase the [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app)
     of the app to 1GB.
 
 ## Reverse proxy setup
@@ -287,11 +319,6 @@ if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
 }
 ```
 
-## Custom HTTP headers
-
-Custom HTTP headers can be set using `.htaccess`. apache `mod_headers`
-is already enabled. See this [article](https://www.digitalocean.com/community/tutorials/how-to-configure-apache-content-caching-on-ubuntu-14-04#setting-expires-and-caching-headers-on-content) for more information.
-
 ## Health check
 
 The LAMP app expects a 2xx response from the '/' path. If your app is completely protected,
@@ -305,4 +332,3 @@ if ($_SERVER["REMOTE_ADDR"] == '172.18.0.1') {
     exit;
 }
 ```
-
