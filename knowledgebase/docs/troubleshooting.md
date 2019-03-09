@@ -24,10 +24,11 @@ a new domain, do the following:
 
 * Add an A record manually in your DNS provider for `my.example.com` to your server's IP
 
-* Run the following command to update the OAuth endpoint:
-    ```
-        mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.example.com' WHERE type='built-in'"
-    ```
+* Run the following command to update the OAuth endpoint (change `example.com` in the command below):
+
+```
+    mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.example.com' WHERE type='built-in'"
+```
 * Run the command `systemctl restart box`
 
 In a few minutes, you should be able to reach `https://my.example.com`.
@@ -149,7 +150,7 @@ a database dump like so:
 mysqldump -uroot -ppassword --single-transaction --routines --triggers box > box.mysql
 mysql -uroot -ppassword -e "DROP DATABASE box"
 mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS box"
-mysql -uroot -ppassword box < box.mysql 
+mysql -uroot -ppassword box < box.mysql
 ```
 
 ## Certificates
