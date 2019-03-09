@@ -56,7 +56,8 @@ systemctl start docker
 
 !!! note "Docker image size"
     The `du -hcs /var/lib/docker` command will often return incorrect output with the overlay2 driver
-    because of linux kernel limitation. Use `docker system df` instead to determine the size
+    because of [how du works](https://stackoverflow.com/questions/50589971/diffrence-between-real-and-showed-by-docker-system-df-disc-usage).
+    Use `docker system df` instead to determine the size
 
 ## Moving a single app's data directory to another location
 
