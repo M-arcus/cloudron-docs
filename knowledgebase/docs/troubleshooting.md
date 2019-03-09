@@ -9,6 +9,29 @@ If the Cloudron dashboard is down/not reachable, try the following steps:
 * Check the output of `host my.<domain>` on your PC and verify that the IP address is pointing to your server.
 * Try `systemctl status box` on the server. If it's not running, try `systemctl restart cloudron.target`
 
+If the dashboard was using a domain that you no longer control and you want to switch it to
+a new domain, do the following:
+
+* Add the new domain (e.g `example.com`) in the `Domains` view.
+
+* Edit `/home/yellowtent/configs/cloudron.conf`
+    * Change `adminDomain` to `example.com`
+    * Change `adminFqdn` to `my.example.com`
+
+    !!! note "Do not change adminLocation"
+        The `adminLocation` seems to be customizable but changing this to any value other than `my`
+        will break the installation
+
+* Add an A record manually in your DNS provider for `my.example.com` to your server's IP
+
+* Run the following command to update the OAuth endpoint:
+    ```
+        mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.example.com' WHERE type='built-in'"
+    ```
+* Run the command `systemctl restart box`
+
+In a few minutes, you should be able to reach `https://my.example.com`.
+
 ## Unresponsive apps
 
 If the apps are unresponsive, try the following steps:

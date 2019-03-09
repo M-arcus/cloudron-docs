@@ -280,6 +280,9 @@ the new location.
 <img src="../img/domains-change-dashboard.png" width="500px" class="shadow">
 </center>
 
+!!! note "Unreachable dashboard"
+    If your dashboard is unreachable, see the [troubleshooting section](/documentation/troubleshooting/#dashboard)
+
 ## DNS Errors
 
 ### DNS Record already exists
