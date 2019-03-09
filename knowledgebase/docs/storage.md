@@ -54,6 +54,10 @@ to persist across reboots.
 systemctl start docker
 ```
 
+!!! note "Docker image size"
+    The `du -hcs /var/lib/docker` command will often return incorrect output with the overlay2 driver
+    because of linux kernel limitation. Use `docker system df` instead to determine the size
+
 ## Moving a single app's data directory to another location
 
 Please make sure you have a [complete backup](backups/#making-a-complete-backup) before
