@@ -29,7 +29,7 @@ a new domain, do the following:
 ```
     mysql -uroot -ppassword --database=box -e "UPDATE clients SET redirectURI='https://my.example.com' WHERE type='built-in'"
 ```
-* Run the command `systemctl restart box`
+* Run the command `systemctl restart cloudron.target`
 
 In a few minutes, you should be able to reach `https://my.example.com`.
 
