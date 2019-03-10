@@ -250,6 +250,8 @@ your droplet to `my.<domain>`.
 
 * Linode - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
 
+* Netcup -  You can enter a reverse lookup in the customer area CCP for your vServer - [wiki doc](https://www.netcup-wiki.de/wiki/Produkte_CCP#rDNS)
+
 * Scaleway - You can also set a PTR record on the interface in their control panel.
 
 Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
