@@ -72,6 +72,14 @@ The backup logs can be viewed and downloaded using the `Show Logs` button in the
 <img src="/documentation/img/backups-logs.png" class="shadow" width="500px">
 </center>
 
+If the logs seem to indicate that the connection to the database is lost when trying to backup an app,
+this is most likely because the database requires more memory. To fix this, go to `System` -> `Services`
+and edit a service to give it some more memory.
+
+<center>
+<img src="/documentation/img/system-memorylimit.png" class="shadow" width="500px">
+</center>
+
 ## Logs
 
 Logs for each component are located in `/home/yellowtent/platformdata/logs/`. Many of these logs are viewable
@@ -80,19 +88,10 @@ directly using the Cloudron dashboard in the `support`, `mail` or `system` view.
 ## Recovery after disk full
 
 One or more system services may go down if the disk becomes full. Once some space has been freed up,
-follow the steps below to repair the Cloudron:
+check all the services below.
 
-## Services
-
-The `System` view displays the current status of the internal services on the Cloudron. Cloudron will
-send notifications if these services are running out of memory or down.
-
-To adjust the memory limit for a service, use the memory limit slider:
-
-<center>
-<img src="/documentation/img/system-memorylimit.png" class="shadow" width="500px">
-</center>
-
+The `System` view displays the current status of the internal services on the Cloudron. Make sure
+everything is green.
 
 ### Unbound
 
@@ -152,6 +151,67 @@ mysql -uroot -ppassword -e "DROP DATABASE box"
 mysql -uroot -ppassword -e "CREATE DATABASE IF NOT EXISTS box"
 mysql -uroot -ppassword box < box.mysql
 ```
+
+It can happen at times that the creation of the mysqldump is 'stuck'. This can happen if
+one or more tables is corrupt. In this case, read the recovery section below.
+
+#### Recovering MySQL
+
+MySQL might sometimes refuse to start with INVALIDARGUMENT or mysqldump gets stuck and
+refuses to create a dump or the connection to the database keep dropping causing the box code
+and backup code to crash. This means that the database is corrupt and to fix this, we have
+to recreate the whole database.
+
+We recommend taking a snapshot of your server before performing the operations below.
+
+* Stop box code: `systemctl stop box`
+
+* Edit `/etc/mysql/my.cnf` to have the below. See the [recovery](https://dev.mysql.com/doc/refman/5.5/en/forcing-innodb-recovery.html)
+  docs for details.
+
+```
+[mysqld]
+innodb_force_recovery = 1
+```
+
+* Keep increasing the above value till mysql start with `systemctl start mysql`
+
+* Once it starts, we have to take a dump of all the database:
+
+```
+# mysqldump -uroot -ppassword --skip-lock-tables -A > /root/alldb.sql
+```
+
+* Now that we created the dump, stop MySQL - `systemctl stop mysql`
+
+* Remove the `innodb_force_recovery` in my.cnf
+
+* Recreate the existing MySQL installation:
+
+```
+# mv /var/lib/mysql /var/lib/mysql.old
+# mkdir /var/lib/mysql
+# chown -R mysql:mysql /var/lib/mysql
+# mysqld --initialize   # This will dump the MySQL root password in /var/log/mysql/error.log
+```
+
+* Start MySQL - `systemctl start mysql`
+
+* Change the root password to `password` (sic) - 
+
+```
+# mysql -uroot -p<password from /var/log/mysql/error.log>  # there is no space between p and the password. e.g -pAS23kdI
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 6365
+Server version: 5.7.25-0ubuntu0.18.04.2 (Ubuntu)
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+```
+
+* Import the database - `mysql -uroot -ppassword < /root/alldb.sql`
+
+* Start the platform code again - `systemctl restart cloudron.target`
 
 ## Certificates
 
