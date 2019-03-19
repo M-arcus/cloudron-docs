@@ -108,7 +108,7 @@ extra:
 use_directory_urls: true
 markdown_extensions:
   - admonition
-  - codehilite(guess_lang=false)
-  - toc(permalink=true)
+  - codehilite
+  - toc
   - footnotes
   - meta
