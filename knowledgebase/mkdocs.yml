@@ -47,6 +47,7 @@ pages:
     - 'Mattermost': apps/mattermost.md
     - 'Mediawiki': apps/mediawiki.md
     - 'Meemo': apps/meemo.md
+    - 'Minecraft': apps/minecraft.md
     - 'Monica': apps/monica.md
     - 'Minio': apps/minio.md
     - 'Nextcloud': apps/nextcloud.md
