@@ -61,7 +61,7 @@ space in the default data partition), there are two options:
 * Configure ownCloud to use an external object storage like Digital Ocean Spaces, AWS S3 etc.
 
 * Configure Cloudron to store all of ownCloud's data in the external block storage. To achieve this, follow the
-  [guide](server/#moving-a-single-apps-data-directory-to-another-location) for
+  [guide](/documentation/storage/#moving-a-single-apps-data-directory-to-another-location) for
   moving a single app's data directory to another location.
 
 Moving ownCloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses

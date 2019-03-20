@@ -68,7 +68,7 @@ space in the default data partition), there are two options:
   * [DigitalOcean Spaces Guide](https://www.digitalocean.com/community/questions/is-it-possible-to-mount-do-spaces-as-external-storage-in-nextcloud-as-i-mount-aws-s3-storage)
 
 * Configure Cloudron to store all of Nextcloud's data in the external block storage. To achieve this, follow the
-  [guide](/documentation/server#moving-a-single-apps-data-directory-to-another-location) for
+  [guide](/documentation/storage/#moving-a-single-apps-data-directory-to-another-location) for
   moving a single app's data directory to another location.
 
 Moving Nextcloud's directory entirely has the advantage that the iOS/Android app's Instant Upload feature uses
