@@ -107,9 +107,14 @@ The `Use hardlinks` option can be checked to make the Cloudron use [hardlinks](h
 support hardlinks (like NFS), just turn off hardlinks. This option has little to no effect when
 using the `tgz` format.
 
-#### Samba (storage box)
+#### Samba/CIFS
 
-Mount the remote samba share onto your server by putting something in the fstab:
+Hosting providers like [Hetzner](https://www.hetzner.com/storage/storage-box) and [OVH](https://www.ovh.com/world/nas/)
+provider storage boxes that be mounted using Samba/CIFS. To use a Samba/CIFS store, mount it into the file system using
+the `iocharset=utf8` option.
+
+For example, mount the samba share into your server by putting the following in `/etc/fstab`:
+
 ```
 //<samba url>  /backups  cifs  uid=yellowtent,gid=yellowtent,user=<user>,pass=<pass>,iocharset=utf8  0  0
 ```
