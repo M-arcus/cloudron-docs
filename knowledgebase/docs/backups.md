@@ -107,6 +107,13 @@ The `Use hardlinks` option can be checked to make the Cloudron use [hardlinks](h
 support hardlinks (like NFS), just turn off hardlinks. This option has little to no effect when
 using the `tgz` format.
 
+#### Samba (storage box)
+
+Mount the remote samba share onto your server by putting something in the fstab:
+```
+//<samba url>  /backups  cifs  uid=yellowtent,gid=yellowtent,user=<user>,pass=<pass>,iocharset=utf8  0  0
+```
+
 ### Google Cloud Storage
 
 To get started:
@@ -171,7 +178,7 @@ information as files inside a directory.
 ### tgz format
 
 The `tgz` format uploads an app's backup as a gzipped tarball. This format is very efficient when
-having a large number of small number files. 
+having a large number of small number files.
 
 This format has the following caveats:
 
@@ -204,7 +211,7 @@ This format has the following caveats:
 
 * When encryption is enabled, file names are encrypted as well.
 
-## App Snapshot 
+## App Snapshot
 
 To take a backup of a single, click the `Backups` button in the app grid:
 
@@ -230,7 +237,7 @@ To take a backup of Cloudron and all the apps, click the `Backup now` button in 
     When using the `no-op` backend, no backups are taken. If backups are stored on the same server, be
     sure to download them before making changes in the server.
 
-## Disable automatic backups 
+## Disable automatic backups
 
 An app can be excluded from automatic backups from the 'Advanced settings' in the Configure UI:
 
@@ -255,7 +262,7 @@ then use the Clone UI to create a clone:
 <img src="/documentation/img/app-clone.png" class="shadow" width="500px">
 </center>
 
-## Restoring an app 
+## Restoring an app
 
 Apps can be restored to a previous backup by clicking on the `Backups` button.
 
@@ -273,7 +280,7 @@ Select the backup you want to restore to:
     Restoring will also revert the code to the version that was running when the backup was created.
     This is because the current version of the app may not be able to handle old data.
 
-## Restoring uninstalled app 
+## Restoring uninstalled app
 
 If an app has been uninstalled but you still have the app backups, then you can use the CLI tool to restore it.
 The commands below must be run on your laptop/PC and not on the server.
@@ -314,9 +321,9 @@ Example:
 Location (subdomain): test2
 App is being installed.
 
- => Waiting to start installation 
+ => Waiting to start installation
  => Registering subdomain .
- => Download backup and restoring addons 
+ => Download backup and restoring addons
  => Waiting for DNS propagation ...................
 
 App is installed.
