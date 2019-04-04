@@ -62,7 +62,7 @@ is running out of memory.
 
 To rectify this, SSH into the server:
 
-* Edit `/etc/systemd/system/box.service` and change the line that says `MemoryLimit=200M` to `MemoryLimit=400M`.
+* Edit `/etc/systemd/system/box.service` and change the line that says `MemoryLimit=400M` to `MemoryLimit=800M`.
 * `systemctl daemon-reload`
 * `systemctl restart box`
 
