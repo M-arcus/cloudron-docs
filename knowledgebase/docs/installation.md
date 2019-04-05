@@ -15,7 +15,7 @@ chmod +x cloudron-setup
     and 443 (https). Cloudron does not support running on ARM, LXC or OpenVZ.
 
 !!! tip "Referral codes"
-    [netcup](https://www.netcup.de/), [DigitalOcean](https://m.do.co/c/933831d60a1e),
+    [netcup](https://www.netcup.eu/bestellen/gutschein_einloesen.php?gutschein=startcloudron), [DigitalOcean](https://m.do.co/c/933831d60a1e),
     [hosttech](https://www.hosttech.ch/?promocode=53619290), [Linode](https://www.linode.com/?r=f68d816692c49141e91dd4cef3305da457ac0f75),
     [Rosehosting](https://secure.rosehosting.com/clientarea/?affid=661), [Vultr](http://www.vultr.com/?ref=7110116-3B).
 
@@ -24,7 +24,7 @@ chmod +x cloudron-setup
 Once installation is complete, navigate to `https://<IP>` in your browser and accept the self-signed
 certificate.
 
-In Chrome, you can accept the self-signed certificate by clicking on `Advanced` and then 
+In Chrome, you can accept the self-signed certificate by clicking on `Advanced` and then
 click `Proceed to <ip> (unsafe)`. In Firefox, click on `Advanced`, then `Add Exception` and
 then `Confirm Security Exception`.
 
