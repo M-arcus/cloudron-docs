@@ -116,3 +116,8 @@ excellent office file format support.
 See the [Collabora App docs](app/collabora) on how to setup Nextcloud with Collabora Office.
 
 <img src="/documentation/img/nextcloud-collabora-editor.png" class="shadow">
+
+## Removing NextCloud users
+
+To delete obsolete LDAP users and their data, see the [nextcloud docs](https://docs.nextcloud.com/server/stable/admin_manual/configuration_user/user_auth_ldap_cleanup.html?highlight=ldap).
+
