@@ -7,6 +7,9 @@ as well as the [Bedrock/Pocket Edition](https://minecraft.gamepedia.com/Bedrock_
 
 # Common server commands
 
+Please note that you have to run these commands when the user is logged into
+the server.
+
 * Whitelist a client - `/whitelist minecraft_username`
 * Blacklist a client - `/blacklist minecraft_username`
 * Become the server operator - `/op your_minecraft_username`
