@@ -75,6 +75,18 @@ to the bare domain (using HTTP 302).
 
 The redirection feature preserves any URI components like subpaths in the original request.
 
+## Labels and Tags
+
+`Label` is the text that is displayed for the app on the dashboard below the icon. `Tags` are a
+mechanism to tag apps with labels. For example, you can mark specific apps with the customer name
+and filter apps by customer name.
+
+The label and tag of an app can be changed in the `Display` section of the app's configure dialog:
+
+<center>
+<img src="/documentation/img/app-labels-and-tags.png" class="shadow" width="500px">
+</center>
+
 ## Increasing the memory limit of an app
 
 All apps are run with a memory limit to ensure that no app can bring down the whole
