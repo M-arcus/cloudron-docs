@@ -339,3 +339,30 @@ Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filte
 <img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
+
+## Importing email
+
+Existing mail can be imported into Cloudron via IMAP using a tool like [imapsync](https://imapsync.lamiral.info/dist/).
+
+The steps to import email are:
+
+* Add the domain for which you would like to receive email. To give the import a test run,
+  uncheck the `Setup Mail DNS records now` option when enabling email for the domain. This
+  will allow you to continue to use the email with your current provider.
+
+* Create the mailbox to import in Cloudron
+
+* For [importing from GMail](https://github.com/imapsync/imapsync/blob/master/FAQ.d/FAQ.Gmail.txt), import the mailbox
+  using the following command:
+
+```
+./imapsync --gmail1 --user1 girish@forwardbias.in --password1 MASKED --host2 my.example.com --user2 girish@forwardbias.in --password2 MASKED --maxbytespersecond 20000 --useheader=X-Gmail-Received --useheader Message-Id --automap --regextrans2 s,\[Gmail\].,, --skipcrossduplicates   --folderlast [Gmail]/All Mail --exclude "\[Gmail\]/Spam"
+```
+
+* Once imported, you can verify if the mails look correct using apps like Rainloop or Roundcube.
+
+* Repeat the above process for all the mailboxes you want to import.
+
+* Once all mailboxes are imported, Cloudron has to be set as the mail server in the DNS. This can be done
+  by clicking the `Re-setup DNS` button in the `Email` -> `Status` page.
+
