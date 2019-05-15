@@ -165,6 +165,20 @@ Region:    us-east-1
 
 For HTTPS installations using a self-signed certificate, select the `Accept Self-Signed certificate` option.
 
+## Scaleway Object Storage
+
+To get started:
+
+* Create a [Scaleway Object Storage bucket](https://www.scaleway.com/en/object-storage/).
+
+* Create access key and secret key from the [credentials section](https://www.scaleway.com/en/faq/object-storage/#-Which-credentials-do-I-have-to-use-for-the-Object-Storage)
+
+* In the Cloudron dashboard, choose `Scaleway Object Storage` from the drop down.
+
+  <center>
+  <img src="/documentation/img/backups-scaleway.png" class="shadow" width="500px">
+  </center>
+
 ## No-op
 
 This storage backend disables backups. When backups are disabled, updates to apps cannot be rolled back and
