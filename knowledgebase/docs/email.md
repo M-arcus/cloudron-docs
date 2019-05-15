@@ -50,8 +50,8 @@ By default, Cloudron's mail server only sends email on behalf of apps. To enable
 <img src="/documentation/img/mail-enable.png" class="shadow" width="500px">
 </center>
 
-When using one of the programmatic [DNS backends](domains/) like Route53,
-DigitalOcean or Route53, the Cloudron will automatically update the `MX`, `SPF`, `DKIM`, `DMARC` DNS records.
+When the `Setup Mail DNS records now` option is checked, Cloudron will automatically update
+the `MX`, `SPF`, `DKIM`, `DMARC` DNS records of the domain.
 
 ### Required ports for Cloudron Email
 
@@ -356,19 +356,26 @@ The steps to import email are:
   uncheck the `Setup Mail DNS records now` option when enabling email for the domain. This
   will allow you to continue to use the email with your current provider.
 
-* Create the mailbox to import in Cloudron
+  <center>
+  <img src="/documentation/img/mail-enable-no-dns-setup.png" class="shadow" width="500px">
+  </center>
 
-* For [importing from GMail](https://github.com/imapsync/imapsync/blob/master/FAQ.d/FAQ.Gmail.txt), import the mailbox
-  using the following command:
+* Create the mailbox(es) to import in Cloudron
+
+* Use a tool like [IMAP Sync](https://imapsync.lamiral.info/) to import Email into Cloudron. For example,
+  to [import from GMail](https://github.com/imapsync/imapsync/blob/master/FAQ.d/FAQ.Gmail.txt), use the 
+  following command:
 
 ```
-./imapsync --gmail1 --user1 girish@forwardbias.in --password1 MASKED --host2 my.example.com --user2 girish@forwardbias.in --password2 MASKED --maxbytespersecond 20000 --useheader=X-Gmail-Received --useheader Message-Id --automap --regextrans2 s,\[Gmail\].,, --skipcrossduplicates   --folderlast [Gmail]/All Mail --exclude "\[Gmail\]/Spam"
+    ./imapsync --gmail1 --user1 girish@example.com --password1 MASKED --host2 my.example.com --user2 girish@example.com --password2 MASKED --maxbytespersecond 20000 --useheader=X-Gmail-Received --useheader Message-Id --automap --regextrans2 s,\[Gmail\].,, --skipcrossduplicates   --folderlast [Gmail]/All Mail --exclude "\[Gmail\]/Spam"
 ```
 
 * Once imported, you can verify if the mails look correct using apps like Rainloop or Roundcube.
 
-* Repeat the above process for all the mailboxes you want to import.
-
 * Once all mailboxes are imported, Cloudron has to be set as the mail server in the DNS. This can be done
   by clicking the `Re-setup DNS` button in the `Email` -> `Status` page.
+
+  <center>
+  <img src="/documentation/img/mail-resetup-dns.png" class="shadow" width="500px">
+  </center>
 
