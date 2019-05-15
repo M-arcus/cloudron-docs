@@ -17,8 +17,8 @@ following features:
   can individually provision servers with the necessary CPU/RAM/Disk resources based on
   customer requirements.
 
-* Each Cloudron is pre-setup with a domain name like `customer.hostingprovider.com`. When
-  customers install apps, they get installed into `<app>-customer.hostingprovider.com`.
+* Each Cloudron can optionally be pre-setup with a domain name like `customer.hostingprovider.com`. When
+  customers install apps, they get installed into `<app>.customer.hostingprovider.com`.
 
 * Automatic backups can be pre-configured to a location outside the Cloudron (Ceph, S3 etc).
   This provides an user experience close to managed hosting.
@@ -30,43 +30,49 @@ following features:
 
 * Access to all apps in the [Cloudron Appstore](/appstore.html).
 
+* Automatic subscription - Your customers do not need to setup a subscription (credit card) with us
+  Instead, you setup a billing account with us and you will charged based on our pricing agreement.
+  Cloudrons are automatically subscribed to a plan that allows them to install any app they want.
+
 ## Installation
+
+* Please reach out to [sales@cloudron.io](mailto:sales@cloudron.io) to get a license.
 
 * Start with a fresh Ubuntu 18.04 64-bit server and run the following commands:
 
 ```
     wget https://cloudron.io/cloudron-setup
     chmod +x cloudron-setup
-    ./cloudron-setup --provider generic --edition hostingprovider
+    ./cloudron-setup --provider generic --license <license>
 ```
 
-* Snapshot the server. This server snapshot can then be instantiated on demand and provisioned
-  with the activation script for each customer.
+* Reboot and snapshot the server. Please **do not finish the setup by visiting https://<IP>**.
 
-## Activation
+* The above server snapshot can now be instantiated for each customer. Each customer can then visit `https://IP`
+  to complete the installation. It is possible to pre-provision each customer Cloudron with a domain, backup configuration etc
+  using the script below.
 
-To prepare Cloudron for the customer, create a server with the above snapshot and then
-activate it using the [provision script](https://git.cloudron.io/cloudron/box/raw/master/scripts/cloudron-provision):
+## Automatic provisioning
 
-```
-cloudron-provision --ip <serverip> \
-    --dns-config <dnsconfig> \
-    --backup-config <backupconfig> \
-    --tls-cert <tlscertfile> \
-    --tls-key <tlskeyfile> \
-    --license <license>
-```
+When the server snapshot is instantiated, the customer has to visit `https://IP` and complete the installation
+by providing a domain name. As a hosting provider, you might want to provide your customers with a pre-setup domain
+like `customer.hostingprovider.com`.
 
-The parameters are:
+To achieve this, you can use the `cloudron-provision` script.
 
-* `serverip` - The IP Address of the newly created server
-* `dnsconfig` - Information on how to configure the DNS. The domain/id here (`customer.hostingprovider.com`) must be unique across all customers.
-    * For Cloudflare, this will be `{ "domain": "customer.hostingprovider.com", "provider": "cloudflare", "config": { "email": "cfemail", "token": "cftoken", "hyphenatedSubdomains": true } }`
-* `backupconfig` - Information on how to backup the Cloudron installation.
-* `tlscertfile`, `tlskeyfile` - File containing a wildcard cert and key for `*.hostingprovider.com`.
-* `license` - Licensing information (contact support@cloudron.io to get this information)
+!!! "warning" Script must NOT be run on the snapshot
+    The `cloudron-provision` must be run on the server instantiated from the snapshot. This is because the
+    domain and backup configuration are unique to each customer.
+
+### Domain setup
+
+cloudron-provision domain <domain_config>
 
 Once the script completes, the customer can reach Cloudron at `https://my-customer.hostingprovider.com`.
+
+### Backup setup
+
+cloudron-provision backup <backup_config>
 
 ## Security
 
@@ -79,11 +85,4 @@ Once the script completes, the customer can reach Cloudron at `https://my-custom
 * Customers do not require SSH access to their servers for installing and managing apps.
 
 * Each Customers' data is completely isolated to the VM.
-
-
-## Demo
-
-There is a [live demo](https://my.demo.cloudron.io) at `https://my.demo.cloudron.io` (username: cloudron password: cloudron).
-
-In the demo installation, the base domain is `cloudron.me`. The customer specific subdomain is `demo`.
 
