@@ -74,6 +74,10 @@ Once the script completes, the customer can reach Cloudron at `https://my-custom
 
 cloudron-provision backup <backup_config>
 
+## Customizations
+
+Create a file named `/etc/cloudron/custom.yml`.
+
 ## Security
 
 * The domain configuration (`dnsconfig`) of the domain is not visible to the customer.
