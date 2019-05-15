@@ -214,7 +214,7 @@ Cloudron can be configured to send outbound email via:
 * Postmark
 * Sendgrid
 * [Office 365](#office-365)
-* Any other external SMTP server.
+* [External SMTP server)(#smtp-server)
 
 To setup a relay, enter the relay credentials in the Email section. Cloudron only supports relaying
 via the STARTTLS mechanism (usually port 587).
@@ -267,6 +267,12 @@ to either use App passwords or enable less secure apps. See [Google Support](htt
 ### Office 365
 
 To setup Office 365 as relay, add a connector under mail flow following the instructions under [Option 3](https://support.office.com/en-us/article/How-to-set-up-a-multifunction-device-or-application-to-send-email-using-Office-365-69f58e99-c550-4274-ad18-c805d654b4c4). Note that relaying via Office 365 requires port 25 to be open and requires a static IP.
+
+### SMTP Server
+
+Cloudron can relay via an external SMTP server with or without authentication. Use `External SMTP server`
+option for relaying via a server with a username/password. For IP based authentication relays, use the
+`External SMTP sever (No authentication)`.
 
 ## Setting quota for a mailbox
 
