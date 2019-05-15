@@ -208,14 +208,20 @@ Clicking the icon will pop up a new window. The terminal is essentially a shell 
 
 ## FTP access
 
-Certain apps like Wordpress, LAMP, Surfer support access to their data via SFTP. Files can be uploaded
-using an SFTP client like [FileZilla](https://filezilla-project.org/).
+Certain apps like Wordpress, LAMP, Surfer support access to their data via SFTP. Files can be viewed
+and uploaded using any SFTP client. The FTP connection information is displayed in the information
+dialog (click the `i` button in the app grid).
 
-* Host: Cloudron's primary domain i.e `my.example.com`
-* Port: 222
-* Username: The Cloudron username@appdomain. For example, if the Cloudron username is `bob` and a Wordpress
-  blog is hosted at `blog.example.com`, the username is `bob@blog.example.com`.
-* Password: The Cloudron password
+<center>
+<img src="/documentation/img/app-sftp-info.png" class="shadow" width="500px">
+</center>
+
+A SFTP client like [FileZilla](https://filezilla-project.org/) can be used to connect as follows:
+
+* `Host` - `sftp://my.cloudron.ml`
+* `Username` - `girish@blog2.cloudron.ml`
+* `Password` - Cloudron password
+* `Port` - 222
 
 <center>
 <img src="/documentation/img/sftp-filezilla.png" class="shadow" width="500px">
