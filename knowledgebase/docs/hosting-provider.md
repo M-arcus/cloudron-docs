@@ -60,7 +60,7 @@ like `customer.hostingprovider.com`.
 
 To achieve this, you can use the `cloudron-provision` script.
 
-!!! "warning" Script must NOT be run on the snapshot
+!!! warning "Script must NOT be run on the snapshot"
     The `cloudron-provision` must be run on the server instantiated from the snapshot. This is because the
     domain and backup configuration are unique to each customer.
 
