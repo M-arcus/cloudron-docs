@@ -85,19 +85,7 @@ In this case setting the maximum execution timeout to 100 seconds.
 
 ## PHP settings
 
-You can add custom [PHP settings](http://php.net/manual/en/ini.core.php) in `/app/data/htaccess`
-using the [Web terminal](/documentation/apps#web-terminal). Note that settings with a [mode](http://php.net/manual/en/configuration.changes.modes.php) of `PHP_INI_SYSTEM` cannot be set in htaccess files.
-
-For example:
-```
-#example
-php_value post_max_size 600M
-php_value upload_max_filesize 600M
-php_value memory_limit 128M
-php_value max_execution_time 300
-php_value max_input_time 300
-php_value session.gc_maxlifetime 1200
-```
+You can add custom [PHP settings](http://php.net/manual/en/ini.core.php) in `/app/data/php.ini`
 
 ## Migrating existing site
 
