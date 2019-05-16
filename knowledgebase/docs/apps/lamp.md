@@ -16,16 +16,6 @@ The main advantage of using the Cloudron to host LAMP apps are:
 *   Don't have to worry about app and server backups, restore and updates since the Cloudron takes care of it.
 *   Run multiple LAMP apps, isolated from one another, on same server easily.
 
-## Installing LAMP app on Cloudron
-
-The LAMP app can be installed from the [Cloudron App Store](https://cloudron.io/store/lamp.cloudronapp.html).
-
-When installing the app, the SFTP port can be specified. SFTP can be disabled by unchecking the checkbox.
-
-<center>
-<img src="/documentation/img/lamp-install.png" class="shadow">
-</center>
-
 ## Uploading LAMP app
 
 The LAMP app can be upload using the Web terminal or SFTP.
@@ -34,10 +24,7 @@ The LAMP app can be upload using the Web terminal or SFTP.
 
 The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
 
-*   Connect the SFTP client. The hostname is app's domain name. The default SFTP port is 2222.
-    The username/password is the same as Cloudron credentials.
-
-*   Upload it to the `public/` folder.
+You can find the SFTP login details when clicking on the `i` icon in the app grid.
 
 <center>
 <img src="/documentation/img/lamp-filezilla.png" class="shadow">
@@ -233,16 +220,6 @@ authentication.
 <br/>
 <center>
 <img src="/documentation/img/lamp-phpmyadmin.png" class="shadow" height="300px">
-</center>
-<br/>
-
-It is recommended to disable SFTP access after the LAMP app is setup.
-This can be done by by unchecking the SFTP port in the app's configure
-dialog.
-
-<br/>
-<center>
-<img src="/documentation/img/lamp-disable-sftp.png" class="shadow" height="300px">
 </center>
 <br/>
 
