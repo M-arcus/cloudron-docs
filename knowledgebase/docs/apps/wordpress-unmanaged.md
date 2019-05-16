@@ -36,7 +36,7 @@ To run the cron tasks manually run the following command using the
 [Web terminal](/documentation/apps#web-terminal):
 
 ```
-sudo -u www-data /app/code/wp cron event run --due-now
+wp cron event run --due-now
 ```
 
 WordPress' built-in cron task schedule `wp-cron` is disabled since
@@ -75,11 +75,11 @@ using other methods:
 
 [WP CLI](http://wp-cli.org/) is a command line interface to WordPress. To run commands
 using the CLI tool, open a [Web terminal](/documentation/apps#web-terminal) and
-execute commands WP CLI using `sudo -u www-data /app/code/wp`.
+execute commands WP CLI using simply `wp`. It is pre-setup to run as the correct user already.
 
-Additional php settings can be configured, when running the cli with `php -d key=value`:
+Additional php settings can be configured, when running the cli manually with `php -d key=value`:
 ```
-sudo -u www-data php -d max_execution_time=100 /app/code/wp
+sudo -u www-data php -d max_execution_time=100 /app/pkg/wp
 ```
 In this case setting the maximum execution timeout to 100 seconds.
 
