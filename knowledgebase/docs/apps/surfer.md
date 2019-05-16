@@ -41,3 +41,15 @@ On Linux the [Davfs2](http://savannah.nongnu.org/projects/davfs2) library can al
 ```
 mount -t davfs https://[appdomain]/_webdav/ /mount/point
 ```
+
+### Using SFTP
+
+The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
+
+You can find the SFTP login details when clicking on the `i` icon in the app grid.
+
+<center>
+<img src="/documentation/img/lamp-filezilla.png" class="shadow">
+</center>
+
+

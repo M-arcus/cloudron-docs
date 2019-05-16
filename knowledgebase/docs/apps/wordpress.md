@@ -11,6 +11,16 @@
 
 The WordPress admin page is located `https://<my.example.com>/wp-login.php`.
 
+### Using SFTP
+
+The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
+
+You can find the SFTP login details when clicking on the `i` icon in the app grid.
+
+<center>
+<img src="/documentation/img/lamp-filezilla.png" class="shadow">
+</center>
+
 ## WordPress memory limit
 
 The PHP memory limit is configured to match the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). To increase WordPress memory limit, change the app's memory limit.
