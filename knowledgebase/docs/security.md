@@ -139,6 +139,7 @@ settings, on Digital Ocean the Firewall settings etc.
 | Port | Notes |
 |------|------ |
 | 22 or 202 (SSH/TCP)  | Required for SSH access to the server. We recommend disabling password based access and moving this to a different port. See [this guide](#securing-ssh-access). |
+| 222 (SFTP)  | Required for [SFTP access](/documentation/apps/#ftp-access). |
 | 80 (HTTP/TCP)  | When using manual and wildcard DNS, Let's Encrypt certificates require this port to be open. This port can be blocked when using [programmable DNS](/documentation/domains/#dns-setup). |
 | 443 (HTTPS/TCP) | Required for accessing the web page of all apps. |
 | 25 (SMTP/TCP) | Required for receiving email. When not using Cloudron Email, this can be blocked. |
