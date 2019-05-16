@@ -1,19 +1,19 @@
-# <img src="/documentation/img/wordpress-logo.png" width="25px"> Wordpress App
+# <img src="/documentation/img/wordpress-logo.png" width="25px"> WordPress App
 
 ## Admin page
 
-The Wordpress admin page is located `https://<my.example.com>/wp-login.php`.
+The WordPress admin page is located `https://<my.example.com>/wp-login.php`.
 
-## Wordpress memory limit
+## WordPress memory limit
 
-The PHP memory limit is configured to match the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). To increase Wordpress memory limit, change the app's memory limit.
+The PHP memory limit is configured to match the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). To increase WordPress memory limit, change the app's memory limit.
 
-Cloudron app is setup so that Wordpress automatically [sets](https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP)
+Cloudron app is setup so that WordPress automatically [sets](https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP)
 the `WP_MEMORY_LIMIT` option to match the PHP memory limit.
 
 ## Cron tasks
 
-The app is configured to run Wordpress cron tasks every 5 minutes.
+The app is configured to run WordPress cron tasks every 5 minutes.
 
 To run the cron tasks manually run the following command using the
 [Web terminal](/documentation/apps#web-terminal):
@@ -22,7 +22,7 @@ To run the cron tasks manually run the following command using the
 sudo -u www-data /app/code/wp cron event run --due-now
 ```
 
-Wordpress' built-in cron task schedule `wp-cron` is disabled since
+WordPress' built-in cron task schedule `wp-cron` is disabled since
 it is [not effective](https://www.lucasrolff.com/wordpress/why-wp-cron-sucks/)
 for low traffic websites.
 
@@ -36,7 +36,7 @@ A list of plugins known to not work can be found [here](https://git.cloudron.io/
 ## Performance
 
 [GTmetrix](https://gtmetrix.com) is a great site for getting performance metrics on the
-Wordpress installation.
+WordPress installation.
 
 * To set the expires headers for all pages, the [WP Fastest Cache](https://wordpress.org/plugins/wp-fastest-cache/)
   plugin can be installed.
@@ -58,7 +58,7 @@ using other methods:
 
 ## WP CLI
 
-[WP CLI](http://wp-cli.org/) is a command line interface to Wordpress. To run commands
+[WP CLI](http://wp-cli.org/) is a command line interface to WordPress. To run commands
 using the CLI tool, open a [Web terminal](/documentation/apps#web-terminal) and
 execute commands WP CLI using `sudo -u www-data /app/code/wp`.
 
@@ -87,6 +87,6 @@ php_value session.gc_maxlifetime 1200
 ## Migrating existing site
 
 See our [blog](/blog/2018-11-05-wordpress-migration.html) on how to migrate an existing
-Wordpress site to Cloudron.
+WordPress site to Cloudron.
 
 

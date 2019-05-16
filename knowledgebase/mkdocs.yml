@@ -74,7 +74,7 @@ pages:
     - 'Verdaccio': apps/verdaccio.md
     - 'Wallabag': apps/wallabag.md
     - 'Wekan': apps/wekan.md
-    - 'Wordpress': apps/wordpress.md
+    - 'WordPress': apps/wordpress.md
   - 'Hosting Provider Edition': 'hosting-provider.md'
   - 'Billing': 'billing.md'
   - 'Support': 'support.md'
