@@ -6,8 +6,11 @@ This section will provide some general overview where to find log output and how
 
 If the Cloudron dashboard is down/not reachable, try the following steps:
 
-* Check the output of `host my.<domain>` on your PC and verify that the IP address is pointing to your server.
+* Make sure all migrations are run on the server - Run `/home/yellowtent/box/setup/start.sh` on the server.
 * Try `systemctl status box` on the server. If it's not running, try `systemctl restart cloudron.target`
+
+Check, if this a networking issue on your PC
+* Check the output of `host my.<domain>` on your PC and verify that the IP address is pointing to your server.
 
 If the dashboard was using a domain that you no longer control and you want to switch it to
 a new domain, do the following:
@@ -37,6 +40,7 @@ In a few minutes, you should be able to reach `https://my.example.com`.
 
 If the apps are unresponsive, try the following steps:
 
+* Check if all the services are running in the `Systems` view. Try restarting them to see if they come back up.
 * Check the status of docker in the `Systems` view
 * Try restarting docker from the `Systems` view
 
