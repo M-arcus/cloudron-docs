@@ -117,7 +117,7 @@ on controlling the [visibility of app icon in dashboard](#visibility-of-app-icon
 
 Note that Cloudron only handles authentication. Assigning roles to users is
 done within the application itself. For example, changing a user to become a
-`commenter` or `author` inside Wordpress has to be done within Wordpress.
+`commenter` or `author` inside WordPress has to be done within WordPress.
 
 <center>
 <img src="/documentation/img/app-configure-group-acl.png" class="shadow" width="500px">
@@ -208,7 +208,7 @@ Clicking the icon will pop up a new window. The terminal is essentially a shell 
 
 ## FTP access
 
-Certain apps like Wordpress, LAMP, Surfer support access to their data via SFTP. Files can be viewed
+Certain apps like WordPress, LAMP, Surfer support access to their data via SFTP. Files can be viewed
 and uploaded using any SFTP client. The FTP connection information is displayed in the information
 dialog (click the `i` button in the app grid).
 

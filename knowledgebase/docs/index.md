@@ -33,7 +33,7 @@ the apps via the Cloudron App Store.
 
 ## Motivation
 
-Say you want to run a web application like Wordpress, GitLab, Rocket.chat or even an email server.
+Say you want to run a web application like WordPress, GitLab, Rocket.chat or even an email server.
 The first step is to start reading up installation manuals and configuring the server. Web apps today
 use multiple package managers, languages and frameworks making this process very tedious and complicated.
 

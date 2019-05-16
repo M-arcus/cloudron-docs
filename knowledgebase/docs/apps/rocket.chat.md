@@ -171,7 +171,7 @@ Rocket.Chat has a live chat feature that allows you to embed a chat widget into 
 
 *You will also find options to customize the live chat widget appearance to match your look and feel there.*
 
-* As the last step, copy the Javascript code snippet shown in the Livechat Installation view and paste it to the bottom of your website's html code as the last thing before the `</body>` tag. Wordpress users can use the [Rocket.Chat LiveChat Wordpress plugin](https://wordpress.org/plugins/rocketchat-livechat/) instead.
+* As the last step, copy the Javascript code snippet shown in the Livechat Installation view and paste it to the bottom of your website's html code as the last thing before the `</body>` tag. WordPress users can use the [Rocket.Chat LiveChat WordPress plugin](https://wordpress.org/plugins/rocketchat-livechat/) instead.
 
 You will now see the live chat widget on the bottom right of your page.
 
