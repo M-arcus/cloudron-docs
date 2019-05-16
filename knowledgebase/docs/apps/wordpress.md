@@ -1,5 +1,12 @@
 # <img src="/documentation/img/wordpress-logo.png" width="25px"> WordPress App
 
+!!! note "Managed Wordpress"
+    This app is targeted at users who want a managed WordPress installation. The
+    Cloudron team tracks upstream WordPress releases and publishes updates. The WordPress
+    code is read-only and you have to extend WordPress using plugins. If you require full
+    control over the plugins and the WordPress code, use the [WordPress (unmanaged) app](/documentation/apps/wordpress-unmanaged)
+    instead.
+
 ## Admin page
 
 The WordPress admin page is located `https://<my.example.com>/wp-login.php`.
