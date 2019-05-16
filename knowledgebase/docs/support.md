@@ -1,4 +1,4 @@
-# Support 
+# Support
 
 ## Forum
 
@@ -38,8 +38,12 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQVilclYAIu+ioDp/sgzzFz6YU0hPcRYY7ze/LiF/l
 If the Cloudron dashboard is unreachable, it can be difficult to diagnose what is wrong.
 You can SSH into your server and run the following script when contacting the Cloudron team.
 
-This script collects some diagnostic information on the server and enables SSH support.
+This script collects some diagnostic information on the server and enables SSH support when given `--enable-ssh`
+```
+sudo cloudron-support [--enable-ssh]
+```
 
+Older versions of Cloudron may not have this script yet. In such a situation it can be run as follows:
 ```
 wget https://git.cloudron.io/cloudron/box/raw/master/scripts/cloudron-support
 chmod +x cloudron-support
