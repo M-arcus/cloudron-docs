@@ -227,6 +227,10 @@ A SFTP client like [FileZilla](https://filezilla-project.org/) can be used to co
 <img src="/documentation/img/sftp-filezilla.png" class="shadow" width="500px">
 </center>
 
+!!! note "Port 222"
+    SFTP service runs at port 222. The server firewall already has this port open. However, you will
+    have to whitelist this port in the Cloud firewall (e.g EC2 Security Group or DigitalOcean Firewall).
+
 ## Log viewer
 
 To view the logs of an app, click the logs button on the app grid:
