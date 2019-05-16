@@ -75,6 +75,7 @@ pages:
     - 'Wallabag': apps/wallabag.md
     - 'Wekan': apps/wekan.md
     - 'WordPress': apps/wordpress.md
+    - 'WordPress (Unmanaged)': apps/wordpress-unmanaged.md
   - 'Hosting Provider Edition': 'hosting-provider.md'
   - 'Billing': 'billing.md'
   - 'Support': 'support.md'

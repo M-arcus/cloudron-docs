@@ -1,10 +1,10 @@
-# <img src="/documentation/img/wordpress-logo.png" width="25px"> WordPress App
+# <img src="/documentation/img/wordpress-unmanaged-logo.png" width="25px"> WordPress (Unmanaged) App
 
-!!! note "Managed WordPress"
-    This app is targeted at users who want a managed WordPress installation. The
-    Cloudron team tracks upstream WordPress releases and publishes updates. The WordPress
-    code is read-only and you have to extend WordPress using plugins. If you require full
-    control over the plugins and the WordPress code, use the [WordPress (unmanaged) app](/documentation/apps/wordpress-unmanaged)
+!!! note "Unmanaged WordPress"
+    This app is targeted at users who want to have complete control over their WordPress installation.
+    The WordPress code can be accessed and edited via SFTP. WordPress' built-in updater has to be used
+    to periodically check and install updates. If you prefer delegating the responsibility of applying
+    updates to the Cloudron team, use the [WordPress app](/documentation/apps/wordpress)
     instead.
 
 ## Admin page
@@ -35,13 +35,8 @@ for low traffic websites.
 
 ## Plugins
 
-Cloudron does not support plugins that modify the code. Code is read-only
-and immutable. This property is essential for Cloudron to update apps correctly.
-
-Use the [WordPress (unmanaged) app](/documentation/apps/wordpress-unmanaged) as an alternative
-to install plugins that modify the code.
-
-A list of plugins known to not work can be found [here](https://git.cloudron.io/cloudron/wordpress-app/issues?label_name%5B%5D=plugin).
+Unlike the [Managed WordPress app](/documentation/apps/wordpress), you can install
+plugins that modify the code.
 
 ## Performance
 
@@ -98,5 +93,4 @@ php_value session.gc_maxlifetime 1200
 
 See our [blog](/blog/2018-11-05-wordpress-migration.html) on how to migrate an existing
 WordPress site to Cloudron.
-
 
