@@ -44,3 +44,17 @@ To change the timezone, run the following commands:
 
 * `systemctl restart box`
 
+## Unstable apps
+
+Besides the officially supported and tested apps, Cloudron can also install apps, which are currently
+in testing phase or not officially supported. There is no guarantee that those apps will be updated
+in the future. If enabled, those apps will be listed in the App Store and marked accordingly. 
+
+<center>
+<img src="/documentation/img/settings-unstable-apps.png" class="shadow" width="500px">
+</center>
+
+!!! warning "Do not use in production"
+    Since the apps are unstable, please do not use them in production.
+
+
