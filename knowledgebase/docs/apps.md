@@ -245,23 +245,6 @@ This will open up a popup dialog that display the logs:
 <img src="/documentation/img/app-logs.png" class="shadow" width="500px">
 </center>
 
-## Embedding Apps
-
-Cloudron apps can be embedded into other websites by setting `X-Frame-Options`. By default, this HTTP header is set to
-`SAMEORIGIN` to prevent [Clickjacking](https://cloudron.io/blog/2016-07-15-site-embedding.html).
-
-To allow embedding, enter the embedder website name in the `Advanced settings` of the app's configure dialog.
-
-For example, to embed the live chat application hosted on `chat.example.com` into `www.example.com`, enter the value
-`https://www.example.com` in the `chat` app's configure dialog.
-
-`ALLOW-FROM` is [not supported](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options#Browser_compatibility)
-in Chrome. You can safely ignore the `Invalid 'X-Frame-Options' header encountered` message in the browser console.
-
-<center>
-<img src="/documentation/img/app-embed-url.png" class="shadow" width="500px">
-</center>
-
 ## Uninstall an app
 
 An app can be uninstalled clicking the `Uninstall` button.
