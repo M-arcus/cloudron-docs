@@ -280,6 +280,9 @@ the new location.
 <img src="../img/domains-change-dashboard.png" width="500px" class="shadow">
 </center>
 
+!!! note "Notifications"
+    The email server will be reconfigured to send notifications from the new primary domain.
+
 !!! note "Unreachable dashboard"
     If your dashboard is unreachable, see the [troubleshooting section](/documentation/troubleshooting/#dashboard)
 

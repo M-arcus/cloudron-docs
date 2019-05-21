@@ -76,7 +76,42 @@ cloudron-provision backup <backup_config>
 
 ## Customizations
 
-Create a file named `/etc/cloudron/custom.yml`.
+Create a file named `/etc/cloudron/custom.yml`. Uncomment and customize as neeeded.
+
+```
+# add customizations here
+# after making changes run "sudo systemctl restart box"
+
+# backups:
+#   configurable: true
+#
+# domains:
+#   dynamicDns: true
+#   changeDashboardDomain: true
+#
+# subscription:
+#   configurable: true
+#
+# support:
+#   email: support@cloudron.io
+#   remoteSupport: true
+#
+#   ticketFormBody: |
+#     Use this form to open support tickets. You can also write directly to [support@cloudron.io](mailto:support@cloudron.io).
+#       * [Knowledge Base & App Docs](https://cloudron.io/documentation/apps/?support_view)
+#       * [Custom App Packaging & API](https://cloudron.io/developer/packaging/?support_view)
+#       * [Forum](https://forum.cloudron.io/)
+#
+#   submitTickets: true
+#
+# alerts:
+#   email: support@cloudron.io
+#   notifyCloudronAdmins: false
+#
+# footer:
+#   body: '&copy; 2019 [Cloudron](https://cloudron.io) [Forum <i class="fa fa-comments"></i>](https://forum.cloudron.io)'
+
+```
 
 ## Security
 
