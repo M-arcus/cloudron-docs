@@ -1,42 +1,51 @@
-# Hosting Provider Edition
+# Hosting Edition
 
 ## About
 
-Cloudron Hosting Provider Edition is targeted at Cloud service providers and Web hosting
+Cloudron Hosting Edition is targeted at Cloud service providers and Web hosting
 providers who would like to offer Cloudron for their customers. With the
-Cloudron Hosting Provider Edition, customer can effortlessly install and run app like
-Wordpress, Nextcloud, GitLab and OpenVPN. Cloudron takes care of keeping these apps
-up-to-date while the service provider takes care of the server management.
+Cloudron Hosting Edition, Cloud service providers can offer Cloudron to their
+customers to effortlessly install and run app like Wordpress, Nextcloud, GitLab and OpenVPN.
 
-## Features
+## Deployment model
 
-The Hosting Provider Edition functions similar to the standard Cloudron but includes the
-following features:
+Cloudron can be deployed in a dedicated server, virtual private server or a virtual
+machine. Each Cloudron installation is designed to be single tenant - a separate install
+for each customer. Domains, Apps and Users added in a single Cloudron installation 
+are expected to be of the same customer/team/organization.
 
-* Each of your customers have a separate Cloudron installation. This way a service provider
-  can individually provision servers with the necessary CPU/RAM/Disk resources based on
-  customer requirements.
+**Cloudron is not designed for shared web hosting style setups** where you can create
+a single Cloudron installation and add multiple customers as users in the same installation.
 
-* Each Cloudron can optionally be pre-setup with a domain name like `customer.hostingprovider.com`. When
-  customers install apps, they get installed into `<app>.customer.hostingprovider.com`.
+## Cloudron Editions
 
-* Automatic backups can be pre-configured to a location outside the Cloudron (Ceph, S3 etc).
-  This provides an user experience close to managed hosting.
+Cloudron comes in 2 flavors - The `Server Edition` and the `Hosting Edition`.
 
-* Customer can add any number of custom domains of their own.
+### Server Edition
 
-* Access to the server itself is locked down. Customers can only access the Cloudron web interface.
-  Cloudron is designed so that customers never require SSH access.
+The `Server Edition` can be installed using the standard [install script](/get.html).
+Once installation is complete, you can snapshot the server and can provide it to your customers.
+Customers can then create a server from the snapshot and complete the installation.
 
-* Access to all apps in the [Cloudron Appstore](/appstore.html).
+### Hosting Edition 
 
-* Automatic subscription - Your customers do not need to setup a subscription (credit card) with us
-  Instead, you setup a billing account with us and you will charged based on our pricing agreement.
-  Cloudrons are automatically subscribed to a plan that allows them to install any app they want.
+In addition to all features of the `Server Edition`, the `Hosting Edition` adds
+the following:
+
+* **Bulk licensing and automatic subscription** - With this, you can pre-provision cloudron installations with a license. This
+  way, your customers do not have to setup a billing account us. Instead, you will charged based on our pricing agreement.
+  Bulk licenses have access to all apps in the [App Store](/appstore.html).
+
+* **Pre-setup domain and backup configuration** - Each Cloudron can be pre-setup with a domain name like `customer.hostingprovider.com`.
+  Each Cloudron can be pre-configured to backup to a location outside the Cloudron (Ceph, S3 etc).
+  This automation provides an user experience close to managed hosting.
+
+* **Whitelabeling and customization** - It's possible to white label the UI with your branding and customize some pages like
+  the Support page.
 
 ## Installation
 
-* Please reach out to [sales@cloudron.io](mailto:sales@cloudron.io) to get a license.
+* Please reach out to [sales@cloudron.io](mailto:sales@cloudron.io) to get a trial license.
 
 * Start with a fresh Ubuntu 18.04 64-bit server and run the following commands:
 
@@ -46,11 +55,10 @@ following features:
     ./cloudron-setup --provider generic --license <license>
 ```
 
-* Reboot and snapshot the server. Please **do not finish the setup by visiting https://<IP>**.
+* Reboot and snapshot the server. Please **do not finish the setup by visiting https://IP**.
 
 * The above server snapshot can now be instantiated for each customer. Each customer can then visit `https://IP`
-  to complete the installation. It is possible to pre-provision each customer Cloudron with a domain, backup configuration etc
-  using the script below.
+  to complete the installation. To pre-setup a domain, see the section below.
 
 ## Automatic provisioning
 
@@ -58,23 +66,21 @@ When the server snapshot is instantiated, the customer has to visit `https://IP`
 by providing a domain name. As a hosting provider, you might want to provide your customers with a pre-setup domain
 like `customer.hostingprovider.com`.
 
-To achieve this, you can use the `cloudron-provision` script.
+To achieve this, you can use the `cloudron-sysadmin` script.
 
 !!! warning "Script must NOT be run on the snapshot"
-    The `cloudron-provision` must be run on the server instantiated from the snapshot. This is because the
+    The `cloudron-sysadmin` must be run on the server instantiated from the snapshot. This is because the
     domain and backup configuration are unique to each customer.
 
-### Domain setup
+Run the following command:
 
-cloudron-provision domain <domain_config>
+```
+cloudron-sysadmin setup --ip <server_ip> --domain <customer.hostingprovider.com> --dns-provider <provider> --dns-config <dns_config> --backup_config <backup_config>
+```
 
-Once the script completes, the customer can reach Cloudron at `https://my-customer.hostingprovider.com`.
+Once the script completes, the customer can reach the Cloudron at `https://my.customer.hostingprovider.com`.
 
-### Backup setup
-
-cloudron-provision backup <backup_config>
-
-## Customizations
+## Customization
 
 Create a file named `/etc/cloudron/custom.yml`. Uncomment and customize as neeeded.
 
@@ -115,13 +121,10 @@ Create a file named `/etc/cloudron/custom.yml`. Uncomment and customize as neeed
 
 ## Security
 
-* The domain configuration (`dnsconfig`) of the domain is not visible to the customer.
-
-* The backup configuration (`backupconfig`) is not visible to the customer.
-
-* The wildcard TLS certs are not visible to the customer and are not part of the backups.
-
-* Customers do not require SSH access to their servers for installing and managing apps.
-
 * Each Customers' data is completely isolated to the VM.
+
+* Customers do not require SSH access to their servers for installing and managing apps. If you give SSH access to customers,
+  then please be aware that they can access the database to view any pre-setup domain and backup configuration.
+
+* Any pre-setup domain and backup configuration is locked and not configurable by the customer.
 
