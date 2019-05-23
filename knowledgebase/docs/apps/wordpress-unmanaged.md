@@ -11,7 +11,7 @@
 
 The WordPress admin page is located `https://<my.example.com>/wp-login.php`.
 
-### Using SFTP
+## Using SFTP
 
 The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
 
