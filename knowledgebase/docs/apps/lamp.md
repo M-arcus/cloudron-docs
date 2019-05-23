@@ -12,7 +12,7 @@ about keeping them up-to-date.
 The main advantage of using the Cloudron to host LAMP apps are:
 
 *   DNS configuration, Let's Encrypt (SSL) certificate installation and renewal are automated.
-*   Can use MySQL, LDAP and send email out of the box.
+*   Can use MySQL, redis and send email out of the box.
 *   Don't have to worry about app and server backups, restore and updates since the Cloudron takes care of it.
 *   Run multiple LAMP apps, isolated from one another, on same server easily.
 
@@ -92,7 +92,6 @@ The LAMP app already includes most of the popular PHP extensions including the f
 * php-imap
 * php-intl
 * php-json
-* php-ldap
 * php-mbstring
 * php-mcrypt
 * php-mysql
@@ -217,14 +216,19 @@ mysql_query("SET SESSION FOREIGN_KEY_CHECKS=0");
 ## phpMyAdmin
 
 [phpMyAdmin](https://www.phpmyadmin.net/) can be accessed at the
-`/phpmyadmin` path of the app. Use the Cloudron credentials for
-authentication.
+`/phpmyadmin` path of the app. It uses basic auth through a htpasswd file
+and is pre-setup with an admin account and a generated password.
+The password can be found in the `phpmyadmin_login.txt` file,
+alongside with details how to managed more users.
 
 <br/>
 <center>
 <img src="/documentation/img/lamp-phpmyadmin.png" class="shadow" height="300px">
 </center>
 <br/>
+
+If access does not work anymore, simply remove the file `.phpmyadminauth` and restart the app.
+This will generate new phpMyAdmin credentials.
 
 ## Custom Startup Script
 
