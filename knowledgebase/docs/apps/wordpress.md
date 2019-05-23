@@ -4,22 +4,17 @@
     This app is targeted at users who want a managed WordPress installation. The
     Cloudron team tracks upstream WordPress releases and publishes updates. The WordPress
     code is read-only and you have to extend WordPress using plugins. If you require full
-    control over the plugins and the WordPress code, use the [WordPress (unmanaged) app](/documentation/apps/wordpress-unmanaged)
-    instead.
+    control over the installation including editing the WordPress code via SFTP, use the
+    [WordPress (unmanaged) app](/documentation/apps/wordpress-unmanaged) instead.
 
 ## Admin page
 
 The WordPress admin page is located `https://<my.example.com>/wp-login.php`.
 
-### Using SFTP
+## Using SFTP
 
-The app can be uploaded using an SFTP client like [FileZilla](https://filezilla-project.org/).
-
-You can find the SFTP login details when clicking on the `i` icon in the app grid.
-
-<center>
-<img src="/documentation/img/lamp-filezilla.png" class="shadow">
-</center>
+The Managed WordPress app does not support editing files via SFTP. If you require SFTP access
+to edit WordPress files, use the [WordPress (unmanaged) app](/documentation/apps/wordpress-unmanaged) instead.
 
 ## WordPress memory limit
 

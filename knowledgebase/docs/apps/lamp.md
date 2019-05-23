@@ -30,6 +30,9 @@ You can find the SFTP login details when clicking on the `i` icon in the app gri
 <img src="/documentation/img/lamp-filezilla.png" class="shadow">
 </center>
 
+!!! note "SFTP Access"
+    SFTP access for non-admin users can be granted using the [access control UI](/documentation/apps/#restricting-app-access-to-specific-users).
+
 ### Web terminal
 
 * Open a [web terminal](/documentation/apps#web-terminal) for the app.

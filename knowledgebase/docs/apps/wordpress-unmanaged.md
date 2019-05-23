@@ -21,6 +21,9 @@ You can find the SFTP login details when clicking on the `i` icon in the app gri
 <img src="/documentation/img/lamp-filezilla.png" class="shadow">
 </center>
 
+!!! note "SFTP Access"
+    SFTP access for non-admin users can be granted using the [access control UI](/documentation/apps/#restricting-app-access-to-specific-users).
+
 ## WordPress memory limit
 
 The PHP memory limit is configured to match the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). To increase WordPress memory limit, change the app's memory limit.
