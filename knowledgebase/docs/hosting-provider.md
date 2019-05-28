@@ -75,7 +75,7 @@ To achieve this, you can use the `cloudron-sysadmin` script.
 Run the following command:
 
 ```
-cloudron-sysadmin setup --ip <server_ip> --domain <customer.hostingprovider.com> --dns-provider <provider> --dns-config <dns_config> --backup_config <backup_config>
+cloudron-sysadmin setup --ip <server_ip> --domain <customer.hostingprovider.com> --dns-provider <provider> --dns-config <dns_config> --backup-config <backup_config>
 ```
 
 Once the script completes, the customer can reach the Cloudron at `https://my.customer.hostingprovider.com`.
