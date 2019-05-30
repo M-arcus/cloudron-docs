@@ -46,3 +46,10 @@ bundle install
 ./bundle.sh
 ```
 
+## Code repositories
+
+Redmine can integrate various source code management tools like git, cvs, subversion. The repositories
+have to be created manually in `/app/data/repos/` and then configured with that path in the project settings.
+
+For further more detailed information for repository integration can be found [here](http://www.redmine.org/projects/redmine/wiki/RedmineRepositories).
+
