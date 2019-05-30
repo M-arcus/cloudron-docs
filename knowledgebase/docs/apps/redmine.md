@@ -53,3 +53,13 @@ have to be created manually in `/app/data/repos/` and then configured with that 
 
 For further more detailed information for repository integration can be found [here](http://www.redmine.org/projects/redmine/wiki/RedmineRepositories).
 
+## SSH Keys
+
+Redmine is run as the `cloudron` user. To generate SSH keys for this user, open a
+[Web Terminal](/documentation/apps#web-terminal) and run the following commands:
+
+```
+su - cloudron
+ssh-keygen          # generates keys under ~/.ssh. keys are part of the backup
+```
+
