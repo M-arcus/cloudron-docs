@@ -62,7 +62,7 @@ another domain or subdomain:
     Moving an app to a new location is a non-destructive action. Existing app data will
     be migrated to the new domain.
 
-## Setting up redirections
+## Redirections
 
 Redirections can be setup from the `Advanced` section in the app's configure dialog:
 
