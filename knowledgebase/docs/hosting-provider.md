@@ -66,7 +66,7 @@ When the server snapshot is instantiated, the customer has to visit `https://IP`
 by providing a domain name. As a hosting provider, you might want to provide your customers with a pre-setup domain
 like `customer.hostingprovider.com`.
 
-To achieve this, you can use the `cloudron-sysadmin` script. This script can be installeed using:
+To achieve this, you can use the `cloudron-sysadmin` script. This script can be installed using:
 
 ```
 sudo npm install -g cloudron-sysadmin
