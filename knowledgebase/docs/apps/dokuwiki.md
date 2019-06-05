@@ -5,24 +5,32 @@
 ### Cloudron SSO
 
 When Cloudron SSO is enabled, only Cloudron users can login to the wiki and
-edit pages. Any Cloudron admin automatically becomes a dokuwiki admin.
+edit pages. 
+
+To make a Cloudron user an admin, use the [Web terminal](/documentation//documentation/apps#web-terminal)
+and edit `/app/data/conf/local.php`:
+
+```
+<?php
+
+$conf['superuser']   = ("userid1", "userid2");
+```
 
 By default, the pages are readable by all. The wiki can be made readable
 only for logged in users by changing the ACL Rules for the `@ALL` group
 in dokuwiki's `Access Control List Management` admin page.
 
-When not using Cloudron authentication, first register a new user.
-
 ### Without Cloudron SSO
 
-#### Making user an admin
+When not using Cloudron authentication, first register a new user.
 
 To make the new user an admin, use the [Web terminal](/documentation//documentation/apps#web-terminal)
-to edit `/app/data/conf/users.auth.php` and add the `admins` group to the new
-user's groups. For example:
+and edit `/app/data/conf/local.php`:
 
 ```
-    girish:$1$bLd0HfJ8$HYI5uZgZfHYo8pgIAqXbE.:Me:mail@girish.in:user,admins
+<?php
+
+$conf['superuser']   = ("userid1", "userid2");
 ```
 
 #### Disabling registration
