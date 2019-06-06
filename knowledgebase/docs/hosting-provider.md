@@ -40,6 +40,9 @@ the following:
   Each Cloudron can be pre-configured to backup to a location outside the Cloudron (Ceph, S3 etc).
   This automation provides an user experience close to managed hosting.
 
+* **Setup app packages** - Each Cloudron can specify a app blacklist and whitelist. This lets you control what apps your customers
+  can install.
+
 * **Whitelabeling and customization** - It's possible to white label the UI with your branding and customize some pages like
   the Support page.
 
@@ -92,6 +95,15 @@ Create a file named `/etc/cloudron/custom.yml`. Uncomment and customize as neeed
 # add customizations here
 # after making changes run "sudo systemctl restart box"
 
+# appstore:
+#   blacklist:
+#     - io.wekan.cloudronapp
+#     - io.cloudron.openvpn
+#   whitelist:
+#     org.wordpress.cloudronapp: {}
+#     chat.rocket.cloudronapp: {}
+#     com.nextcloud.cloudronapp: {}
+#
 # backups:
 #   configurable: true
 #
