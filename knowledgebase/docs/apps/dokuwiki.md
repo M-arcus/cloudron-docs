@@ -16,6 +16,15 @@ and edit `/app/data/conf/local.php`:
 $conf['superuser']   = ("userid1", "userid2");
 ```
 
+To make all Cloudron admins as wiki admins edit `/app/data/conf/local.php` and add:
+
+```
+<?php
+
+$conf['plugin']['authldap']['mapping']['grps']  = array('memberof' => '/CN=(.+?),/i');
+$conf['superuser']   = '@admins';
+```
+
 By default, the pages are readable by all. The wiki can be made readable
 only for logged in users by changing the ACL Rules for the `@ALL` group
 in dokuwiki's `Access Control List Management` admin page.
