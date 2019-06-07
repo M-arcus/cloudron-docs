@@ -10,8 +10,8 @@ might depend on it.
 
 ## Installing Plugins
 
-To install plugins, simply extract them to `/app/data/plugins` and restart
-the app.
+To install [plugins](https://git.tt-rss.org/fox/tt-rss/wiki/Plugins), simply extract
+them to `/app/data/plugins` (system plugins) or `/app/data/plugins.local` (user plugins) and restart the app.
 
 The [web terminal](/documentation/apps#web-terminal) can be used to upload
 and extract plugins.
@@ -20,8 +20,8 @@ You can see list of plugins [here](https://git.tt-rss.org/git/tt-rss/wiki/Plugin
 
 ## Installing themes
 
-To install themes, simply extract them to `/app/data/plugins` and restart
-the app.
+To install [themes](https://git.tt-rss.org/fox/tt-rss/wiki/Themes), simply extract them to `/app/data/themes` (system themes)
+or `/app/data/themes.local` (user themes) and restart the app.
 
 The [web terminal](/documentation/apps#web-terminal) can be used to upload
 and extract themes.
