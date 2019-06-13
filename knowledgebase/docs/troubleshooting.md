@@ -244,6 +244,33 @@ Let's Encrypt.
 * If all looks good, click the 'Renew All' button in `Domains` view to renew all the certs.
   See the logs for more information on why certificate renewal might be failing.
 
+## DNS
+
+If your network uses an internal DNS server, you might find apps erroring with `ECANCELLED`
+or `EREFUSED` errors. Other symptoms include apps like NextCloud being unable to install apps
+and internal mail relay not working.
+
+To remedy, configure Cloudron's DNS server `unbound` to forward the queries to the internal DNS server.
+Create a file named `/etc/unbound/unbound.conf.d/private-dns.conf`:
+
+```
+# this disables DNSSEC
+server:
+  val-permissive-mode: yes
+
+# forward all queries to the internal DNS
+forward-zone:
+  name: "."
+  forward-addr: 1.2.3.4
+```
+
+Then restart unbound:
+
+```
+systemctl restart unbound
+host www.cloudron.io 127.0.0.1 # this command should work
+```
+
 ## Mail DNS
 
 ### SPF
