@@ -2,12 +2,10 @@
 
 ## Installing plugins
 
-Plugins are used to extend Kanboard. Kanboard has UI to install and uninstall plugins
-via the UI at `/extensions/directory`.
+[Kanboard Plugins](https://kanboard.org/#plugins) are used to extend Kanboard. Kanboard has a UI to install and uninstall plugins
+at `/app/data/plugins` directly.
 
-See the [plugin docs](https://kanboard.org/#plugins) for a complete list.
-
-Plugins can also be installed manually into `/app/data/plugins`.
+Plugins can also be installed manually at `/app/data/plugins`.
 
 * Open a [web terminal](/documentation/apps#web-terminal) for the app.
 
