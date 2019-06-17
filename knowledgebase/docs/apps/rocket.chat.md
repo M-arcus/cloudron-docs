@@ -152,15 +152,7 @@ After the integration is setup, the Webhook URL and Secret Token is generated an
 
 Rocket.Chat has a live chat feature that allows you to embed a chat widget into your website.
 
-* Allow the Rocket.Chat live chat widget to be embedded in your website. For this, configure Rocket.Chat through the Cloudron app [configure dialog](apps/#configuring-an-app) to [allow embedding](https://cloudron.io/documentation/apps/#embedding-apps) into your website. This will protect the live chat widget from being used in unwanted websites.
-
-<br/>
-<center><img src="/documentation/img/app-embed-url.png" class="shadow"></center>
-<br/>
-
-*As an example, we have configured it for a website at https://smartserver.io*
-
-* Head over to Rocket.Chat app's Administration view, select the Livechat section and enable it. After this, you will find a `Livechat` entry in the side bar.
+Head over to Rocket.Chat app's Administration view, select the Livechat section and enable it. After this, you will find a `Livechat` entry in the side bar.
 
 <center>
 <img src="/blog/img/live-chat-4.png" class="shadow" width="30%">
@@ -171,8 +163,6 @@ Rocket.Chat has a live chat feature that allows you to embed a chat widget into 
 
 *You will also find options to customize the live chat widget appearance to match your look and feel there.*
 
-* As the last step, copy the Javascript code snippet shown in the Livechat Installation view and paste it to the bottom of your website's html code as the last thing before the `</body>` tag. WordPress users can use the [Rocket.Chat LiveChat WordPress plugin](https://wordpress.org/plugins/rocketchat-livechat/) instead.
+Then copy the Javascript code snippet shown in the Livechat Installation view and paste it to the bottom of your website's html code as the last thing before the `</body>` tag. WordPress users can use the [Rocket.Chat LiveChat WordPress plugin](https://wordpress.org/plugins/rocketchat-livechat/) instead.
 
 You will now see the live chat widget on the bottom right of your page.
-
-
