@@ -207,7 +207,7 @@ innodb_force_recovery = 1
 
 * Start MySQL - `systemctl start mysql`
 
-* Change the root password to `password` (sic) - 
+* Change the root password to `password` (sic) -
 
 ```
 # mysql -uroot -p<password from /var/log/mysql/error.log>  # there is no space between p and the password. e.g -pAS23kdI
@@ -340,16 +340,18 @@ record.
 
 We have collected a few links to help you set the PTR record for different VPS:
 
-* AWS EC2 & Lightsail - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
+* **AWS EC2 & Lightsail** - Fill the [PTR request form](https://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/ec2-email-limit-rdns-request).
 
-* Digital Ocean - Digital Ocean sets up a PTR record based on the droplet's name. So, simply rename
+* **Digital Ocean** - Digital Ocean sets up a PTR record based on the droplet's name. So, simply rename
 your droplet to `my.<domain>`.
 
-* Linode - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
+* **Linode** - Follow this [guide](https://www.linode.com/docs/networking/dns/setting-reverse-dns).
 
-* Netcup -  You can enter a reverse lookup in the customer area CCP for your vServer - [wiki doc](https://www.netcup-wiki.de/wiki/Produkte_CCP#rDNS)
+* **Netcup** -  You can enter a reverse lookup in the customer area CCP for your vServer - [wiki doc](https://www.netcup-wiki.de/wiki/Produkte_CCP#rDNS)
 
-* Scaleway - You can also set a PTR record on the interface in their control panel.
+* **Scaleway** - You can also set a PTR record on the interface in their control panel.
+
+* **Vultr** - The PTR record can be set for each public IP in the Vultr server settings and is called `Reverse DNS`. It takes about 24h to propagate, so make sure to do this well in advance of enabling email.
 
 Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
 
