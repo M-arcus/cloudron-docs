@@ -31,7 +31,7 @@ Here is an example manifest:
   "addons": {
     "localstorage": {}
   },
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "website": "https://www.example.com",
   "contactEmail": "support@clourdon.io",
   "icon": "file://icon.png",
@@ -246,10 +246,10 @@ Type: integer
 
 Required: yes
 
-`manifestVersion` specifies the version of the manifest and is always set to 1.
+`manifestVersion` specifies the version of the manifest and is always set to 2.
 
 ```
-  "manifestVersion": 1
+  "manifestVersion": 2
 ```
 
 ### mediaLinks

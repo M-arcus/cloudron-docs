@@ -47,7 +47,7 @@ This addon allows an app to create containers on behalf of the user.
 Exported environment variables:
 
 ```
-DOCKER_HOST=        # tcp://<IP>:<port>
+CLOUDRON_DOCKER_HOST=        # tcp://<IP>:<port>
 ```
 
 Containers created by an application are tracked by Cloudron internally and will all get removed when
@@ -67,14 +67,14 @@ because these are addresses internal to the Cloudron).
 Exported environment variables:
 
 ```
-MAIL_SMTP_SERVER=       # SMTP server IP or hostname. Supports STARTTLS (TLS upgrade is enforced).
-MAIL_SMTP_PORT=         # SMTP server port
-MAIL_IMAP_SERVER=       # IMAP server IP or hostname. TLS required.
-MAIL_IMAP_PORT=         # IMAP server port
-MAIL_SIEVE_SERVER=      # ManageSieve server IP or hostname. TLS required.
-MAIL_SIEVE_PORT=        # ManageSieve server port
-MAIL_DOMAIN=            # Primary mail domain of the app
-MAIL_DOMAINS=           # Comma separate list of domains handled by the server
+CLOUDRON_MAIL_SMTP_SERVER=       # SMTP server IP or hostname. Supports STARTTLS (TLS upgrade is enforced).
+CLOUDRON_MAIL_SMTP_PORT=         # SMTP server port
+CLOUDRON_MAIL_IMAP_SERVER=       # IMAP server IP or hostname. TLS required.
+CLOUDRON_MAIL_IMAP_PORT=         # IMAP server port
+CLOUDRON_MAIL_SIEVE_SERVER=      # ManageSieve server IP or hostname. TLS required.
+CLOUDRON_MAIL_SIEVE_PORT=        # ManageSieve server port
+CLOUDRON_MAIL_DOMAIN=            # Primary mail domain of the app
+CLOUDRON_MAIL_DOMAINS=           # Comma separate list of domains handled by the server
 ```
 
 ### ldap
@@ -84,13 +84,13 @@ This addon provides LDAP based authentication via LDAP version 3.
 Exported environment variables:
 
 ```
-LDAP_SERVER=                                # ldap server IP
-LDAP_PORT=                                  # ldap server port
-LDAP_URL=                                   # ldap url of the form ldap://ip:port
-LDAP_USERS_BASE_DN=                         # ldap users base dn of the form ou=users,dc=cloudron
-LDAP_GROUPS_BASE_DN=                        # ldap groups base dn of the form ou=groups,dc=cloudron
-LDAP_BIND_DN=                               # DN to perform LDAP requests
-LDAP_BIND_PASSWORD=                         # Password to perform LDAP requests
+CLOUDRON_LDAP_SERVER=                                # ldap server IP
+CLOUDRON_LDAP_PORT=                                  # ldap server port
+CLOUDRON_LDAP_URL=                                   # ldap url of the form ldap://ip:port
+CLOUDRON_LDAP_USERS_BASE_DN=                         # ldap users base dn of the form ou=users,dc=cloudron
+CLOUDRON_LDAP_GROUPS_BASE_DN=                        # ldap groups base dn of the form ou=groups,dc=cloudron
+CLOUDRON_LDAP_BIND_DN=                               # DN to perform LDAP requests
+CLOUDRON_LDAP_BIND_PASSWORD=                         # Password to perform LDAP requests
 ```
 
 The suggested LDAP filter is `(&(objectclass=user)(|(username=%uid)(mail=%uid)))`. This allows the user to login
@@ -102,16 +102,16 @@ For debugging, [cloudron exec](/cli/) can be used to run the `ldapsearch` client
 cloudron exec
 
 # list users
-> ldapsearch -x -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_USERS_BASE_DN}"
+> ldapsearch -x -h "${CLOUDRON_LDAP_SERVER}" -p "${CLOUDRON_LDAP_PORT}" -b  "${CLOUDRON_LDAP_USERS_BASE_DN}"
 
 # list users with authentication (Substitute username and password below)
-> ldapsearch -x -D cn=<username>,${LDAP_USERS_BASE_DN} -w <password> -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_USERS_BASE_DN}"
+> ldapsearch -x -D cn=<username>,${CLOUDRON_LDAP_USERS_BASE_DN} -w <password> -h "${CLOUDRON_LDAP_SERVER}" -p "${CLOUDRON_LDAP_PORT}" -b  "${CLOUDRON_LDAP_USERS_BASE_DN}"
 
 # list admins
-> ldapsearch -x -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_USERS_BASE_DN}" "memberof=cn=admins,${LDAP_GROUPS_BASE_DN}"
+> ldapsearch -x -h "${CLOUDRON_LDAP_SERVER}" -p "${CLOUDRON_LDAP_PORT}" -b  "${CLOUDRON_LDAP_USERS_BASE_DN}" "memberof=cn=admins,${CLOUDRON_LDAP_GROUPS_BASE_DN}"
 
 # list groups
-> ldapsearch -x -h "${LDAP_SERVER}" -p "${LDAP_PORT}" -b  "${LDAP_GROUPS_BASE_DN}"
+> ldapsearch -x -h "${CLOUDRON_LDAP_SERVER}" -p "${CLOUDRON_LDAP_PORT}" -b  "${CLOUDRON_LDAP_GROUPS_BASE_DN}"
 ```
 
 The following attributes can be used from the LDAP response:
@@ -153,12 +153,12 @@ By default, this addon provide MongoDB 3.6.3.
 Exported environment variables:
 
 ```
-MONGODB_URL=          # mongodb url
-MONGODB_USERNAME=     # username
-MONGODB_PASSWORD=     # password
-MONGODB_HOST=         # server IP/hostname
-MONGODB_PORT=         # server port
-MONGODB_DATABASE=     # database name
+CLOUDRON_MONGODB_URL=          # mongodb url
+CLOUDRON_MONGODB_USERNAME=     # username
+CLOUDRON_MONGODB_PASSWORD=     # password
+CLOUDRON_MONGODB_HOST=         # server IP/hostname
+CLOUDRON_MONGODB_PORT=         # server port
+CLOUDRON_MONGODB_DATABASE=     # database name
 ```
 
 For debugging, [cloudron exec](/cli/) can be used to run the `mongo` shell within the context of the app:
@@ -166,7 +166,7 @@ For debugging, [cloudron exec](/cli/) can be used to run the `mongo` shell withi
 ```
 cloudron exec
 
-# mongo -u "${MONGODB_USERNAME}" -p "${MONGODB_PASSWORD}" ${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_DATABASE}
+# mongo -u "${CLOUDRON_MONGODB_USERNAME}" -p "${CLOUDRON_MONGODB_PASSWORD}" ${CLOUDRON_MONGODB_HOST}:${CLOUDRON_MONGODB_PORT}/${CLOUDRON_MONGODB_DATABASE}
 
 ```
 ### mysql
@@ -177,12 +177,12 @@ only needs to create the tables.
 Exported environment variables:
 
 ```
-MYSQL_URL=            # the mysql url (only set when using a single database, see below)
-MYSQL_USERNAME=       # username
-MYSQL_PASSWORD=       # password
-MYSQL_HOST=           # server IP/hostname
-MYSQL_PORT=           # server port
-MYSQL_DATABASE=       # database name (only set when using a single database, see below)
+CLOUDRON_MYSQL_URL=            # the mysql url (only set when using a single database, see below)
+CLOUDRON_MYSQL_USERNAME=       # username
+CLOUDRON_MYSQL_PASSWORD=       # password
+CLOUDRON_MYSQL_HOST=           # server IP/hostname
+CLOUDRON_MYSQL_PORT=           # server port
+CLOUDRON_MYSQL_DATABASE=       # database name (only set when using a single database, see below)
 ```
 
 For debugging, [cloudron exec](/cli/) can be used to run the `mysql` client within the context of the app:
@@ -190,7 +190,7 @@ For debugging, [cloudron exec](/cli/) can be used to run the `mysql` client with
 ```
 cloudron exec
 
-> mysql --user=${MYSQL_USERNAME} --password=${MYSQL_PASSWORD} --host=${MYSQL_HOST} ${MYSQL_DATABASE}
+> mysql --user=${CLOUDRON_MYSQL_USERNAME} --password=${CLOUDRON_MYSQL_PASSWORD} --host=${CLOUDRON_MYSQL_HOST} ${CLOUDRON_MYSQL_DATABASE}
 
 ```
 
@@ -198,7 +198,7 @@ The `multipleDatabases` option can be set to `true` if the app requires more tha
 When enabled, the following environment variables are injected and the `MYSQL_DATABASE` is removed:
 
 ```
-MYSQL_DATABASE_PREFIX=      # prefix to use to create databases
+CLUODRON_MYSQL_DATABASE_PREFIX=      # prefix to use to create databases
 ```
 
 All the databases use `utf8mb4` encoding by default.
@@ -222,24 +222,24 @@ The Cloudron OAuth 2.0 provider can be used in an app to implement Single Sign-O
 Exported environment variables:
 
 ```
-OAUTH_CLIENT_ID=      # client id
-OAUTH_CLIENT_SECRET=  # client secret
+CLOUDRON_OAUTH_CLIENT_ID=      # client id
+CLOUDRON_OAUTH_CLIENT_SECRET=  # client secret
 ```
 
 The callback url required for the OAuth transaction can be contructed from the environment variables below:
 
 ```
-APP_DOMAIN=           # hostname of the app
-APP_ORIGIN=           # origin of the app of the form https://domain
-API_ORIGIN=           # origin of the OAuth provider of the form https://my.domain
+CLOUDRON_APP_DOMAIN=           # hostname of the app
+CLOUDRON_APP_ORIGIN=           # origin of the app of the form https://domain
+CLOUDRON_API_ORIGIN=           # origin of the OAuth provider of the form https://my.domain
 ```
 
 OAuth2 URLs can be constructed as follows:
 
 ```
-AuthorizationURL = ${API_ORIGIN}/api/v1/oauth/dialog/authorize # see above for API_ORIGIN
-TokenURL = ${API_ORIGIN}/api/v1/oauth/token
-LogoutURL = ${API_ORIGIN}/api/v1/session/logout?redirect=<callback url>
+AuthorizationURL = ${CLOUDRON_API_ORIGIN}/api/v1/oauth/dialog/authorize # see above for API_ORIGIN
+TokenURL = ${CLOUDRON_API_ORIGIN}/api/v1/oauth/token
+LogoutURL = ${CLOUDRON_API_ORIGIN}/api/v1/session/logout?redirect=<callback url>
 ```
 
 The token obtained via OAuth has a restricted scope wherein they can only access the [profile API](/api/#profile). This restriction
@@ -256,12 +256,12 @@ By default, this addon provides PostgreSQL 10.5
 Exported environment variables:
 
 ```
-POSTGRESQL_URL=       # the postgresql url
-POSTGRESQL_USERNAME=  # username
-POSTGRESQL_PASSWORD=  # password
-POSTGRESQL_HOST=      # server name
-POSTGRESQL_PORT=      # server port
-POSTGRESQL_DATABASE=  # database name
+CLOUDRON_POSTGRESQL_URL=       # the postgresql url
+CLOUDRON_POSTGRESQL_USERNAME=  # username
+CLOUDRON_POSTGRESQL_PASSWORD=  # password
+CLOUDRON_POSTGRESQL_HOST=      # server name
+CLOUDRON_POSTGRESQL_PORT=      # server port
+CLOUDRON_POSTGRESQL_DATABASE=  # database name
 ```
 
 The postgresql addon whitelists the hstore and pg\_trgm extensions to be installable by the database owner.
@@ -271,7 +271,7 @@ For debugging, [cloudron exec](/cli/) can be used to run the `psql` client withi
 ```
 cloudron exec
 
-> PGPASSWORD=${POSTGRESQL_PASSWORD} psql -h ${POSTGRESQL_HOST} -p ${POSTGRESQL_PORT} -U ${POSTGRESQL_USERNAME} -d ${POSTGRESQL_DATABASE}
+> PGPASSWORD=${CLOUDRON_POSTGRESQL_PASSWORD} psql -h ${CLOUDRON_POSTGRESQL_HOST} -p ${CLOUDRON_POSTGRESQL_PORT} -U ${CLOUDRON_POSTGRESQL_USERNAME} -d ${CLOUDRON_POSTGRESQL_DATABASE}
 ```
 
 ### recvmail
@@ -281,12 +281,12 @@ The recvmail addon can be used to receive email for the application.
 Exported environment variables:
 
 ```
-MAIL_IMAP_SERVER=     # the IMAP server. this can be an IP or DNS name
-MAIL_IMAP_PORT=       # the IMAP server port
-MAIL_IMAP_USERNAME=   # the username to use for authentication
-MAIL_IMAP_PASSWORD=   # the password to use for authentication
-MAIL_TO=              # the "To" address to use
-MAIL_DOMAIN=          # the mail for which email will be received
+CLOUDRON_MAIL_IMAP_SERVER=     # the IMAP server. this can be an IP or DNS name
+CLOUDRON_MAIL_IMAP_PORT=       # the IMAP server port
+CLOUDRON_MAIL_IMAP_USERNAME=   # the username to use for authentication
+CLOUDRON_MAIL_IMAP_PASSWORD=   # the password to use for authentication
+CLOUDRON_MAIL_TO=              # the "To" address to use
+CLOUDRON_MAIL_DOMAIN=          # the mail for which email will be received
 ```
 
 The IMAP server only accepts TLS connections. The app must be prepared to accept self-signed certs (this is not a problem because the
@@ -297,7 +297,7 @@ For debugging, [cloudron exec](https://www.npmjs.com/package/cloudron) can be us
 ```
 cloudron exec
 
-> openssl s_client -connect "${MAIL_IMAP_SERVER}:${MAIL_IMAP_PORT}" -crlf
+> openssl s_client -connect "${CLOUDRON_MAIL_IMAP_SERVER}:${CLOUDRON_MAIL_IMAP_PORT}" -crlf
 ```
 
 The IMAP command `? LOGIN username password` can then be used to test the authentication.
@@ -310,10 +310,10 @@ and restarts.
 Exported environment variables:
 
 ```
-REDIS_URL=            # the redis url
-REDIS_HOST=           # server name
-REDIS_PORT=           # server port
-REDIS_PASSWORD=       # password
+CLOUDRON_REDIS_URL=            # the redis url
+CLOUDRON_REDIS_HOST=           # server name
+CLOUDRON_REDIS_PORT=           # server port
+CLOUDRON_REDIS_PASSWORD=       # password
 ```
 
 For debugging, [cloudron exec](/cli/) can be used to run the `redis-cli` client within the context of the app:
@@ -321,7 +321,7 @@ For debugging, [cloudron exec](/cli/) can be used to run the `redis-cli` client 
 ```
 cloudron exec
 
-> redis-cli -h "${REDIS_HOST}" -p "${REDIS_PORT}" -a "${REDIS_PASSWORD}"
+> redis-cli -h "${CLOUDRON_REDIS_HOST}" -p "${CLOUDRON_REDIS_PORT}" -a "${CLOUDRON_REDIS_PASSWORD}"
 ```
 
 ### scheduler
@@ -371,13 +371,13 @@ The sendmail addon can be used to send email from the application.
 Exported environment variables:
 
 ```
-MAIL_SMTP_SERVER=     # the mail server (relay) that apps can use. this can be an IP or DNS name
-MAIL_SMTP_PORT=       # the mail server port. Currently, this port disables TLS and STARTTLS.
-MAIL_SMTPS_PORT=      # SMTPS server port.
-MAIL_SMTP_USERNAME=   # the username to use for authentication
-MAIL_SMTP_PASSWORD=   # the password to use for authentication
-MAIL_FROM=            # the "From" address to use
-MAIL_DOMAIN=          # the domain name to use for email sending (i.e username@domain)
+CLOUDRON_MAIL_SMTP_SERVER=     # the mail server (relay) that apps can use. this can be an IP or DNS name
+CLOUDRON_MAIL_SMTP_PORT=       # the mail server port. Currently, this port disables TLS and STARTTLS.
+CLOUDRON_MAIL_SMTPS_PORT=      # SMTPS server port.
+CLOUDRON_MAIL_SMTP_USERNAME=   # the username to use for authentication
+CLOUDRON_MAIL_SMTP_PASSWORD=   # the password to use for authentication
+CLOUDRON_MAIL_FROM=            # the "From" address to use
+CLOUDRON_MAIL_DOMAIN=          # the domain name to use for email sending (i.e username@domain)
 ```
 
 The SMTP server does not require STARTTLS. If STARTTLS is used, the app must be prepared to accept self-signed certs.
@@ -387,8 +387,9 @@ For debugging, [cloudron exec](/cli/) can be used to run the `swaks` tool within
 ```
 cloudron exec
 
-> swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"
+> swaks --server "${CLOUDRON_MAIL_SMTP_SERVER}" -p "${CLOUDRON_MAIL_SMTP_PORT}" --from "${CLOUDRON_MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${CLOUDRON_MAIL_SMTP_USERNAME}" --auth-password "${CLOUDRON_MAIL_SMTP_PASSWORD}"
 
 
-> swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTPS_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}" -tlsc
+> swaks --server "${CLOUDRON_MAIL_SMTP_SERVER}" -p "${CLOUDRON_MAIL_SMTPS_PORT}" --from "${CLOUDRON_MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${CLOUDRON_MAIL_SMTP_USERNAME}" --auth-password "${CLOUDRON_MAIL_SMTP_PASSWORD}" -tlsc
 ```
+
