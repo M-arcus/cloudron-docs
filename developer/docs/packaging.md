@@ -135,7 +135,7 @@ File ```tutorial/CloudronManifest.json```
   "addons": {
     "localstorage": {}
   },
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "website": "https://cloudron.io",
   "contactEmail": "support@cloudron.io",
   "icon": "",
@@ -603,13 +603,13 @@ RUN ln -s /run/paperwork/database.php /app/code/database.php
 Then in `start.sh`, generate the real config file under `/run` from the template like this:
 
 ```sh
-sed -e "s/##MYSQL_HOST/${MYSQL_HOST}/" \
-    -e "s/##MYSQL_PORT/${MYSQL_PORT}/" \
-    -e "s/##MYSQL_DATABASE/${MYSQL_DATABASE}/" \
-    -e "s/##MYSQL_USERNAME/${MYSQL_USERNAME}/" \
-    -e "s/##MYSQL_PASSWORD/${MYSQL_PASSWORD}/" \
-    -e "s/##REDIS_HOST/${REDIS_HOST}/" \
-    -e "s/##REDIS_PORT/${REDIS_PORT}/" \
+sed -e "s/##MYSQL_HOST/${CLOUDRON_MYSQL_HOST}/" \
+    -e "s/##MYSQL_PORT/${CLOUDRON_MYSQL_PORT}/" \
+    -e "s/##MYSQL_DATABASE/${CLOUDRON_MYSQL_DATABASE}/" \
+    -e "s/##MYSQL_USERNAME/${CLOUDRON_MYSQL_USERNAME}/" \
+    -e "s/##MYSQL_PASSWORD/${CLOUDRON_MYSQL_PASSWORD}/" \
+    -e "s/##REDIS_HOST/${CLOUDRON_REDIS_HOST}/" \
+    -e "s/##REDIS_PORT/${CLOUDRON_REDIS_PORT}/" \
     /app/code/database.php.template > /run/paperwork/database.php
 ```
 
