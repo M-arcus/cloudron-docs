@@ -345,6 +345,20 @@ Rainloop, a vacation message can be set in `Settings` -> `Filters` -> `Add filte
 <img src="/documentation/img/email-vacation-message-rainloop.png" class="shadow" width="600px">
 </center>
 
+## Removing mailbox
+
+Use the delete button to delete a mailbox.
+
+<center>
+<img src="/documentation/img/email-remove-mailbox.png" class="shadow" width="600px">
+</center>
+
+After deletion, emails to this mailbox will bounce. If you have a catch-all address set, then emails
+will get delivered to that mailbox.
+
+!!! note "Deleting old emails"
+    Deleting the mailbox does not remove old emails. You can remove the emails by removing the directory
+    `/home/yellowtent/boxdata/mail/vmail/<mailbox@domain.com>`.
 
 ## Importing email
 
