@@ -230,6 +230,49 @@ alongside with details how to managed more users.
 If access does not work anymore, simply remove the file `.phpmyadminauth` and restart the app.
 This will generate new phpMyAdmin credentials.
 
+## Email
+
+On Cloudron, Email credentials are exposed as environment variables to the app.
+
+The exposed environment variables are:
+```
+MAIL_SMTP_SERVER 	# SMTP server
+MAIL_SMTP_PORT 	    # SMTP server port
+MAIL_SMTPS_PORT 	# SMTPS server port. This is mostly for legacy apps
+MAIL_SMTP_USERNAME 	# Username
+MAIL_SMTP_PASSWORD 	# Password
+MAIL_FROM 	        # The MAIL FROM. If you want to change this, see [this](https://cloudron.io/documentation/apps/#mail-from-address)
+MAIL_DOMAIN 	    # The mail domain
+```
+
+You can use `getenv()` to get the values of the above environment variables in code. The raw values
+can be obtained from the [Web terminal](/documentation/apps#web-terminal) by executing
+the following command:
+
+```
+# env | grep MAIL_
+```
+
+## Redis
+
+On Cloudron, Redis credentials are exposed as environment variables to the app.
+
+The exposed environment variables are:
+```
+REDIS_URL 	        # redis URL of the form redis://username:password@host:port
+REDIS_HOST 	        # redis hostname
+REDIS_PORT 	6379    # redis port
+REDIS_PASSWORD      # redis password
+```
+
+You can use `getenv()` to get the values of the above environment variables in code. The raw values
+can be obtained from the [Web terminal](/documentation/apps#web-terminal) by executing
+the following command:
+
+```
+# env | grep REDIS_
+```
+
 ## Custom Startup Script
 
 A custom startup script can be placed at `/app/data/run.sh`. For example,
