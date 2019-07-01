@@ -159,6 +159,13 @@ CLOUDRON_MONGODB_PASSWORD=     # password
 CLOUDRON_MONGODB_HOST=         # server IP/hostname
 CLOUDRON_MONGODB_PORT=         # server port
 CLOUDRON_MONGODB_DATABASE=     # database name
+CLOUDRON_MONGODB_OPLOG_URL=    # oplog access URL (see below)
+```
+
+App can request oplog access by setting the `oplog` option to be true.
+
+```
+"mongodb": { "oplog": true }
 ```
 
 For debugging, [cloudron exec](/cli/) can be used to run the `mongo` shell within the context of the app:
