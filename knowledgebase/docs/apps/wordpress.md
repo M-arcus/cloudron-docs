@@ -18,10 +18,14 @@ to edit WordPress files, use the [WordPress (unmanaged) app](/documentation/apps
 
 ## WordPress memory limit
 
-The PHP memory limit is configured to match the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). To increase WordPress memory limit, change the app's memory limit.
+To adjust memory allocated for WordPress, edit `/app/data/wp-config.php` using the [Web Terminal](/documentation/apps#web-terminal)
+and add the following line at the end of the file:
 
-Cloudron app is setup so that WordPress automatically [sets](https://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP)
-the `WP_MEMORY_LIMIT` option to match the PHP memory limit.
+```
+define('WP_MEMORY_LIMIT', '128M');
+```
+
+Note that the app also has a separate memory limit controlled by the app's [memory limit](https://cloudron.io/documentation/apps/#increasing-the-memory-limit-of-an-app). If you increase `WP_MEMORY_LIMIT`, be sure to increase the app's memory limit. A good formula is to provide the app 6 times the `WP_MEMORY_LIMIT` value at the bare minimum.
 
 ## Cron tasks
 
