@@ -26,6 +26,7 @@ pages:
     - 'Collabora': apps/collabora.md
     - 'Commento': apps/commento.md
     - 'Confluence': apps/confluence.md
+    - 'Discourse': apps/discourse.md
     - 'Dokuwiki': apps/dokuwiki.md
     - 'EspoCRM': apps/espocrm.md
     - 'Etherpad': apps/etherpad.md
