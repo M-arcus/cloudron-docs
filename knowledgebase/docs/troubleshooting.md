@@ -103,6 +103,17 @@ check all the services below.
 The `System` view displays the current status of the internal services on the Cloudron. Make sure
 everything is green.
 
+### /boot is full
+
+On some systems /boot is on a separate partition where the linux kernel and init system are installed.
+If that partition is filled up, the system is unable to apply security updates to the kernel.
+
+Run the following to uninstall all linux-image packages currently not used:
+
+```
+apt-get remove `dpkg --list 'linux-image*' |grep ^ii | awk '{print $2}'\ | grep -v \`uname -r\``
+```
+
 ### Unbound
 
 Cloudron uses an internal DNS server called `unbound`. This server [stops working](https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=547)
