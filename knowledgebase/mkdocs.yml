@@ -66,6 +66,7 @@ pages:
     - 'Redmine': apps/redmine.md
     - 'Rocket.Chat': apps/rocket.chat.md
     - 'Roundcube': apps/roundcube.md
+    - 'Searx': apps/searx.md
     - 'Shaarli': apps/shaarli.md
     - 'SOGo': apps/sogo.md
     - 'Surfer': apps/surfer.md
