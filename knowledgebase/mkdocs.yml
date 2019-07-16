@@ -22,6 +22,7 @@ pages:
     - updates.md
     - 'User & Groups': user-management.md
   - 'Apps':
+    - 'BookStack': apps/bookstack.md
     - 'CodiMD': apps/codimd.md
     - 'Collabora': apps/collabora.md
     - 'Commento': apps/commento.md
