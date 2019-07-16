@@ -9,7 +9,7 @@ commands:
 cd /app/code/plugins
 git clone <plugin-repo>
 cd /app/code
-sudo -E -u cloudron bundle exec rake plugin:install_gems['REPLACE_WITH_PLUGINS_NAME'] 
+bundle exec rake plugin:install_gems['REPLACE_WITH_PLUGINS_NAME'] 
 ```
 
 Restart the application for the assets to get re-built.
@@ -24,7 +24,7 @@ the posts, open a [Web terminal](/documentation/apps#web-terminal) and run the f
 command:
 
 ```
-    sudo -E -u cloudron bundle exec ruby script/discourse remap old.domain.com new.domain.com
+sudo -E -u cloudron bundle exec ruby script/discourse remap old.domain.com new.domain.com
 ```
 
 ## Rebaking posts
@@ -34,5 +34,5 @@ old posts), open a [Web terminal](/documentation/apps#web-terminal) and run the 
 command:
 
 ```
-    sudo -E -u cloudron bundle exec rake posts:rebake
+sudo -E -u cloudron bundle exec rake posts:rebake
 ```
