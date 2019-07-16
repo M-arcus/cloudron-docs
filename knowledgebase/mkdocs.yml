@@ -47,6 +47,7 @@ pages:
     - 'Mailtrain': apps/mailtrain.md
     - 'Matomo': apps/matomo.md
     - 'Mattermost': apps/mattermost.md
+    - 'Mautic': apps/mautic.md
     - 'Mediawiki': apps/mediawiki.md
     - 'Meemo': apps/meemo.md
     - 'Minecraft': apps/minecraft.md
