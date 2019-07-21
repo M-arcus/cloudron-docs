@@ -28,7 +28,7 @@ Features of this mail solution include:
 * Completely automated DNS setup. MX, SPF, DKIM, DMARC are setup automatically
 * Let's Encrypt integration for mail endpoints
 * Domains and IP addresses blacklisting
-* [REST API](../developer/api/) to add users and groups
+* [REST API](/developer/api/) to add users and groups
 * [Secure](security/#email-security) out of the box
 
 <br/>
@@ -102,7 +102,7 @@ Mailboxes have the following naming restrictions:
 * Maximum length of 200 characters
 * Names ending with `.app` are reserved by the platform for applications
 * Names with `+` are not allowed since this conflicts with the [Subaddresses and tags](##subaddresses-and-tags)
-  feature. 
+  feature.
 
 ## Creating Mail aliases
 
@@ -377,7 +377,7 @@ The steps to import email are:
 * Create the mailbox(es) to import in Cloudron
 
 * Use a tool like [IMAP Sync](https://imapsync.lamiral.info/) to import Email into Cloudron. For example,
-  to [import from GMail](https://github.com/imapsync/imapsync/blob/master/FAQ.d/FAQ.Gmail.txt), use the 
+  to [import from GMail](https://github.com/imapsync/imapsync/blob/master/FAQ.d/FAQ.Gmail.txt), use the
   following command:
 
 ```
