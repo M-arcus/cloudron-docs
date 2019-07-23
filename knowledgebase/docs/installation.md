@@ -51,7 +51,7 @@ Next, select the DNS service in which the domain in hosted. If your service is n
 *   [Digital Ocean](/documentation/domains/#digitalocean-dns)
 *   [Gandi](/documentation/domains/#gandi-dns)
 *   [GoDaddy](/documentation/domains/#godaddy-dns)
-*   [Google Cloud DNS](/documentation/domain/#google-cloud-dns)
+*   [Google Cloud DNS](/documentation/domains/#google-cloud-dns)
 *   [name.com](/documentation/domains/#namecom-dns)
 *   [Namecheap](/documentation/domains/#namecheap-dns)
 *   [Route53](/documentation/domains/#route-53-dns)

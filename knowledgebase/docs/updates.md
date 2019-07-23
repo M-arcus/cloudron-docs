@@ -57,9 +57,9 @@ at a per-app level:
 
 ## Rolling back an update
 
-To rollback an app update, simply [restore from a backup](/documentation/backups/#restoring-an-app-from-existing-backup).
+To rollback an app update, simply [restore from a backup](/documentation/backups/#restoring-an-app).
 
-To rollback a Cloudron update, it can be [restored from the backup](backups/#restoring-cloudron-from-a-backup).
+To rollback a Cloudron update, it can be [restored from the backup](/documentation/backups/#restoring-cloudron).
 
 ## What happens when subscription is stopped
 
