@@ -360,14 +360,7 @@ Migrating apps or moving apps from one Cloudron to another works by first creati
 copying the backup tarball onto the new Cloudron's backup storage and then installing a new app, based on the backup on
 the new Cloudron.
 
-Migrating an app across Cloudrons has the following caveats:
-
-*  When moving an app from one Cloudron to another, the user ids on one Cloudron will be different from
-   the user ids on the other Cloudron. Cloudron does not support automatic user id mapping at this point.
-   For this reason, you might have to manually fix up the database of the new app in the new Cloudron.
-   A workaround is to install apps without using Cloudron Single Sign-On (for apps that support it).
-
-* Both Cloudrons have to use the same backup encryption key.
+Migrating an app across Cloudrons currently has the caveat that both Cloudrons have to use the same backup encryption key.
 
 The following steps will migrate an app:
 
