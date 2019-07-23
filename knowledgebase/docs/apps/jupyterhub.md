@@ -5,7 +5,7 @@
 By default, the app uses the `jupyter/datascience-notebook`. The upstream Jupyterhub project
 maintains many other [notebook images](https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html).
 
-To use a different notebook image, use the [Web terminal](/documentation//documentation/apps#web-terminal)
+To use a different notebook image, use the [Web terminal](/documentation/apps#web-terminal)
 to place custom configuration under `/app/data/customconfig.py`. For example,
 add a line like below:
 
@@ -47,7 +47,7 @@ any libraries that were previously installed have to be re-installed.
 
 ## Other custom configuration
 
-Use the [Web terminal](/documentation//documentation/apps#web-terminal)
+Use the [Web terminal](/documentation/apps#web-terminal)
 to place custom configuration under `/app/data/customconfig.py`.
 
 See the [docs](https://github.com/jupyterhub/jupyterhub-deploy-docker#run-jupyterhub) for

@@ -7,7 +7,7 @@
 When Cloudron SSO is enabled, only Cloudron users can login to the wiki and
 edit pages. 
 
-To make a Cloudron user an admin, use the [Web terminal](/documentation//documentation/apps#web-terminal)
+To make a Cloudron user an admin, use the [Web terminal](/documentation/apps#web-terminal)
 and edit `/app/data/conf/local.php`:
 
 ```
@@ -33,7 +33,7 @@ in dokuwiki's `Access Control List Management` admin page.
 
 When not using Cloudron authentication, first register a new user.
 
-To make the new user an admin, use the [Web terminal](/documentation//documentation/apps#web-terminal)
+To make the new user an admin, use the [Web terminal](/documentation/apps#web-terminal)
 and edit `/app/data/conf/local.php`:
 
 ```
