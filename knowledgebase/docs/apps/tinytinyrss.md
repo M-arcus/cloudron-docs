@@ -2,7 +2,7 @@
 
 ## Customizing configuration
 
-Use the [Web terminal](/documentation//documentation/apps#web-terminal)
+Use the [Web terminal](/documentation/apps#web-terminal)
 to place custom configuration under `/app/data/config.json`.
 
 Please be careful when changing configuration since the Cloudron packaging

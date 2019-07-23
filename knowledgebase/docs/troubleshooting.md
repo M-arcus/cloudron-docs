@@ -243,7 +243,7 @@ Let's Encrypt.
   for issuing certificates. Please check the email id in the Account page.
 
 * Let's Encrypt requires incoming port 80 to be [accepted from all IPs](https://community.letsencrypt.org/t/ip-addresses-le-is-validating-from-to-build-firewall-rule/5410/5). Note that Cloudron enforces
-  port 443/HTTPS [for all communication](security/#ssl-security) and
+  port 443/HTTPS [for all communication](/documentation/security/#ssl-security) and
   any request on port 80 is redirected to HTTPS. For this reason, it is safe to keep port 80 completely open.
   Port 433/HTTPS can be restricted to specific IPs safely.
 
@@ -364,7 +364,7 @@ your droplet to `my.<domain>`.
 
 * **Vultr** - The PTR record can be set for each public IP in the Vultr server settings and is called `Reverse DNS`. It takes about 24h to propagate, so make sure to do this well in advance of enabling email.
 
-Once setup, you can verify the PTR record [https://mxtoolbox.com/ReverseLookup.aspx](here).
+Once setup, you can verify the PTR record [here](https://mxtoolbox.com/ReverseLookup.aspx).
 
 ### Blacklists
 
@@ -396,7 +396,7 @@ to contact other mail servers on port 25.
   * Vultr - [New accounts](https://www.vultr.com/faq/#outboundsmtp) have outbound port 25 blocked. Write
     to their support to unblock your server.
 
-* Setting up [PTR record](email/#setting-rdns-ptr-record) is crucial for mail
+* Setting up [PTR record](#setting-rdns-ptr-record) is crucial for mail
   to be delivered reliably to other mail servers.
 
 * Check if your IP is listed in any DNSBL list [here](http://multirbl.valli.org/) and [here](http://www.blk.mx).
@@ -408,7 +408,7 @@ to contact other mail servers on port 25.
 
 When an app is not sending email, try the following:
 
-* Open a [Web terminal](apps/#web-terminal) of the app.
+* Open a [Web terminal](/documentation/apps#web-terminal) of the app.
 
 * For apps that do not use Go: `swaks --server "${MAIL_SMTP_SERVER}" -p "${MAIL_SMTP_PORT}" --from "${MAIL_FROM}" --body "Test mail from cloudron app at $(hostname -f)" --auth-user "${MAIL_SMTP_USERNAME}" --auth-password "${MAIL_SMTP_PASSWORD}"`
 

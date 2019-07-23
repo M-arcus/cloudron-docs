@@ -269,7 +269,7 @@ that it can be reverted to a sane state should the update fail.
 
 !!! warning
     Disabling automatic backup for an app puts the onus on the Cloudron adminstrator to backup the app's files
-    regularly. This can be done using the [Cloudron CLI](https://cloudron.io/documentation/cli/) tool's
+    regularly. This can be done using the [Cloudron CLI](https://cloudron.io/developer/cli/) tool's
     `cloudron backup create` command.
 
 ## Cloning an app

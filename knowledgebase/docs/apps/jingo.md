@@ -2,7 +2,7 @@
 
 ## Custom configuration
 
-Use the [Web terminal](/documentation//documentation/apps#web-terminal)
+Use the [Web terminal](/documentation/apps#web-terminal)
 to place custom configuration under `/app/data/config.yml`.
 
 See [Jingo docs](https://github.com/claudioc/jingo#configuration-options-reference)
