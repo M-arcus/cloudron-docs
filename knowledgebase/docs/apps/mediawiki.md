@@ -59,7 +59,7 @@ To set a custom icon, use the [Web terminal](/documentation/apps#web-terminal):
 
 ### Installing
 
-MediaWiki [https://www.mediawiki.org/wiki/Manual:Extensions](extensions) can be installed
+MediaWiki [extensions](https://www.mediawiki.org/wiki/Manual:Extensions) can be installed
 as follows:
 
 * Use the [Web terminal](/documentation/apps#web-terminal) to upload the tarball to `/tmp`
@@ -83,7 +83,7 @@ to `/app/data/LocalSettings.php`:
 
 ### Installing
 
-MediaWiki [https://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles](skins) can be installed
+MediaWiki [skins](https://www.mediawiki.org/wiki/Manual:Gallery_of_user_styles) can be installed
 as follows:
 
 * Use the [Web terminal](/documentation/apps#web-terminal) to upload the tarball to `/tmp`

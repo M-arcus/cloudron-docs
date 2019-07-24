@@ -21,7 +21,7 @@ FROM addresses. This is a simple security measure that prevents apps from
 unintentionally sending out emails that they are not supposed to send.
 
 Cloudron assigns `location.app@domain` address by default to apps.
-To change this email address, follow the instructions [here](email/#changing-the-from-address-of-an-app).
+To change this email address, follow the instructions [here](/documentation/email/#changing-the-from-address-of-an-app).
 
 ## External mail server
 

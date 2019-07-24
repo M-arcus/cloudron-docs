@@ -36,8 +36,8 @@ tar zxvf /tmp/content.tar.gz -C /app/data/content/
 * Use [Web terminal's](/documentation/apps#web-terminal) restart button
   to restart the app
 
-* Once everything looks fine, [uninstall](apps/#uninstall-an-app) the old app
-  and [move](apps/#moving-an-app-to-another-subdomain) the new blog to the old
+* Once everything looks fine, [uninstall](/documentation/apps/#uninstall-an-app) the old app
+  and [move](/documentation/apps/#moving-an-app-to-another-subdomain) the new blog to the old
   location.
 
 

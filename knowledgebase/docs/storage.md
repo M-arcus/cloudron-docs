@@ -61,7 +61,7 @@ systemctl start docker
 
 ## Moving a single app's data directory to another location
 
-Please make sure you have a [complete backup](backups/#making-a-complete-backup) before
+Please make sure you have a [complete backup](/documentation/backups/#full-snapshot) before
 following the procedure below.
 
 Apps store their data under `/home/yellowtent/appsdata`. Each subdirectory is the app id. To move

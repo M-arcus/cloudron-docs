@@ -113,7 +113,7 @@ Collabora Online is a powerful online office suite that supports all major docum
 file formats, which you can integrate in your own infrastructure. Key features are collaborative editing and
 excellent office file format support.
 
-See the [Collabora App docs](app/collabora) on how to setup Nextcloud with Collabora Office.
+See the [Collabora App docs](/documentation/apps/collabora) on how to setup Nextcloud with Collabora Office.
 
 <img src="/documentation/img/nextcloud-collabora-editor.png" class="shadow">
 

@@ -29,7 +29,7 @@ Features of this mail solution include:
 * Let's Encrypt integration for mail endpoints
 * Domains and IP addresses blacklisting
 * [REST API](/developer/api/) to add users and groups
-* [Secure](security/#email-security) out of the box
+* [Secure](/documentation/security/#email-security) out of the box
 
 <br/>
 
@@ -93,15 +93,15 @@ them in the `Email` view.
 
 The `Mailbox Owner` dropdown can be used to select an existing user. The user can then access their
 email using the new email and the Cloudron password. i.e The user `johannes` can now use his password
-to access the `johannes@smartserver.space` mailbox using [SMTP](#smtp-settings-for-cloudron-email) and
-[IMAP](##imap-settings-for-cloudron-email).
+to access the `johannes@smartserver.space` mailbox using [SMTP](#smtp) and
+[IMAP](#imap).
 
 Mailboxes have the following naming restrictions:
 
 * Only alphanumerals, dot and '-' are allowed
 * Maximum length of 200 characters
 * Names ending with `.app` are reserved by the platform for applications
-* Names with `+` are not allowed since this conflicts with the [Subaddresses and tags](##subaddresses-and-tags)
+* Names with `+` are not allowed since this conflicts with the [Subaddresses and tags](#subaddresses-and-tags)
   feature.
 
 ## Creating Mail aliases
@@ -281,8 +281,8 @@ Cloudron does not support mailbox quotas.
 ## Forward all emails to an external address
 
 To forward some or all emails to an external address, create a Sieve filter. Sieve
-filters can be created using [Rainloop](apps/rainloop/),
-[Roundcube](apps/roundcube/) or any other client that supports
+filters can be created using [Rainloop](/documentation/apps/rainloop/),
+[Roundcube](/documentation/apps/roundcube/) or any other client that supports
 Manage Sieve.
 
 <center>
@@ -321,7 +321,7 @@ above.
 
 By default, Cloudron allocates the `location.app@domain` mailbox for each installed app. When
 an app sends an email, the FROM address is set to `location.app@domain.com`. The mailbox name
-can be changed in the [configure dialog](apps/#configuring-an-app) of the app.
+can be changed in the [configure dialog](/documentation/apps/#configuring-an-app) of the app.
 
 <center>
 <img src="/documentation/img/apps-mailbox-name.png" class="shadow" width="600px">
