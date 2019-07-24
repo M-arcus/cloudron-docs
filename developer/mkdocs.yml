@@ -1,7 +1,7 @@
 site_name: Cloudron Developer Docs
 site_description: 'Cloudron is a platform to host apps on your server and keep them up-to-date and secure.'
-site_url: 'https://cloudron.io'
-copyright: 'Copyright &copy; 2015 - 2018 Cloudron UG'
+site_url: 'https://cloudron.io/developer'
+copyright: 'Copyright &copy; 2015 - 2019 Cloudron UG'
 pages:
   - 'Overview': 'index.md'
   - 'API': api.md
