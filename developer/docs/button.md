@@ -11,7 +11,7 @@ and README.md files in GitHub repositories.
 ## Prerequisites
 
 The `Cloudron Button` is intended to work only for applications that have been
-published on the Cloudron App Store. The [basic tutorial](/packaging/)
+published on the Cloudron App Store. The [basic tutorial](/developer/packaging/)
 gives an overview of how to package and publish your application for the
 Cloudron App Store.
 

@@ -29,7 +29,7 @@ Containerizing your application provides the following benefits:
 and packages that are independent of the host OS.
 * Containers isolate applications from one another.
 
-The [base image](/baseimage) is the parent of all app images.
+The [base image](/developer/baseimage) is the parent of all app images.
 
 ## Cloudron Manifest
 
@@ -50,7 +50,7 @@ Information required for the Cloudron App Store includes:
 * Version
 * Logo
 
-See the [manifest reference](/manifest) for more information.
+See the [manifest reference](/developer/manifest) for more information.
 
 ## Addons
 
@@ -64,7 +64,7 @@ sets up addons in such a way that apps are isolated from each other.
 
 Addons are opt-in and must be specified in the Cloudron Manifest. When the app runs, environment
 variables contain the necessary information to access the addon. See the
-[addon reference](/addons) for more information.
+[addon reference](/developer/addons) for more information.
 
 ## Authentication
 
@@ -72,8 +72,8 @@ The Cloudron provides a centralized dashboard to manage users, roles and permiss
 do not create or manage user credentials on their own and instead use one of the various
 authentication strategies provided by the Cloudron.
 
-Authentication strategies include [OAuth 2.0](/addons/#oauth)
-or [LDAP](/addons/#ldap).
+Authentication strategies include [OAuth 2.0](/developer/addons/#oauth)
+or [LDAP](/developer/addons/#ldap).
 
 Authorizing users is application specific and it is only authentication that is delegated to the
 Cloudron.
