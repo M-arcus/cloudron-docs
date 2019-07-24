@@ -97,7 +97,7 @@ cf9ae0ad5808
 
 ## Move the data directory to another location
 
-Please make sure you have a [complete backup](backups/#making-a-complete-backup) before
+Please make sure you have a [complete backup](/documentation/backups/#full-snapshot) before
 following the procedure below.
 
 Apps store their data under `/home/yellowtent/appsdata`. Cloudron itself stores it's data (users, groups, certs, mails etc) 
